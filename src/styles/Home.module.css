@@ -1,0 +1,65 @@
+  /* Center content */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .paperSelection, .abstractDisplay, .quizHellYa {
+    text-align: center;
+  } 
+
+  .quizHellYa {
+    font-size: 25px;
+  }
+
+  .choosePaper {
+    display: inline-block;
+    vertical-align: top;
+    height: auto;
+  }
+
+  .item {
+    display: inline-block;
+    vertical-align: top;
+    font-size: x-large;
+}
+  .item:hover, .readPaperNext, .greenSquare {
+    cursor: pointer;
+  }
+
+  .modal {
+    text-align: center;
+   }
+
+  .greenSquare {
+        display: inline-block;
+        padding: 1rem;
+        background-color: lightgreen;
+        color: white;
+        font-weight: bold;
+        border-radius: 0.25rem;
+        text-align: center;
+        text-decoration: none;
+  }
+
+  .finishQuiz {
+        display: inline-block;
+        padding: 1rem;
+        background-color: lightgreen;
+        color: white;
+        font-weight: bold;
+        border-radius: 0.25rem;
+        text-align: center;
+        text-decoration: none;
+  }
+
+ 
+
+
+
+  
+  
+  
