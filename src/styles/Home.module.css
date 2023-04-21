@@ -15,6 +15,10 @@
     font-size: 25px;
   }
 
+  .paperLink {
+    text-decoration: none;
+  }
+
   .choosePaper {
     display: inline-block;
     vertical-align: top;

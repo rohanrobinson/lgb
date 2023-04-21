@@ -94,6 +94,8 @@ export default function TakeQuiz() {
        </h1>
       <br />
 
+      <p className={styles.quizHellYa}>Check an answer BEFORE clicking on the green button 😊</p>
+
       {showPaper1 === 'false' && showPaper2 === "false" && showPaper3 === "false" && (
         <div className={styles.quizHellYa}>
           <p>You did not select any papers to read, go back and select some!</p>
@@ -122,7 +124,7 @@ export default function TakeQuiz() {
           <input type="checkbox" id="FHIR-2" name="FHIR-2" value="FHIR-2" onChange={handleFHIRChange} />
           <label htmlFor="FHIR-2">Making DNA sequencing machines faster</label><br />
           <input type="checkbox" id="FHIR-3" name="FHIR-3" value="FHIR-3" onChange={handleFHIRChange} />
-          <label htmlFor="FHIR-3">Faciliating international collobartion on pandemics</label><br />
+          <label htmlFor="FHIR-3">Faciliating international collaboration on pandemics</label><br />
         </div>
       )}
 
@@ -147,7 +149,14 @@ export default function TakeQuiz() {
       {showScore && totalCorrect > 0 &&(
         <div className={styles.quizHellYa}>
             Nice, good job on reading new, hard material and taking a quiz! < br />
-            You got {totalCorrect} correct out of {totalQuestions}!
+            You got {totalCorrect} correct out of {totalQuestions}! <br />
+
+            <Link className={styles.greenSquare} href="/select-paper" >
+                <h2>Let's Try a New One!</h2>
+            </Link>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNa5cf8Sbe5moxFhce6fBPH2lz9wHxzG1S4oXiqTdIdYfdcg/viewform?usp=sf_link" target="_blank" className={styles.paperLink}><h3>Also, leave some feedback here, should take 2 minutes max!</h3></a>
+
         </div>
       )}
 
@@ -155,10 +164,12 @@ export default function TakeQuiz() {
         <div className={styles.quizHellYa}>
             Nice, good job on reading the paper and trying to understand something complicated! < br />
             You didn't get any of the questions correct, no worries! <br /> <br />
-            Read the abstracts again and retry! <br />
+            Read the abstract again  &darr; and try again! &darr; <br />
           <Link className={styles.greenSquare} href="/select-paper">
           <h2>Back to Paper Selection!</h2>
-          </Link>
+          </Link> <br />
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNa5cf8Sbe5moxFhce6fBPH2lz9wHxzG1S4oXiqTdIdYfdcg/viewform?usp=sf_link" target="_blank" className={styles.paperLink}><h3>Also, leave some feedback here, should take 2 minutes max!</h3></a>
 
         </div>
       )}
@@ -168,14 +179,6 @@ export default function TakeQuiz() {
           <h2>Finished? Let's See How You Did!</h2>
       </Link>)
       }
-
-
- 
-
-
-       <a href="/read-paper">
-           <h2>Back to Read Papers Page</h2>
-         </a>
 
    </div>
  )

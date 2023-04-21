@@ -11,6 +11,54 @@ export default function SelectPaper() {
   const [showPaper1, setShowPaper1] = useState(false);
   const [showPaper2, setShowPaper2] = useState(false);
   const [showPaper3, setShowPaper3] = useState(false);
+
+  const [numSelected, setNumSelected] = useState(0);
+
+  const paperSelected = (event, paperNum) => {
+    if (paperNum === "paper1" && numSelected === 0) {
+        setNumSelected(1);
+        setShowModal(true);
+        setShowPaper1(true);
+    }
+
+    else if (paperNum === "paper2" && numSelected === 0) {
+        setNumSelected(1);
+        setShowModal(true);
+        setShowPaper2(true);
+    }
+
+    else if (paperNum === "paper3" && numSelected === 0) {
+        setNumSelected(1);
+        setShowModal(true);
+        setShowPaper3(true);
+    }
+
+    else {
+       console.log('You have tried to select multiple paper, ha, you can choose one, pick wisely... :)');
+    }
+  }
+
+
+  const paperUnselected = (event, paperNum) => {
+    if (paperNum === "paper1") {
+        setNumSelected(0);
+        setShowModal(false);
+        setShowPaper1(false)
+    }
+
+    if (paperNum === "paper2") {
+        setNumSelected(0);
+        setShowModal(false);
+        setShowPaper2(false);
+    }
+
+    if (paperNum === "paper3") {
+        setNumSelected(0);
+        setShowModal(false);
+        setShowPaper3(false);
+    }
+
+  }
   
  return (
    <div className={styles.container}>
@@ -24,33 +72,37 @@ export default function SelectPaper() {
        </h1>
       <br />
       <div className={styles.paperSelection}>
-          <p>Howdy there 🤠 <br /> Each of these papers covers an innovative area happening rn in health and biotechnology.</p>
+          <p>Howdy there 🤠 <br /> Each of these papers covers an innovative area happening rn in health and biotechnology.</p> 
+          <p>Select a paper by clicking on the name of 1 out of the 3 below. <b>They're all bangers.</b></p>
           <br />
+
           <div className={styles.choosePaper}>
-                <div className={styles.item} onClick={() => [setShowModal(true), setShowPaper1(true)]}><b>Foundation Generalist Medical AI Model</b> &nbsp;</div> <br /> 
+                <div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}><b>Foundation Generalist Medical AI Model</b> &nbsp;</div> <br /> 
                 {showModal && showPaper1 && (
             <div className={styles.modal}>
               <p>Learn about flexible, highly capable AI models that interpret diverse data modalities - introducing Generalist Medical AI.</p>
-              <button onClick={() => [setShowModal(false), setShowPaper1(false)]}>Close Description</button>
+              <button onClick={(event) => paperUnselected(event, "paper1")}>Close Description</button>
             </div>
                 )}
 
-                <div className={styles.item} onClick={() => [setShowModal(true), setShowPaper2(true)]}><b>FHIR Genomics</b> &nbsp;</div> <br /> 
+                <div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}><b>FHIR Genomics</b> &nbsp;</div> <br /> 
                 {showModal && showPaper2 && (
             <div className={styles.modal}>
               <p>Learn about how the FHIR standard simplifies complex clinical genomic data exchange with next-gen sequencing, enabling precision medicine.</p>
-              <button onClick={() => [setShowModal(false), setShowPaper2(false)]}>Close Description</button>
+              <button onClick={(event) => paperUnselected(event, "paper2")}>Close Description</button>
             </div>
                 )}
                
-                <div className={styles.item} onClick={() => [setShowModal(true), setShowPaper3(true)]}><b>Yamanaka Factors</b> &nbsp;</div>
+                <div className={styles.item} value="paper3" onClick={(event) => paperSelected(event, "paper3")}><b>Yamanaka Factors</b> &nbsp;</div>
                 {showModal && showPaper3 && (
                         <div className={styles.modal}>
                           <p>Learn about the method to turn adult cells into embryonic-like stem cells with only four factors, revolutionizing potential for regenerative medicine.</p>
-                          <button onClick={() => [setShowModal(false), setShowPaper3(false)]}>Close Description</button>
+                          <button onClick={(event) => paperUnselected(event, "paper3")}>Close Description</button>
                         </div>
                 )}
+                <br />
           </div>
+
       </div>
 
       <br />
@@ -67,7 +119,7 @@ export default function SelectPaper() {
             showPaper3: showPaper3
           }
         }}>
-          <h2>Read Selected Papers</h2>
+          <h2>Read Selected Paper</h2>
           {showPaper1 ? (<p>Foundation GMAI</p>): ""}
           {showPaper2 ? (<p>FHIR Genomics</p>): ""}
           {showPaper3 ? (<p>Yamanaka Factors</p>): ""}
