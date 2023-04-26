@@ -19,6 +19,15 @@
     text-decoration: none;
   }
 
+  .AppBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+
   .choosePaper {
     display: inline-block;
     vertical-align: top;
@@ -59,6 +68,11 @@
         text-align: center;
         text-decoration: none;
   }
+
+  .cursorPointer {
+    cursor: pointer;
+   }
+    
 
  
 
