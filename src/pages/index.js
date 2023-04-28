@@ -34,7 +34,7 @@ export default function Home() {
     </AppBar>
 
       <Typography variant="h1" sx={{ mb: 4 }}>
-        🧬 Let's Go Biotech 🚀
+        🧬 <b>Let's Go Biotech</b> 🚀
       </Typography>
       <Typography variant="h4" sx={{ fontStyle: 'italic', mb: 2 }}>
         Interested in badass sci-fi shit like CRISPR, neural interfaces, and STEM cells?
