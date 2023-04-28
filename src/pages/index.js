@@ -2,7 +2,6 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
-
 export default function Home() {
 
  const goSomewhereCool = () => {
@@ -78,3 +77,4 @@ export default function Home() {
     </Box>
   );
 }
+
