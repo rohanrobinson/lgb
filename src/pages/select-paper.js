@@ -71,7 +71,7 @@ export default function SelectPaper() {
      <AppBar position="fixed" color="secondary">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          LGB 🧬
+          LGB 🧬 use on a laptop or desktop monitor
         </Typography>
       </Toolbar>
     </AppBar>
@@ -156,6 +156,19 @@ export default function SelectPaper() {
           {showPaper2 ? (<p>Simultaneous Sequencing</p>): ""}
           {showPaper3 ? (<p>Chat GPT drugs!</p>): ""}
         </Link>
+
+        {/* <Button 
+          variant="contained" 
+          color="secondary" 
+          size="large" 
+          href="/read-paper"
+          sx={{ fontWeight: 'bold' }}
+        >
+          <h2>Read Paper</h2> <br></br>
+          {showPaper1 ? (<p>CRISPR Editing</p>): ""}
+          {showPaper2 ? (<p>Simultaneous Sequencing</p>): ""}
+          {showPaper3 ? (<p>Chat GPT drugs!</p>): ""}
+        </Button> */}
   
 
 
