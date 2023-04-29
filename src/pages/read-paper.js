@@ -17,7 +17,6 @@ export default function ReadPaper() {
  const paperAbstract1 = "Many patients with inherited lung diseases lack effective treatment and could derive immense benefit from gene-editing therapies that correct the causative mutation. Direct delivery of such therapies to the lung by inhalation would be transformative, but the respiratory route of administration faces special challenges arising from physiological mechanisms that protect the lung against foreign particles. In a new study in Nature Biotechnology, Li et al.1 tackle this longstanding issue with a focus on RNA–lipid nanoparticles (LNPs) — a drug class that has been much in the news thanks to COVID-19 mRNA vaccines. By synthesizing and screening 720 novel lipids, the authors identified a nanoparticle formulation that achieves moderately efficient editing in the mouse lung after intratracheal delivery of CRISPR RNA–LNPs. This achievement paves the way for therapeutic CRISPR applications in the lung that involve not only gene editing but also gene therapy.";
  //Simultaneous Sequencing
  const paperAbstract2 = "DNA comprises molecular information stored in genetic and epigenetic bases, both of which are vital to our understanding of biology. Most DNA sequencing approaches address either genetics or epigenetics and thus capture incomplete information. Methods widely used to detect epigenetic DNA bases fail to capture common C-to-T mutations or distinguish 5-methylcytosine from 5-hydroxymethylcytosine. We present a single base-resolution sequencing methodology that sequences complete genetics and the two most common cytosine modifications in a single workflow. DNA is copied and bases are enzymatically converted. Coupled decoding of bases across the original and copy strand provides a phased digital readout. Methods are demonstrated on human genomic DNA and cell-free DNA from a blood sample of a patient with cancer. The approach is accurate, requires low DNA input and has a simple workflow and analysis pipeline. Simultaneous, phased reading of genetic and epigenetic bases provides a more complete picture of the information stored in genomes and has applications throughout biomedicine.";
-
  //Drug Discovery
  const paperAbstract3 = "Much of the world has been transfixed in recent months by the appearance of text generation engines such as OpenAI’s ChatGPT, artificial intelligence (AI) algorithms capable of producing text that seems as if it were written by a human. While tech companies like Microsoft and Google are focused on using such engines as a way to improve search and others worry they could cause a rash of plagiarized essays, fake news and bad poetry, biotechs are looking at these algorithms to bolster their businesses, as a method to contribute to drug discovery in a variety of ways."; 
 
@@ -53,7 +52,7 @@ export default function ReadPaper() {
      {showPaper1 === 'false' && showPaper2 === "false" && showPaper3 === "false" && (
         <div>
            <Typography variant="body1" sx={{ mb: 2, fontSize: "3.0rem" }}>
-              You did not select any papers to read, go back and select some!
+              You did not select any papers to read, go back and select one!
            </Typography>
         </div>
      )}
