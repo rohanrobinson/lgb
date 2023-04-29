@@ -2,6 +2,8 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+
 
 
 export default function ReadPaper() {
@@ -11,38 +13,55 @@ export default function ReadPaper() {
  const showPaper2 = router.query.showPaper2;
  const showPaper3 = router.query.showPaper3;
 
- //foundationGMAI
- const paperAbstract1 = "The exceptionally rapid development of highly flexible, reusable artificial intelligence (AI) models is likely to usher in newfound capabilities in medicine. We propose a new paradigm for medical AI, which we refer to as generalist medical AI (GMAI). GMAI models will be capable of carrying out a diverse set of tasks using very little or no task-specific labelled data. Built through self-supervision on large, diverse datasets, GMAI will flexibly interpret different combinations of medical modalities, including data from imaging, electronic health records, laboratory results, genomics, graphs or medical text. Models will in turn produce expressive outputs such as free-text explanations, spoken recommendations or image annotations that demonstrate advanced medical reasoning abilities. Here we identify a set of high-impact potential applications for GMAI and lay out specific technical capabilities and training datasets necessary to enable them. We expect that GMAI-enabled applications will challenge current strategies for regulating and validating AI devices for medicine and will shift practices associated with the collection of large medical datasets.";
- //FHIRGenomics
- const paperAbstract2 = "The development of Fast Healthcare Interoperability Resources (FHIR) Genomics, a feasible and efficient method for exchanging complex clinical genomic data and interpretations, is described. FHIR Genomics is a subset of the emerging Health Level 7 FHIR standard and targets data from increasingly available technologies such as next-generation sequencing. Much care and integration of feedback have been taken to ease implementation, facilitate wide-scale interoperability, and enable modern app development toward a complete precision medicine standard. A new use case, the integration of the Variant Interpretation for Cancer Consortium (VICC) “meta-knowledgebase” into a third-party application, is described.";
- //YamanakaFactors
- const paperAbstract3 = "Differentiated cells can be reprogrammed to an embryonic-like state by transfer of nuclear contents into oocytes or by fusion with embryonic stem (ES) cells. Little is known about factors that induce this reprogramming. Here, we demonstrate induction of pluripotent stem cells from mouse embryonic or adult fibroblasts by introducing four factors, Oct3/4, Sox2, c-Myc, and Klf4, under ES cell culture conditions. Unexpectedly, Nanog was dispensable. These cells, which we designated iPS (induced pluripotent stem) cells, exhibit the morphology and growth properties of ES cells and express ES cell marker genes. Subcutaneous transplantation of iPS cells into nude mice resulted in tumors containing a variety of tissues from all three germ layers. Following injection into blastocysts, iPS cells contributed to mouse embryonic development. These data demonstrate that pluripotent stem cells can be directly generated from fibroblast cultures by the addition of only a few defined factors.";
+ //CRISPR Editing
+ const paperAbstract1 = "Many patients with inherited lung diseases lack effective treatment and could derive immense benefit from gene-editing therapies that correct the causative mutation. Direct delivery of such therapies to the lung by inhalation would be transformative, but the respiratory route of administration faces special challenges arising from physiological mechanisms that protect the lung against foreign particles. In a new study in Nature Biotechnology, Li et al.1 tackle this longstanding issue with a focus on RNA–lipid nanoparticles (LNPs) — a drug class that has been much in the news thanks to COVID-19 mRNA vaccines. By synthesizing and screening 720 novel lipids, the authors identified a nanoparticle formulation that achieves moderately efficient editing in the mouse lung after intratracheal delivery of CRISPR RNA–LNPs. This achievement paves the way for therapeutic CRISPR applications in the lung that involve not only gene editing but also gene therapy.";
+ //Simultaneous Sequencing
+ const paperAbstract2 = "DNA comprises molecular information stored in genetic and epigenetic bases, both of which are vital to our understanding of biology. Most DNA sequencing approaches address either genetics or epigenetics and thus capture incomplete information. Methods widely used to detect epigenetic DNA bases fail to capture common C-to-T mutations or distinguish 5-methylcytosine from 5-hydroxymethylcytosine. We present a single base-resolution sequencing methodology that sequences complete genetics and the two most common cytosine modifications in a single workflow. DNA is copied and bases are enzymatically converted. Coupled decoding of bases across the original and copy strand provides a phased digital readout. Methods are demonstrated on human genomic DNA and cell-free DNA from a blood sample of a patient with cancer. The approach is accurate, requires low DNA input and has a simple workflow and analysis pipeline. Simultaneous, phased reading of genetic and epigenetic bases provides a more complete picture of the information stored in genomes and has applications throughout biomedicine.";
 
+ //Drug Discovery
+ const paperAbstract3 = "Much of the world has been transfixed in recent months by the appearance of text generation engines such as OpenAI’s ChatGPT, artificial intelligence (AI) algorithms capable of producing text that seems as if it were written by a human. While tech companies like Microsoft and Google are focused on using such engines as a way to improve search and others worry they could cause a rash of plagiarized essays, fake news and bad poetry, biotechs are looking at these algorithms to bolster their businesses, as a method to contribute to drug discovery in a variety of ways."; 
 
 
  return (
    <div className={styles.container}>
      <Head>
        <title>Let's Go Biotech - Read Paper</title>
-       <meta name="description" content="Generated by ROHAN CAIN ROBINSON" />
-       <link rel="icon" href="/favicon.ico" />
+       <meta name="description" content="Generated by Rohan in SF" />
+       {/* <link rel="icon" href="/favicon.ico" /> */}
      </Head>
-       <h1>
-       🧬 Let's Go Biotech 🚀
-       </h1>
+
+     <AppBar position="fixed" color="secondary">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          LGB 🧬 use on a laptop or desktop monitor
+        </Typography>
+      </Toolbar>
+    </AppBar>
+
+    <Typography variant="h2" sx={{ mb: 4 }}>
+        🧬 <b>Let's Go Biotech</b> 🚀
+      </Typography>
+
       <br />
 
-     <p className={styles.abstractDisplay}>Read the Abstracts for the Papers you chose and take a Quiz when you're ready!</p> 
+
+        <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
+            <span className={styles.abstractDisplay}>Read the Abstracts for the Paper you chose and take a Quiz when you're ready!</span>
+        </Typography>
+    
+
      {showPaper1 === 'false' && showPaper2 === "false" && showPaper3 === "false" && (
         <div>
-          <p>You did not select any papers to read, go back and select some!</p>
+           <Typography variant="body1" sx={{ mb: 2, fontSize: "3.0rem" }}>
+              You did not select any papers to read, go back and select some!
+           </Typography>
         </div>
      )}
       <div>
 
       {showPaper1 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p>Abstract for Foundation GMAI Paper. <a className={styles.paperLink} href="https://www.nature.com/articles/s41586-023-05881-4" target="_blank">Read the whole paper here! (not required)</a></p> 
+          <p>Abstract for CRISPR Paper. <a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01744-5" target="_blank">Read the whole paper here! (not required)</a></p> 
           <p>{paperAbstract1}</p>
           <hr></hr>
         </div>
@@ -50,7 +69,7 @@ export default function ReadPaper() {
 
       {showPaper2 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p>Abstract for FHIR Genomics Paper.<a className={styles.paperLink} href="https://www.nature.com/articles/s41525-020-0115-6#:~:text=FHIR%20Genomics%20has%20been%20shown,into%20powerful%20precision%20medicine%20apps." target="_blank">Read the whole paper here! (not required))</a></p> <br />
+          <p>Abstract for Simultaneous Sequencing Paper.<a className={styles.paperLink} href="https://www.nature.com/articles/s41587-022-01652-0" target="_blank">Read the whole paper here! (not required))</a></p> <br />
           <p>{paperAbstract2}</p>
           <hr></hr>
         </div>
@@ -58,12 +77,16 @@ export default function ReadPaper() {
 
       {showPaper3 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p>Abstract for Yamanaka Factors Paper.<a className={styles.paperLink} href="https://pubmed.ncbi.nlm.nih.gov/16904174/" target="_blank">Read the whole paper here! (not required)</a></p> <br />
+          <p>Abstract for Chat GPT Drug Discovery Paper.<a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01788-7" target="_blank">Read the whole paper here! (not required)</a></p> <br />
           <p>{paperAbstract3}</p>
           <hr></hr>
         </div>
       )}
     </div>
+
+    <br />
+
+
       <Link 
           className={styles.greenSquare}
           href={{
@@ -74,12 +97,16 @@ export default function ReadPaper() {
             showPaper3: showPaper3
           }
         }}>
-          <h2>Take Quiz</h2>
+      <Typography variant="body1" sx={{ mb: 1.5 }}>
+          <b>Take Quiz</b>
+      </Typography>
         </Link>
    
 
         <a href="/select-paper">
-          <h2>Back to Select Papers</h2>
+        <Typography variant="body1" sx={{ mb: 0.5 }}>
+          &larr; Select Papers
+      </Typography>
         </a>
 
    </div>
