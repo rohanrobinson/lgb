@@ -22,16 +22,15 @@ export default function Home() {
       </Head>
 
       <AppBar position="fixed" color="secondary">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          LGB 🧬
-        </Typography>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        <span className={styles.cursorPointer} onClick={goSomewhereCool}>DO NOT CLICK HERE</span>  
-        </Typography>
-
-      </Toolbar>
-    </AppBar>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            LGB 🧬
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <span className={styles.cursorPointer} onClick={goSomewhereCool}>DO NOT CLICK HERE</span>  
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
       <Typography variant="h1" sx={{ mb: 4 }}>
         🧬 <b>Let's Go Biotech</b> 🚀
