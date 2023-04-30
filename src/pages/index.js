@@ -4,9 +4,6 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function Home() {
 
- const goSomewhereCool = () => {
-  window.open("https://balajis.com/the-purpose-of-technology/", "_blank");
-  }
 
   return (
     <Box sx={{ 
@@ -25,10 +22,7 @@ export default function Home() {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             LGB 🧬
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <span className={styles.cursorPointer} onClick={goSomewhereCool}>DO NOT CLICK HERE</span>  
-          </Typography>
+        </Typography>
         </Toolbar>
       </AppBar>
 
@@ -36,10 +30,10 @@ export default function Home() {
         🧬 <b>Let's Go Biotech</b> 🚀
       </Typography>
       <Typography variant="h4" sx={{ fontStyle: 'italic', mb: 2 }}>
-        Interested in badass sci-fi shit like CRISPR, neural interfaces, and STEM cells?
+         Interested in cool sci-fi concepts like CRISPR, neural interfaces, and STEM cells? 
       </Typography>
-      <Typography variant="h4" sx={{ mb: 6 }}>
-        Learn biotech through engaging papers and quizzes!
+      <Typography variant="h4" sx={{ mb: 2 }}>
+         Learn biotech through engaging papers and quizzes!
       </Typography>
       <Box sx={{ 
         display: 'flex', 
