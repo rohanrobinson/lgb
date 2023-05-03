@@ -14,6 +14,10 @@ export default function SelectPaper() {
 
   const [numSelected, setNumSelected] = useState(0);
 
+  const seePastPapers = () => {
+    window.location.href = "http://localhost:3000/past-papers";
+  }
+
   const paperSelected = (event, paperNum) => {
     if (paperNum === "paper1" && numSelected === 0) {
         setNumSelected(1);
@@ -70,11 +74,14 @@ export default function SelectPaper() {
 
      <AppBar position="fixed" color="secondary">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          LGB 🧬
-        </Typography>
-      </Toolbar>
-    </AppBar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          🧬 LGB 
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
+              See Past Papers 🚀
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
       <Typography variant="h2" sx={{ mb: 4 }}>
         🧬 <b>Let's Go Biotech</b> 🚀
@@ -82,13 +89,8 @@ export default function SelectPaper() {
 
       <div className={styles.paperSelection}>
 
-          
-        <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-          Howdy there 🤠 <br /> The papers below cover kickass innovation in health and biotechnology happening right now.
-        </Typography>
-
         <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-          Select a paper by clicking on its name.
+          Select a paper by clicking on its name
         </Typography> 
           
           
