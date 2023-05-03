@@ -8,7 +8,7 @@ export default function PastPapers() {
 
  
   const seeCurrentPapers = () => {
-    window.location.href = "http://localhost:3000/select-paper";
+    window.location.href = "http://letsgobiotech.com/select-paper";
   }
 
   return (

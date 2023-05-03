@@ -15,7 +15,7 @@ export default function SelectPaper() {
   const [numSelected, setNumSelected] = useState(0);
 
   const seePastPapers = () => {
-    window.location.href = "http://localhost:3000/past-papers";
+    window.location.href = "http://letsgobiotech.com/past-papers";
   }
 
   const paperSelected = (event, paperNum) => {
