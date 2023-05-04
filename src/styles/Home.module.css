@@ -1,4 +1,16 @@
   /* Center content */
+  @media only screen and (max-width: 800px) {
+    .lgbDescription {
+      font-size: 1rem;
+    }
+    .lgbHeader {
+      font-size: 2rem;
+    }
+    .abstractText {
+        font-size: 12px; 
+    }
+  } 
+  
   .container {
     display: flex;
     flex-direction: column;
@@ -27,7 +39,6 @@
     left: 0;
   }
   
-
   .choosePaper {
     display: inline-block;
     vertical-align: top;
@@ -76,16 +87,7 @@
    }
 
 
-   @media only screen and (max-width: 800px) {
-    .lgbDescription {
-      font-size: 1rem;
-    }
 
-    .lgbHeader {
-      font-size: 2rem;
-    }
-  } 
-    
 
   
 
