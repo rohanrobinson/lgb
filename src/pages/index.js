@@ -26,15 +26,19 @@ export default function Home() {
         </Toolbar>
       </AppBar>
 
-      <Typography variant="h1" sx={{ mb: 4 }}>
-        🧬 <b>Let's Go Biotech</b> 🚀
-      </Typography>
-      <Typography variant="h4" sx={{ fontStyle: 'italic', mb: 2 }}>
-         Interested in cool sci-fi concepts like CRISPR, neural interfaces, and STEM cells? 
-      </Typography>
-      <Typography variant="h4" sx={{ mb: 2 }}>
-         Learn biotech through engaging papers and quizzes!
-      </Typography>
+    <div className={styles.lgbInfo}>
+        <Typography variant="h1" sx={{ mb: 4 }}>
+        <b><span className={styles.lgbHeader}>🧬 Let's Go Biotech 🚀</span></b> 
+        </Typography>
+        <Typography variant="h4" sx={{ fontStyle: 'italic', mb: 2 }}>
+          <span className={styles.lgbDescription}>Interested in cool sci-fi concepts like CRISPR, neural interfaces, and STEM cells? </span>
+        </Typography>
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          <span className={styles.lgbDescription}>Learn biotech through engaging papers and quizzes!</span>
+        </Typography>
+      </div>
+
+
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
@@ -42,22 +46,19 @@ export default function Home() {
         justifyContent: 'center', 
         gap: 3 
       }}>
+            <Button 
+              variant="contained" 
+              color="secondary" 
+              size="large" 
+              href="/select-paper"
+              sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+            >
+              Get Started
+            </Button>
 
-        <Button 
-          variant="contained" 
-          color="secondary" 
-          size="large" 
-          href="/select-paper"
-          sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-        >
-          Get Started
-        </Button>
-        <Typography variant="body1" sx={{ mb: 4 }}>
-            (no need to provide email or create an account) <br/>
-        </Typography>
-
-
-
+            <Typography variant="body1" sx={{ mb: 4 }}>
+                (no need to provide email or create an account) <br/>
+            </Typography>
       </Box>
     </Box>
   );

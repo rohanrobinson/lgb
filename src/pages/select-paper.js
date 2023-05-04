@@ -77,20 +77,20 @@ export default function SelectPaper() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           🧬 LGB 
           </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Papers of the Week
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
               See Past Papers 🚀
           </Typography>
         </Toolbar>
       </AppBar>
 
-      <Typography variant="h2" sx={{ mb: 4 }}>
-        🧬 <b>Let's Go Biotech</b> 🚀
-      </Typography>
-
       <div className={styles.paperSelection}>
 
         <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
           Select a paper by clicking on its name
+          <hr/>
         </Typography> 
           
           
@@ -100,7 +100,7 @@ export default function SelectPaper() {
           <div className={styles.choosePaper}>
                 <div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i>CRISPR editing in the lung with lipids</i></b> &nbsp;
+                  <b><i>A highly efficient transgene knock-in technology in clinically relevant cell types</i></b> &nbsp;
                 </Typography> 
                 </div> <br /> 
                 {showModal && showPaper1 && (
