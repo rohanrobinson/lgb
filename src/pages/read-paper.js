@@ -37,13 +37,9 @@ export default function ReadPaper() {
       </Toolbar>
     </AppBar>
 
-
-      <br />
-
-
-        <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-            <span className={styles.lgbDescription}>Read the Abstracts for the Paper you chose and take a Quiz when you're ready!</span>
-        </Typography>
+    <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
+      <span className={styles.lgbDescription}>Read the Abstracts for the Paper you chose and take a Quiz when you're ready!</span>
+    </Typography>
     
 
      {showPaper1 === 'false' && showPaper2 === "false" && showPaper3 === "false" && (
@@ -58,23 +54,23 @@ export default function ReadPaper() {
       {showPaper1 === 'true' && (
         <div className={styles.abstractDisplay}>
           <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01744-5" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p> 
-          <p><span className={styles.lgbDescripton}>{paperAbstract1}</span></p>
+          <p className={styles.abstractText}><b>{paperAbstract1}</b></p>
           <hr></hr>
         </div>
       )}
 
       {showPaper2 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-022-01652-0" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p> <br />
-          <p>{paperAbstract2}</p>
+          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-022-01652-0" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p>
+          <p className={styles.abstractText}><b>{paperAbstract2}</b></p>
           <hr></hr>
         </div>
       )}
 
       {showPaper3 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01788-7" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p> <br />
-          <p>{paperAbstract3}</p>
+          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01788-7" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p> 
+          <p className={styles.abstractText}><b>{paperAbstract3}</b></p>
           <hr></hr>
         </div>
       )}
