@@ -84,7 +84,7 @@ export default function SelectPaper() {
       </AppBar>
 
       <div className={styles.paperSelection}>
-        <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+        <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}> <br />
           <span className={styles.lgbDescription}>Below in bold are 3 papers curated for this week. Select a paper by clicking on its name!</span>
         </Typography> 
           <br />

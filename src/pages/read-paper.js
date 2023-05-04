@@ -97,7 +97,7 @@ export default function ReadPaper() {
 
         <a href="/select-paper">
         <Typography variant="body1" sx={{ mb: 0.5 }}>
-          &larr; Select Papers
+          &larr; <b>Select Papers</b>
       </Typography>
         </a>
 
