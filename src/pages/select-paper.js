@@ -77,9 +77,6 @@ export default function SelectPaper() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           🧬 LGB 
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Papers of the Week
-          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
               See Past Papers 🚀
           </Typography>
