@@ -7,7 +7,7 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function SelectPaper() {
 
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [showPaper1, setShowPaper1] = useState(false);
   const [showPaper2, setShowPaper2] = useState(false);
   const [showPaper3, setShowPaper3] = useState(false);
@@ -21,19 +21,19 @@ export default function SelectPaper() {
   const paperSelected = (event, paperNum) => {
     if (paperNum === "paper1" && numSelected === 0) {
         setNumSelected(1);
-        setShowModal(true);
+        // setShowModal(true);
         setShowPaper1(true);
     }
 
     else if (paperNum === "paper2" && numSelected === 0) {
         setNumSelected(1);
-        setShowModal(true);
+        // setShowModal(true);
         setShowPaper2(true);
     }
 
     else if (paperNum === "paper3" && numSelected === 0) {
         setNumSelected(1);
-        setShowModal(true);
+        // setShowModal(true);
         setShowPaper3(true);
     }
 
@@ -46,19 +46,19 @@ export default function SelectPaper() {
   const paperUnselected = (event, paperNum) => {
     if (paperNum === "paper1") {
         setNumSelected(0);
-        setShowModal(false);
+        // setShowModal(false);
         setShowPaper1(false)
     }
 
     if (paperNum === "paper2") {
         setNumSelected(0);
-        setShowModal(false);
+        // setShowModal(false);
         setShowPaper2(false);
     }
 
     if (paperNum === "paper3") {
         setNumSelected(0);
-        setShowModal(false);
+        // setShowModal(false);
         setShowPaper3(false);
     }
 
@@ -87,56 +87,51 @@ export default function SelectPaper() {
       </AppBar>
 
       <div className={styles.paperSelection}>
-
         <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-          Select a paper by clicking on its name
-          <hr/>
+          <span className={styles.lgbDescription}>Below in bold are 3 papers curated for this week. Select a paper by clicking on its name!</span>
         </Typography> 
-          
-          
-          
           <br />
-
           <div className={styles.choosePaper}>
-                <div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
+              { showPaper1 ? 
+                (<div className={styles.item} value="paper1" onClick={(event) => paperUnselected(event, "paper1")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i>A highly efficient transgene knock-in technology in clinically relevant cell types</i></b> &nbsp;
+                  <b><i><span className={styles.lgbDescription}>You've selected &rarr; Gene knock-in tech in clinically relevant cell types</span></i></b> &nbsp;
                 </Typography> 
-                </div> <br /> 
-                {showModal && showPaper1 && (
-            <div className={styles.modal}>
-              <p>Scientists made small lipid particles that deliver CRISPR-edited RNA to mice lung by inhalation.
-            </p>
-              <button onClick={(event) => paperUnselected(event, "paper1")}>Close Description</button>
-            </div>
-                )}
-            <br />
-                <div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
+                </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i>Simultaneous sequencing of genetic & epigenetic DNA bases</i></b> &nbsp;
+                  <b><i><span className={styles.lgbDescription}>A highly efficient transgene knock-in technology in clinically relevant cell types</span></i></b> &nbsp;
                 </Typography> 
-                </div> <br /> 
-                {showModal && showPaper2 && (
-            <div className={styles.modal}>
-              <p>A cool method that sequences the whole genome and catches the two most common cytosine-based C mutations.</p>
-              <button onClick={(event) => paperUnselected(event, "paper2")}>Close Description</button>
-            </div>
-                )}
-           <br />
-                <div className={styles.item} value="paper3" onClick={(event) => paperSelected(event, "paper3")}>
-                  <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                      <b><i>Drug discovery companies are customizing ChatGPT</i></b> &nbsp;
-                  </Typography>
-                </div>
-                {showModal && showPaper3 && (
-                        <div className={styles.modal}>
-                          <p>Scientists are using large language models (LLMs) to discover new drug targets.</p>
-                          <button onClick={(event) => paperUnselected(event, "paper3")}>Close Description</button>
-                        </div>
-                )}
-                <br />
-          </div>
+                </div>)
+              }
+            
 
+            <br />
+
+              { showPaper2 ?
+                (<div className={styles.item} value="paper2" onClick={(event) => paperUnselected(event, "paper2")}>
+                <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                  <b><i><span className={styles.lgbDescription}>You've selected &rarr; Simultaneous sequencing of genetic & epigenetic DNA bases</span></i></b> &nbsp;
+                </Typography> 
+                </div>) : (<div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
+                <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                  <b><i><span className={styles.lgbDescription}>Simultaneous sequencing of genetic & epigenetic DNA bases</span></i></b> &nbsp;
+                </Typography> 
+                </div>)
+              }
+           <br />
+
+              { showPaper3 ? (<div className={styles.item} value="paper3" onClick={(event) => paperUnselected(event, "paper3")}>
+                  <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                      <b><i><span className={styles.lgbDescription}>You've selected &rarr; Drug discovery companies are customizing ChatGPT</span></i></b> &nbsp;
+                  </Typography>
+                </div>) : (<div className={styles.item} value="paper3" onClick={(event) => paperSelected(event, "paper3")}>
+                  <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                      <b><i><span className={styles.lgbDescription}>Drug discovery companies are customizing ChatGPT</span></i></b> &nbsp;
+                  </Typography>
+                </div>)}
+
+           <br />
+          </div>
       </div>
 
       <br />
@@ -154,9 +149,6 @@ export default function SelectPaper() {
           }
         }}>
           <h2>Read Selected Paper</h2>
-          {showPaper1 ? (<p>CRISPR Editing</p>): ""}
-          {showPaper2 ? (<p>Simultaneous Sequencing</p>): ""}
-          {showPaper3 ? (<p>Chat GPT drugs!</p>): ""}
         </Link>
 
         {/* <Button 
