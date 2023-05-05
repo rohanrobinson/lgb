@@ -40,7 +40,7 @@ export default function ReadPaper() {
     </AppBar>
 
     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-      <span className={styles.lgbDescription}>Read the Abstracts for the Paper you chose and take a Quiz when you're ready!</span>
+      <span className={styles.lgbDescription}>Read the Abstract for the Paper you chose and take a Quiz when you're ready!</span>
     </Typography>
     
 
@@ -55,7 +55,7 @@ export default function ReadPaper() {
 
       {showPaper1 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01744-5" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p> 
+          <p><span className={styles.lgbDescription}>Abstract</span></p> 
           <p className={styles.abstractText}><b>{paperAbstract1}</b></p>
           <hr></hr>
         </div>
@@ -63,7 +63,7 @@ export default function ReadPaper() {
 
       {showPaper2 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-022-01652-0" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p>
+          <p><span className={styles.lgbDescription}>Abstract</span></p>
           <p className={styles.abstractText}><b>{paperAbstract2}</b></p>
           <hr></hr>
         </div>
@@ -71,7 +71,7 @@ export default function ReadPaper() {
 
       {showPaper3 === 'true' && (
         <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span><a className={styles.paperLink} href="https://www.nature.com/articles/s41587-023-01788-7" target="_blank"><span className={styles.lgbDescription}>Read the whole paper here! (not required)</span></a></p> 
+          <p><span className={styles.lgbDescription}>Abstract</span></p> 
           <p className={styles.abstractText}><b>{paperAbstract3}</b></p>
           <hr></hr>
         </div>
