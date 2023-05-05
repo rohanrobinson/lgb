@@ -96,7 +96,7 @@ export default function SelectPaper() {
                 </Typography> 
                 </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i><span className={styles.lgbDescription}>A highly efficient transgene knock-in technology in clinically relevant cell types</span></i></b> &nbsp;
+                  <b><i><span className={styles.lgbDescription}>Gene knock-in tech in clinically relevant cell types</span></i></b> &nbsp;
                 </Typography> 
                 </div>)
               }
@@ -107,11 +107,11 @@ export default function SelectPaper() {
               { showPaper2 ?
                 (<div className={styles.item} value="paper2" onClick={(event) => paperUnselected(event, "paper2")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i><span className={styles.lgbDescription}>You've selected &rarr; Simultaneous sequencing of genetic & epigenetic DNA bases</span></i></b> &nbsp;
+                  <b><i><span className={styles.lgbDescription}>You've selected &rarr; Genetic medicines targeted for the heart</span></i></b> &nbsp;
                 </Typography> 
                 </div>) : (<div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i><span className={styles.lgbDescription}>Simultaneous sequencing of genetic & epigenetic DNA bases</span></i></b> &nbsp;
+                  <b><i><span className={styles.lgbDescription}>Genetic medicines aim straight for the heart</span></i></b> &nbsp;
                 </Typography> 
                 </div>)
               }
@@ -119,11 +119,11 @@ export default function SelectPaper() {
 
               { showPaper3 ? (<div className={styles.item} value="paper3" onClick={(event) => paperUnselected(event, "paper3")}>
                   <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                      <b><i><span className={styles.lgbDescription}>You've selected &rarr; Drug discovery companies are customizing ChatGPT</span></i></b> &nbsp;
+                      <b><i><span className={styles.lgbDescription}>You've selected &rarr; Lag in Drugs Entering Emerging Markets</span></i></b> &nbsp;
                   </Typography>
                 </div>) : (<div className={styles.item} value="paper3" onClick={(event) => paperSelected(event, "paper3")}>
                   <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                      <b><i><span className={styles.lgbDescription}>Drug discovery companies are customizing ChatGPT</span></i></b> &nbsp;
+                      <b><i><span className={styles.lgbDescription}>Lag in Drugs Entering Emerging Markets</span></i></b> &nbsp;
                   </Typography>
                 </div>)}
 
