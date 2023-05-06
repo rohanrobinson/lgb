@@ -89,32 +89,34 @@ export default function SelectPaper() {
         </Typography> 
           <br />
           <div className={styles.choosePaper}>
-              { showPaper1 ? 
+
+
+            { showPaper1 ?
                 (<div className={styles.item} value="paper1" onClick={(event) => paperUnselected(event, "paper1")}>
-                <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i><span className={styles.lgbDescription}>You've selected &rarr; Gene knock-in tech in clinically relevant cell types</span></i></b> &nbsp;
-                </Typography> 
-                </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
-                <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                  <b><i><span className={styles.lgbDescription}>Gene knock-in tech in clinically relevant cell types</span></i></b> &nbsp;
-                </Typography> 
-                </div>)
-              }
-            
-
-            <br />
-
-              { showPaper2 ?
-                (<div className={styles.item} value="paper2" onClick={(event) => paperUnselected(event, "paper2")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                   <b><i><span className={styles.lgbDescription}>You've selected &rarr; Genetic medicines targeted for the heart</span></i></b> &nbsp;
                 </Typography> 
-                </div>) : (<div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
+                </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
                 <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                   <b><i><span className={styles.lgbDescription}>Genetic medicines aim straight for the heart</span></i></b> &nbsp;
                 </Typography> 
                 </div>)
               }
+
+              <br />
+
+              { showPaper2 ? 
+                (<div className={styles.item} value="paper2" onClick={(event) => paperUnselected(event, "paper2")}>
+                <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                  <b><i><span className={styles.lgbDescription}>You've selected &rarr; Gene knock-in tech in clinically relevant cell types</span></i></b> &nbsp;
+                </Typography> 
+                </div>) : (<div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
+                <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                  <b><i><span className={styles.lgbDescription}>Gene knock-in tech in clinically relevant cell types</span></i></b> &nbsp;
+                </Typography> 
+                </div>)
+              }
+          
            <br />
 
               { showPaper3 ? (<div className={styles.item} value="paper3" onClick={(event) => paperUnselected(event, "paper3")}>
@@ -147,21 +149,6 @@ export default function SelectPaper() {
         }}>
           <h2>Read Selected Paper</h2>
         </Link>
-
-        {/* <Button 
-          variant="contained" 
-          color="secondary" 
-          size="large" 
-          href="/read-paper"
-          sx={{ fontWeight: 'bold' }}
-        >
-          <h2>Read Paper</h2> <br></br>
-          {showPaper1 ? (<p>CRISPR Editing</p>): ""}
-          {showPaper2 ? (<p>Simultaneous Sequencing</p>): ""}
-          {showPaper3 ? (<p>Chat GPT drugs!</p>): ""}
-        </Button> */}
-  
-
 
         <a href="/">
           <h2 style={{ fontSize: '3rem' }}>🏠 &larr; </h2>

@@ -95,30 +95,33 @@ export default function TakeQuiz() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            LGB 🧬 use on a laptop or desktop monitor
+            LGB 🧬
           </Typography>
         </Toolbar>
       </AppBar>
 
-       <Typography variant="h1" sx={{ mb: 4 }}>
-        🧬 <b>Let's Go Biotech</b> 🚀
-      </Typography>
-      <br />
-
       <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-       Instructions &rarr; Check an answer BEFORE clicking on the green button 
+       <span className={styles.lgbDescription}>Instructions &rarr; Check an answer BEFORE clicking on the green button </span>
       </Typography>
 
       {showPaper1 === 'true' && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span><i><b>What potential impact could the development of efficient CRISPR RNA-LNPs for lung gene editing have on the treatment of inherited lung diseases?</b></i></span><br />
-          <input type="radio" id="paper1-a" name="paper1" value="paper1-a" onChange={handlePaper1Change}/>
-          <label htmlFor="paper1-a">CRISPR RNA-LNPs will only be effective in treating a small subset of inherited lung diseases.</label><br />
-          <input type="radio" id="paper1-b" name="paper1" value="paper1-b" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-b">The development of CRISPR RNA-LNPs will have no impact on inherited lung diseases.</label><br />
-          <input type="radio" id="paper1-c" name="paper1" value="paper1-c" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-c">Effective CRISPR RNA-LNPs could provide a transformative treatment for inherited lung diseases and enable further gene therapy applications in the respiratory system.</label><br />
+            <span className={styles.lgbText}><i><b>What is the name of the X-linked dominant disorder that causes progressive heart failure and death in early adulthood, and which Rocket Pharmaceuticals aims to target with its gene therapy?</b></i></span><br />
+            <input type="radio" id="paper1-a" name="paper1" value="paper1-q1-a" onChange={handlePaper1Change}/>
+            <label htmlFor="paper1-a">Down syndrome</label><br />
+            <input type="radio" id="paper1-b" name="paper1" value="paper1-q1-b" onChange={handlePaper1Change} />
+            <label htmlFor="paper1-b">Danon disease</label><br />
+            <input type="radio" id="paper1-c" name="paper1" value="paper1-q1-c" onChange={handlePaper1Change} />
+            <label htmlFor="paper1-c">Huntington's disease</label><br /> <br />
+
+            <span className={styles.lgbText}><i><b>If the phase 2 study of Rocket Pharmaceuticals' gene therapy for Danon disease is successful, what impact could it have on developers of genetic medicines targeting heart failure?</b></i></span><br />
+            <input type="radio" id="paper1-a" name="paper1" value="paper1-q2-a" onChange={handlePaper1Change}/>
+            <label htmlFor="paper1-a">No Impact</label><br />
+            <input type="radio" id="paper1-b" name="paper1" value="paper1-q2-b" onChange={handlePaper1Change} />
+            <label htmlFor="paper1-b">Encouraging more research into heart failure therapies</label><br />
+            <input type="radio" id="paper1-c" name="paper1" value="paper1-q2-c" onChange={handlePaper1Change} />
+            <label htmlFor="paper1-c">Halting research into heart failure therapies</label>
           </Typography>
         </div>
       )}
@@ -128,13 +131,21 @@ export default function TakeQuiz() {
       {showPaper2 === 'true' && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span><i><b>What is the primary benefit of simultaneous reading of genetic and epigenetic bases?</b></i></span><br />
-          <input type="radio" id="paper2-a" name="paper2" value="paper2-a" onChange={handlePaper2Change} />
-          <label htmlFor="paper2-a">It provides a more complete picture of the information stored in genome</label><br />
-          <input type="radio" id="paper2-b" name="paper2" value="paper2-b" onChange={handlePaper2Change} />
-          <label htmlFor="paper2-b">Preventing cytosine modifications</label><br />
-          <input type="radio" id="paper2-c" name="paper2" value="paper2-c" onChange={handlePaper2Change} />
-          <label htmlFor="paper2-c">Cell Free DNA has the answers</label><br />
+            <span className={styles.lgbText}><i><b>What is the technology called that achieved knock-in efficiencies of more than 90% in clinically relevant cell types?</b></i></span><br />
+            <input type="radio" id="paper2-a" name="paper2" value="paper2-a" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-a">SLEEK</label><br />
+            <input type="radio" id="paper2-b" name="paper2" value="paper2-b" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-b">CRISPR nuclease</label><br />
+            <input type="radio" id="paper2-c" name="paper2" value="paper2-c" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-c">Essential-gene Exon Knock-in</label><br /> <br />
+
+            <span className={styles.lgbText}><i><b>How did the cargo template designed for knock-in retain essential gene function while integrating the transgene(s) of interest?</b></i></span><br />
+            <input type="radio" id="paper2-a" name="paper2" value="paper2-a" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-a">By targeting a site within an intron of an essential gene</label><br />
+            <input type="radio" id="paper2-b" name="paper2" value="paper2-b" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-b">By targeting a site within an exon of an essential gene</label><br />
+            <input type="radio" id="paper2-c" name="paper2" value="paper2-c" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-c">by targeting a site within a promoter region of an essential gene</label><br /> <br />
           </Typography>
         </div>
       )}
@@ -144,13 +155,19 @@ export default function TakeQuiz() {
       {showPaper3 === 'true' && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span><b>How are biotechs exploring the use of text generation engines like OpenAI’s ChatGPT, and what impact could this have on drug discovery?</b></span><br />
-          <input type="radio" id="  " name="paper3" value="paper3-a" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-a">Biotechs are not interested in using text generation engines for drug discovery.</label><br />
-          <input type="radio" id="paper3-b" name="paper3" value="paper3-b" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-b">Text generation engines like OpenAI’s ChatGPT can only contribute to drug discovery in limited ways.</label><br />
-          <input type="radio" id="paper3-c" name="paper3" value="paper3-c" onChange={handlePaper3Change}/>
-          <label htmlFor="paper3-c">Biotechs are exploring the use of text generation engines like OpenAI’s ChatGPT to bolster their businesses and enhance drug discovery.</label><br />
+            <span className={styles.lgbText}><b>What is the focus of this study on drug lag, and why are emerging markets relevant?</b></span><br />
+            <input type="radio" id="" name="paper3" value="paper3-a" onChange={handlePaper3Change} />
+            <label htmlFor="paper3-a">Focus: Investigate drug lag in emerging markets</label><br />
+            <input type="radio" id="paper3-b" name="paper3" value="paper3-b" onChange={handlePaper3Change} />
+            <label htmlFor="paper3-b">Relevance: Emerging markets have potential for the future of pharmaceutical industry due to rapid economic and political development.</label><br /> <br />
+            
+            <span className={styles.lgbText}><b>How was drug lag calculated in this study?</b></span><br />
+            <input type="radio" id="  " name="paper3" value="paper3-a" onChange={handlePaper3Change} />
+            <label htmlFor="paper3-a">Using date of marketing authorization (MA) approval by the US FDA as reference point, and comparing against company database of emerging market approvals.</label><br />
+            <input type="radio" id="paper3-b" name="paper3" value="paper3-b" onChange={handlePaper3Change} />
+            <label htmlFor="paper3-b">Using date of MA approval by the EMA as reference point and comparing against emerging market database.</label><br />
+            <input type="radio" id="" name="paper3" value="paper3-c" onChange={handlePaper3Change} /> 
+            <label htmlFor="paper3-c">Using date of MA approval by the WHO as reference point and comparing against global database.</label> <br /> <br />
           </Typography>
         </div>
       )} 
@@ -162,8 +179,8 @@ export default function TakeQuiz() {
       {showScore && totalCorrect > 0 &&(
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            Great job on reading new & hard material completing the quiz! < br />
-            You got {totalCorrect} correct out of {totalQuestions}! <br />
+            <span className={styles.lgbText}>Great job on reading new & hard material completing the quiz! < br />
+            You got {totalCorrect} correct out of {totalQuestions}!</span> <br />
 
             <br />
             
