@@ -36,7 +36,7 @@ export default function PastPapers() {
       </AppBar>
 
       <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-          <span className={styles.lgbDescription}>Below are past papers that have been featured, check em' out.
+          <span className={styles.lgbDescription}>Below are past papers that have been featured. Check them out!
           The paper you select will open up in a new tab.</span>     
       </Typography> 
     
