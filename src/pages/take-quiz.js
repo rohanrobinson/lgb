@@ -8,79 +8,108 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function TakeQuiz() {
 
-  // these values come from read-paper.js
+  // -these values come from read-paper.js 
   const router = useRouter();
   const showPaper1 = router.query.showPaper1;
   const showPaper2 = router.query.showPaper2;
   const showPaper3 = router.query.showPaper3;
 
-  // variables based on user input 
-  const [paper1Value, setPaper1Value] = useState('');
-  const [paper2Value, setPaper2Value] = useState('');
-  const [paper3Value, setPaper3Value] = useState('');
+  // --these values come from user input 
   const [showScore, setShowScore] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState('');
   const [totalCorrect, setCorrect] = useState('');
 
-
+  // --updated hooks for new quiz w/ multiple answers per question
+  const [paper1Q1Value, setPaper1Q1Value] = useState('');
+  const [paper1Q2Value, setPaper1Q2Value] = useState(' ');
+  const [paper2Q1Value, setPaper2Q1Value] = useState('');
+  const [paper2Q2Value, setPaper2Q2Value] = useState(' ');  
+  const [paper3Q1Value, setPaper3Q1Value] = useState('');
+  const [paper3Q2Value, setPaper3Q2Value] = useState(' ');
 
   // handle paper 1 change 
   const handlePaper1Change = (event) => {
-    setPaper1Value(event.target.value);
+    const { name, value } = event.target;
+    if (name === 'paper1-q1') {
+      setPaper1Q1Value(value);
+    } 
+    else if (name === 'paper1-q2') {
+      setPaper1Q2Value(value);
+    }
   }
-
   // handle paper 2 change
   const handlePaper2Change = (event) => {
-    setPaper2Value(event.target.value);
+    const { name, value } = event.target;
+    if (name === 'paper2-q1') {
+      setPaper2Q1Value(value);
+    }
+    else if (name === 'paper2-q2') {
+      setPaper2Q2Value(value);
+    }
   }
-
   // handle paper 3 change
   const handlePaper3Change = (event) => { 
-    setPaper3Value(event.target.value);
+    const { name, value } = event.target;
+    if (name === 'paper3-q1') {
+      setPaper3Q1Value(value);
+    }
+    else if (name === 'paper3-q2') {
+      setPaper3Q2Value(value);
+    }
   }
 
   const scoreFun = () => {
+    
+    // correct answers to v4 quiz in order from q1 to qn
+    const correctAnswersPaper1 = ['paper1-q1-b', 'paper1-q2-b'];
+    const correctAnswersPaper2 = ['paper2-q1-a', 'paper2-q2-b'];
+    const correctAnswersPaper3 = ['paper3-q1-b', 'paper3-q2-a'];
 
     let totalCorrect = 0;
-    let totalQuestions = 0;
+    let totalQuestions = correctAnswersPaper1.length; 
     
-    // correct answers to v2 quiz
-    const correctAnswerPaper1 = 'paper1-c';
-    const correctAnswerPaper2 = 'paper2-a';
-    const correctAnswerPaper3 = 'paper3-c';
-    console.log("input-", paper1Value, paper2Value, paper3Value);
-    // get all the choices the user selected
     if (showPaper1 === 'true') {
-   //  console.log( "q1-", gmaiValue === correctAnswerPaper1);
-     totalQuestions += 1;
-
-     if (paper1Value === correctAnswerPaper1) {
-      totalCorrect += 1;
-     }
+      const userAnswers = [paper1Q1Value, paper1Q2Value];
+      console.log(userAnswers);
+      console.log(correctAnswersPaper1);
+      totalCorrect = scorePaper(correctAnswersPaper1, userAnswers);
+      console.log(totalCorrect);
     }
 
     if (showPaper2 === 'true')  {
-    //  console.log("q2-", fhirValue, correctAnswerPaper2);
-      totalQuestions += 1;
-
-      if (paper2Value === correctAnswerPaper2) {
-        totalCorrect += 1;
-      }
+      const userAnswers = [paper2Q1Value, paper2Q2Value];
+      console.log(userAnswers);
+      console.log(correctAnswersPaper2);
+      totalCorrect = scorePaper(correctAnswersPaper2, userAnswers);
+      console.log(totalCorrect);
     }
 
     if (showPaper3 === 'true') {
-     // console.log("q3-", yfValue, correctAnswerPaper3);
-      totalQuestions += 1;
-
-      if (paper3Value === correctAnswerPaper3) {
-        totalCorrect += 1;
-      }
+      const userAnswers = [paper3Q1Value, paper3Q2Value];
+      console.log(userAnswers);
+      console.log(correctAnswersPaper3);
+      totalCorrect = scorePaper(correctAnswersPaper3, userAnswers);
+      console.log(totalCorrect);
     }
 
-    console.log("total correct-", totalCorrect, "total questions-", totalQuestions);
     setTotalQuestions(totalQuestions);
     setCorrect(totalCorrect);
 
+  }
+
+  function scorePaper(correctAnswers, userAnswers) {
+    let numQuestionsCorrect = 0
+    for (let i = 0; i < correctAnswers.length; i++) {
+        
+        const correctAnswer = correctAnswers[i];
+        const userAnswer = userAnswers[i];
+        console.log(correctAnswer, userAnswer);
+        if (correctAnswer === userAnswer) {
+          numQuestionsCorrect += 1;
+        }
+
+    } 
+    return numQuestionsCorrect; 
   }
 
 
@@ -89,7 +118,6 @@ export default function TakeQuiz() {
       <Head>
         <title>Let's Go Biotech - Quiz</title>
         <meta name="description" content="Generated by create next app" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <AppBar position="fixed" color="secondary">
@@ -101,29 +129,29 @@ export default function TakeQuiz() {
       </AppBar>
 
       <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-       <span className={styles.lgbDescription}>Instructions &rarr; Check an answer BEFORE clicking on the green button </span>
+       <span className={styles.lgbDescription}>Good luck on the Quiz! 😊</span>
       </Typography>
 
       {showPaper1 === 'true' && (
-        <div className={styles.quizHellYa}>
-          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}><i><b>What is the name of the X-linked dominant disorder that causes progressive heart failure and death in early adulthood, and which Rocket Pharmaceuticals aims to target with its gene therapy?</b></i></span><br />
-            <input type="radio" id="paper1-a" name="paper1" value="paper1-q1-a" onChange={handlePaper1Change}/>
-            <label htmlFor="paper1-a"><span className={styles.lgbText}>Down syndrome</span></label><br />
-            <input type="radio" id="paper1-b" name="paper1" value="paper1-q1-b" onChange={handlePaper1Change} />
-            <label htmlFor="paper1-b"><span className={styles.lgbText}>Danon disease</span></label><br />
-            <input type="radio" id="paper1-c" name="paper1" value="paper1-q1-c" onChange={handlePaper1Change} />
-            <label htmlFor="paper1-c"><span className={styles.lgbText}>Huntington's disease</span></label><br /> <br />
-
-            <span className={styles.lgbText}><i><b>If the phase 2 study of Rocket Pharmaceuticals' gene therapy for Danon disease is successful, what impact could it have on developers of genetic medicines targeting heart failure?</b></i></span><br />
-            <input type="radio" id="paper1-a" name="paper1" value="paper1-q2-a" onChange={handlePaper1Change}/>
-            <label htmlFor="paper1-a"><span className={styles.lgbText}>No Impact</span></label><br />
-            <input type="radio" id="paper1-b" name="paper1" value="paper1-q2-b" onChange={handlePaper1Change} />
-            <label htmlFor="paper1-b"><span className={styles.lgbText}>Encouraging more research into heart failure therapies</span></label><br />
-            <input type="radio" id="paper1-c" name="paper1" value="paper1-q2-c" onChange={handlePaper1Change} />
-            <label htmlFor="paper1-c"><span className={styles.lgbText}>Halting research into heart failure therapies</span></label>
-          </Typography>
-        </div>
+      <div className={styles.quizHellYa}>
+        <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+          <span className={styles.lgbText}><i><b>What is the name of the X-linked dominant disorder that causes progressive heart failure and death in early adulthood, and which Rocket Pharmaceuticals aims to target with its gene therapy?</b></i></span><br />
+          <input type="radio" id="paper1-q1-a" name="paper1-q1" value="paper1-q1-a" onChange={handlePaper1Change}/>
+          <label htmlFor="paper1-a"><span className={styles.lgbText}>Down syndrome</span></label><br />
+          <input type="radio" id="paper1-q1-b" name="paper1-q1" value="paper1-q1-b" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-b"><span className={styles.lgbText}>Danon disease</span></label><br />
+          <input type="radio" id="paper1-q1-c" name="paper1-q1" value="paper1-q1-c" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>Huntington's disease</span></label><br /> <br />
+       
+          <span className={styles.lgbText}><i><b>If the phase 2 study of Rocket Pharmaceuticals' gene therapy for Danon disease is successful, what impact could it have on developers of genetic medicines targeting heart failure?</b></i></span><br />
+          <input type="radio" id="paper1-q2-a" name="paper1-q2" value="paper1-q2-a" onChange={handlePaper1Change}/>
+          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>No Impact</span></label><br />
+          <input type="radio" id="paper1-q2-b" name="paper1-q2" value="paper1-q2-b" onChange={handlePaper1Change} />
+          <label htmlFor="pap"><span className={styles.lgbText}>Encouraging more research into heart failure therapies</span></label><br />
+          <input type="radio" id="paper1-f" name="paper1-q2" value="paper1-q2-c" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-f"><span className={styles.lgbText}>Halting research into heart failure therapies</span></label>
+        </Typography>
+      </div>
       )}
 
       <br />
@@ -132,20 +160,20 @@ export default function TakeQuiz() {
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
             <span className={styles.lgbText}><i><b>What is the technology called that achieved knock-in efficiencies of more than 90% in clinically relevant cell types?</b></i></span><br />
-            <input type="radio" id="paper2-a" name="paper2" value="paper2-a" onChange={handlePaper2Change} />
+            <input type="radio" id="paper2-q1-a" name="paper2-q1" value="paper2-q1-a" onChange={handlePaper2Change} />
             <label htmlFor="paper2-a"><span className={styles.lgbText}>SLEEK</span></label><br />
-            <input type="radio" id="paper2-b" name="paper2" value="paper2-b" onChange={handlePaper2Change} />
+            <input type="radio" id="paper2-q1-b" name="paper2-q1" value="paper2-q1-b" onChange={handlePaper2Change} />
             <label htmlFor="paper2-b"><span className={styles.lgbText}>CRISPR nuclease</span></label><br />
-            <input type="radio" id="paper2-c" name="paper2" value="paper2-c" onChange={handlePaper2Change} />
+            <input type="radio" id="paper2-q1-c" name="paper2-q1" value="paper2-q1-c" onChange={handlePaper2Change} />
             <label htmlFor="paper2-c"><span className={styles.lgbText}>Essential-gene Exon Knock-in</span></label><br /> <br />
 
             <span className={styles.lgbText}><i><b>How did the cargo template designed for knock-in retain essential gene function while integrating the transgene(s) of interest?</b></i></span><br />
-            <input type="radio" id="paper2-a" name="paper2" value="paper2-a" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-a"><span className={styles.lgbText}>By targeting a site within an intron of an essential gene</span></label><br />
-            <input type="radio" id="paper2-b" name="paper2" value="paper2-b" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-b"><span className={styles.lgbText}>By targeting a site within an exon of an essential gene</span></label><br />
-            <input type="radio" id="paper2-c" name="paper2" value="paper2-c" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-c"><span className={styles.lgbText}>By targeting a site within a promoter region of an essential gene</span></label><br /> <br />
+            <input type="radio" id="paper2-q2-a" name="paper2-q2" value="paper2-q2-a" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-d"><span className={styles.lgbText}>By targeting a site within an intron of an essential gene</span></label><br />
+            <input type="radio" id="paper2-q2-b" name="paper2-q2" value="paper2-q2-b" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-e"><span className={styles.lgbText}>By targeting a site within an exon of an essential gene</span></label><br />
+            <input type="radio" id="paper2-q2-c" name="paper2-q2" value="paper2-q2-c" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-f"><span className={styles.lgbText}>By targeting a site within a promoter region of an essential gene</span></label><br /> <br />
           </Typography>
         </div>
       )}
@@ -154,22 +182,22 @@ export default function TakeQuiz() {
 
       {showPaper3 === 'true' && (
         <div className={styles.quizHellYa}>
-          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}><b>What is the focus of this study on drug lag, and why are emerging markets relevant?</b></span><br />
-            <input type="radio" id="" name="paper3" value="paper3-a" onChange={handlePaper3Change} />
-            <label htmlFor="paper3-a"><span className={styles.lgbText}>Focus: Investigate drug lag in emerging markets</span></label><br />
-            <input type="radio" id="paper3-b" name="paper3" value="paper3-b" onChange={handlePaper3Change} />
-            <label htmlFor="paper3-b"><span className={styles.lgbText}>Relevance: Emerging markets have potential for the future of pharmaceutical industry due to rapid economic and political development.</span></label><br /> <br />
-            
-            <span className={styles.lgbText}><b>How was drug lag calculated in this study?</b></span><br />
-            <input type="radio" id="  " name="paper3" value="paper3-a" onChange={handlePaper3Change} />
-            <label htmlFor="paper3-a"><span className={styles.lgbText}>Using date of marketing authorization (MA) approval by the US FDA as reference point, and comparing against company database of emerging market approvals.</span></label><br />
-            <input type="radio" id="paper3-b" name="paper3" value="paper3-b" onChange={handlePaper3Change} />
-            <label htmlFor="paper3-b"><span className={styles.lgbText}>Using date of MA approval by the EMA as reference point and comparing against emerging market database.</span></label><br />
-            <input type="radio" id="" name="paper3" value="paper3-c" onChange={handlePaper3Change} /> 
-            <label htmlFor="paper3-c"><span className={styles.lgbText}>Using date of MA approval by the WHO as reference point and comparing against global database.</span></label> <br /> <br />
-          </Typography>
-        </div>
+        <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+          <span className={styles.lgbText}><b>Are emerging markets relevant for new pharmaceutical drugs?</b></span><br />
+          <input type="radio" id="paper3-q1-a" name="paper3-q1" value="paper3-q1-a" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-a"><span className={styles.lgbText}>The study is focused on the global market as a whole, without distinction between mature and emerging markets.</span></label><br />
+          <input type="radio" id="paper3-q1-b" name="paper3-q1" value="paper3-q1-b" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-b"><span className={styles.lgbText}>Emerging markets have potential for the future of pharmaceutical industry due to their rapid economic development.</span></label><br /> <br />
+      
+          <span className={styles.lgbText}><b>How was drug lag calculated in this study?</b></span><br />
+          <input type="radio" id="paper3-q2-a" name="paper3-q2" value="paper3-q2-a" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-c"><span className={styles.lgbText}>Using date of marketing authorization (MA) approval by the US FDA as reference point, and comparing against company database of emerging market approvals.</span></label><br />
+          <input type="radio" id="paper3-q2-b" name="paper3-q2" value="paper3-q2-b" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>Using date of MA approval by the EMA as reference point and comparing against emerging market database.</span></label><br />
+          <input type="radio" id="paper3-q2-c" name="paper3-q2" value="paper3-q2-c" onChange={handlePaper3Change} /> 
+          <label htmlFor="paper3-e"><span className={styles.lgbText}>Using date of MA approval by the WHO as reference point and comparing against global database.</span></label> <br /> <br />
+        </Typography>
+      </div>
       )} 
 
       <br />
