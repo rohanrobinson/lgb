@@ -128,6 +128,8 @@ export default function TakeQuiz() {
         </Toolbar>
       </AppBar>
 
+      <br />
+
       {showPaper1 === 'true' && (
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
@@ -203,7 +205,7 @@ export default function TakeQuiz() {
       {showScore && totalCorrect > 0 &&(
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}>Great job on reading new & hard material completing the quiz!< br />
+            <span className={styles.lgbText}>Great job on reading new & hard material!< br />
             You got {totalCorrect} correct out of {totalQuestions}!</span> <br />
 
             <br />
