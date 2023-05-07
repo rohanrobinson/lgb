@@ -123,14 +123,10 @@ export default function TakeQuiz() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            LGB 🧬
+            LGB - Quiz 🧬 Good Luck! 🍀
           </Typography>
         </Toolbar>
       </AppBar>
-
-      <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-       <span className={styles.lgbDescription}>Good luck on the Quiz! 😊</span>
-      </Typography>
 
       {showPaper1 === 'true' && (
       <div className={styles.quizHellYa}>
