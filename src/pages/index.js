@@ -4,7 +4,6 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function Home() {
 
-
   return (
     <Box sx={{ 
       display: 'flex', 
@@ -38,29 +37,42 @@ export default function Home() {
         </Typography>
       </div>
 
-
+      <br />
+  
       <Box sx={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        gap: 3 
-      }}>
-            <Button 
+              display: 'flex', 
+              flexDirection: 'row', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: 3 
+              }}>
+          <Button 
               variant="contained" 
               color="secondary" 
               size="large" 
               href="/select-paper"
               sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-            >
+          >
               Get Started
-            </Button>
+          </Button>
 
-            <Typography variant="body1" sx={{ mb: 4 }}>
-                (no need to provide email or create an account) <br/>
-            </Typography>
-      </Box>
-    </Box>
+          <Button 
+              variant="contained" 
+              color="secondary" 
+              size="large" 
+              href="/about-us"
+              sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+          >
+              About Us
+          </Button>
+  </Box>
+    
+  <br />
+
+  <Typography variant="body1" sx={{ mb: 4 }}>
+        (no need to provide email or create an account) <br/>
+  </Typography>
+</Box>
   );
 }
 
