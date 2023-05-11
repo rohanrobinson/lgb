@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function AboutUs() {
 
     const goBackHome = () => {
-        window.location.href = "http://localhost:3000";
+        window.location.href = "http://letsgobiotech.com";
     }
  
   return (
