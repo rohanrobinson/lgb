@@ -1,5 +1,9 @@
-  /* Center content */
+
   @media only screen and (max-width: 800px) {
+    .selectPaperHeader {
+      font-size: 1.25rem;
+    }
+
     .lgbDescription {
       font-size: 1rem;
     }
@@ -10,7 +14,7 @@
       font-size: 0.75rem;
     }
     .abstractText {
-        font-size: 12px; 
+      font-size: 12px; 
     }
   } 
   
