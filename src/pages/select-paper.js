@@ -93,7 +93,7 @@ export default function SelectPaper() {
               mt: 10,
             }}>
               <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-                Select a curated paper below by clicking on its name!
+                <span className={styles.selectPaperHeader}>Click on a curated paper below!</span>
               </Typography> 
 
               <Box sx={{ 
