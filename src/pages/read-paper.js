@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Box, AppBar, Toolbar, Typography, Button, Card, CardContent } from '@mui/material';
 
 
 
@@ -40,7 +40,7 @@ export default function ReadPaper() {
     </AppBar>
 
     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-      <span className={styles.lgbDescription}>Read the Abstract for the Paper you chose and take a Quiz when you're ready!</span>
+      <span className={styles.lgbDescription}>Read the Abstract for the Paper you chose and Take a Quiz when you're Ready!</span>
     </Typography>
     
 
@@ -53,35 +53,47 @@ export default function ReadPaper() {
      )}
       <div>
 
-      {showPaper1 === 'true' && (
-        <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span></p> 
-          <p className={styles.abstractText}><b>{paperAbstract1}</b></p>
-          <hr></hr>
-        </div>
-      )}
+        {/* { === 'true' && (
+          <div className={styles.abstractDisplay}>
+            <p><span className={styles.lgbDescription}>Abstract</span></p> 
+            <p className={styles.abstractText}><b>{paperAbstract1}</b></p>
+            <hr></hr>
+          </div>
+        )} */}
 
-      {showPaper2 === 'true' && (
-        <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span></p>
-          <p className={styles.abstractText}><b>{paperAbstract2}</b></p>
-          <hr></hr>
-        </div>
-      )}
+        {showPaper1 === 'true' && (
+          <Card className={styles.abstractDisplay}>
+            <CardContent>
+              <Typography variant="h5" component="div">Abstract</Typography>
+              <Typography variant="body2" color="text.secondary">
+                {paperAbstract1}
+              </Typography>
+            </CardContent>
+          </Card>
+        )}
 
-      {showPaper3 === 'true' && (
-        <div className={styles.abstractDisplay}>
-          <p><span className={styles.lgbDescription}>Abstract</span></p> 
-          <p className={styles.abstractText}><b>{paperAbstract3}</b></p>
-          <hr></hr>
-        </div>
-      )}
+        {showPaper2 === 'true' && (
+          <div className={styles.abstractDisplay}>
+            <p><span className={styles.lgbDescription}>Abstract</span></p>
+            <p className={styles.abstractText}><b>{paperAbstract2}</b></p>
+            <hr></hr>
+          </div>
+        )}
+
+        {showPaper3 === 'true' && (
+          <div className={styles.abstractDisplay}>
+            <p><span className={styles.lgbDescription}>Abstract</span></p> 
+            <p className={styles.abstractText}><b>{paperAbstract3}</b></p>
+            <hr></hr>
+          </div>
+        )}
+
     </div>
 
     <br />
 
 
-      <Link 
+      {/* <Link 
           className={styles.greenSquare}
           href={{
           pathname: '/take-quiz',
@@ -94,7 +106,21 @@ export default function ReadPaper() {
       <Typography variant="body1" sx={{ mb: 1.5 }}>
           <b>Take Quiz</b>
       </Typography>
+        </Link> */}
+
+        <Link
+            className={styles.greenSquare} 
+            href={{
+                pathname: '/take-quiz',
+                query: {
+                  showPaper1: showPaper1,
+                  showPaper2: showPaper2,
+                  showPaper3: showPaper3
+                }
+            }}>
+            <h2>Take Quiz</h2>
         </Link>
+
    
 
         <a href="/select-paper">

@@ -30,6 +30,18 @@
     text-align: center;
   } 
 
+  .abstractDisplay {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;  /* light grey color for the background */
+    border-radius: 10px; /* rounded corners */
+  }
+
+  .lgbDescription {
+    margin-top: 70px;
+  }
+
   .quizHellYa {
     font-size: 25px;
   }
@@ -68,12 +80,16 @@
   .greenSquare {
         display: inline-block;
         padding: 1rem;
-        background-color: #F5DEB3;
+        display: inline-block;
+        padding: 10px 20px;
         color: white;
-        font-weight: bold;
-        border-radius: 0.25rem;
-        text-align: center;
-        text-decoration: none;
+        background-color: #F5DEB3; /* green background color */
+        border-radius: 5px;
+        text-decoration: none; /* remove underline from link */
+  }
+
+  .greenSquare:hover {
+    background-color: tan; /* darker green when hovering over the button */
   }
 
   .finishQuiz {
