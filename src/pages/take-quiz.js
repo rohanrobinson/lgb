@@ -130,6 +130,19 @@ export default function TakeQuiz() {
 
       <br />
 
+      <Link
+            className={styles.greenSquare} 
+            href={{
+                pathname: '/read-paper',
+                query: {
+                  showPaper1: showPaper1,
+                  showPaper2: showPaper2,
+                  showPaper3: showPaper3
+                }
+            }}>
+            <h2><span className={styles.lgbText}>Read Abstract Again</span></h2>
+        </Link>
+
       {showPaper1 === 'true' && (
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
