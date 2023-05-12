@@ -26,7 +26,7 @@ export default function AboutUs() {
 
       <div className={styles.lgbInfo}>
         <Typography variant="h1" sx={{ mb: 4 }}>
-        <b><span className={styles.lgbHeader}>🧬 Let's Go Biotech - About Us 🚀</span></b> 
+        <b><span className={styles.lgbHeader}>🧬 Why does Let's Go Biotech Exist? 🚀</span></b> 
         </Typography>
 
       <Box sx={{ 
@@ -37,19 +37,13 @@ export default function AboutUs() {
         gap: 3 
                 }}>
 
-      <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-          <span>
-            "The imagination of nature is far, far greater than the imagination of man." -Richard Feynman, Kickass Physicist
-          </span> 
-          
-          <br />
-          <br />
-          
-          <span>WHY DOES LETS GO BIOTECH EXIST. WELL, PEOPLE ARE DYING FROM PREVENTABLE DISEASE, THIS BEAUTIFUL GEM OF A PLANET WE'RE 
-            ON IS GETTING WAY TOO HOT HOT HOT, AND THE WAY WE GROW AND GET FOOD TO PEOPLE IS NOT IDEAL. 
-            THAT'S WHY WE'VE FEATURED KICKASS PAPERS HERE ON LETS GO BIOTECH THAT YOU CAN ENGAGE WITH IN A FUN WAY!
-            BY UNDERSTANDING BIOLOGY WE CAN USE NATURE'S TOOLS TO SOLVE NECESSARY PROBLEMS! LET'S GET TO WORK!
-          </span>     
+      <Typography  variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
+                <span className={styles.lgbDescription}> 
+                  "The imagination of nature is far, far greater than the imagination of man." -Richard Feynman
+                  Disease still exists. Climate Change is still real. People around the globe still need food.
+                  Innovation in biotechnology is the way, we need better medicines, better batteries, better fertilizers, etc.
+                  Let's Go Biotech aims to educate and inspire you to use the tool of biology to tackle important problems.
+                </span>
       </Typography> 
 
 
