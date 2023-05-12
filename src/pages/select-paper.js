@@ -89,10 +89,11 @@ export default function SelectPaper() {
               alignItems: 'center', 
               justifyContent: 'center', 
               gap: 3,
-              p: 3,
+              p: 5,
+              mt: 10,
             }}>
               <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-                Below in bold are 3 papers curated for this week. Select a paper by clicking on its name!
+                Select a curated paper below by clicking on its name!
               </Typography> 
 
               <Box sx={{ 

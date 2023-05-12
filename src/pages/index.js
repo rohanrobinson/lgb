@@ -33,8 +33,8 @@ export default function Home() {
           flexDirection: 'column', 
           alignItems: 'center', 
           justifyContent: 'center', 
-          gap: 2,
-          mt: 8,
+          gap: 1,
+          mt: 4,
         }}>
           <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
             <b><span className={styles.lgbHeader}>🧬 Let's Go Biotech 🚀</span></b> 
