@@ -27,6 +27,12 @@ export default function TakeQuiz() {
   const [paper3Q1Value, setPaper3Q1Value] = useState('');
   const [paper3Q2Value, setPaper3Q2Value] = useState(' ');
 
+  const goHome = () => {
+    window.location.href = "http://letsgobiotech.com"; 
+  }
+
+
+
   // handle paper 1 change 
   const handlePaper1Change = (event) => {
     const { name, value } = event.target;
@@ -122,7 +128,7 @@ export default function TakeQuiz() {
 
       <AppBar position="fixed" color="secondary">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
             LGB - Quiz 🧬 Good Luck! 🍀
           </Typography>
         </Toolbar>
