@@ -12,7 +12,7 @@ export default function PastPapers() {
   }
 
   const goHome = () => {
-    window.location.href = "http://letsgobiotech.com/past-papers"; 
+    window.location.href = "http://letsgobiotech.com/"; 
   }
 
   return (
