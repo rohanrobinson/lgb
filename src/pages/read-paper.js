@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Box, AppBar, Toolbar, Typography, Button, Card, CardContent } from '@mui/material';
 
-
-
 export default function ReadPaper() {
 
  const router = useRouter();
@@ -14,13 +12,13 @@ export default function ReadPaper() {
  const showPaper3 = router.query.showPaper3;
 
  //Paper 2
- const paperAbstract2 = "Inefficient knock-in of transgene cargos limits the potential of cell-based medicines. In this study, we used a CRISPR nuclease that targets a site within an exon of an essential gene and designed a cargo template so that correct knock-in would retain essential gene function while also integrating the transgene(s) of interest. Cells with non-productive insertions and deletions would undergo negative selection. This technology, called SLEEK (SeLection by Essential-gene Exon Knock-in), achieved knock-in efficiencies of more than 90% in clinically relevant cell types without impacting long-term viability or expansion";
+ const paperAbstract2 = "The rate of scientific innovation appears to be slowing down: despite immense investments, the proportion of individual projects that push science in new directions by breaking with previous understanding has decreased since the 1950s. Some observers have attributed these diminishing returns to the notion that fewer fundamental discoveries remain to be made. But a compelling case can be made for another factor: that the culture of science has gradually transitioned toward a more executive and results-oriented approach. In this fast-paced mode, scientists and scientists-in-training — graduate students and postdoctoral fellows — have little time for more exploratory topics, which contributes to a less creative environment for transformative science. This trend may have been fortified by science becoming increasingly entrenched into siloed disciplines and by projects being progressively dominated by hypothesis-driven approaches, fueled by a spirit of strategic design that emphasizes predictability rather than unexpected results.";
  
  // Paper 1
- const paperAbstract1 = "The first gene therapies for tackling heart failure are making progress in the clinic. Rocket Pharmaceuticals aims shortly to start a pivotal phase 2 study of a gene therapy for patients with Danon disease, an X-linked dominant disorder that causes progressive heart failure and death in early adulthood. If successful, the trial will encourage a slew of developers of genetic medicines to believe that arresting or even reversing progressive heart failure is feasible in different disease settings.";
+ const paperAbstract1 = "Xenotransplantation research marked a singular milestone last year with the first human transplants of kidneys and a heart from genetically engineered pigs. The genetic modifications were designed to improve transplantation outcomes by lessening immune rejection, controlling organ size and regulating complement, coagulation and inflammation. These pioneering surgeries were motivated by deficiencies of the current donor organ system, which have led to long waiting lists for organs and the deaths of thousands of patients in need of organs each year. Pig kidneys were transplanted into three brain-dead recipients — one at Legacy of Hope, University of Alabama at Birmingham and two at New York University Langone Hospital. A pig heart was transplanted into a living recipient at University of Maryland School of Medicine.";
  
  // Paper 3
- const paperAbstract3 = "There have been numerous investigations targeted at identifying whether a drug lag exists in the mature markets of the US, EU and Japan. This work focuses on the emerging markets because of the potential they hold for the future of the pharmaceutical industry as a consequence of rapid economic and political development. The aims of this work are to ascertain whether a drug lag exists in the emerging markets and how it has changed over time from the 1960s to the 2000s. It will also highlight key regulatory barriers which may contribute to drug lag.The date of the marketing authorisation (MA) approval by the US Food and Drug Administration (FDA) was used as a reference point. A comparison against the company database regarding emerging market specific approval enabled the difference in time and thus the drug lag for that particular market to be calculated. This work concludes that the overall relative drug lag in the emerging markets has decreased over time and that there are seven key regulatory barriers which need to be targeted in order to make further improvements; ‘Western Approval’, local clinical development (LCD), Certificate of Pharmaceutical Product (CPP), Good Manufacturing Practice (GMP), pricing approval, document authentication and harmonisation.";
+ const paperAbstract3 = "Nano-tRNAseq is a nanopore-based, cost-effective and high-throughput approach to quantify transfer RNA (tRNA) abundances and modifications simultaneously, providing a framework to study the ‘tRNAome’ at single-molecule resolution. We envision that Nano-tRNAseq will enable us to study the role of tRNA molecules and their modifications in a wide variety of contexts.";
 
 
  return (
@@ -40,7 +38,7 @@ export default function ReadPaper() {
     </AppBar>
 
     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-      <span className={styles.lgbDescription}>Read the Abstract for the Paper you chose and Take a Quiz when you're Ready!</span>
+      <span className={styles.readPaperHeader}><b>Enjoy Reading the Abstract</b></span>
     </Typography>
     
 
@@ -53,39 +51,45 @@ export default function ReadPaper() {
      )}
       <div>
 
-        {/* { === 'true' && (
-          <div className={styles.abstractDisplay}>
-            <p><span className={styles.lgbDescription}>Abstract</span></p> 
-            <p className={styles.abstractText}><b>{paperAbstract1}</b></p>
-            <hr></hr>
-          </div>
-        )} */}
-
         {showPaper1 === 'true' && (
           <Card className={styles.abstractDisplay}>
             <CardContent>
-              <Typography variant="h5" component="div">Abstract</Typography>
               <Typography variant="body2" color="text.secondary">
                 {paperAbstract1}
               </Typography>
+            </CardContent>
+            <CardContent>
+              <a href="https://www.nature.com/articles/s41587-023-01730-x" target="_blank">Read Full Paper</a>
             </CardContent>
           </Card>
         )}
 
         {showPaper2 === 'true' && (
-          <div className={styles.abstractDisplay}>
-            <p><span className={styles.lgbDescription}>Abstract</span></p>
-            <p className={styles.abstractText}><b>{paperAbstract2}</b></p>
-            <hr></hr>
-          </div>
+          <Card className={styles.abstractDisplay}>
+          <CardContent>
+            <Typography variant="h5" component="div">Abstract</Typography>
+            <Typography variant="body2" color="text.secondary">
+              {paperAbstract2}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <a href="https://www.nature.com/articles/s41587-023-01736-5" target="_blank">Read Full Paper</a>
+          </CardContent>
+        </Card>
         )}
 
         {showPaper3 === 'true' && (
-          <div className={styles.abstractDisplay}>
-            <p><span className={styles.lgbDescription}>Abstract</span></p> 
-            <p className={styles.abstractText}><b>{paperAbstract3}</b></p>
-            <hr></hr>
-          </div>
+          <Card className={styles.abstractDisplay}>
+          <CardContent>
+            <Typography variant="h5" component="div">Abstract</Typography>
+            <Typography variant="body2" color="text.secondary">
+              {paperAbstract3}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <a href="https://www.nature.com/articles/s41587-023-01755-2" target="_blank">Read Full Paper</a>
+          </CardContent>
+        </Card>
         )}
 
     </div>
