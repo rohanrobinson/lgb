@@ -1,6 +1,6 @@
 
   @media only screen and (max-width: 800px) {
-    .selectPaperHeader {
+    .selectPaperHeader, .readPaperHeader {
       font-size: 1.25rem;
     }
 
