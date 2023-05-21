@@ -17,6 +17,10 @@ export default function SelectPaper() {
     window.location.href = "http://letsgobiotech.com/past-papers";
   }
 
+  const goHome = () => {
+    window.location.href = "http://letsgobiotech.com/";
+  }
+
   const paperSelected = (event, paperNum) => {
     if (paperNum === "paper1" && numSelected === 0) {
         setNumSelected(1);
@@ -73,7 +77,7 @@ export default function SelectPaper() {
 
      <AppBar position="fixed" color="secondary">
       <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
           🧬 LGB 
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>

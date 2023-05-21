@@ -11,6 +11,10 @@ export default function PastPapers() {
     window.location.href = "http://letsgobiotech.com/select-paper";
   }
 
+  const goHome = () => {
+    window.location.href = "http://letsgobiotech.com/past-papers"; 
+  }
+
   return (
     <Box sx={{ 
       display: 'flex', 
@@ -26,7 +30,7 @@ export default function PastPapers() {
 
       <AppBar position="fixed" color="secondary">
         <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
             🧬 LGB 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0}} className={styles.cursorPointer} onClick={seeCurrentPapers}>
