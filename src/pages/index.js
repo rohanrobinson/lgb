@@ -59,13 +59,13 @@ export default function Home() {
             variant="contained" 
             color="secondary" 
             size="large" 
-            href="/select-paper"
+            href="https://ym88ydhxs92.typeform.com/to/VXSpY1Wo"
             sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
           >
             Get Started
           </Button>
       
-          <Button 
+          {/* <Button 
             variant="contained" 
             color="secondary" 
             size="large" 
@@ -73,7 +73,7 @@ export default function Home() {
             sx={{ fontWeight: 'bold', fontSize: ' 24px', padding: '25px 35px', }}
             >
               About Us
-            </Button>
+            </Button> */}
           </Box>
         
           <Typography variant="body1" sx={{ mb: 4, textAlign: 'center', mt: 3 }}>
