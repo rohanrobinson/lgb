@@ -57,7 +57,7 @@ export default function Home() {
         }}>
           <Button 
             variant="contained" 
-            color="primary" 
+            color="success" 
             size="large" 
             href="/select-paper"
             sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
