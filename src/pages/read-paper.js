@@ -62,9 +62,6 @@ export default function ReadPaper() {
                 {paperAbstract1}
               </Typography>
             </CardContent>
-            <CardContent>
-              <a href="https://www.nature.com/articles/s41587-023-01730-x" target="_blank">Read Full Paper</a>
-            </CardContent>
           </Card>
         )}
 
@@ -76,10 +73,7 @@ export default function ReadPaper() {
               {paperAbstract2}
             </Typography>
           </CardContent>
-          <CardContent>
-            <a href="https://www.nature.com/articles/s41587-023-01736-5" target="_blank">Read Full Paper</a>
-          </CardContent>
-        </Card>
+          </Card>
         )}
 
         {showPaper3 === 'true' && (
@@ -91,7 +85,6 @@ export default function ReadPaper() {
             </Typography>
           </CardContent>
           <CardContent>
-            <a href="https://www.nature.com/articles/s41587-023-01755-2" target="_blank">Read Full Paper</a>
           </CardContent>
         </Card>
         )}

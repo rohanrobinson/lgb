@@ -115,7 +115,24 @@ export default function SelectPaper() {
                 { showPaper1 ?
                     (<div className={styles.item} value="paper1" onClick={(event) => paperUnselected(event, "paper1")}>
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                      <b><i><span className={styles.lgbDescription}>You've selected &rarr; Xenotransplantation: how close are we? </span></i></b> &nbsp;
+                      <b><i>
+                        <span className={styles.lgbDescription}> Xenotransplantation: how close are we? </span>
+                        </i></b> &nbsp;
+                        
+                          <br />
+
+                          <Link 
+                             className={styles.greenSquare}
+                              href={{
+                                 pathname: '/read-paper',
+                                 query: {
+                                    showPaper1: showPaper1,
+                                    showPaper2: showPaper2,
+                                    showPaper3: showPaper3
+                                  }
+                                }}>
+                      <h2>Read Selected Paper</h2>
+                          </Link>
                     </Typography> 
                     </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
@@ -129,7 +146,22 @@ export default function SelectPaper() {
                   { showPaper2 ? 
                     (<div className={styles.item} value="paper2" onClick={(event) => paperUnselected(event, "paper2")}>
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                      <b><i><span className={styles.lgbDescription}>You've selected &rarr; Make science disruptive again</span></i></b> &nbsp;
+                      <b><i><span className={styles.lgbDescription}> Make science disruptive again</span></i></b> &nbsp;
+
+                      <br />
+
+                      <Link 
+                             className={styles.greenSquare}
+                              href={{
+                                 pathname: '/read-paper',
+                                 query: {
+                                    showPaper1: showPaper1,
+                                    showPaper2: showPaper2,
+                                    showPaper3: showPaper3
+                                  }
+                                }}>
+                       <h2>Read Selected Paper</h2>
+                          </Link>
                     </Typography> 
                     </div>) : (<div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
@@ -142,7 +174,23 @@ export default function SelectPaper() {
 
                   { showPaper3 ? (<div className={styles.item} value="paper3" onClick={(event) => paperUnselected(event, "paper3")}>
                       <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                          <b><i><span className={styles.lgbDescription}>You've selected &rarr; Exploring tRNA modification</span></i></b> &nbsp;
+                          <b><i><span className={styles.lgbDescription}> Exploring tRNA modification</span></i></b> &nbsp;
+
+
+                          <br />
+
+                          <Link 
+                             className={styles.greenSquare}
+                              href={{
+                                 pathname: '/read-paper',
+                                 query: {
+                                    showPaper1: showPaper1,
+                                    showPaper2: showPaper2,
+                                    showPaper3: showPaper3
+                                  }
+                                }}>
+                         <h2>Read Selected Paper</h2>
+                          </Link>
                       </Typography>
                     </div>) : (<div className={styles.item} value="paper3" onClick={(event) => paperSelected(event, "paper3")}>
                       <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
@@ -151,19 +199,6 @@ export default function SelectPaper() {
                     </div>)}
               </Box>
  
-        <Link 
-          className={styles.greenSquare}
-          href={{
-          pathname: '/read-paper',
-          query: {
-            showPaper1: showPaper1,
-            showPaper2: showPaper2,
-            showPaper3: showPaper3
-          }
-        }}>
-          <h2>Read Selected Paper</h2>
-        </Link>
-
         <a href="/">
           <h2 style={{ fontSize: '3rem' }}>🏠 &larr; </h2>
         </a>
