@@ -129,7 +129,7 @@ export default function TakeQuiz() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-            LGB - Quiz 🧬 Good Luck! 🍀
+            Let's Go Biotech 🧬
           </Typography>
         </Toolbar>
       </AppBar>

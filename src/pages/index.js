@@ -5,6 +5,10 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function Home() {
 
+    const seeAboutUs = () => {
+        window.location.href = "http://letsgobiotech.com/about-us";
+    }
+
     return(
       <Box sx={{ 
         display: 'flex', 
@@ -23,7 +27,10 @@ export default function Home() {
         <AppBar position="fixed" color="secondary">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              LGB 🧬
+              Let's Go Biotech 🧬
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seeAboutUs}>
+              About Us 🚀
             </Typography>
           </Toolbar>
         </AppBar>
@@ -37,13 +44,10 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>🧬 Let's Go Biotech 🚀</span></b> 
-          </Typography>
-          <Typography variant="h4" sx={{ fontStyle: 'italic', mb: 2, textAlign: 'center' }}>
-            <span className={styles.lgbDescription}>Interested in cool sci-fi concepts like CRISPR, neural interfaces, and STEM cells? </span>
+            <b><span className={styles.lgbHeader}> Free Biotech Papers and Quizzes</span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
-            <span className={styles.lgbDescription}>Learn biotech through engaging papers and quizzes!</span>
+            <span className={styles.lgbDescription}>Read the latest papers in the field, test your skills, and level up!</span>
           </Typography>
         </Box>
       
@@ -65,7 +69,7 @@ export default function Home() {
             Get Started
           </Button>
       
-          <Button 
+          {/* <Button 
             variant="contained" 
             color="secondary" 
             size="large" 
@@ -73,12 +77,26 @@ export default function Home() {
             sx={{ fontWeight: 'bold', fontSize: ' 24px', padding: '25px 35px', }}
             >
               About Us
-            </Button>
+            </Button> */}
           </Box>
         
-          <Typography variant="body1" sx={{ mb: 4, textAlign: 'center', mt: 3 }}>
+          <Typography variant="body1" sx={{ mb: 5, textAlign: 'center', mt: 3 }}>
             (no need to provide email or create an account) <br/>
           </Typography>
+
+          <Typography variant="h3" sx={{ mb: 4, textAlign: 'center' }}>
+            <b><span className={styles.lgbDescription}>It's 2023, Biotechnology is taking off. We saved a spot for you on the rocket.</span></b> 
+          </Typography>
+
+          <Button 
+            variant="contained" 
+            color="success" 
+            size="large" 
+            href="/select-paper"
+            sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+          >
+            Strap In 
+          </Button>
         </Box>
     );
 }

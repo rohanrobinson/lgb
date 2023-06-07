@@ -78,7 +78,7 @@ export default function SelectPaper() {
      <AppBar position="fixed" color="secondary">
       <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-          🧬 LGB 
+           Let's Go Biotech 🧬
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
               See Past Papers 🚀
@@ -97,7 +97,7 @@ export default function SelectPaper() {
               mt: 10,
             }}>
               <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-                <span className={styles.selectPaperHeader}><b>Click On a Curated Paper Below!</b></span>
+                <span className={styles.selectPaperHeader}><b>Click On a Paper Below!</b></span>
               </Typography> 
 
               <Box sx={{ 
