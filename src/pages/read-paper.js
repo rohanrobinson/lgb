@@ -15,6 +15,10 @@ export default function ReadPaper() {
   window.location.href = "http://letsgobiotech.com/";
  }
 
+ const seeAboutUs = () => {
+  window.location.href= "http://letsgobiotech.com/about-us";
+ }
+
  //Paper 2
  const paperAbstract2 = "The rate of scientific innovation appears to be slowing down: despite immense investments, the proportion of individual projects that push science in new directions by breaking with previous understanding has decreased since the 1950s. Some observers have attributed these diminishing returns to the notion that fewer fundamental discoveries remain to be made. But a compelling case can be made for another factor: that the culture of science has gradually transitioned toward a more executive and results-oriented approach. In this fast-paced mode, scientists and scientists-in-training — graduate students and postdoctoral fellows — have little time for more exploratory topics, which contributes to a less creative environment for transformative science. This trend may have been fortified by science becoming increasingly entrenched into siloed disciplines and by projects being progressively dominated by hypothesis-driven approaches, fueled by a spirit of strategic design that emphasizes predictability rather than unexpected results.";
  
@@ -36,7 +40,7 @@ export default function ReadPaper() {
      <AppBar position="fixed" color="secondary">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-          LGB 🧬
+          Let's Go Biotech 🧬
         </Typography>
       </Toolbar>
     </AppBar>
