@@ -44,7 +44,7 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}> Free Biotech Papers and Quizzes</span></b> 
+            <b><span className={styles.lgbHeader}>Expand your Biotechnology Knowledge  🚀 </span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
             <span className={styles.lgbDescription}>Read the latest papers in the field, test your skills, and level up!</span>
@@ -83,20 +83,6 @@ export default function Home() {
           <Typography variant="body1" sx={{ mb: 5, textAlign: 'center', mt: 3 }}>
             (no need to provide email or create an account) <br/>
           </Typography>
-
-          <Typography variant="h3" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbDescription}>It's 2023, Biotechnology is taking off. We saved a spot for you on the rocket.</span></b> 
-          </Typography>
-
-          <Button 
-            variant="contained" 
-            color="success" 
-            size="large" 
-            href="/select-paper"
-            sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-          >
-            Strap In 
-          </Button>
         </Box>
     );
 }
