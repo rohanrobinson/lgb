@@ -27,10 +27,10 @@ export default function Home() {
         <AppBar position="fixed" color="secondary">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Let's Go Biotech 🧬
+             Let's Go Biotech 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seeAboutUs}>
-              About Us 🚀
+              About 
             </Typography>
           </Toolbar>
         </AppBar>
@@ -44,10 +44,10 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>Expand your Biotechnology Knowledge  🚀 </span></b> 
+            <b><span className={styles.lgbHeader}> Keep up with the latest Biotechnology Research  </span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
-            <span className={styles.lgbDescription}>Read the latest papers in the field, test your skills, and level up!</span>
+            <span className={styles.lgbDescription}>Read some papers and take a short quiz</span>
           </Typography>
         </Box>
       
@@ -58,7 +58,7 @@ export default function Home() {
           justifyContent: 'center', 
           gap: 3,
           mt: 3,
-        }}>
+            }}>
           <Button 
             variant="contained" 
             color="success" 
@@ -69,16 +69,7 @@ export default function Home() {
             Get Started
           </Button>
       
-          {/* <Button 
-            variant="contained" 
-            color="secondary" 
-            size="large" 
-            href="/about-us"
-            sx={{ fontWeight: 'bold', fontSize: ' 24px', padding: '25px 35px', }}
-            >
-              About Us
-            </Button> */}
-          </Box>
+        </Box>
         
           <Typography variant="body1" sx={{ mb: 5, textAlign: 'center', mt: 3 }}>
             (no need to provide email or create an account) <br/>
