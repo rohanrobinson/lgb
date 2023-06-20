@@ -1,84 +1,156 @@
-import Head from 'next/head';
+﻿import Head from 'next/head';
+import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Box, AppBar, Toolbar, useTheme, Typography, Button, IconButton, ThemeProvider} from '@mui/material';
+import { IBM_Plex_Mono } from 'next/font/google';
+import { Rubik_Mono_One } from 'next/font/google';
+import React, { useState } from "react";
+import { black } from "material-ui-colors";
+import {createTheme } from '@mui/material/styles'
 
 
+const newfont = Rubik_Mono_One(
+    {
+        font: 'Rubik Mono',
+        subsets: ['latin'],
+        weight: '400'
+    }
+)
+
+const inter = IBM_Plex_Mono({ subsets: ['latin'], weight: '700' });
+const theme = createTheme({
+    palette: {
+        background: {
+            primary: {
+                main: black,
+            }
+        },
+    },
+});
 export default function Home() {
+    
+    return (
+        <ThemeProvider theme={theme}>
+            <Box sx={{ display: 'flex', bgcolor: 'primary.main' }}>
+            
+            
+                <div className={styles.menu1} style={{ background: '#F3F3F3' }}>
+                    <div className={styles.welcomeText}> Let's Go BioTech
+                        </div>
+                </div>
+                <div className={styles.menu2} style={{ background: '#F3F3F3' }}>
+                    <Button
+                        variant="text"
+                        href="/select-paper"
+                        sx={{ fontWeight: 'bold', fontSize: '16px', color: 'black'}}
+                    >
+                        Get Started
+                    </Button>
+                    <Button
+                        variant="text"
+                        href="/about-us"
+                            sx={{ fontWeight: 'bold', fontSize: '16px', color: 'black' }}
+                    >
+                        About Us
+                    </Button>
 
-    return(
-      <Box sx={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        height: '100vh', 
-        gap: 3,
-        p: 3,
-      }}>
-        <Head>
-          <title>Let's Go Biotech - Home Base</title>
-          <meta name="description" content="created by Rohan Cain Robinson" />
-        </Head>
-      
-        <AppBar position="fixed" color="secondary">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              LGB 🧬
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      
-        <Box sx={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          gap: 1,
-          mt: 4,
-        }}>
-          <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>🧬 Let's Go Biotech 🚀</span></b> 
-          </Typography>
-          <Typography variant="h4" sx={{ fontStyle: 'italic', mb: 2, textAlign: 'center' }}>
-            <span className={styles.lgbDescription}>Interested in cool sci-fi concepts like CRISPR, neural interfaces, and STEM cells? </span>
-          </Typography>
-          <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
-            <span className={styles.lgbDescription}>Learn biotech through engaging papers and quizzes!</span>
-          </Typography>
-        </Box>
-      
-        <Box sx={{ 
-          display: 'flex', 
-          flexDirection: 'row', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          gap: 3,
-          mt: 3,
-        }}>
-          <Button 
-            variant="contained" 
-            color="secondary" 
-            size="large" 
-            href="/select-paper"
-            sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-          >
-            Get Started
-          </Button>
-      
-          <Button 
-            variant="contained" 
-            color="secondary" 
-            size="large" 
-            href="/about-us"
-            sx={{ fontWeight: 'bold', fontSize: ' 24px', padding: '25px 35px', }}
-            >
-              About Us
-            </Button>
-          </Box>
-        
-          <Typography variant="body1" sx={{ mb: 4, textAlign: 'center', mt: 3 }}>
-            (no need to provide email or create an account) <br/>
-          </Typography>
-        </Box>
+
+                </div>
+                <div className={styles.backdrop}></div>
+                    <div className={styles.rightContent} >
+                        <div className={styles.paperOfTheDay }>
+                            Read the Paper of the Day!
+                        </div>
+                    <div className={styles.goArrow}>
+                        <Button
+                            variant="text"
+                            href="/about-us"
+                            sx={{ fontWeight: 'bold', fontSize: '16px', color: 'black' }}
+                        >
+                            <Image src={"/../public/goArrow.png"} width={85} height={85} alt="arrow" />
+                        </Button>
+                        </div>
+                        <div className={styles.divider}>
+                            <Image src={"/../public/Divider.png"} width={1} height={470} alt="arrow" />
+                        </div>
+
+                        <div className={styles.contentBox4Shadow}>
+                        </div>
+                        <div className={styles.contentBox4}>
+                            <div>
+                                And share what you learned with others
+                            </div>
+                        </div>
+
+                        <div className={styles.contentBox3Shadow}>
+                        </div>
+                        <div className={styles.contentBox3}>
+                            <div>
+                                Track your learning progress
+                            </div>
+                        </div>
+                    
+                        <div className={styles.contentBox2Shadow}>
+  
+                        </div>
+                        <div className={styles.contentBox2}>
+                            <div>
+                                Learn biotech through engaging papers and quizzes
+                            </div>
+                        </div>
+                    </div> 
+                
+                    <div className={styles.leftContent} >
+                            <div className={styles.contentBox1Shadow}></div>
+                            <div className={styles.contentBox1}>
+                                <div className={styles.arrow1}>
+                                    <Image src={"/../public/arrow1.png"} width={60} height={60} alt="arrow" />
+                                </div>
+                                <div className={styles.text1}>
+                                    Interested in badass sci-fi shit like CRISPR, neural interfaces, and STEM cells?
+                                    <div className={styles.text2}>
+                                        Let's Go BioTech helps students and researchers exchange new and recent bio-technology findings in a new cooperative way
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                <div className={styles.bottomContentBackground} >
+
+                </div> 
+                
+                <div className={styles.bottomContent} >
+                    <div className={styles.star2}>
+                        <Image src={"/../public/Star2.png"} width={56} height={56} alt="arrow" />
+                    </div>
+                    <div className={styles.star1}>
+                        <Image src={"/../public/Star1.png"} width={73} height={73} alt="arrow" />
+                    </div>
+                    <div className={styles.arrow3}>
+                        <Image src={"/../public/arrow3.png"} width={221} height={75} alt="arrow" />
+                    </div>
+                    <div className={styles.loginBoxShadow}>
+                    </div>
+                    <div className={styles.loginBox}>
+                    
+                        <div className={styles.loginButton}>
+
+                        </div>
+                        <div className={styles.loginButton2}>
+
+                        </div>
+
+                    </div>
+                </div>    
+                
+
+            
+
+                <Typography variant="body1" sx={{ mb: 4, textAlign: 'center', mt: 3 }}>
+                    (no need to provide email or create an account) <br />
+                </Typography>
+            
+            </Box>
+        </ThemeProvider>
     );
 }

@@ -1,5 +1,5 @@
 
-  @media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .selectPaperHeader {
       font-size: 1.25rem;
     }
@@ -16,8 +16,8 @@
     .abstractText {
       font-size: 12px; 
     }
-  } 
-  
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -31,7 +31,6 @@
   } 
 
   .abstractDisplay {
-    font-family: Arial, sans-serif;
     padding: 20px;
     margin-bottom: 20px;
     background-color: #f9f9f9;  /* light grey color for the background */
@@ -52,12 +51,348 @@
 
   .AppBar {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    height: 15%;
   }
-  
+.topRibbon {
+    width: 459px;
+    height: 360px;
+    color: #FFDB58;
+}
+  .welcomeText {
+    top: 10%;
+    position: relative;
+    justify-content: center;
+    font-weight: 300;
+    font-size: 75px;
+    color: #000000;
+    text-align: center;
+  }
+
+.text1 {
+    position: relative;
+    top: 10%;
+    left: 8%;
+    width: 90%;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+}
+
+.text2 {
+    position: relative;
+/*    font-family: mabry, monospace;
+*/    top: 5%;
+    
+    width: 90%;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 40px;
+    color: #000000;
+}
+
+.menu1 {
+    /*box-sizing: border-box;*/
+    border-bottom: 2px solid black;
+    position: fixed;
+    width: 100%;
+    height: 15%;
+    left: 0px;
+    top: 0px;
+    background-color: #FFDB58;
+    z-index: 100;
+    
+}
+.menu2 {
+    
+    box-sizing: border-box;
+    border-bottom: 2px solid black;
+    position: absolute;
+    width: 100%;
+    height: 7%;
+    left: 0px;
+    top: 15%;
+    background: #F3F3F3;
+}
+.rightContent {
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    width: 50%;
+    height: 78%;
+    background-color: #daf5f0;
+    /*overflow-y: auto;*/
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.leftContent {
+    position: absolute;
+    font-size: 20;
+    /*font-family: 'mabry', monospace;*/
+    box-sizing: border-box;
+    left: 0;
+    top: 22%;
+    width: 50%;
+    height: 78%;
+    border-right: 2px solid #000000;
+    background: #d9d9d9;
+    border-radius: 20px;
+}
+.backdrop {
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 22%;
+    width: 100%;
+    height: 78%;
+    background: #000000;
+
+}
+.bottomContent {
+    box-sizing: border-box;
+    position: absolute;
+    /*display: inline-block;*/
+    width: 100%;
+    height: 90%;
+    left: 0;
+    top: 100%;
+    background: #F3F3F3;
+    border-top: 2px solid #000000;
+    border-radius: 20px;
+}
+
+.bottomContentBackground {
+    box-sizing: border-box;
+    position: absolute;
+    /*display: inline-block;*/
+    width: 100%;
+    height: 90%;
+    left: 0;
+    top: 100%;
+    background: #000000;
+    border-top: 2px solid #000000;
+
+}
+
+.group1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.arrow1 {
+    position: absolute;
+    top: 85%;
+    left: 89%;
+}
+
+.loginBox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 15%;
+    top: 30%;
+    background: #d9d9d9;
+    /*background-image: linear-gradient(to bottom right, #FD95C3, #97FCF0 );*/
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.loginBoxShadow {
+    box-sizing: border-box;
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 16%;
+    top: 32%;
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.loginButton {
+    box-sizing: border-box;
+    position: absolute;
+    width: 450px;
+    height: 100px;
+    left: 5%;
+    top: 30%;
+    background: #F3F3F3;
+    border: 3px solid #000000;
+    background-image: linear-gradient(to bottom right, #FD95C3, #ffffff );
+    border-radius: 20px;
+}
+
+.loginButton2 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 450px;
+    height: 100px;
+    left: 5%;
+    top: 65%;
+    background: #F3F3F3;
+    border: 3px solid #000000;
+    background-image: linear-gradient(to bottom right, #FD95C3, #ffffff );
+    border-radius: 20px;
+}
+
+.star1 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    
+}
+
+.star2 {
+    position: absolute;
+    top: 19%;
+    left: 50%;
+}
+
+.arrow3{
+    position: absolute;
+    top: 80%;
+    left: 55%;
+    opacity: 0.5;
+}
+
+.contentBox1 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 8%;
+    width: 84%;
+    height: 80%;
+    top: 10%;
+    background: #daf5f0;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox1Shadow {
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    width: 84%;
+    height: 80%;
+    top: 12%;
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox2 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 8%;
+    width: 34%;
+    height: 15%;
+    top: 10%;
+    background: #F3f3f3;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox2Shadow {
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    width: 34%;
+    height: 15%;
+    top: 12%;
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox3 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 8%;
+    width: 34%;
+    height: 15%;
+    top: 40%;
+    background: #F3f3f3;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox3Shadow {
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    width: 34%;
+    height: 15%;
+    top: 42%;
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox4 {
+    box-sizing: border-box;
+    position: absolute;
+    left: 8%;
+    width: 34%;
+    height: 15%;
+    top: 70%;
+    background: #F3f3f3;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.contentBox4Shadow {
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    width: 34%;
+    height: 15%;
+    top: 72%;
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.divider {
+
+    position: absolute;
+    height: 0px;
+    left: 50%;
+    top: 7%;
+ 
+}
+
+.goArrow{
+    left: 70%;
+    position: absolute;
+    top: 55%;
+}
+.paperOfTheDay {
+    font-size: 27px;
+    position: absolute;
+    left: 60%;
+    top: 30%;
+    width: 30%
+}
+
+.plusSign{
+    position: absolute;
+}
+.doNotClick {
+/*    font-family: myFont, monospace;
+*/    position: absolute;
+    width: 17%;
+    right: 0%;
+}
+
+.getStarted {
+    /*font-family: 'mabry', monospace;*/
+    position: absolute;
+    width: 17%;
+    right: 17%;
+}
   .choosePaper {
     display: inline-block;
     vertical-align: top;
@@ -93,14 +428,14 @@
   }
 
   .finishQuiz {
-        display: inline-block;
-        padding: 1rem;
-        background-color: #F5DEB3;
-        color: white;
-        font-weight: bold;
-        border-radius: 0.25rem;
-        text-align: center;
-        text-decoration: none;
+     display: inline-block;
+     padding: 1rem;
+     background-color: #F5DEB3;
+     color: white;
+     font-weight: bold;
+     border-radius: 0.25rem;
+     text-align: center;
+     text-decoration: none;
   }
 
   .cursorPointer {
@@ -108,8 +443,6 @@
     text-decoration: none;
     color: white;
    }
-
-
 
 
   
