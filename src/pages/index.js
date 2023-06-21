@@ -107,9 +107,9 @@ export default function Home() {
                                     <Image src={"/../public/arrow1.png"} width={60} height={60} alt="arrow" />
                                 </div>
                                 <div className={styles.text1}>
-                                    Interested in badass sci-fi shit like CRISPR, neural interfaces, and STEM cells?
+                                   Do crazy sci-fi ideas like genetic engineering & brain machine interfaces occupy your mind? 
                                     <div className={styles.text2}>
-                                        Let's Go BioTech helps students and researchers exchange new and recent bio-technology findings in a new cooperative way
+                                   Let's Go BioTech turns you into a knowledgeable beast by keeping you updated with latest papres and innovations in biotechnology & medicine!
                                     </div>
                                 </div>
                             </div>
