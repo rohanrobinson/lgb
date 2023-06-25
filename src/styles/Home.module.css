@@ -91,6 +91,17 @@
     color: #000000;
 }
 
+
+.loginText {
+    position: relative;
+    text-align: center;
+    top: 5%;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+}
+
 .menu1 {
     /*box-sizing: border-box;*/
     border-bottom: 2px solid black;
@@ -226,6 +237,16 @@
     border-radius: 20px;
 }
 
+.loginButtonText {
+    position: relative;
+    text-align: center;
+    top: 32%;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+}
+
 .loginButton2 {
     box-sizing: border-box;
     position: absolute;
@@ -237,6 +258,16 @@
     border: 3px solid #000000;
     background-image: linear-gradient(to bottom right, #FD95C3, #ffffff );
     border-radius: 20px;
+}
+
+.loginButton2Text {
+    position: relative;
+    text-align: center;
+    top: 32%;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
 }
 
 .star1 {
@@ -331,6 +362,16 @@
     border-radius: 8px;
 }
 
+.contentBox3Align {
+    position: relative;
+    text-align: center;
+    top: 5%;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000;
+}
 .contentBox4 {
     box-sizing: border-box;
     position: absolute;

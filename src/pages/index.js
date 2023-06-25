@@ -85,7 +85,7 @@ export default function Home() {
                         <div className={styles.contentBox3Shadow}>
                         </div>
                         <div className={styles.contentBox3}>
-                            <div>
+                            <div className={styles.contentBox3Align}>
                                 Track your learning progress
                             </div>
                         </div>
@@ -132,23 +132,23 @@ export default function Home() {
                     <div className={styles.loginBoxShadow}>
                     </div>
                     <div className={styles.loginBox}>
-                    
+                        <div className={styles.loginText}>
+                            Join millions on their biotech journey!
+                        </div>
                         <div className={styles.loginButton}>
-
+                            <div className={styles.loginButtonText}>
+                                Login
+                            </div>
                         </div>
                         <div className={styles.loginButton2}>
-
+                            <div className={styles.loginButtonText}>
+                                Sign Up
+                            </div>
                         </div>
 
                     </div>
                 </div>    
-                
-
-            
-
-                <Typography variant="body1" sx={{ mb: 4, textAlign: 'center', mt: 3 }}>
-                    (no need to provide email or create an account) <br />
-                </Typography>
+               
             
             </Box>
         </ThemeProvider>
