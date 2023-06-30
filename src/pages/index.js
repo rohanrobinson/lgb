@@ -6,7 +6,10 @@ import { IBM_Plex_Mono } from 'next/font/google';
 import { Rubik_Mono_One } from 'next/font/google';
 import React, { useState } from "react";
 import { black } from "material-ui-colors";
-import {createTheme } from '@mui/material/styles'
+import {createTheme } from '@mui/material/styles';
+//import { rightDownArrow } from '/../public/Star2.png';
+
+
 
 
 const newfont = Rubik_Mono_One(
@@ -67,11 +70,11 @@ export default function Home() {
                             href="/about-us"
                             sx={{ fontWeight: 'bold', fontSize: '16px', color: 'black' }}
                         >
-                            <Image src={"/../public/goArrow.png"} width={85} height={85} alt="arrow" />
+                            <Image src="/../public/goArrow.png" width={85} height={85} alt="arrow" />
                         </Button>
                         </div>
                         <div className={styles.divider}>
-                            <Image src={"/../public/Divider.png"} width={1} height={470} alt="arrow" />
+                            <Image src="/../public/Divider.png" width={1} height={470} alt="arrow" />
                         </div>
 
                         <div className={styles.contentBox4Shadow}>
@@ -104,12 +107,12 @@ export default function Home() {
                             <div className={styles.contentBox1Shadow}></div>
                             <div className={styles.contentBox1}>
                                 <div className={styles.arrow1}>
-                                    <Image src={"/../public/arrow1.png"} width={60} height={60} alt="arrow" />
+                                    <Image src="/../public/Arrow1.png" width={60} height={60} alt="arrow" />
                                 </div>
                                 <div className={styles.text1}>
                                    Do crazy sci-fi ideas like genetic engineering & brain machine interfaces occupy your mind? 
                                     <div className={styles.text2}>
-                                   Let's Go BioTech turns you into a knowledgeable beast by keeping you updated with latest papres and innovations in biotechnology & medicine!
+                                   Let's Go BioTech turns you into a knowledgeable beast by keeping you updated with latest papers and innovations in biotechnology & medicine!
                                     </div>
                                 </div>
                             </div>
@@ -121,13 +124,13 @@ export default function Home() {
                 
                 <div className={styles.bottomContent} >
                     <div className={styles.star2}>
-                        <Image src={"/../public/Star2.png"} width={56} height={56} alt="arrow" />
+                        <Image src="/../public/Star2.png" width={56} height={56} alt="arrow" />
                     </div>
                     <div className={styles.star1}>
-                        <Image src={"/../public/Star1.png"} width={73} height={73} alt="arrow" />
+                        <Image src="/../public/Star1.png" width={73} height={73} alt="arrow" />
                     </div>
                     <div className={styles.arrow3}>
-                        <Image src={"/../public/arrow3.png"} width={221} height={75} alt="arrow" />
+                        <Image src="/../public/arrow3.png" width={221} height={75} alt="arrow" />
                     </div>
                     <div className={styles.loginBoxShadow}>
                     </div>
