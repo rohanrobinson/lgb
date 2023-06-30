@@ -26,7 +26,7 @@ export default function AboutUs() {
 
       <div className={styles.lgbInfo}>
         <Typography variant="h1" sx={{ mb: 4 }}>
-        <b><span className={styles.lgbHeader}>🧬 Why does Let's Go Biotech Exist? 🚀</span></b> 
+        <b><span className={styles.lgbHeader}>🧬 About Us 🚀</span></b> 
         </Typography>
 
       <Box sx={{ 
@@ -38,11 +38,21 @@ export default function AboutUs() {
                 }}>
 
       <Typography  variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                <span className={styles.lgbDescription}> 
-                  "The imagination of nature is far, far greater than the imagination of man." -Richard Feynman
-                  Disease still exists. Climate Change is still real. People around the globe still need food.
-                  Innovation in biotechnology is the way, we need better medicines, better batteries, better fertilizers, etc.
-                  Let's Go Biotech aims to educate and inspire you to use the tool of biology to tackle important problems.
+                <span className={styles.lgbHeader}> 
+                  Are you overwhelmed with all the latest research? I sure am! <br />
+
+                   As a biotech enthusiast I feel like there's way too much papers than I have time to read! <br />
+
+                   And even when I do read through a whole paper, like one over CRIPSR I still don't know if I actually learned anything.  <br />
+
+                   That's why I created Let's Go Biotech, so that I can have the latest papers at my papers and properly test my knowledge on them!  <br />
+
+                   If this resonates with you than try out a paper on our platform and take a quiz!  <br />
+
+                   Good luck! If we want to cure all disease and create a sustainable Earth for our kids, it's up to us!   <br />
+                   
+                   LET'S GO!
+
                 </span>
       </Typography> 
 
@@ -54,7 +64,7 @@ export default function AboutUs() {
               href="/"
               sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
             >
-              Back Home
+              Home
             </Button>
         </Box>
     </div>
