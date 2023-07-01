@@ -7,8 +7,8 @@ import { Rubik_Mono_One } from 'next/font/google';
 import React, { useState } from "react";
 import { black } from "material-ui-colors";
 import { createTheme } from '@mui/material/styles';
-import divider from "/../public/static/images/Divider.png";
-import arrow1 from "/../public/static/images/Arrow1.png"
+//import divider from "/../public/static/images/Divider.png";
+//import arrow1 from "/../public/Arrow1.png";
 //import { rightDownArrow } from '/../public/Star2.png';
 
 
@@ -109,7 +109,7 @@ export default function Home() {
                             <div className={styles.contentBox1Shadow}></div>
                             <div className={styles.contentBox1}>
                                 <div className={styles.arrow1}>
-                            <Image src={arrow1} width={60} height={60} alt="arrow" />
+                            <Image src={"/../public/Arrow1.png"} width={60} height={60} alt="arrow1" />
                                 </div>
                                 <div className={styles.text1}>
                                    Do crazy sci-fi ideas like genetic engineering & brain machine interfaces occupy your mind? 

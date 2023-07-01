@@ -77,13 +77,13 @@
     font-size: 30px;
     line-height: 40px;
     color: #000000;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 .text2 {
     position: relative;
-/*    font-family: mabry, monospace;
-*/    top: 5%;
-    
+    top: 5%;
     width: 90%;
     font-weight: 400;
     font-size: 15px;
