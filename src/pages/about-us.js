@@ -37,23 +37,22 @@ export default function AboutUs() {
         gap: 3 
                 }}>
 
-      <Typography  variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
-                <span className={styles.lgbHeader}> 
-                  Are you overwhelmed with all the latest research? I sure am! <br />
+      <Typography  variant="body1" sx={{ mb: 2 }}>
+                  <div className={styles.aboutUsText}>
+                        Are you overwhelmed with all the latest research? I sure am! <br />
 
-                   As a biotech enthusiast I feel like there's way too much papers than I have time to read! <br />
+                        As a biotech enthusiast I feel like there's way too much papers than I have time to read! <br />
 
-                   And even when I do read through a whole paper, like one over CRIPSR I still don't know if I actually learned anything.  <br />
+                        And even when I do read through a whole paper, like one over CRISPR I still don't know if I actually learned anything.  <br />
 
-                   That's why I created Let's Go Biotech, so that I can have the latest papers at my papers and properly test my knowledge on them!  <br />
+                        That's why I created Let's Go Biotech, so that I can accessn the latest papers and properly test my knowledge on them!  <br />
 
-                   If this resonates with you than try out a paper on our platform and take a quiz!  <br />
+                        If this resonates with you than try out a paper on our platform and take a quiz!  <br />
 
-                   Good luck! If we want to cure all disease and create a sustainable Earth for our kids, it's up to us!   <br />
+                        Good luck! If we want to cure all disease and create a sustainable Earth for our kids, it's up to us!   <br />
                    
-                   LET'S GO!
-
-                </span>
+                        LET'S GO!
+                   </div>
       </Typography> 
 
 

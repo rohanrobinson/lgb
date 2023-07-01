@@ -16,7 +16,16 @@
     .abstractText {
       font-size: 12px; 
     }
+    .aboutUsText {
+      font-size: 0.8rem;
+      text-align: center;
+    }
   } 
+
+  .aboutUsText {
+    font-size: 1.5rem;
+    text-align: center;
+  }
   
   .container {
     display: flex;
