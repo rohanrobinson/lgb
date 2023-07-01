@@ -78,7 +78,7 @@ export default function Home() {
                         </div>
                         <div className={styles.contentBox4}>
                             <div>
-                                And share what you learned with others
+                                And share what you've learned with others
                             </div>
                         </div>
 
@@ -109,7 +109,7 @@ export default function Home() {
                                 <div className={styles.text1}>
                                    Do crazy sci-fi ideas like genetic engineering & brain machine interfaces occupy your mind? 
                                     <div className={styles.text2}>
-                                   Let's Go BioTech turns you into a knowledgeable beast by keeping you updated with latest papres and innovations in biotechnology & medicine!
+                                   Let's Go BioTech turns you into a knowledgeable beast by keeping you updated with latest papers and innovations in biotechnology & medicine!
                                     </div>
                                 </div>
                             </div>
