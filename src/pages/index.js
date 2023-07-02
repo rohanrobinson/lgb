@@ -7,6 +7,7 @@ import { Rubik_Mono_One } from 'next/font/google';
 import React, { useState } from "react";
 import { black } from "material-ui-colors";
 import { createTheme } from '@mui/material/styles';
+//import  arrow1  from '../public/Arrow1.png';
 //import divider from "/../public/static/images/Divider.png";
 //import arrow1 from "/../public/Arrow1.png";
 //import { rightDownArrow } from '/../public/Star2.png';
@@ -72,11 +73,11 @@ export default function Home() {
                             href="/about-us"
                             sx={{ fontWeight: 'bold', fontSize: '16px', color: 'black' }}
                         >
-                            <Image src="/../public/goArrow.png" width={85} height={85} alt="arrow" />
+                            <Image src={"/../public/goArrow.png"} width={85} height={85} alt="arrow" />
                         </Button>
                         </div>
                         <div className={styles.divider}>
-                            <Image src="/../public/static/images/Divider.png" width={1} height={470} alt="divider" />
+                        <Image src={"/../public/Divider.png"} width={1} height={470} alt="divider" />
                         </div>
 
                         <div className={styles.contentBox4Shadow}>
@@ -126,13 +127,13 @@ export default function Home() {
                 
                 <div className={styles.bottomContent} >
                     <div className={styles.star2}>
-                        <Image src="/../public/Star2.png" width={56} height={56} alt="arrow" />
+                        <Image src={"/../public/Star2.png"} width={56} height={56} alt="arrow" />
                     </div>
                     <div className={styles.star1}>
-                        <Image src="/../public/Star1.png" width={73} height={73} alt="arrow" />
+                        <Image src={"/../public/Star1.png"} width={73} height={73} alt="arrow" />
                     </div>
                     <div className={styles.arrow3}>
-                        <Image src="/../public/arrow3.png" width={221} height={75} alt="arrow" />
+                        <Image src={"/../public/arrow3.png"} width={221} height={75} alt="arrow" />
                     </div>
                     <div className={styles.loginBoxShadow}>
                     </div>
