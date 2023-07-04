@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
@@ -11,7 +11,7 @@ export default function SelectPaper() {
   const [showPaper2, setShowPaper2] = useState(false);
   const [showPaper3, setShowPaper3] = useState(false);
 
-  const [numSelected, setNumSelected] = useState(0);
+  // const [numSelected, setNumSelected] = useState(0);
 
   const seePastPapers = () => {
     window.location.href = "http://letsgobiotech.com/past-papers";
@@ -22,21 +22,28 @@ export default function SelectPaper() {
   }
 
   const paperSelected = (event, paperNum) => {
-    if (paperNum === "paper1" && numSelected === 0) {
-        setNumSelected(1);
+    if (paperNum === "paper1") {
+        //setNumSelected(1);
         // setShowModal(true);
+        setShowPaper3(false);
+        setShowPaper2(false);
         setShowPaper1(true);
     }
 
-    else if (paperNum === "paper2" && numSelected === 0) {
-        setNumSelected(1);
+    else if (paperNum === "paper2") {
+        //setNumSelected(1);
         // setShowModal(true);
+        setShowPaper1(false);
+        setShowPaper3(false);
         setShowPaper2(true);
     }
 
-    else if (paperNum === "paper3" && numSelected === 0) {
-        setNumSelected(1);
+    else if (paperNum === "paper3") {
+        //setNumSelected(1);
         // setShowModal(true);
+
+        setShowPaper1(false);
+        setShowPaper2(false);
         setShowPaper3(true);
     }
 
@@ -48,24 +55,48 @@ export default function SelectPaper() {
 
   const paperUnselected = (event, paperNum) => {
     if (paperNum === "paper1") {
-        setNumSelected(0);
+        //setNumSelected(0);
         // setShowModal(false);
         setShowPaper1(false)
     }
 
     if (paperNum === "paper2") {
-        setNumSelected(0);
+       // setNumSelected(0);
         // setShowModal(false);
         setShowPaper2(false);
     }
 
     if (paperNum === "paper3") {
-        setNumSelected(0);
+      //  setNumSelected(0);
         // setShowModal(false);
         setShowPaper3(false);
     }
 
   }
+
+  useEffect(() => {
+    
+    let arr = [1, 2, 3];
+
+    const defaultPaperNum = arr[(Math.floor(Math.random() * arr.length))];
+
+    if (defaultPaperNum === 1) {
+   //   setNumSelected(1);
+      setShowPaper1(true);
+    }
+
+    if (defaultPaperNum === 2) {
+     // setNumSelected(2);
+      setShowPaper2(true);
+    }
+
+    if (defaultPaperNum === 3) {
+   //   setNumSelected(3);
+      setShowPaper3(true);
+    }
+
+  }, []);
+
   
  return (
    <div className={styles.container}>
@@ -113,7 +144,7 @@ export default function SelectPaper() {
               }}>
 
                 { showPaper1 ?
-                    (<div className={styles.item} value="paper1" onClick={(event) => paperUnselected(event, "paper1")}>
+                    (<div className={styles.item} value="paper1">
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                       <b><i>
                         <span className={styles.lgbDescription}> Xenotransplantation: how close are we? </span>
@@ -134,7 +165,7 @@ export default function SelectPaper() {
                       <h2>Read Selected Paper</h2>
                           </Link>
                     </Typography> 
-                    </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")}>
+                    </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")} >
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                       <b><i><span className={styles.lgbDescription}>Xenotransplantation: how close are we?</span></i></b> &nbsp;
                     </Typography> 
@@ -144,7 +175,7 @@ export default function SelectPaper() {
                   <br />
 
                   { showPaper2 ? 
-                    (<div className={styles.item} value="paper2" onClick={(event) => paperUnselected(event, "paper2")}>
+                    (<div className={styles.item} value="paper2">
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                       <b><i><span className={styles.lgbDescription}> Make science disruptive again</span></i></b> &nbsp;
 
@@ -172,7 +203,7 @@ export default function SelectPaper() {
               
               <br />
 
-                  { showPaper3 ? (<div className={styles.item} value="paper3" onClick={(event) => paperUnselected(event, "paper3")}>
+                  { showPaper3 ? (<div className={styles.item} value="paper3">
                       <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                           <b><i><span className={styles.lgbDescription}> Exploring tRNA modification</span></i></b> &nbsp;
 
