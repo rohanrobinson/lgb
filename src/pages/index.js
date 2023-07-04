@@ -1,4 +1,4 @@
-import Head from 'next/head';
+﻿import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
@@ -44,10 +44,10 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>Expand your Biotechnology Knowledge  🚀 </span></b> 
+            <b><span className={styles.lgbHeader}>Understand the latest in Biotech</span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
-            <span className={styles.lgbDescription}>Read the latest papers in the field, test your skills, and level up!</span>
+            <span className={styles.lgbDescription}>Read the latest papers, test yourself and level up!</span>
           </Typography>
         </Box>
       
