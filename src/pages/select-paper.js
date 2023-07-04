@@ -144,7 +144,7 @@ export default function SelectPaper() {
               }}>
 
                 { showPaper1 ?
-                    (<div className={styles.item} value="paper1">
+                    (<div className={styles.selectedItem} value="paper1">
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                       <b><i>
                         <span className={styles.lgbDescription}> Xenotransplantation: how close are we? </span>
@@ -175,7 +175,7 @@ export default function SelectPaper() {
                   <br />
 
                   { showPaper2 ? 
-                    (<div className={styles.item} value="paper2">
+                    (<div className={styles.selectedItem} value="paper2">
                     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                       <b><i><span className={styles.lgbDescription}> Make science disruptive again</span></i></b> &nbsp;
 
@@ -203,7 +203,7 @@ export default function SelectPaper() {
               
               <br />
 
-                  { showPaper3 ? (<div className={styles.item} value="paper3">
+                  { showPaper3 ? (<div className={styles.selectedItem} value="paper3">
                       <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem"  }}>
                           <b><i><span className={styles.lgbDescription}> Exploring tRNA modification</span></i></b> &nbsp;
 
