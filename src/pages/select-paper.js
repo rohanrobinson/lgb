@@ -109,10 +109,10 @@ export default function SelectPaper() {
      <AppBar position="fixed" color="secondary">
       <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-           Let's Go Biotech 🧬
+           Let's Go Biotech 
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
-              See Past Papers 🚀
+              See Past Papers 
           </Typography>
         </Toolbar>
       </AppBar>
@@ -153,7 +153,7 @@ export default function SelectPaper() {
                           <br />
 
                           <Link 
-                             className={styles.greenSquare}
+                            className={styles.readSquare}
                               href={{
                                  pathname: '/read-paper',
                                  query: {
@@ -162,7 +162,7 @@ export default function SelectPaper() {
                                     showPaper3: showPaper3
                                   }
                                 }}>
-                      <h2>Read Selected Paper</h2>
+                                  <p><b>Read Paper</b></p>
                           </Link>
                     </Typography> 
                     </div>) : (<div className={styles.item} value="paper1" onClick={(event) => paperSelected(event, "paper1")} >
@@ -182,7 +182,7 @@ export default function SelectPaper() {
                       <br />
 
                       <Link 
-                             className={styles.greenSquare}
+                             className={styles.readSquare}
                               href={{
                                  pathname: '/read-paper',
                                  query: {
@@ -191,7 +191,7 @@ export default function SelectPaper() {
                                     showPaper3: showPaper3
                                   }
                                 }}>
-                       <h2>Read Selected Paper</h2>
+                       <p><b>Read Paper</b></p>
                           </Link>
                     </Typography> 
                     </div>) : (<div className={styles.item} value="paper2" onClick={(event) => paperSelected(event, "paper2")}>
@@ -211,7 +211,7 @@ export default function SelectPaper() {
                           <br />
 
                           <Link 
-                             className={styles.greenSquare}
+                             className={styles.readSquare}
                               href={{
                                  pathname: '/read-paper',
                                  query: {
@@ -220,7 +220,7 @@ export default function SelectPaper() {
                                     showPaper3: showPaper3
                                   }
                                 }}>
-                         <h2>Read Selected Paper</h2>
+                         <p><b>Read Paper</b></p>
                           </Link>
                       </Typography>
                     </div>) : (<div className={styles.item} value="paper3" onClick={(event) => paperSelected(event, "paper3")}>

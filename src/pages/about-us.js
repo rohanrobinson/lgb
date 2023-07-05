@@ -19,15 +19,12 @@ export default function AboutUs() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer}  onClick={goHome}>
-             Let's Go Biotech 🧬
+             Let's Go Biotech 
             </Typography>
         </Toolbar>
       </AppBar>
 
-      <div className={styles.lgbInfo}>
-        <Typography variant="h1" sx={{ mb: 4 }}>
-        <b><span className={styles.lgbHeader}>🧬 About Us 🚀</span></b> 
-        </Typography>
+        <b>About Us</b> 
 
       <Box sx={{ 
         display: 'flex', 
@@ -37,8 +34,8 @@ export default function AboutUs() {
         gap: 3 
                 }}>
 
-      <Typography  variant="body1" sx={{ mb: 2 }}>
-                  <div className={styles.aboutUsText}>
+              <p className={styles.aboutUsText}>
+                
                         Are you overwhelmed with all the latest research? I sure am! <br />
 
                         As a biotech enthusiast I feel like there's way too much papers than I have time to read! <br />
@@ -52,8 +49,7 @@ export default function AboutUs() {
                         Good luck! If we want to cure all disease and create a sustainable Earth for our kids, it's up to us!   <br />
                    
                         LET'S GO!
-                   </div>
-      </Typography> 
+              </p>
 
 
             <Button 
@@ -66,9 +62,6 @@ export default function AboutUs() {
               Home
             </Button>
         </Box>
-    </div>
-
-
     </Box>
   );
 }

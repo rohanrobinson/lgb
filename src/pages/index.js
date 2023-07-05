@@ -27,10 +27,10 @@ export default function Home() {
         <AppBar position="fixed" color="secondary">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Let's Go Biotech 🧬
+              Let's Go Biotech 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seeAboutUs}>
-              About Us 🚀
+              About Us 
             </Typography>
           </Toolbar>
         </AppBar>
@@ -44,7 +44,7 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>Understand the latest in Biotech</span></b> 
+            <b><span className={styles.lgbHeader}>Understand the Latest in Biotechnology</span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
             <span className={styles.lgbDescription}>Read the latest papers, test yourself and level up!</span>
