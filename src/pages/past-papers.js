@@ -31,10 +31,10 @@ export default function PastPapers() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-             Let's Go Biotech 🧬
+             Let's Go Biotech 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0}} className={styles.cursorPointer} onClick={seeCurrentPapers}>
-                    See Current Papers 🚀
+                    See Current Papers 
             </Typography>
         </Toolbar>
       </AppBar>
