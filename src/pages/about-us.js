@@ -24,7 +24,7 @@ export default function AboutUs() {
         </Toolbar>
       </AppBar>
 
-        <b>About Us</b> 
+        <b>Why Let's Go Biotech Exists</b> 
 
       <Box sx={{ 
         display: 'flex', 
@@ -35,20 +35,8 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                
-                        Are you overwhelmed with all the latest research? I sure am! <br />
-
-                        As a biotech enthusiast I feel like there's way too much papers than I have time to read! <br />
-
-                        And even when I do read through a whole paper, like one over CRISPR I still don't know if I actually learned anything.  <br />
-
-                        That's why I created Let's Go Biotech, so that I can accessn the latest papers and properly test my knowledge on them!  <br />
-
-                        If this resonates with you than try out a paper on our platform and take a quiz!  <br />
-
-                        Good luck! If we want to cure all disease and create a sustainable Earth for our kids, it's up to us!   <br />
-                   
-                        LET'S GO!
+                         We have to cure all disease and create a sustainable planet Earth for our kids! 
+                         By understanding and implementing biotech knowledge we can do it!
               </p>
 
 
@@ -59,7 +47,7 @@ export default function AboutUs() {
               href="/"
               sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
             >
-              Home
+              Let's Go
             </Button>
         </Box>
     </Box>

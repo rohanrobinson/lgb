@@ -1,13 +1,77 @@
 ﻿import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 
 export default function Home() {
 
+  const [showPaper1, setShowPaper1] = useState(false);
+  const [showPaper2, setShowPaper2] = useState(false);
+  const [showPaper3, setShowPaper3] = useState(false);
+
     const seeAboutUs = () => {
         window.location.href = "http://letsgobiotech.com/about-us";
     }
+
+    const paperSelected = (event, paperNum) => {
+      if (paperNum === "paper1") {
+          console.log("paper 1 selected");
+          setShowPaper3(false);
+          setShowPaper2(false);
+          setShowPaper1(true);
+          console.log(showPaper1, showPaper2, showPaper3);
+  
+        }
+  
+      else if (paperNum === "paper2") {
+
+        setShowPaper1(false);
+        setShowPaper3(false);
+        setShowPaper2(true);
+
+        }
+  
+      else if (paperNum === "paper3") {
+  
+          setShowPaper1(false);
+          setShowPaper2(false);
+          setShowPaper3(true);
+
+        }
+  
+      else {
+         console.log('You have tried to select multiple paper, ha, you can choose one, pick wisely... :)');
+      }
+    }
+
+
+    useEffect(() => {
+    
+      let arr = [1, 2, 3];
+  
+      const defaultPaperNum = arr[(Math.floor(Math.random() * arr.length))];
+  
+      if (defaultPaperNum === 1) {
+     //   setNumSelected(1);
+        setShowPaper1(true);
+      }
+  
+      if (defaultPaperNum === 2) {
+       // setNumSelected(2);
+        setShowPaper2(true);
+      }
+  
+      if (defaultPaperNum === 3) {
+     //   setNumSelected(3);
+        setShowPaper3(true);
+      }
+
+      console.log(defaultPaperNum);
+  
+    }, []);
+
 
     return(
       <Box sx={{ 
@@ -30,7 +94,7 @@ export default function Home() {
               Let's Go Biotech 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seeAboutUs}>
-              About Us 
+              About
             </Typography>
           </Toolbar>
         </AppBar>
@@ -43,13 +107,92 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-          <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>Understand the Latest in Biotechnology</span></b> 
+          <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
+            <b><span className={styles.lgbHeader}>Learn the latest Biotech Research</span></b> 
           </Typography>
-          <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
+          {/* <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
             <span className={styles.lgbDescription}>Read the latest papers, test yourself and level up!</span>
+          </Typography> */}
+          <Typography variant="h3" sx={{ mb: 2, textAlign: 'center'}}>
+            <span className={styles.lgbDescription}>Get Started by Choosing a Paper Below</span>
           </Typography>
         </Box>
+
+        <div className={styles.btnPapers}>
+        {
+              
+              showPaper1
+
+              ?
+              
+              (<Button 
+                onClick={(event) => paperSelected(event, "paper1")}
+                variant="contained"
+                color="success"
+              >
+                Xenotransplantation - how close are we 
+              </Button>)
+              :
+              (<Button 
+                onClick={(event) => paperSelected(event, "paper1")}
+                variant="outlined"
+                color="error"
+              > 
+              Xenotransplantation Progress
+            </Button>) 
+        }
+            &nbsp; &nbsp; &nbsp;
+        {
+            showPaper2 
+
+            ? 
+
+            (<Button 
+              onClick={(event) => paperSelected(event, "paper2")}
+              variant="contained"
+              color="success"
+          >
+            Make science disruptive again
+          </Button>)
+
+            :
+
+            (<Button 
+              onClick={(event) => paperSelected(event, "paper2")}
+              variant="outlined"
+              color="error"
+          >
+           Make science disruptive again
+          </Button>)
+
+         }
+            &nbsp; &nbsp; &nbsp;
+        {
+            showPaper3 
+
+            ? 
+
+            (<Button 
+              onClick={(event) => paperSelected(event, "paper3")}
+              variant="contained"
+              color="success"
+          >
+           Explore tRNA modification 
+          </Button>)
+
+            :
+
+            (<Button 
+              onClick={(event) => paperSelected(event, "paper3")}
+              variant="outlined"
+              color="error"
+          >
+           Explore tRNA modification 
+          </Button>)
+
+         }
+
+      </div>
       
         <Box sx={{ 
           display: 'flex', 
@@ -59,30 +202,30 @@ export default function Home() {
           gap: 3,
           mt: 3,
         }}>
-          <Button 
+          <Link 
+            className={styles.greenSquare}
             variant="contained" 
             color="success" 
             size="large" 
-            href="/select-paper"
+            
+            href={{ pathname: '/read-paper',
+              query: {
+                 showPaper1: showPaper1,
+                 showPaper2: showPaper2,
+                 showPaper3: showPaper3
+               }
+             }}
             sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
           >
-            Get Started
-          </Button>
-      
-          {/* <Button 
-            variant="contained" 
-            color="secondary" 
-            size="large" 
-            href="/about-us"
-            sx={{ fontWeight: 'bold', fontSize: ' 24px', padding: '25px 35px', }}
-            >
-              About Us
-            </Button> */}
-          </Box>
+            READ PAPER
+          </Link>
+
+         
+
         
-          <Typography variant="body1" sx={{ mb: 5, textAlign: 'center', mt: 3 }}>
-            (no need to provide email or create an account) <br/>
-          </Typography>
-        </Box>
+  
+          </Box>
+      </Box>
+
     );
 }
