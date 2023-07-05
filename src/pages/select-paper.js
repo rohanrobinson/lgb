@@ -11,8 +11,6 @@ export default function SelectPaper() {
   const [showPaper2, setShowPaper2] = useState(false);
   const [showPaper3, setShowPaper3] = useState(false);
 
-  // const [numSelected, setNumSelected] = useState(0);
-
   const seePastPapers = () => {
     window.location.href = "http://letsgobiotech.com/past-papers";
   }
