@@ -1,12 +1,15 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import Link from 'next/link';
 
 export default function AboutUs() {
 
     const goHome = () => {
         window.location.href = "http://letsgobiotech.com";
+    }
+
+    const seePastPapers = () => {
+        window.location.href = "http://letsgobiotech.com/past-papers";
     }
  
   return (
@@ -20,6 +23,9 @@ export default function AboutUs() {
         <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer}  onClick={goHome}>
              Let's Go Biotech 
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
+              Past Papers
             </Typography>
         </Toolbar>
       </AppBar>
