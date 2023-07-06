@@ -36,7 +36,7 @@ export default function AboutUs() {
 
               <p className={styles.aboutUsText}>
                          We have to cure all disease and create a sustainable planet Earth for our kids! 
-                         By understanding and implementing biotech knowledge we can do it!
+                         By understanding and implementing biotech knowledge we can do it! <a href="https://rohanrobinson.github.io" target="_blank">Rohan Cain Robinson</a>
               </p>
 
 

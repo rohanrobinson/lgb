@@ -60,7 +60,7 @@ export default function PastPapers() {
     <Link 
           className={styles.greenSquare}
           href={{
-          pathname: '/select-paper'
+          pathname: '/'
         }}>
           <h2>See Current Papers</h2>
     </Link>

@@ -130,7 +130,7 @@ export default function Home() {
                 variant="contained"
                 color="success"
               >
-                Xenotransplantation - how close are we 
+                RNA guided system in Eukaryote
               </Button>)
               :
               (<Button 
@@ -138,7 +138,7 @@ export default function Home() {
                 variant="outlined"
                 color="error"
               > 
-              Xenotransplantation Progress
+              RNA guided system in Eukaryote
             </Button>) 
         }
             &nbsp; &nbsp; &nbsp;
@@ -152,7 +152,7 @@ export default function Home() {
               variant="contained"
               color="success"
           >
-            Make science disruptive again
+            Enhanced cancer detection from cell-free DNA
           </Button>)
 
             :
@@ -162,7 +162,7 @@ export default function Home() {
               variant="outlined"
               color="error"
           >
-           Make science disruptive again
+           Enhanced cancer detection from cell-free DNA
           </Button>)
 
          }
@@ -177,7 +177,7 @@ export default function Home() {
               variant="contained"
               color="success"
           >
-           Explore tRNA modification 
+           BioLORD - Biology LLM  
           </Button>)
 
             :
@@ -187,7 +187,7 @@ export default function Home() {
               variant="outlined"
               color="error"
           >
-           Explore tRNA modification 
+          BioLORD A Biology Language Model 
           </Button>)
 
          }
@@ -215,15 +215,11 @@ export default function Home() {
                  showPaper3: showPaper3
                }
              }}
-            sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+            
           >
-            READ PAPER
+            Read Paper
           </Link>
-
-         
-
         
-  
           </Box>
       </Box>
 
