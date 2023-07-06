@@ -217,7 +217,7 @@ export default function Home() {
              }}
             
           >
-            Read Paper
+            <b>Read Paper</b>
           </Link>
         
           </Box>
