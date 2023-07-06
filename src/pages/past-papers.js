@@ -33,9 +33,6 @@ export default function PastPapers() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
              Let's Go Biotech 
             </Typography>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 0}} className={styles.cursorPointer} onClick={seeCurrentPapers}>
-                    See Current Papers 
-            </Typography>
         </Toolbar>
       </AppBar>
 
@@ -52,18 +49,23 @@ export default function PastPapers() {
         <a href="https://www.nature.com/articles/s41587-023-01744-5" target="_blank"><p><span className={styles.lgbText}>CRISPR edited Lung Cells</span></p></a>
         <a href="https://www.nature.com/articles/s41587-023-01788-7" target="_blank"><p><span className={styles.lgbText}>Customizing LLMs to Discover Drugs</span></p></a>
         <a href="https://www.nature.com/articles/s41587-022-01652-0" target="_blank"><p><span className={styles.lgbText}>Simultaneous DNA & Epigenetic Sequencing</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-023-01730-x" target="_blank"><p><span className={styles.lgbText}>Xenotransplantation: how close are we?</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-023-01736-5" target="_blank"><p><span className={styles.lgbText}>Make Science Disruptive Again</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-023-01755-2" target="_blank"><p><span className={styles.lgbText}>Exploring tRNAs and their Modifications </span></p></a>
     </div>
 
     <br />
 
 
-    <Link 
-          className={styles.greenSquare}
-          href={{
-          pathname: '/'
-        }}>
-          <h2>See Current Papers</h2>
-    </Link>
+          <Button 
+              variant="contained" 
+              color="secondary" 
+              size="large" 
+              href="/"
+              sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+            >
+              Let's Go
+          </Button>
 
 
 
