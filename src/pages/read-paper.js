@@ -20,13 +20,11 @@ export default function ReadPaper() {
  }
 
  //Paper 2
- const paperAbstract2 = "The rate of scientific innovation appears to be slowing down: despite immense investments, the proportion of individual projects that push science in new directions by breaking with previous understanding has decreased since the 1950s. Some observers have attributed these diminishing returns to the notion that fewer fundamental discoveries remain to be made. But a compelling case can be made for another factor: that the culture of science has gradually transitioned toward a more executive and results-oriented approach. In this fast-paced mode, scientists and scientists-in-training — graduate students and postdoctoral fellows — have little time for more exploratory topics, which contributes to a less creative environment for transformative science. This trend may have been fortified by science becoming increasingly entrenched into siloed disciplines and by projects being progressively dominated by hypothesis-driven approaches, fueled by a spirit of strategic design that emphasizes predictability rather than unexpected results.";
- 
+ const paperAbstract2 = "Analysis of cell-free DNA (cfDNA) in the blood has shown promise for monitoring a number of biological processes, but as circulating DNA predominantly originates from blood cells and other healthy tissues, the sensitivity of the approach for detecting disease may be reduced by these background signals. Writing in Nature Biotechnology, Esfahani et al.1 show that the expression level of genes captured in cfDNA samples can be predicted using the size variability of the fragments covering the transcription start site of a gene. Active regions of the transcription start site tend to be depleted of nucleosomes, leading to more-random cleavage patterns and higher variability in DNA fragment length. The authors introduce a metric, which they term promoter fragmentation entropy (PFE), that is strongly correlated with RNA expression level and shows good sensitivity for detection and classification of cancer from cfDNA (Fig. 1). Such a metric adds to our armamentarium of fragmentomic features of cfDNA for scrutinizing the cancer signal in blood circulation, augmenting current efforts in developing noninvasive biomarkers for cancer detection and monitoring.";
  // Paper 1
- const paperAbstract1 = "Xenotransplantation research marked a singular milestone last year with the first human transplants of kidneys and a heart from genetically engineered pigs. The genetic modifications were designed to improve transplantation outcomes by lessening immune rejection, controlling organ size and regulating complement, coagulation and inflammation. These pioneering surgeries were motivated by deficiencies of the current donor organ system, which have led to long waiting lists for organs and the deaths of thousands of patients in need of organs each year. Pig kidneys were transplanted into three brain-dead recipients — one at Legacy of Hope, University of Alabama at Birmingham and two at New York University Langone Hospital. A pig heart was transplanted into a living recipient at University of Maryland School of Medicine.";
- 
+ const paperAbstract1 = "RNA-guided systems, which employ complementarity between a guide RNA and target nucleic acid sequences for recognition of genetic elements, play a central role in biological processes in both prokaryotes and eukaryotes. For example, the prokaryotic CRISPR-Cas systems provide adaptive immunity for bacteria and archaea against foreign genetic elements. Cas effectors, like Cas9 and Cas12, perform guide RNA-dependent DNA cleavage1. Although a few eukaryotic RNA-guided systems have been studied so far, such as RNA interference2 and ribosomal RNA modification3, it remains unclear whether eukaryotes have RNA-guided endonucleases. Recently, a new class of prokaryotic RNA-guided system (termed OMEGA) was reported4,5. The OMEGA effector TnpB is the putative ancestor of Cas12 and has RNA-guided endonuclease activity4,6. TnpB may also be the ancestor of the eukaryotic transposon-encoded Fanzor (Fz) proteins4,7, raising the possibility that eukaryotes are also equipped with CRISPR-Cas/OMEGA-like programmable RNA-guided endonucleases. Here we report the biochemical characterization of Fz, showing that it is an RNA-guided DNA endonuclease. We also show that Fz can be reprogrammed for human genome engineering applications. Finally, we resolved the structure of Spizellomyces punctatus Fz (SpuFz) at 2.7Å using cryogenic-electron microscopy, revealing the conservation of the core regions among Fz, TnpB and Cas12, despite diverse cognate RNA structures. Our results show that Fz is a eukaryotic OMEGA system, demonstrating that RNA-guided endonucleases are present in all three domains of life.";
  // Paper 3
- const paperAbstract3 = "Nano-tRNAseq is a nanopore-based, cost-effective and high-throughput approach to quantify transfer RNA (tRNA) abundances and modifications simultaneously, providing a framework to study the ‘tRNAome’ at single-molecule resolution. We envision that Nano-tRNAseq will enable us to study the role of tRNA molecules and their modifications in a wide variety of contexts.";
+ const paperAbstract3 = "This work introduces BioLORD, a new pre-training strategy for producing meaningful representations for clinical sentences and biomedical concepts. State-of-the-art methodologies operate by maximizing the similarity in representation of names referring to the same concept, and preventing collapse through contrastive learning. However, because biomedical names are not always self-explanatory, it sometimes results in non-semantic representations. BioLORD overcomes this issue by grounding its concept representations using definitions, as well as short descriptions derived from a multi-relational knowledge graph consisting of biomedical ontologies. Thanks to this grounding, our model produces more semantic concept representations that match more closely the hierarchical structure of ontologies. BioLORD establishes a new state of the art for text similarity on both clinical sentences (MedSTS) and biomedical concepts (MayoSRS).";
 
 
  return (
@@ -97,22 +95,6 @@ export default function ReadPaper() {
 
     <br />
 
-
-      {/* <Link 
-          className={styles.greenSquare}
-          href={{
-          pathname: '/take-quiz',
-          query: {
-            showPaper1: showPaper1,
-            showPaper2: showPaper2,
-            showPaper3: showPaper3
-          }
-        }}>
-      <Typography variant="body1" sx={{ mb: 1.5 }}>
-          <b>Take Quiz</b>
-      </Typography>
-        </Link> */}
-
         <Link
             className={styles.greenSquare} 
             href={{
@@ -128,9 +110,9 @@ export default function ReadPaper() {
 
    
 
-        <a href="/select-paper">
+        <a href="/">
         <Typography variant="body1" sx={{ mb: 0.5 }}>
-          &larr; <b>Select Papers</b>
+          &larr; <b>Select Different Paper</b>
       </Typography>
         </a>
 

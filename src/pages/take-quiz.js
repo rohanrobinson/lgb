@@ -66,9 +66,9 @@ export default function TakeQuiz() {
 
   const scoreFun = () => {
     
-    // correct answers to v4 quiz in order from q1 to qn
-    const correctAnswersPaper1 = ['paper1-q1-c', 'paper1-q2-c'];
-    const correctAnswersPaper2 = ['paper2-q1-c', 'paper2-q2-a'];
+    // correct answers to v6 quiz in order from q1 to qn
+    const correctAnswersPaper1 = ['paper1-q1-a', 'paper1-q2-c'];
+    const correctAnswersPaper2 = ['paper2-q1-a', 'paper2-q2-c'];
     const correctAnswersPaper3 = ['paper3-q1-a', 'paper3-q2-c'];
 
     let totalCorrect = 0;
@@ -139,21 +139,21 @@ export default function TakeQuiz() {
       {showPaper1 === 'true' && (
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><i><b>What were the motivations behind the pioneering surgeries involving xenotransplantation?</b></i></span><br />
+          <span className={styles.lgbText}><i><b>Which biological systems employ complementarity between a guide RNA and target nucleic acid sequences for recognition of genetic elements?</b></i></span><br />
           <input type="radio" id="paper1-q1-a" name="paper1-q1" value="paper1-q1-a" onChange={handlePaper1Change}/>
-          <label htmlFor="paper1-a"><span className={styles.lgbText}>To study the genetic modifications in pigs.</span></label><br />
+          <label htmlFor="paper1-a"><span className={styles.lgbText}>Prokaryotic CRISPR-Cas systems</span></label><br />
           <input type="radio" id="paper1-q1-b" name="paper1-q1" value="paper1-q1-b" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-b"><span className={styles.lgbText}>To develop new surgical techniques.</span></label><br />
+          <label htmlFor="paper1-b"><span className={styles.lgbText}>Eukaryotic RNA interference</span></label><br />
           <input type="radio" id="paper1-q1-c" name="paper1-q1" value="paper1-q1-c" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>To explore alternative organ sources for transplantation.</span></label><br /> <br />
+          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>Ribosomal RNA modification</span></label><br /> <br />
        
-          <span className={styles.lgbText}><i><b>What were the genetic modifications made to the pig organs for transplantation?</b></i></span><br />
+          <span className={styles.lgbText}><i><b>Which prokaryotic RNA-guided system was recently reported and has RNA-guided endonuclease activity?</b></i></span><br />
           <input type="radio" id="paper1-q2-a" name="paper1-q2" value="paper1-q2-a" onChange={handlePaper1Change}/>
-          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>Alterations to improve pig's intelligence.</span></label><br />
+          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>CRISPR-Cas9</span></label><br />
           <input type="radio" id="paper1-q2-b" name="paper1-q2" value="paper1-q2-b" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>Changes to enhance pig's fertility.</span></label><br />
+          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>CRISPR-Cas12</span></label><br />
           <input type="radio" id="paper1-q2-c" name="paper1-q2" value="paper1-q2-c" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>Modifications to lessen immune rejection</span></label>
+          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>OMEGA effector TnpB</span></label>
         </Typography>
       </div>
       )}
@@ -163,21 +163,21 @@ export default function TakeQuiz() {
       {showPaper2 === 'true' && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}><i><b>What factors have been attributed to the diminishing returns in scientific innovation?</b></i></span><br />
+            <span className={styles.lgbText}><i><b>What term do the authors use to describe the metric strongly correlated with RNA expression level?</b></i></span><br />
             <input type="radio" id="paper2-q1-a" name="paper2-q1" value="paper2-q1-a" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-a"><span className={styles.lgbText}>It has limited the time available for exploratory topics and creativity.</span></label><br />
+            <label htmlFor="paper2-a"><span className={styles.lgbText}>Promoter fragmentation entropy (PFE)</span></label><br />
             <input type="radio" id="paper2-q1-b" name="paper2-q1" value="paper2-q1-b" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-b"><span className={styles.lgbText}>It has created a fast-paced environment with less room for transformative science.</span></label><br />
+            <label htmlFor="paper2-b"><span className={styles.lgbText}>Nucleosome depletion index (NDI)</span></label><br />
             <input type="radio" id="paper2-q1-c" name="paper2-q1" value="paper2-q1-c" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-c"><span className={styles.lgbText}>It has affected the training and development of graduate students and postdoctoral fellows.</span></label><br /> <br />
+            <label htmlFor="paper2-c"><span className={styles.lgbText}>Transcription start site variability (TSSV)</span></label><br /> <br />
 
-            <span className={styles.lgbText}><i><b>How has the shift towards a more results-oriented approach in science affected the culture?</b></i></span><br />
+            <span className={styles.lgbText}><i><b>What is the main application of the introduced metric, PFE?</b></i></span><br />
             <input type="radio" id="paper2-q2-a" name="paper2-q2" value="paper2-q2-a" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-d"><span className={styles.lgbText}>Fewer fundamental discoveries remaining to be made.</span></label><br />
+            <label htmlFor="paper2-d"><span className={styles.lgbText}>Monitoring biological processes in the blood</span></label><br />
             <input type="radio" id="paper2-q2-b" name="paper2-q2" value="paper2-q2-b" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-e"><span className={styles.lgbText}>Transition towards a more executive and results-oriented approach in the culture of science.</span></label><br />
+            <label htmlFor="paper2-e"><span className={styles.lgbText}> Predicting the size variability of cfDNA fragments</span></label><br />
             <input type="radio" id="paper2-q2-c" name="paper2-q2" value="paper2-q2-c" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-f"><span className={styles.lgbText}>Decreased time for exploratory topics due to the fast-paced nature of scientific work.</span></label><br /> <br />
+            <label htmlFor="paper2-f"><span className={styles.lgbText}>Detecting and classifying cancer from cfDNA</span></label><br /> <br />
           </Typography>
         </div>
       )}
@@ -187,19 +187,19 @@ export default function TakeQuiz() {
       {showPaper3 === 'true' && (
         <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><b>Is Nano-tRNAseq as a cost-effective method for studying tRNA molecules?</b></span><br />
+          <span className={styles.lgbText}><b>What does BioLORD establish a new state of the art for?</b></span><br />
           <input type="radio" id="paper3-q1-a" name="paper3-q1" value="paper3-q1-a" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-a"><span className={styles.lgbText}>Yes</span></label><br />
+          <label htmlFor="paper3-a"><span className={styles.lgbText}>Text similarity in clinical sentences</span></label><br />
           <input type="radio" id="paper3-q1-b" name="paper3-q1" value="paper3-q1-b" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-b"><span className={styles.lgbText}>No</span></label><br /> <br />
+          <label htmlFor="paper3-b"><span className={styles.lgbText}>Biomedical ontologies and hierarchies</span></label><br /> <br />
       
-          <span className={styles.lgbText}><b>In what contexts can Nano-tRNAseq be applied to study the role of tRNA molecules?</b></span><br />
+          <span className={styles.lgbText}><b>How does BioLORD overcome the issue of non-semantic representations?</b></span><br />
           <input type="radio" id="paper3-q2-a" name="paper3-q2" value="paper3-q2-a" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-c"><span className={styles.lgbText}>Disease Research</span></label><br />
+          <label htmlFor="paper3-c"><span className={styles.lgbText}>By maximizing the similarity in representation of names referring to the same concept</span></label><br />
           <input type="radio" id="paper3-q2-b" name="paper3-q2" value="paper3-q2-b" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-d"><span className={styles.lgbText}>Developmental Biology</span></label><br />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>By preventing collapse through contrastive learning</span></label><br />
           <input type="radio" id="paper3-q2-c" name="paper3-q2" value="paper3-q2-c" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-d"><span className={styles.lgbText}>Both and many, many more</span></label><br />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>By grounding concept representations using definitions and short descriptions from a biomedical knowledge graph</span></label><br />
         </Typography>
       </div>
       )} 
@@ -216,7 +216,7 @@ export default function TakeQuiz() {
 
             <br />
             
-            <Link className={styles.greenSquare} href="/select-paper" >
+            <Link className={styles.greenSquare} href="/" >
                 <h2><span className={styles.lgbText}>Let's Try a New One!</span></h2>
             </Link>
 
@@ -231,7 +231,7 @@ export default function TakeQuiz() {
               You didn't get any of the questions correct, no worries! <br /> <br />
               Re-read the abstract &darr; and try again!<br />
               </span>
-            <Link className={styles.greenSquare} href="/select-paper">
+            <Link className={styles.greenSquare} href="/">
             <h2><span className={styles.lgbText}>Back to Paper Selection!</span></h2>
             </Link> <br />
           </Typography>
@@ -244,20 +244,7 @@ export default function TakeQuiz() {
         <Link className={styles.greenSquare} href="#" onClick={() => [ scoreFun() , setShowScore(true)]}>
             <h2><span className={styles.lgbText}>Finished? Let's See How You Did!</span></h2>
         </Link>
-
-        {/* <Link
-            className={styles.greenSquare} 
-            href={{
-                pathname: '/read-paper',
-                query: {
-                  showPaper1: showPaper1,
-                  showPaper2: showPaper2,
-                  showPaper3: showPaper3
-                }
-            }}>
-            <h2><span className={styles.lgbText}>Read Abstract Again</span></h2>
-        </Link>
-       */}
+    
       </Typography>
       )}
 
