@@ -30,7 +30,7 @@ export default function AboutUs() {
         </Toolbar>
       </AppBar>
 
-        <b>Why Let's Go Biotech Exists</b> 
+        <b>About Let's Go Biotech</b> 
 
       <Box sx={{ 
         display: 'flex', 
@@ -53,8 +53,20 @@ export default function AboutUs() {
               href="/"
               sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
             >
-              Let's Go
+              Let's Go Back Home
             </Button>
+
+            <Button 
+              variant="contained" 
+              color="secondary" 
+              size="large"
+              target="_blank" 
+              href="https://letsgobiotech.beehiiv.com"
+              sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+            >
+              Check out our Newsletter 
+            </Button>
+
         </Box>
     </Box>
   );
