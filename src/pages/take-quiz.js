@@ -67,9 +67,9 @@ export default function TakeQuiz() {
   const scoreFun = () => {
     
     // correct answers to v6 quiz in order from q1 to qn
-    const correctAnswersPaper1 = ['paper1-q1-a', 'paper1-q2-c'];
-    const correctAnswersPaper2 = ['paper2-q1-a', 'paper2-q2-c'];
-    const correctAnswersPaper3 = ['paper3-q1-a', 'paper3-q2-c'];
+    const correctAnswersPaper1 = ['paper1-q1-c', 'paper1-q2-b'];
+    const correctAnswersPaper2 = ['paper2-q1-a', 'paper2-q2-b'];
+    const correctAnswersPaper3 = ['paper3-q1-b', 'paper3-q2-a'];
 
     let totalCorrect = 0;
     let totalQuestions = correctAnswersPaper1.length; 
@@ -119,6 +119,7 @@ export default function TakeQuiz() {
   }
 
 
+
  return (
    <div className={styles.container}>
       <Head>
@@ -139,21 +140,21 @@ export default function TakeQuiz() {
       {showPaper1 === 'true' && (
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><i><b>Which biological systems employ complementarity between a guide RNA and target nucleic acid sequences for recognition of genetic elements?</b></i></span><br />
+          <span className={styles.lgbText}><i><b>What is the primary goal of the initiative in terms of reducing methane emissions?</b></i></span><br />
           <input type="radio" id="paper1-q1-a" name="paper1-q1" value="paper1-q1-a" onChange={handlePaper1Change}/>
-          <label htmlFor="paper1-a"><span className={styles.lgbText}>Prokaryotic CRISPR-Cas systems</span></label><br />
+          <label htmlFor="paper1-a"><span className={styles.lgbText}>Developing devices to deliver bioactives to cattle stomachs</span></label><br />
           <input type="radio" id="paper1-q1-b" name="paper1-q1" value="paper1-q1-b" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-b"><span className={styles.lgbText}>Eukaryotic RNA interference</span></label><br />
+          <label htmlFor="paper1-b"><span className={styles.lgbText}>Feeding cattle methane inhibitors or seaweed</span></label><br />
           <input type="radio" id="paper1-q1-c" name="paper1-q1" value="paper1-q1-c" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>Ribosomal RNA modification</span></label><br /> <br />
+          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>Using CRISPR–Cas gene editing to directly edit microbes in the guts of livestock</span></label><br /> <br />
        
-          <span className={styles.lgbText}><i><b>Which prokaryotic RNA-guided system was recently reported and has RNA-guided endonuclease activity?</b></i></span><br />
+          <span className={styles.lgbText}><i><b>How does Doudna and Banfield's approach differ from previous attempts to reduce methane production in cattle?</b></i></span><br />
           <input type="radio" id="paper1-q2-a" name="paper1-q2" value="paper1-q2-a" onChange={handlePaper1Change}/>
-          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>CRISPR-Cas9</span></label><br />
+          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>It focuses on isolating specific species of microbes in the gut.</span></label><br />
           <input type="radio" id="paper1-q2-b" name="paper1-q2" value="paper1-q2-b" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>CRISPR-Cas12</span></label><br />
+          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>It utilizes DNA-editing methods called DART and ET-seq</span></label><br />
           <input type="radio" id="paper1-q2-c" name="paper1-q2" value="paper1-q2-c" onChange={handlePaper1Change} />
-          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>OMEGA effector TnpB</span></label>
+          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>It involves the administration of methane inhibitors or seaweed.</span></label>
         </Typography>
       </div>
       )}
@@ -163,21 +164,21 @@ export default function TakeQuiz() {
       {showPaper2 === 'true' && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}><i><b>What term do the authors use to describe the metric strongly correlated with RNA expression level?</b></i></span><br />
+            <span className={styles.lgbText}><i><b>Why are antimicrobial peptides (AMPs) considered an alternative to traditional antibiotics?</b></i></span><br />
             <input type="radio" id="paper2-q1-a" name="paper2-q1" value="paper2-q1-a" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-a"><span className={styles.lgbText}>Promoter fragmentation entropy (PFE)</span></label><br />
+            <label htmlFor="paper2-a"><span className={styles.lgbText}>They are less likely to elicit resistance.</span></label><br />
             <input type="radio" id="paper2-q1-b" name="paper2-q1" value="paper2-q1-b" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-b"><span className={styles.lgbText}>Nucleosome depletion index (NDI)</span></label><br />
+            <label htmlFor="paper2-b"><span className={styles.lgbText}>They are more effective against pathogens.</span></label><br />
             <input type="radio" id="paper2-q1-c" name="paper2-q1" value="paper2-q1-c" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-c"><span className={styles.lgbText}>Transcription start site variability (TSSV)</span></label><br /> <br />
+            <label htmlFor="paper2-c"><span className={styles.lgbText}>They have a broader spectrum of activity.</span></label><br /> <br />
 
-            <span className={styles.lgbText}><i><b>What is the main application of the introduced metric, PFE?</b></i></span><br />
+            <span className={styles.lgbText}><i><b>What approach do Ma and the team use to identify new antibiotics?</b></i></span><br />
             <input type="radio" id="paper2-q2-a" name="paper2-q2" value="paper2-q2-a" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-d"><span className={styles.lgbText}>Monitoring biological processes in the blood</span></label><br />
+            <label htmlFor="paper2-d"><span className={styles.lgbText}>Conducting large-scale clinical trials</span></label><br />
             <input type="radio" id="paper2-q2-b" name="paper2-q2" value="paper2-q2-b" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-e"><span className={styles.lgbText}> Predicting the size variability of cfDNA fragments</span></label><br />
+            <label htmlFor="paper2-e"><span className={styles.lgbText}>Utilizing high-throughput microbiome data analysis</span></label><br />
             <input type="radio" id="paper2-q2-c" name="paper2-q2" value="paper2-q2-c" onChange={handlePaper2Change} />
-            <label htmlFor="paper2-f"><span className={styles.lgbText}>Detecting and classifying cancer from cfDNA</span></label><br /> <br />
+            <label htmlFor="paper2-f"><span className={styles.lgbText}>Developing natural language processing tools</span></label><br /> <br />
           </Typography>
         </div>
       )}
@@ -187,19 +188,19 @@ export default function TakeQuiz() {
       {showPaper3 === 'true' && (
         <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><b>What does BioLORD establish a new state of the art for?</b></span><br />
+          <span className={styles.lgbText}><b>What has renewed interest in mRNA as a means of delivering therapeutic proteins?</b></span><br />
           <input type="radio" id="paper3-q1-a" name="paper3-q1" value="paper3-q1-a" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-a"><span className={styles.lgbText}>Text similarity in clinical sentences</span></label><br />
+          <label htmlFor="paper3-a"><span className={styles.lgbText}>Early clinical trials of mRNA therapeutics</span></label><br />
           <input type="radio" id="paper3-q1-b" name="paper3-q1" value="paper3-q1-b" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-b"><span className={styles.lgbText}>Biomedical ontologies and hierarchies</span></label><br /> <br />
+          <label htmlFor="paper3-b"><span className={styles.lgbText}>The success of mRNA vaccines against COVID-19</span></label><br /> <br />
       
-          <span className={styles.lgbText}><b>How does BioLORD overcome the issue of non-semantic representations?</b></span><br />
+          <span className={styles.lgbText}><b>What is the potential of mRNA therapeutics beyond vaccines and immunostimulatory agents?</b></span><br />
           <input type="radio" id="paper3-q2-a" name="paper3-q2" value="paper3-q2-a" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-c"><span className={styles.lgbText}>By maximizing the similarity in representation of names referring to the same concept</span></label><br />
+          <label htmlFor="paper3-c"><span className={styles.lgbText}>Treatment of diverse conditions</span></label><br />
           <input type="radio" id="paper3-q2-b" name="paper3-q2" value="paper3-q2-b" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-d"><span className={styles.lgbText}>By preventing collapse through contrastive learning</span></label><br />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>Enhancement of the immune system</span></label><br />
           <input type="radio" id="paper3-q2-c" name="paper3-q2" value="paper3-q2-c" onChange={handlePaper3Change} />
-          <label htmlFor="paper3-d"><span className={styles.lgbText}>By grounding concept representations using definitions and short descriptions from a biomedical knowledge graph</span></label><br />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>Prevention of rare disease</span></label><br />
         </Typography>
       </div>
       )} 
