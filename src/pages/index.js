@@ -11,6 +11,10 @@ export default function Home() {
   const [showPaper2, setShowPaper2] = useState(false);
   const [showPaper3, setShowPaper3] = useState(false);
 
+
+
+  const paperNames = ['Can Microbes Save the Planet?', 'Applying Machine Learning to Antibiotic Discovery', 'Unlocking the Promise of mRNA therapeutics' ];
+
     const seeAboutUs = () => {
         window.location.href = "http://letsgobiotech.com/about-us";
     }
@@ -108,7 +112,7 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>Learn the latest Biotech Research</span></b> 
+            <b><span className={styles.lgbHeader}>Master Biotech Papers</span></b> 
           </Typography>
           {/* <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
             <span className={styles.lgbDescription}>Read the latest papers, test yourself and level up!</span>
@@ -130,7 +134,7 @@ export default function Home() {
                 variant="contained"
                 color="success"
               >
-                RNA guided system in Eukaryote
+                {paperNames[0]}
               </Button>)
               :
               (<Button 
@@ -138,21 +142,23 @@ export default function Home() {
                 variant="outlined"
                 color="error"
               > 
-              RNA guided system in Eukaryote
+              {paperNames[0]}
             </Button>) 
         }
+
             &nbsp; &nbsp; &nbsp;
+        
         {
             showPaper2 
 
-            ? 
+            ?
 
             (<Button 
               onClick={(event) => paperSelected(event, "paper2")}
               variant="contained"
               color="success"
-          >
-            Enhanced cancer detection from cell-free DNA
+            >
+            {paperNames[1]} 
           </Button>)
 
             :
@@ -162,7 +168,7 @@ export default function Home() {
               variant="outlined"
               color="error"
           >
-           Enhanced cancer detection from cell-free DNA
+            {paperNames[1]}
           </Button>)
 
          }
@@ -177,7 +183,7 @@ export default function Home() {
               variant="contained"
               color="success"
           >
-           BioLORD - Biology LLM  
+           {paperNames[2]} 
           </Button>)
 
             :
@@ -187,7 +193,7 @@ export default function Home() {
               variant="outlined"
               color="error"
           >
-          BioLORD A Biology Language Model 
+          {paperNames[2]} 
           </Button>)
 
          }
@@ -212,7 +218,8 @@ export default function Home() {
               query: {
                  showPaper1: showPaper1,
                  showPaper2: showPaper2,
-                 showPaper3: showPaper3
+                 showPaper3: showPaper3,
+                 paperNames: paperNames,
                }
              }}
             

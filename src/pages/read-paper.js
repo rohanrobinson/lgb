@@ -10,6 +10,7 @@ export default function ReadPaper() {
  const showPaper1 = router.query.showPaper1;
  const showPaper2 = router.query.showPaper2;
  const showPaper3 = router.query.showPaper3;
+ const paperNames = router.query.paperNames;
 
  const goHome = () => {
   window.location.href = "http://letsgobiotech.com/";
@@ -20,11 +21,13 @@ export default function ReadPaper() {
  }
 
  //Paper 2
- const paperAbstract2 = "Analysis of cell-free DNA (cfDNA) in the blood has shown promise for monitoring a number of biological processes, but as circulating DNA predominantly originates from blood cells and other healthy tissues, the sensitivity of the approach for detecting disease may be reduced by these background signals. Writing in Nature Biotechnology, Esfahani et al.1 show that the expression level of genes captured in cfDNA samples can be predicted using the size variability of the fragments covering the transcription start site of a gene. Active regions of the transcription start site tend to be depleted of nucleosomes, leading to more-random cleavage patterns and higher variability in DNA fragment length. The authors introduce a metric, which they term promoter fragmentation entropy (PFE), that is strongly correlated with RNA expression level and shows good sensitivity for detection and classification of cancer from cfDNA (Fig. 1). Such a metric adds to our armamentarium of fragmentomic features of cfDNA for scrutinizing the cancer signal in blood circulation, augmenting current efforts in developing noninvasive biomarkers for cancer detection and monitoring.";
- // Paper 1
- const paperAbstract1 = "RNA-guided systems, which employ complementarity between a guide RNA and target nucleic acid sequences for recognition of genetic elements, play a central role in biological processes in both prokaryotes and eukaryotes. For example, the prokaryotic CRISPR-Cas systems provide adaptive immunity for bacteria and archaea against foreign genetic elements. Cas effectors, like Cas9 and Cas12, perform guide RNA-dependent DNA cleavage1. Although a few eukaryotic RNA-guided systems have been studied so far, such as RNA interference2 and ribosomal RNA modification3, it remains unclear whether eukaryotes have RNA-guided endonucleases. Recently, a new class of prokaryotic RNA-guided system (termed OMEGA) was reported4,5. The OMEGA effector TnpB is the putative ancestor of Cas12 and has RNA-guided endonuclease activity4,6. TnpB may also be the ancestor of the eukaryotic transposon-encoded Fanzor (Fz) proteins4,7, raising the possibility that eukaryotes are also equipped with CRISPR-Cas/OMEGA-like programmable RNA-guided endonucleases. Here we report the biochemical characterization of Fz, showing that it is an RNA-guided DNA endonuclease. We also show that Fz can be reprogrammed for human genome engineering applications. Finally, we resolved the structure of Spizellomyces punctatus Fz (SpuFz) at 2.7Å using cryogenic-electron microscopy, revealing the conservation of the core regions among Fz, TnpB and Cas12, despite diverse cognate RNA structures. Our results show that Fz is a eukaryotic OMEGA system, demonstrating that RNA-guided endonucleases are present in all three domains of life.";
+const paperAbstract2 = "Antimicrobial resistance has been highlighted as one of the top ten public health threats facing humanity by the World Health Organization. Antimicrobial peptides (AMPs) — small proteins typically 8–50 amino acids in length that confer protection against pathogens — are an established alternative to traditional antibiotics because they are less likely to elicit resistance1; however, only a limited number of these molecules have entered clinical practice, with dozens undergoing clinical and preclinical trials1. High-throughput approaches using microbiome data that widen the search for promising AMPs may provide a new source of candidates to combat antibiotic-resistant pathogens. Now Ma et al.2 describe a clever artificial intelligence (AI) strategy to identify new antibiotics, employing natural language processing tools to effectively mine large gut microbiome datasets in search of peptides that possess antimicrobial properties (Fig. 1). The approach contributes to emerging research allowing the antibiotic discovery field to move past traditional methods that rely on arduous trial-and-error experimentation and into a new era where molecules can be rapidly discovered by computer.";
+
+// Paper 1
+ const paperAbstract1 = "In April, a new research initiative from Jennifer Doudna and Jill Banfield was announced called “Engineering the Microbiome with CRISPR to Improve our Climate and Health.” This project is the largest scientific project funded through The Audacious Project, receiving $70 million in donor funding. The initiative will focus on using precision genome editing on microbial communities, and a large focus of the project seems to be on environmental applications, such as reducing methane emissions from livestock. We have covered the potential of microbial engineering to benefit human health, but what is the real potential for engineering bacteria to benefit the sustainability of the planet?Microbes from livestock, soils and landfill wastes produce methane and nitrogen oxides, which contribute to greenhouse gas emissions. The initiative from Doudna and Banfield will start by trying to decrease livestock methane production through inhibition of methane-producing bacteria in the guts of these ruminants. They are not the first to try to reduce methane being produced by cattle. Others have fed cattle methane inhibitors or seaweed and have developed devices to deliver bioactives that could inhibit methane over time within the stomach. Doudna and Banfield’s proposal is different in that it would use CRISPR–Cas gene editing to directly edit the microbes within the stomach of young livestock, engineering them to produce less methane. This builds on their previous work in soil using DART (DNA-editing all-in-one RNA-guided CRISPR–Cas transposase) and ET-seq, which are methods for microbe engineering without the need for isolation of the species. In theory, an early treatment along these lines that would be active within the ruminant gut would lead to cattle permanently low in methane production.";
+
  // Paper 3
- const paperAbstract3 = "This work introduces BioLORD, a new pre-training strategy for producing meaningful representations for clinical sentences and biomedical concepts. State-of-the-art methodologies operate by maximizing the similarity in representation of names referring to the same concept, and preventing collapse through contrastive learning. However, because biomedical names are not always self-explanatory, it sometimes results in non-semantic representations. BioLORD overcomes this issue by grounding its concept representations using definitions, as well as short descriptions derived from a multi-relational knowledge graph consisting of biomedical ontologies. Thanks to this grounding, our model produces more semantic concept representations that match more closely the hierarchical structure of ontologies. BioLORD establishes a new state of the art for text similarity on both clinical sentences (MedSTS) and biomedical concepts (MayoSRS).";
+ const paperAbstract3 = "The extraordinary success of mRNA vaccines against coronavirus disease 2019 (COVID-19) has renewed interest in mRNA as a means of delivering therapeutic proteins. Early clinical trials of mRNA therapeutics include studies of paracrine vascular endothelial growth factor (VEGF) mRNA for heart failure and of CRISPR–Cas9 mRNA for a congenital liver-specific storage disease. However, a series of challenges remains to be addressed before mRNA can be established as a general therapeutic modality with broad relevance to both rare and common diseases. An array of new technologies is being developed to surmount these challenges, including approaches to optimize mRNA cargos, lipid carriers with inherent tissue tropism and in vivo percutaneous delivery systems. The judicious integration of these advances may unlock the promise of biologically targeted mRNA therapeutics, beyond vaccines and other immunostimulatory agents, for the treatment of diverse clinical indications.";
 
 
  return (
@@ -44,7 +47,7 @@ export default function ReadPaper() {
     </AppBar>
 
     <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
-      <span className={styles.readPaperHeader}><b>Enjoy Reading the Abstract</b></span>
+      <span className={styles.readPaperHeader}><b>Enjoy Reading!</b></span>
     </Typography>
     
 
@@ -60,6 +63,7 @@ export default function ReadPaper() {
         {showPaper1 === 'true' && (
           <Card className={styles.abstractDisplay}>
             <CardContent>
+              <Typography variant="h5" component="div">{paperNames[0]}</Typography>
               <Typography variant="body2" color="text.secondary">
                 {paperAbstract1}
               </Typography>
@@ -70,7 +74,7 @@ export default function ReadPaper() {
         {showPaper2 === 'true' && (
           <Card className={styles.abstractDisplay}>
           <CardContent>
-            <Typography variant="h5" component="div">Abstract</Typography>
+            <Typography variant="h5" component="div">{paperNames[1]}</Typography>
             <Typography variant="body2" color="text.secondary">
               {paperAbstract2}
             </Typography>
@@ -81,7 +85,7 @@ export default function ReadPaper() {
         {showPaper3 === 'true' && (
           <Card className={styles.abstractDisplay}>
           <CardContent>
-            <Typography variant="h5" component="div">Abstract</Typography>
+            <Typography variant="h5" component="div">{paperNames[2]}</Typography>
             <Typography variant="body2" color="text.secondary">
               {paperAbstract3}
             </Typography>
@@ -102,7 +106,8 @@ export default function ReadPaper() {
                 query: {
                   showPaper1: showPaper1,
                   showPaper2: showPaper2,
-                  showPaper3: showPaper3
+                  showPaper3: showPaper3, 
+                  paperNames: paperNames,
                 }
             }}>
             <h2>Take Quiz</h2>

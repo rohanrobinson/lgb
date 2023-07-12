@@ -52,6 +52,11 @@ export default function PastPapers() {
         <a href="https://www.nature.com/articles/s41587-023-01730-x" target="_blank"><p><span className={styles.lgbText}>Xenotransplantation: how close are we?</span></p></a>
         <a href="https://www.nature.com/articles/s41587-023-01736-5" target="_blank"><p><span className={styles.lgbText}>Make Science Disruptive Again</span></p></a>
         <a href="https://www.nature.com/articles/s41587-023-01755-2" target="_blank"><p><span className={styles.lgbText}>Exploring tRNAs and their Modifications </span></p></a>
+        <a href="https://www.nature.com/articles/s41586-023-06356-2" target="_blank"><p><span className={styles.lgbText}>RNA Guided System in Eukaryotes</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-021-01207-9" target="_blank"><p><span className={styles.lgbText}>Enhanced cancer detection from cell-free DNA</span></p></a>
+        <a href="https://arxiv.org/abs/2210.11892" target="_blank"><p><span className={styles.lgbText}>BioLORD</span></p></a>
+
+        
     </div>
 
     <br />
