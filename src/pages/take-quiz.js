@@ -8,18 +8,17 @@ import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function TakeQuiz() {
 
-  // -these values come from read-paper.js 
   const router = useRouter();
   const showPaper1 = router.query.showPaper1;
   const showPaper2 = router.query.showPaper2;
   const showPaper3 = router.query.showPaper3;
-
-  // --these values come from user input 
+  const paperNames = router.query.paperNames;
+  
   const [showScore, setShowScore] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState('');
   const [totalCorrect, setCorrect] = useState('');
+  const [currPageNum, setPageNum] = useState(0);
 
-  // --updated hooks for new quiz w/ multiple answers per question
   const [paper1Q1Value, setPaper1Q1Value] = useState('');
   const [paper1Q2Value, setPaper1Q2Value] = useState(' ');
   const [paper2Q1Value, setPaper2Q1Value] = useState('');
@@ -31,7 +30,10 @@ export default function TakeQuiz() {
     window.location.href = "http://letsgobiotech.com"; 
   }
 
-
+  function arrowClick(direction) {
+    if (direction === "right" && currPageNum  <= 2)  { setPageNum(currPageNum + 1); }
+    else if (direction == "left" && currPageNum >= 1) { setPageNum(currPageNum - 1); }
+  }
 
   // handle paper 1 change 
   const handlePaper1Change = (event) => {
@@ -62,6 +64,134 @@ export default function TakeQuiz() {
     else if (name === 'paper3-q2') {
       setPaper3Q2Value(value);
     }
+  }
+
+// defining pages of the quiz 
+  const introPage = 
+    <div>
+      <hr></hr>
+      <h3>Ready to Practice?</h3>
+      <p>Let's Go!</p>
+    </div>;
+
+  const questionPage =     
+    <div>
+      <hr></hr>
+      <h3>Question {currPageNum}</h3>
+
+      { showPaper1 === 'true' ?
+      <div className={styles.quizHellYa}>
+        <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+          <span className={styles.lgbText}><i><b>What is the primary goal of the initiative in terms of reducing methane emissions?</b></i></span><br />
+          <input type="radio" id="paper1-q1-a" name="paper1-q1" value="paper1-q1-a" onChange={handlePaper1Change}/>
+          <label htmlFor="paper1-a"><span className={styles.lgbText}>Developing devices to deliver bioactives to cattle stomachs</span></label><br />
+          <input type="radio" id="paper1-q1-b" name="paper1-q1" value="paper1-q1-b" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-b"><span className={styles.lgbText}>Feeding cattle methane inhibitors or seaweed</span></label><br />
+          <input type="radio" id="paper1-q1-c" name="paper1-q1" value="paper1-q1-c" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>Using CRISPR–Cas gene editing to directly edit microbes in the guts of livestock</span></label><br /> <br />
+       
+          <span className={styles.lgbText}><i><b>How does Doudna and Banfield's approach differ from previous attempts to reduce methane production in cattle?</b></i></span><br />
+          <input type="radio" id="paper1-q2-a" name="paper1-q2" value="paper1-q2-a" onChange={handlePaper1Change}/>
+          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>It focuses on isolating specific species of microbes in the gut.</span></label><br />
+          <input type="radio" id="paper1-q2-b" name="paper1-q2" value="paper1-q2-b" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>It utilizes DNA-editing methods called DART and ET-seq</span></label><br />
+          <input type="radio" id="paper1-q2-c" name="paper1-q2" value="paper1-q2-c" onChange={handlePaper1Change} />
+          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>It involves the administration of methane inhibitors or seaweed.</span></label>
+        </Typography> 
+      </div>
+      : ""
+      }
+
+      { showPaper2 === 'true' ? 
+        <div className={styles.quizHellYa}>
+          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+            <span className={styles.lgbText}><i><b>Why are antimicrobial peptides (AMPs) considered an alternative to traditional antibiotics?</b></i></span><br />
+            <input type="radio" id="paper2-q1-a" name="paper2-q1" value="paper2-q1-a" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-a"><span className={styles.lgbText}>They are less likely to elicit resistance.</span></label><br />
+            <input type="radio" id="paper2-q1-b" name="paper2-q1" value="paper2-q1-b" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-b"><span className={styles.lgbText}>They are more effective against pathogens.</span></label><br />
+            <input type="radio" id="paper2-q1-c" name="paper2-q1" value="paper2-q1-c" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-c"><span className={styles.lgbText}>They have a broader spectrum of activity.</span></label><br /> <br />
+
+            <span className={styles.lgbText}><i><b>What approach do Ma and the team use to identify new antibiotics?</b></i></span><br />
+            <input type="radio" id="paper2-q2-a" name="paper2-q2" value="paper2-q2-a" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-d"><span className={styles.lgbText}>Conducting large-scale clinical trials</span></label><br />
+            <input type="radio" id="paper2-q2-b" name="paper2-q2" value="paper2-q2-b" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-e"><span className={styles.lgbText}>Utilizing high-throughput microbiome data analysis</span></label><br />
+            <input type="radio" id="paper2-q2-c" name="paper2-q2" value="paper2-q2-c" onChange={handlePaper2Change} />
+            <label htmlFor="paper2-f"><span className={styles.lgbText}>Developing natural language processing tools</span></label><br /> <br />
+          </Typography>
+        </div>
+        :
+        ""
+      }
+
+      { showPaper3 === 'true' ? 
+        <div className={styles.quizHellYa}>
+        <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+          <span className={styles.lgbText}><b>What has renewed interest in mRNA as a means of delivering therapeutic proteins?</b></span><br />
+          <input type="radio" id="paper3-q1-a" name="paper3-q1" value="paper3-q1-a" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-a"><span className={styles.lgbText}>Early clinical trials of mRNA therapeutics</span></label><br />
+          <input type="radio" id="paper3-q1-b" name="paper3-q1" value="paper3-q1-b" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-b"><span className={styles.lgbText}>The success of mRNA vaccines against COVID-19</span></label><br /> <br />
+      
+          <span className={styles.lgbText}><b>What is the potential of mRNA therapeutics beyond vaccines and immunostimulatory agents?</b></span><br />
+          <input type="radio" id="paper3-q2-a" name="paper3-q2" value="paper3-q2-a" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-c"><span className={styles.lgbText}>Treatment of diverse conditions</span></label><br />
+          <input type="radio" id="paper3-q2-b" name="paper3-q2" value="paper3-q2-b" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>Enhancement of the immune system</span></label><br />
+          <input type="radio" id="paper3-q2-c" name="paper3-q2" value="paper3-q2-c" onChange={handlePaper3Change} />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>Prevention of rare disease</span></label><br />
+        </Typography>
+      </div>
+      :
+      ""
+    }         
+    </div>;
+
+  const feedbackPage = 
+    <div>
+      <hr></hr>
+      <h3><i>Keep Going! Great Job!</i></h3>
+      <p>This is how you performed!</p>
+      <p>You got x questions correct out of y total question</p>
+    </div>;
+
+  let displayQuizName = () => {
+      let selectedPaperName = "";
+
+      if (showPaper1 === "true") { 
+        selectedPaperName = paperNames[0];
+      }
+
+      if (showPaper2 === "true") {
+        selectedPaperName = paperNames[1];
+      }
+
+      if (showPaper3 === "true") {
+        selectedPaperName = paperNames[2];
+      }
+
+      return selectedPaperName;
+  }
+
+  let displayQuizFlow = () =>  { 
+      let returnUI = ""
+      
+      if (currPageNum == 0) {
+          returnUI = introPage;
+      }
+
+      if (currPageNum == 1 || currPageNum == 2) {
+        returnUI = questionPage;
+      }
+
+
+      if (currPageNum == 3) {
+        returnUI = feedbackPage;
+      }
+      
+      return returnUI;
   }
 
   const scoreFun = () => {
@@ -118,8 +248,6 @@ export default function TakeQuiz() {
     return numQuestionsCorrect; 
   }
 
-
-
  return (
    <div className={styles.container}>
       <Head>
@@ -136,10 +264,20 @@ export default function TakeQuiz() {
       </AppBar>
 
       <br />
+      <div>
+        <h3><i>{displayQuizName()}</i></h3>
+      <br />
+          {displayQuizFlow()}
+          <Button onClick={() => arrowClick("left")}>&larr;</Button>
+          <Button onClick={() => arrowClick("right")}>&rarr;</Button>
 
-      {showPaper1 === 'true' && (
+      </div>
+
+
+      {/* {showPaper1 === 'true' && (
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+          <h3><i>{paperNames[0]}</i></h3>
           <span className={styles.lgbText}><i><b>What is the primary goal of the initiative in terms of reducing methane emissions?</b></i></span><br />
           <input type="radio" id="paper1-q1-a" name="paper1-q1" value="paper1-q1-a" onChange={handlePaper1Change}/>
           <label htmlFor="paper1-a"><span className={styles.lgbText}>Developing devices to deliver bioactives to cattle stomachs</span></label><br />
@@ -164,6 +302,7 @@ export default function TakeQuiz() {
       {showPaper2 === 'true' && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+            <h3><i>{paperNames[1]}</i></h3>
             <span className={styles.lgbText}><i><b>Why are antimicrobial peptides (AMPs) considered an alternative to traditional antibiotics?</b></i></span><br />
             <input type="radio" id="paper2-q1-a" name="paper2-q1" value="paper2-q1-a" onChange={handlePaper2Change} />
             <label htmlFor="paper2-a"><span className={styles.lgbText}>They are less likely to elicit resistance.</span></label><br />
@@ -188,6 +327,7 @@ export default function TakeQuiz() {
       {showPaper3 === 'true' && (
         <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+          <h3>{paperNames[2]}</h3>
           <span className={styles.lgbText}><b>What has renewed interest in mRNA as a means of delivering therapeutic proteins?</b></span><br />
           <input type="radio" id="paper3-q1-a" name="paper3-q1" value="paper3-q1-a" onChange={handlePaper3Change} />
           <label htmlFor="paper3-a"><span className={styles.lgbText}>Early clinical trials of mRNA therapeutics</span></label><br />
@@ -203,13 +343,9 @@ export default function TakeQuiz() {
           <label htmlFor="paper3-d"><span className={styles.lgbText}>Prevention of rare disease</span></label><br />
         </Typography>
       </div>
-      )} 
+      )}  */}
 
-      <br />
-      <br />
-
-
-      {showScore && totalCorrect > 0 &&(
+       {/* {showScore && totalCorrect > 0 && (
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
             <span className={styles.lgbText}>Great job on reading new & hard material!< br />
@@ -247,8 +383,8 @@ export default function TakeQuiz() {
         </Link>
     
       </Typography>
-      )}
+      )} */}
 
-   </div>
+   </div> 
  )
 }

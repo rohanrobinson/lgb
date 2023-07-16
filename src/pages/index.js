@@ -12,7 +12,7 @@ export default function Home() {
   const [showPaper3, setShowPaper3] = useState(false);
 
 
-
+  // names of paper 1, paper 2, paper 3 
   const paperNames = ['Can Microbes Save the Planet?', 'Applying Machine Learning to Antibiotic Discovery', 'Unlocking the Promise of mRNA therapeutics' ];
 
     const seeAboutUs = () => {
@@ -118,7 +118,7 @@ export default function Home() {
             <span className={styles.lgbDescription}>Read the latest papers, test yourself and level up!</span>
           </Typography> */}
           <Typography variant="h3" sx={{ mb: 2, textAlign: 'center'}}>
-            <span className={styles.lgbDescription}>Get Started by Choosing a Paper Below</span>
+            <span className={styles.lgbDescription}>Select a Paper to Get Started</span>
           </Typography>
         </Box>
 
