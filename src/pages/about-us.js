@@ -30,7 +30,7 @@ export default function AboutUs() {
         </Toolbar>
       </AppBar>
 
-        <b>About Let's Go Biotech</b> 
+        <b>Why are we here?</b> 
 
       <Box sx={{ 
         display: 'flex', 
@@ -41,8 +41,8 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         We have to cure all disease and create a sustainable planet Earth for our kids! 
-                         By understanding and implementing biotech knowledge we can do it! <a href="https://rohanrobinson.github.io" target="_blank">Rohan Cain Robinson</a>
+                         Let's learn Biotech to cure disease, sustain Earth, and expand outward. 
+                         
               </p>
 
 

@@ -112,13 +112,13 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}>Master Biotech Papers</span></b> 
+            <b><span className={styles.lgbHeader}><i> Let's Master Biotechnology</i></span></b> 
           </Typography>
           {/* <Typography variant="h4" sx={{ mb: 2, textAlign: 'center' }}>
             <span className={styles.lgbDescription}>Read the latest papers, test yourself and level up!</span>
           </Typography> */}
           <Typography variant="h3" sx={{ mb: 2, textAlign: 'center'}}>
-            <span className={styles.lgbDescription}>Select a Paper to Get Started</span>
+            <span className={styles.lgbDescription}>Select a Paper</span>
           </Typography>
         </Box>
 
@@ -224,7 +224,7 @@ export default function Home() {
              }}
             
           >
-            <b>Read Paper</b>
+            <b>Read Selected Paper</b>
           </Link>
         
           </Box>

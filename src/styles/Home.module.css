@@ -26,7 +26,18 @@
     font-size: 1.5rem;
     text-align: center;
   }
+
+  .introPage {
+    color: white;
+    background-color: #5F65EB;
+    text-align: center;
+  }
   
+  .quizArrows {
+    margin-left: 60px;
+
+  }
+
   .container {
     display: flex;
     flex-direction: column;

@@ -50,7 +50,7 @@ const paperAbstract2 = "Antimicrobial resistance has been highlighted as one of 
       <span className={styles.readPaperHeader}><b>Enjoy Reading!</b></span>
     </Typography>
     
-
+    
      {showPaper1 === 'false' && showPaper2 === "false" && showPaper3 === "false" && (
         <div>
            <Typography variant="body1" sx={{ mb: 2, fontSize: "3.0rem" }}>
@@ -63,7 +63,6 @@ const paperAbstract2 = "Antimicrobial resistance has been highlighted as one of 
         {showPaper1 === 'true' && (
           <Card className={styles.abstractDisplay}>
             <CardContent>
-              <Typography variant="h5" component="div">{paperNames[0]}</Typography>
               <Typography variant="body2" color="text.secondary">
                 {paperAbstract1}
               </Typography>
@@ -74,7 +73,6 @@ const paperAbstract2 = "Antimicrobial resistance has been highlighted as one of 
         {showPaper2 === 'true' && (
           <Card className={styles.abstractDisplay}>
           <CardContent>
-            <Typography variant="h5" component="div">{paperNames[1]}</Typography>
             <Typography variant="body2" color="text.secondary">
               {paperAbstract2}
             </Typography>
@@ -85,7 +83,6 @@ const paperAbstract2 = "Antimicrobial resistance has been highlighted as one of 
         {showPaper3 === 'true' && (
           <Card className={styles.abstractDisplay}>
           <CardContent>
-            <Typography variant="h5" component="div">{paperNames[2]}</Typography>
             <Typography variant="body2" color="text.secondary">
               {paperAbstract3}
             </Typography>
