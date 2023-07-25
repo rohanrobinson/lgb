@@ -55,8 +55,9 @@ export default function PastPapers() {
         <a href="https://www.nature.com/articles/s41586-023-06356-2" target="_blank"><p><span className={styles.lgbText}>RNA Guided System in Eukaryotes</span></p></a>
         <a href="https://www.nature.com/articles/s41587-021-01207-9" target="_blank"><p><span className={styles.lgbText}>Enhanced cancer detection from cell-free DNA</span></p></a>
         <a href="https://arxiv.org/abs/2210.11892" target="_blank"><p><span className={styles.lgbText}>BioLORD</span></p></a>
-
-        
+        <a href="https://www.nature.com/articles/s41587-023-01837-1" target="_blank"><p><span className={styles.lgbText}>Can Microbes Save the Planet?</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-022-01327-w" target="_blank"><p><span className={styles.lgbText}>Applying Machine Learning to Antibiotic Discovery</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-022-01491-z" target="_blank"><p><span className={styles.lgbText}>Unlocking the Promise of mRNA therapeutics</span></p></a>
     </div>
 
     <br />
