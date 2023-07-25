@@ -41,10 +41,8 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Let's learn Biotech to cure disease, sustain Earth, and expand outward. 
-                         
+                         Let's learn biotechnology in order to cure all disease, sustain our planet, and expand to the stars.
               </p>
-
 
             <Button 
               variant="contained" 
