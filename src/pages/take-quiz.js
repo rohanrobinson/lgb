@@ -18,6 +18,14 @@ export default function TakeQuiz() {
   const showPaper3 = router.query.showPaper3;
   const paperNames = router.query.paperNames;
 
+  const paper1Questions = ['What is the main focus of the study mentioned in the paragraph?', 'What is one of the key differences observed between pediatric and adult cancer cell lines in the study?'];
+  const paper1AnswerChoices = [['Identifying new drug targets in pediatric cancers', 'Investigating the genetic complexity of adult cancers', 'Comparing mutational burden in pediatric and adult cancers'], ['Pediatric cancers have fewer genetic dependencies than adult cancers.', 'Pediatric cancers harbor more somatic mutations than adult cancers.', 'The vulnerabilities observed in pediatric cancers are distinct from those in adult cancers.']];
+  const paper2Questions = ['What is a challenge in predicting the inhibitory effects of uORFs on protein translation?', 'What is the potential application of the methods described in the study?'];
+  const paper2AnswerChoices = [['Secondary structure of uORFs', 'Downstream and upstream sequences in the 5` UTR', 'Expression levels of translation initiation factors'], ['Improving crop traits by manipulating pleiotropy', 'Enhancing translation initiation factors in plants', 'Extending the study to non-eukaryotic organisms']];
+  const paper3Questions = ['What is the main advantage of MPS in drug development?', 'What is the focus of Body-on-a-chip (BOC) systems?'];
+  const paper3AnswerChoices = [['Ability to predict animal response to drugs', 'Capability to model organ physiology and understand underlying mechanisms', 'Augmentation of clinical studies to test drug efficacy'], ['Predicting human response to pharmaceuticals', 'Evaluating the safety of chemicals, food ingredients, and cosmetics', 'Augmenting clinical studies for general chemical exposure']];
+
+
   const [showScore, setShowScore] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState('');
   const [totalCorrect, setCorrect] = useState('');
@@ -57,7 +65,7 @@ export default function TakeQuiz() {
 
   }
 
-  // handleAnswerChange function (meant to replace handlePaper1Change, handlePaper2Change, handlePaper3Change)
+  // handleAnswerChange function 
   const handleAnswerChange = (event) => {
       
       let currQuestion = event.target.name;
@@ -122,13 +130,13 @@ export default function TakeQuiz() {
       { showPaper1 === 'true' && currPageNum == 1 ?
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><i><b>What is the primary goal of the initiative in terms of reducing methane emissions?</b></i></span><br />
+          <span className={styles.lgbText}><i><b>{paper1Questions[0]}</b></i></span><br />
           <input type="radio" id="paper1-q1-a" name="paper1-q1" value="option-1" checked={paper1Q1Value === 'option-1'} onChange={handleAnswerChange}/>
-          <label htmlFor="paper1-a"><span className={styles.lgbText}>Developing devices to deliver bioactives to cattle stomachs</span></label><br />
+          <label htmlFor="paper1-a"><span className={styles.lgbText}>{paper1AnswerChoices[0][0]}</span></label><br />
           <input type="radio" id="paper1-q1-b" name="paper1-q1" value="option-2" checked={paper1Q1Value === 'option-2'} onChange={handleAnswerChange} />
-          <label htmlFor="paper1-b"><span className={styles.lgbText}>Feeding cattle methane inhibitors or seaweed</span></label><br />
+          <label htmlFor="paper1-b"><span className={styles.lgbText}>{paper1AnswerChoices[0][1]}</span></label><br />
           <input type="radio" id="paper1-q1-c" name="paper1-q1" value="option-3" checked={paper1Q1Value === 'option-3'} onChange={handleAnswerChange} />
-          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>Using CRISPR–Cas gene editing to directly edit microbes in the guts of livestock</span></label><br /> <br />
+          <label htmlFor="paper1-q1-c"><span className={styles.lgbText}>{paper1AnswerChoices[0][2]}</span></label><br /> <br />
         </Typography> 
       </div>
       : ""
@@ -137,13 +145,13 @@ export default function TakeQuiz() {
       { showPaper1 == 'true' && currPageNum == 2 ?
       <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><i><b>How does Doudna and Banfield's approach differ from previous attempts to reduce methane production in cattle?</b></i></span><br />
+          <span className={styles.lgbText}><i><b>{paper1Questions[1]}</b></i></span><br />
           <input type="radio" id="paper1-q2-a" name="paper1-q2" value="option-1" checked={paper1Q2Value === 'option-1'} onChange={handleAnswerChange}/>
-          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>It focuses on isolating specific species of microbes in the gut.</span></label><br />
+          <label htmlFor="paper1-q2-a"><span className={styles.lgbText}>{paper1AnswerChoices[1][0]}</span></label><br />
           <input type="radio" id="paper1-q2-b" name="paper1-q2" value="option-2" checked={paper1Q2Value === 'option-2'} onChange={handleAnswerChange} />
-          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>It utilizes DNA-editing methods called DART and ET-seq</span></label><br />
+          <label htmlFor="paper1-q2-b"><span className={styles.lgbText}>{paper1AnswerChoices[1][1]}</span></label><br />
           <input type="radio" id="paper1-q2-c" name="paper1-q2" value="option-3" checked={paper1Q2Value === 'option-3'} onChange={handleAnswerChange} />
-          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>It involves the administration of methane inhibitors or seaweed.</span></label>
+          <label htmlFor="paper1-q2-c"><span className={styles.lgbText}>{paper1AnswerChoices[1][2]}</span></label>
         </Typography>
       </div>
       : ""
@@ -152,13 +160,13 @@ export default function TakeQuiz() {
       { showPaper2 === 'true' && currPageNum == 1 ? 
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}><i><b>Why are antimicrobial peptides (AMPs) considered an alternative to traditional antibiotics?</b></i></span><br />
+            <span className={styles.lgbText}><i><b>{paper2Questions[0]}</b></i></span><br />
             <input type="radio" id="paper2-q1-a" name="paper2-q1" value="option-1" checked={paper2Q1Value === 'option-1'} onChange={handleAnswerChange} />
-            <label htmlFor="paper2-a"><span className={styles.lgbText}>They are less likely to elicit resistance.</span></label><br />
+            <label htmlFor="paper2-a"><span className={styles.lgbText}>{paper2AnswerChoices[0][0]}</span></label><br />
             <input type="radio" id="paper2-q1-b" name="paper2-q1" value="option-2" checked={paper2Q1Value === 'option-2'} onChange={handleAnswerChange} />
-            <label htmlFor="paper2-b"><span className={styles.lgbText}>They are more effective against pathogens.</span></label><br />
+            <label htmlFor="paper2-b"><span className={styles.lgbText}>{paper2AnswerChoices[0][1]}</span></label><br />
             <input type="radio" id="paper2-q1-c" name="paper2-q1" value="option-3" checked={paper2Q1Value === 'option-3'} onChange={handleAnswerChange} />
-            <label htmlFor="paper2-c"><span className={styles.lgbText}>They have a broader spectrum of activity.</span></label><br /> <br />
+            <label htmlFor="paper2-c"><span className={styles.lgbText}>{paper2AnswerChoices[0][2]}</span></label><br /> <br />
           </Typography>
         </div>
         :
@@ -168,13 +176,13 @@ export default function TakeQuiz() {
       { showPaper2 === 'true' && currPageNum == 2 ? 
         <div className={styles.quizHellYa}>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-            <span className={styles.lgbText}><i><b>What approach do Ma and the team use to identify new antibiotics?</b></i></span><br />
+            <span className={styles.lgbText}><i><b>{paper2Questions[1]}</b></i></span><br />
             <input type="radio" id="paper2-q2-a" name="paper2-q2" value="option-1" checked={paper2Q2Value === 'option-1'} onChange={handleAnswerChange} />
-            <label htmlFor="paper2-d"><span className={styles.lgbText}>Conducting large-scale clinical trials</span></label><br />
+            <label htmlFor="paper2-d"><span className={styles.lgbText}>{paper2AnswerChoices[1][0]}</span></label><br />
             <input type="radio" id="paper2-q2-b" name="paper2-q2" value="option-2" checked={paper2Q2Value === 'option-2'} onChange={handleAnswerChange} />
-            <label htmlFor="paper2-e"><span className={styles.lgbText}>Utilizing high-throughput microbiome data analysis</span></label><br />
+            <label htmlFor="paper2-e"><span className={styles.lgbText}>{paper2AnswerChoices[1][1]}</span></label><br />
             <input type="radio" id="paper2-q2-c" name="paper2-q2" value="option-3" checked={paper2Q2Value === 'option-3'}  onChange={handleAnswerChange} />
-            <label htmlFor="paper2-f"><span className={styles.lgbText}>Developing natural language processing tools</span></label><br /> <br />
+            <label htmlFor="paper2-f"><span className={styles.lgbText}>{paper2AnswerChoices[1][2]}</span></label><br /> <br />
           </Typography>
         </div>
         :
@@ -184,13 +192,13 @@ export default function TakeQuiz() {
       { showPaper3 === 'true' && currPageNum == 1 ? 
         <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><b>What has renewed interest in mRNA as a means of delivering therapeutic proteins?</b></span><br />
+          <span className={styles.lgbText}><b>{paper3Questions[0]}</b></span><br />
           <input type="radio" id="paper3-q1-a" name="paper3-q1" value="option-1" checked={paper3Q1Value === 'option-1'} onChange={handleAnswerChange}/>
-          <label htmlFor="paper3-a"><span className={styles.lgbText}>Early clinical trials of mRNA therapeutics</span></label><br />
+          <label htmlFor="paper3-a"><span className={styles.lgbText}>{paper3AnswerChoices[0][0]}</span></label><br />
           <input type="radio" id="paper3-q1-b" name="paper3-q1" value="option-2" checked={paper3Q1Value === 'option-2'} onChange={handleAnswerChange} />
-          <label htmlFor="paper3-b"><span className={styles.lgbText}>The success of mRNA vaccines against COVID-19</span></label><br />
+          <label htmlFor="paper3-b"><span className={styles.lgbText}>{paper3AnswerChoices[0][1]}</span></label><br />
           <input type="radio" id="paper3-q1-c" name="paper3-q1" value="option-3" checked={paper3Q1Value === 'option-3'} onChange={handleAnswerChange} />
-          <label htmlFor="paper3-b"><span className={styles.lgbText}>Moderna having a unique adenovirus delivery mechanism </span></label><br /> <br />
+          <label htmlFor="paper3-b"><span className={styles.lgbText}>{paper3AnswerChoices[0][2]}</span></label><br /> <br />
         </Typography>
       </div>
         :
@@ -200,13 +208,13 @@ export default function TakeQuiz() {
       { showPaper3 === 'true' && currPageNum == 2 ? 
         <div className={styles.quizHellYa}>
         <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-          <span className={styles.lgbText}><b>What is the potential of mRNA therapeutics beyond vaccines and immunostimulatory agents?</b></span><br />
+          <span className={styles.lgbText}><b>{paper3Questions[1]}</b></span><br />
           <input type="radio" id="paper3-q2-a" name="paper3-q2" value="option-1" checked={paper3Q2Value === 'option-1'} onChange={handleAnswerChange} />
-          <label htmlFor="paper3-c"><span className={styles.lgbText}>Treatment of diverse conditions</span></label><br />
+          <label htmlFor="paper3-c"><span className={styles.lgbText}>{paper3AnswerChoices[1][0]}</span></label><br />
           <input type="radio" id="paper3-q2-b" name="paper3-q2" value="option-2" checked={paper3Q2Value === 'option-2'} onChange={handleAnswerChange} />
-          <label htmlFor="paper3-d"><span className={styles.lgbText}>Enhancement of the immune system</span></label><br />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>{paper3AnswerChoices[1][1]}</span></label><br />
           <input type="radio" id="paper3-q2-c" name="paper3-q2" value="option-3" checked={paper3Q2Value === 'option-3'} onChange={handleAnswerChange} />
-          <label htmlFor="paper3-d"><span className={styles.lgbText}>Prevention of rare disease</span></label><br />
+          <label htmlFor="paper3-d"><span className={styles.lgbText}>{paper3AnswerChoices[1][2]}</span></label><br />
         </Typography>
       </div>
       :
@@ -293,8 +301,8 @@ export default function TakeQuiz() {
   const scoreFun = () => {
     
     // eventually need to refactor to have correct answers automated 
-    const correctAnswersPaper1 = ['option-3', 'option-2'];
-    const correctAnswersPaper2 = ['option-1', 'option-2'];
+    const correctAnswersPaper1 = ['option-1', 'option-3'];
+    const correctAnswersPaper2 = ['option-1', 'option-1'];
     const correctAnswersPaper3 = ['option-2', 'option-1'];
 
     let totalCorrect = 0;
