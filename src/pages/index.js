@@ -13,7 +13,7 @@ export default function Home() {
 
 
   // names of paper 1, paper 2, paper 3 
-  const paperNames = ['Can Microbes Save the Planet?', 'Applying Machine Learning to Antibiotic Discovery', 'Unlocking the Promise of mRNA therapeutics' ];
+  const paperNames = ['Pediatric Cancer Genome Map', 'Predicting plant mRNA translation', 'Advances in body-on-a-chip systems' ];
 
     const seeAboutUs = () => {
         window.location.href = "http://letsgobiotech.com/about-us";

@@ -1,5 +1,5 @@
 
-  @media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .selectPaperHeader, .readPaperHeader {
       font-size: 1.25rem;
     }
@@ -29,7 +29,7 @@
 
   .introPage {
     color: white;
-    background-color: #5F65EB;
+    background-color: #9c27b0;
     text-align: center;
   }
   
