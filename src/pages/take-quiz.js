@@ -39,9 +39,8 @@ export default function TakeQuiz() {
   const [paper3Q2Value, setPaper3Q2Value] = useState(false);
 
 
-  // eventually refactor this lol
   const goHome = () => {
-    window.location.href = "http://letsgobiotech.com"; 
+    router.push('/'); 
   }
   ////////////////////
   function arrowClick(direction) {

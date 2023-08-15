@@ -2,17 +2,14 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 
 export default function PastPapers() {
 
- 
-  const seeCurrentPapers = () => {
-    window.location.href = "http://letsgobiotech.com/select-paper";
-  }
+  const router = useRouter();
 
   const goHome = () => {
-    window.location.href = "http://letsgobiotech.com/"; 
+    router.push('/');
   }
 
   return (
