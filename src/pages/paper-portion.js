@@ -16,8 +16,6 @@ export default function PaperPortion() {
     const paperNames = router.query.paperNames;
     const paperAbstracts = router.query.paperAbstracts;
 
-    console.log(paperAbstracts);
-
     const [partSelected, setPartSelected] = useState("");
 
     const showChosenPaper = () => {
