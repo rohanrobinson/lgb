@@ -66,10 +66,10 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}><i>Let's Master Biotechnology</i></span></b> 
+            <b><span className={styles.lgbHeader}><i>Master Biotech</i></span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center'}}>
-            <span className={styles.lgbDescription}>Select a Paper</span>
+            <span className={styles.lgbDescription}>Start by Clicking on a Paper</span>
           </Typography>
         </Box>
         

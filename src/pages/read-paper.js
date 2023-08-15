@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Box, AppBar, Toolbar, Typography, Button, Card, CardContent } from '@mui/material';
+import { AppBar, Toolbar, Typography, Card, CardContent } from '@mui/material';
 
 export default function ReadPaper() {
 

@@ -59,17 +59,6 @@ export default function AboutUs() {
               Let's Get Started
             </Button>
 
-            <Button 
-              variant="contained" 
-              color="secondary" 
-              size="large"
-              target="_blank" 
-              href="https://letsgobiotech.beehiiv.com"
-              sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-            >
-              Check out our Newsletter 
-            </Button>
-
         </Box>
     </Box>
   );
