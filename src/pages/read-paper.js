@@ -92,22 +92,30 @@ const paperAbstract3 = "Microphysiological systems (MPS, also known as organ-on-
 
     <br />
 
-        <Link
-            className={styles.greenSquare} 
+        <Link 
             href={{
                 pathname: '/take-quiz',
                 query: {
-                  showPaper1: showPaper1,
-                  showPaper2: showPaper2,
-                  showPaper3: showPaper3, 
-                  paperNames: paperNames,
+                    showPaper1: showPaper1,
+                    showPaper2: showPaper2,
+                    showPaper3: showPaper3, 
+                    paperNames: paperNames,
                 }
-            }}>
-            <h2>Take Quiz</h2>
+            }}
+            passHref
+        >
+            <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px' }}
+            >
+                Take Quiz
+            </Button>
         </Link>
 
 
-
+        <br />
    
 
         <a href="/">

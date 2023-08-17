@@ -52,7 +52,7 @@ export default function Home() {
               Let's Go Biotech 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seeAboutUs}>
-              About
+              About Us
             </Typography>
           </Toolbar>
         </AppBar>

@@ -114,10 +114,10 @@ export default function TakeQuiz() {
 // defining pages of the quiz 
   const introPage = 
     <div className={styles.introPage}>
-      <hr></hr>
+      {/* <hr></hr>
       <h3>Ready to Quiz Yourself?</h3>
       <h4>This Quiz has Two Questions</h4>
-      <br />
+      <br /> */}
     </div>;
 
 
@@ -365,7 +365,7 @@ export default function TakeQuiz() {
 
       <br />
       <div>
-        <h3><i>{displayQuizName()}</i></h3>
+        <h3><i>{displayQuizName()} (2 questions)</i></h3>
           <br />
           {displayQuizFlow()}
        
@@ -373,8 +373,41 @@ export default function TakeQuiz() {
         currPageNum == 0
         ?
         (<div className={styles.quizArrows}>
-          <Button onClick={() => arrowClick("left")}>Read Paper Again</Button>
-          <Button onClick={() => arrowClick("right")}>Start Quiz</Button>
+
+          <Button 
+              variant="contained" 
+              color="secondary" 
+              size="small" 
+              sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+              onClick={() => arrowClick("right")}
+            >
+            Start Quiz
+          </Button>
+
+          <br />
+          <br />
+
+          <Link 
+            href={{
+                pathname: '/read-paper',
+                query: {
+                    showPaper1: showPaper1,
+                    showPaper2: showPaper2,
+                    showPaper3: showPaper3, 
+                    paperNames: paperNames,
+                }
+            }}
+            passHref
+          >
+            <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px' }}
+            >
+                Read Paper Again
+            </Button>
+        </Link>
         </div>)
         :
         (<div className={styles.quizArrows}> 
