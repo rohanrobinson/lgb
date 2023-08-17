@@ -229,33 +229,49 @@ export default function TakeQuiz() {
      
      
      
-       ? <div><h3><i>Great Job!</i></h3><p>You got {totalCorrect} questions correct out of {totalQuestions} total questions</p><Link 
-       className={styles.greenSquare}
-       variant="contained" 
-       color="success" 
-       size="large" 
-       href={{ pathname: '/' }} >
-       <b>Let's Go Back Home</b>
-     </Link></div> 
+       ? <div><h3><i>Great Job!</i></h3><p>You got {totalCorrect} questions correct out of {totalQuestions} total questions</p>
+       <Link
+       
+       href={{
+        pathname: '/',
+          }}
+    passHref
+       >
+        <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="large" 
+                  sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px' }} 
+        >
+            Let's Go Back Home
+      </Button>
+     </Link>
+     </div> 
      
      
-     : <div><p>Ouch! looks like you didn't get any of them correct</p><Link 
-            className={styles.greenSquare}
-            variant="contained" 
-            color="success" 
-            size="large" 
-            
-            href={{ pathname: '/read-paper',
-              query: {
-                 showPaper1: showPaper1,
-                 showPaper2: showPaper2,
-                 showPaper3: showPaper3,
-                 paperNames: paperNames,
-               }
-             }}
-            
-          >
-            <b>Read Paper Again</b>
+     : <div><p>Ouch! looks like you didn't get any of them correct</p>
+     
+        <Link 
+            href={{
+                pathname: '/read-paper',
+                query: {
+                  showPaper1: showPaper1,
+                  showPaper2: showPaper2,
+                  showPaper3: showPaper3, 
+                  paperNames: paperNames,
+              }
+                }}
+            passHref
+        >
+
+        <Button
+          variant="contained" 
+          color="secondary" 
+          size="large" 
+          sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px' }} 
+        >
+          Read Paper Again
+        </Button>
           </Link>
         </div>}
     </div>;

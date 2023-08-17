@@ -44,8 +44,7 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         If we as human beings develop a true understanding of biology, we can <b>defeat all disease</b>, <b>sustain our planet</b>, and <b>expand to the stars</b>. <br />
-                         Alot of knowledge about our world is found inside of research papers. <br /> 
+                         Alot of knowledge about biology is found inside of research papers. <br /> 
                          Let's Go Biotech's mission is to make research papers easy to master so that you can build solutions to important problems.
               </p>
 
