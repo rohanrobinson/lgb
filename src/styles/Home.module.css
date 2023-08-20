@@ -85,6 +85,17 @@
     border-radius: 10px; /* rounded corners */
   }
 
+  .paperContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .paperColumn {
+    flex: 1;
+    margin-right: 10px;
+}
+
   .lgbDescription {
     margin-top: 70px;
   }
