@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import { stringify } from 'querystring';
 
 
 
@@ -18,12 +17,12 @@ export default function TakeQuiz() {
   const showPaper3 = router.query.showPaper3;
   const paperNames = router.query.paperNames;
 
-  const paper1Questions = ['What is the main focus of the study mentioned in the paragraph?', 'What is one of the key differences observed between pediatric and adult cancer cell lines in the study?'];
-  const paper1AnswerChoices = [['Identifying new drug targets in pediatric cancers', 'Investigating the genetic complexity of adult cancers', 'Comparing mutational burden in pediatric and adult cancers'], ['Pediatric cancers have fewer genetic dependencies than adult cancers.', 'Pediatric cancers harbor more somatic mutations than adult cancers.', 'The vulnerabilities observed in pediatric cancers are distinct from those in adult cancers.']];
-  const paper2Questions = ['What is a challenge in predicting the inhibitory effects of uORFs on protein translation?', 'What is the potential application of the methods described in the study?'];
-  const paper2AnswerChoices = [['Secondary structure of uORFs', 'Downstream and upstream sequences in the 5` UTR', 'Expression levels of translation initiation factors'], ['Improving crop traits by manipulating pleiotropy', 'Enhancing translation initiation factors in plants', 'Extending the study to non-eukaryotic organisms']];
-  const paper3Questions = ['What is the main advantage of MPS in drug development?', 'What is the focus of Body-on-a-chip (BOC) systems?'];
-  const paper3AnswerChoices = [['Ability to predict animal response to drugs', 'Capability to model organ physiology and understand underlying mechanisms', 'Augmentation of clinical studies to test drug efficacy'], ['Predicting human response to pharmaceuticals', 'Evaluating the safety of chemicals, food ingredients, and cosmetics', 'Augmenting clinical studies for general chemical exposure']];
+  const paper1Questions = ['What term did John Carlisle use to describe trials that appeared legitimate but were actually unreliable due to data issues or potential fabrication?', 'What does IPD stand for?'];
+  const paper1AnswerChoices = [['Illusion Trials', 'Zombie Trials', 'Mirage Studies'], ['Individual Participant Data', 'Idiopathic Parkinsons Disease', 'Integrated Project Delivery']];
+  const paper2Questions = ['What is a major factor that has made a combination of whole genome, exome, mRNA, and bisulfite sequencing feasible?', 'What is the anticipated trend for the clinical use of NGS approaches in the future?'];
+  const paper2AnswerChoices = [['Decreasing costs of laboratory equipment', 'Increasing costs of computational resources', 'Decreasing sequencing costs'], ['Decreasing interest due to limitations in data analysis', 'Growing interest, especially in precision medicine', 'Replacement by traditional diagnostic methods']];
+  const paper3Questions = ['In the context of which species were six reference genomes analyzed, leading to the coining of the term "pangenome"?', 'What is the Minigraph-Cactus, as mentioned in the paper?'];
+  const paper3AnswerChoices = [['Humans', 'Streptococcus agalactiae', 'Orcinus orca'], ['A reference genome alignment software', 'A method for constructing a pangenome graph from reference genomes', 'A tool for analyzing single-nucleotide polymorphisms']];
 
 
   const [showScore, setShowScore] = useState(false);
@@ -316,9 +315,9 @@ export default function TakeQuiz() {
   const scoreFun = () => {
     
     // eventually need to refactor to have correct answers automated 
-    const correctAnswersPaper1 = ['option-1', 'option-3'];
-    const correctAnswersPaper2 = ['option-1', 'option-1'];
-    const correctAnswersPaper3 = ['option-2', 'option-1'];
+    const correctAnswersPaper1 = ['option-2', 'option-1'];
+    const correctAnswersPaper2 = ['option-3', 'option-2'];
+    const correctAnswersPaper3 = ['option-2', 'option-2'];
 
     let totalCorrect = 0;
     let totalQuestions = correctAnswersPaper1.length; 
