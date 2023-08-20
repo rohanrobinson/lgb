@@ -249,7 +249,7 @@ export default function TakeQuiz() {
      </div> 
      
      
-     : <div><p>Ouch! looks like you didn't get any of them correct</p>
+     : <div><p>You didn't get any of them correct, let's try that again</p>
      
         <Link 
             href={{

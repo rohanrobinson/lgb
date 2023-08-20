@@ -88,7 +88,7 @@ export default function Home() {
               }
            }}
           >
-            {paperNames[0]}
+           &rarr; {paperNames[0]}
           </Link> <br />
 
           <Link
@@ -109,7 +109,7 @@ export default function Home() {
           
           
           >
-            {paperNames[1]}
+           &rarr; {paperNames[1]}
           </Link> <br />
 
 
@@ -131,7 +131,7 @@ export default function Home() {
           
           
           >
-            {paperNames[2]}
+           &rarr; {paperNames[2]}
           </Link>
         </div>
       </Box>

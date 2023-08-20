@@ -42,9 +42,9 @@ const paperAbstract3 = "Microphysiological systems (MPS, also known as organ-on-
       </Toolbar>
     </AppBar>
 
-    <Typography variant="body1" sx={{ mb: 2, fontSize: "2.0rem" }}>
+    {/* <Typography variant="body1" sx={{ mb: 2, fontSize: "1.0rem" }}>
       <span className={styles.readPaperHeader}><b>Enjoy Reading!</b></span>
-    </Typography>
+    </Typography> */}
     
     
      {showPaper1 === 'false' && showPaper2 === "false" && showPaper3 === "false" && (
@@ -57,8 +57,11 @@ const paperAbstract3 = "Microphysiological systems (MPS, also known as organ-on-
       <div>
 
         {showPaper1 === 'true' && (
-          <Card className={styles.abstractDisplay}>
+          <Card className={styles.largeAbstractDisplay}>
             <CardContent>
+              <Typography variant="body1" sx={{ mb: 2, fontSize: "1.0rem" }}>
+                <span className={styles.readPaperHeader}><b>Enjoy Reading!</b></span>
+              </Typography>
               <Typography variant="body2" color="text.secondary">
                 {paperAbstract1}
               </Typography>
@@ -67,23 +70,27 @@ const paperAbstract3 = "Microphysiological systems (MPS, also known as organ-on-
         )}
 
         {showPaper2 === 'true' && (
-          <Card className={styles.abstractDisplay}>
+          <Card className={styles.largeAbstractDisplay}>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              {paperAbstract2}
-            </Typography>
+              <Typography variant="body1" sx={{ mb: 2, fontSize: "1.0rem" }}>
+                <span className={styles.readPaperHeader}><b>Enjoy Reading!</b></span>
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {paperAbstract2}
+              </Typography>
           </CardContent>
           </Card>
         )}
 
         {showPaper3 === 'true' && (
-          <Card className={styles.abstractDisplay}>
+          <Card className={styles.largeAbstractDisplay}>
           <CardContent>
+            <Typography variant="body1" sx={{ mb: 2, fontSize: "1.0rem" }}>
+                <span className={styles.readPaperHeader}><b>Enjoy Reading!</b></span>
+            </Typography>
             <Typography variant="body2" color="text.secondary">
               {paperAbstract3}
             </Typography>
-          </CardContent>
-          <CardContent>
           </CardContent>
         </Card>
         )}

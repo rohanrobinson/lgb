@@ -52,6 +52,34 @@
   .abstractDisplay {
     font-family: Arial, sans-serif;
     padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;  /* light grey color for the background */
+    border-radius: 10px; /* rounded corners */
+  }
+
+  .smallAbstractDisplay {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;  /* light grey color for the background */
+    border-radius: 10px; /* rounded corners */
+  }
+
+  .mediumAbstractDisplay {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;  /* light grey color for the background */
+    border-radius: 10px; /* rounded corners */
+  }
+
+  .largeAbstractDisplay {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin-top: 100px;
     margin-bottom: 20px;
     background-color: #f9f9f9;  /* light grey color for the background */
     border-radius: 10px; /* rounded corners */
