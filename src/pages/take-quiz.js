@@ -8,7 +8,6 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 
 
-
 export default function TakeQuiz() {
 
   const router = useRouter();
@@ -17,13 +16,18 @@ export default function TakeQuiz() {
   const showPaper3 = router.query.showPaper3;
   const paperNames = router.query.paperNames;
 
-  const paper1Questions = ['What term did John Carlisle use to describe trials that appeared legitimate but were actually unreliable due to data issues or potential fabrication?', 'What does IPD stand for?'];
-  const paper1AnswerChoices = [['Illusion Trials', 'Zombie Trials', 'Mirage Studies'], ['Individual Participant Data', 'Idiopathic Parkinsons Disease', 'Integrated Project Delivery']];
-  const paper2Questions = ['What is a major factor that has made a combination of whole genome, exome, mRNA, and bisulfite sequencing feasible?', 'What is the anticipated trend for the clinical use of NGS approaches in the future?'];
-  const paper2AnswerChoices = [['Decreasing costs of laboratory equipment', 'Increasing costs of computational resources', 'Decreasing sequencing costs'], ['Decreasing interest due to limitations in data analysis', 'Growing interest, especially in precision medicine', 'Replacement by traditional diagnostic methods']];
-  const paper3Questions = ['In the context of which species were six reference genomes analyzed, leading to the coining of the term "pangenome"?', 'What is the Minigraph-Cactus, as mentioned in the paper?'];
-  const paper3AnswerChoices = [['Humans', 'Streptococcus agalactiae', 'Orcinus orca'], ['A reference genome alignment software', 'A method for constructing a pangenome graph from reference genomes', 'A tool for analyzing single-nucleotide polymorphisms']];
+  const showIntro = router.query.showIntro;
+  const showAbstract = router.query.showAbstract;
+  const showMethods = router.query.showMethods;
+  const showResults = router.query.showResults;
+  const showDiscussion = router.query.showDiscussion;
 
+  const paper1Questions = ['What is the main purpose of the artificial-intelligence system discussed in the paper?', 'Why are smells unique among sensory information in terms of how they are processed by the brain?'];
+  const paper1AnswerChoices = [['To analyze human brain functions', 'To design new odorants', 'To improve visual recognition'], ['They first pass through other brain regions before reaching the memory centers.', 'They are processed directly by the brain`s memory and emotional centers', 'They are only interpreted by the sensory organ, such as the nose.']];
+  const paper2Questions = ['What is the primary function of triglycerides in animals and plants?', 'What does the recent study by McLelland reveal in relation to triglyceride synthesis?'];
+  const paper2AnswerChoices = [['They serve as building blocks for cell membranes', ' They play a role in immune response regulation', 'They are used for transporting fatty acids and energy storage'], ['A new method for reducing triglyceride levels in the blood.', 'A previously unknown pathway for triglyceride synthesis in mammalian cells', 'The negative effects of triglycerides on plant cells.']];
+  const paper3Questions = ['What challenge hampers the broader effectiveness of adoptive immunotherapies?', 'How did the researchers modify donor HSPCs to enhance the effectiveness of immunotherapies?'];
+  const paper3AnswerChoices = [['Overexpression of tumour antigens', 'Absence of tumour-restricted antigens', 'Lack of immune response in patients'], ['They introduced genes from immune cells.', 'They edited epitopes to confer resistance to CAR T cells and antibodies', 'They induced genetic mutations in tumour cells']];
 
   const [showScore, setShowScore] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState('');
@@ -293,6 +297,35 @@ export default function TakeQuiz() {
       return selectedPaperName;
   }
 
+  let displayPaperParts = () => {
+      let parts = "";
+
+      if (showIntro === "true") {
+        parts += " Introduction,";
+      }
+
+      if (showAbstract === "true") {
+        parts += " Abstract,";
+      }
+
+      if (showMethods === "true") {
+        parts += " Methods,";
+      }
+
+      if (showResults === "true") {
+        parts += " Results,";
+      }
+
+      if (showDiscussion === "true") {
+        parts += " Discussion,";
+      }
+
+      parts = parts.slice(0, parts.length-1);
+      
+      return parts;
+      
+  }
+
   let displayQuizFlow = () =>  { 
       let returnUI = ""
       
@@ -315,7 +348,7 @@ export default function TakeQuiz() {
   const scoreFun = () => {
     
     // eventually need to refactor to have correct answers automated 
-    const correctAnswersPaper1 = ['option-2', 'option-1'];
+    const correctAnswersPaper1 = ['option-2', 'option-2'];
     const correctAnswersPaper2 = ['option-3', 'option-2'];
     const correctAnswersPaper3 = ['option-2', 'option-2'];
 
@@ -381,8 +414,9 @@ export default function TakeQuiz() {
       <br />
       <div>
         <h3><i>{displayQuizName()} (2 questions)</i></h3>
+        <h4>You'll be quizzed over the {displayPaperParts()}</h4>
           <br />
-          {displayQuizFlow()}
+          {displayQuizFlow()}     
        
        {
         currPageNum == 0
