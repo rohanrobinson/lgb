@@ -1,6 +1,6 @@
 ﻿import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Typography } from '@mui/material';
+import { Box, AppBar, Toolbar, Button, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -13,7 +13,7 @@ export default function Home() {
   const [showPaper2, setShowPaper2] = useState(false);
   const [showPaper3, setShowPaper3] = useState(false);
 
-  const paperNames = ['Untrustworthy Clinical Trials in Medicine', 'Challenges and Opportunities in Clinical Genomics', 'Combining Reference Genomes to Improve Accuracy & Reduce Bias' ];
+  const paperNames = ['AI predicts chemicals’ smells from their structures', 'Previously unknown pathway for lipid biosynthesis discovered', 'Epitope editing enables targeted immunotherapy of acute myeloid leukaemia' ];
 
 
   const seeAboutUs = () => { router.push('/about-us'); }
@@ -68,7 +68,7 @@ export default function Home() {
             <b><span className={styles.lgbHeader}><i>The Best Way to Learn from Biotech Papers</i></span></b> 
           </Typography>
           <Typography variant="h4" sx={{ mb: 2, textAlign: 'center'}}>
-            <span className={styles.lgbDescription}>Select a Curated Paper</span>
+            <span className={styles.lgbDescription}>Select a Paper</span>
           </Typography>
         </Box>
         
@@ -77,7 +77,7 @@ export default function Home() {
           variant="contained" 
           color="success" 
           size="large" 
-          href={{ pathname: '/read-paper',
+          href={{ pathname: '/paper-portion',
               query: { 
                 showPaper1: true,
                 showPaper2: false, 
@@ -95,7 +95,7 @@ export default function Home() {
           color="success" 
           size="large" 
           
-          href={{ pathname: '/read-paper',
+          href={{ pathname: '/paper-portion',
               query: { 
                 showPaper1: false,
                 showPaper2: true, 
@@ -116,7 +116,7 @@ export default function Home() {
           color="success" 
           size="large" 
           
-          href={{ pathname: '/read-paper',
+          href={{ pathname: '/paper-portion',
               query: { 
                 showPaper1: false,
                 showPaper2: false, 
@@ -128,9 +128,6 @@ export default function Home() {
            &rarr; {paperNames[2]}
           </Link>
         </div>
-          <Typography variant="h4" sx={{ mb: 2, textAlign: 'center'}}>
-            <span className={styles.lgbDescription}><i>Upload a Paper (coming soon!)</i></span>
-          </Typography>
       </Box>
     );
 }

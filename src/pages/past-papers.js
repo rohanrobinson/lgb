@@ -48,6 +48,8 @@ export default function PastPapers() {
         <a href="https://www.nature.com/articles/s41586-023-05881-4" target="_blank"><p><span className={styles.lgbText}>Foundation Generalist Medical AI Models</span></p></a>
         <a href="https://www.nature.com/articles/s41587-023-01744-5" target="_blank"><p><span className={styles.lgbText}>CRISPR edited Lung Cells</span></p></a>
         <a href="https://www.nature.com/articles/s41587-023-01788-7" target="_blank"><p><span className={styles.lgbText}>Customizing LLMs to Discover Drugs</span></p></a>
+        <a href="https://www.nature.com/articles/d41586-023-02299-w" target="_blank"><p>Untrustworthy Clinical Trials in Medicine</p></a>
+
       </div>
 
       <div className={styles.paperColumn}>  
@@ -57,6 +59,8 @@ export default function PastPapers() {
         <a href="https://www.nature.com/articles/s41587-023-01755-2" target="_blank"><p><span className={styles.lgbText}>Exploring tRNAs and their Modifications </span></p></a>
         <a href="https://www.nature.com/articles/s41586-023-06356-2" target="_blank"><p><span className={styles.lgbText}>RNA Guided System in Eukaryotes</span></p></a>
         <a href="https://www.nature.com/articles/s41587-021-01207-9" target="_blank"><p><span className={styles.lgbText}>Enhanced cancer detection from cell-free DNA</span></p></a>
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5470591/" target="_blank"><p>Challenges and Opportunities in Clinical Genomics</p></a>
+
       </div>
 
       <div className={styles.paperColumn}>
@@ -67,6 +71,8 @@ export default function PastPapers() {
         <a href="https://www.nature.com/articles/s41588-021-00819-w" target="_blank"><p><span className={styles.lgbText}>Pediatric Cancer Dependency Map</span></p></a>
         <a href="https://www.nature.com/articles/s41587-023-01729-4" target="_blank"><p><span className={styles.lgbText}>Plant mRNA Translation</span></p></a>
         <a href="https://www.nature.com/articles/s41587-022-01491-z" target="_blank"><p><span className={styles.lgbText}>Advances in Body-on-Chip Systems</span></p></a>
+        <a href="https://www.nature.com/articles/s41587-023-01828-2" target="_blank"><p>Combining Reference Genomes to Improve Accuracy & Reduce Bias</p></a>
+
       </div>
       
     </div>
