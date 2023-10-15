@@ -76,6 +76,11 @@
     border-radius: 10px; /* rounded corners */
   }
 
+  .topicsTextLarge {
+    font-size: 40px; /* Adjust the font size to your desired size */
+    /* Other styles as needed */
+  }
+
   .largeAbstractDisplay {
     font-family: Arial, sans-serif;
     padding: 20px;
