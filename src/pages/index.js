@@ -80,7 +80,7 @@ export default function Home() {
             }
         }}
           >
-            <span className={styles.topicsTextLarge}>🧫 Genomics</span>
+            <span className={styles.topicsTextLarge}>🧫 Genomics / Bioinformatics</span>
           </Link>
 
           <Link
@@ -94,7 +94,7 @@ export default function Home() {
             }
           }}
           >
-            <span className={styles.topicsTextLarge}>🤖 Robotics</span>
+            <span className={styles.topicsTextLarge}>🤖 Robotics / Lab Automation</span>
           </Link>
 
           <Link
@@ -108,7 +108,7 @@ export default function Home() {
             }
           }}
           >
-            <span className={styles.topicsTextLarge}>💊 Therapeutics</span>
+            <span className={styles.topicsTextLarge}>💊 Therapeutics / Diagnostics</span>
           </Link>
 
           <Link
@@ -122,7 +122,7 @@ export default function Home() {
             }
           }}
           >
-            <span className={styles.topicsTextLarge}>🚀 Space</span>
+            <span className={styles.topicsTextLarge}>🚀 Space Biology</span>
           </Link>
 
         </div>
