@@ -33,7 +33,7 @@ export default function AboutUs() {
         </Toolbar>
       </AppBar>
 
-        <b><a href="https://rohanrobinson.github.io" target="_blank">Our Purpose</a></b> 
+        <b><a href="https://rohanrobinson.github.io" target="_blank">Purpose</a></b> 
 
       <Box sx={{ 
         display: 'flex', 
@@ -45,7 +45,8 @@ export default function AboutUs() {
 
               <p className={styles.aboutUsText}>
                          Alot of knowledge about biology is found inside of research papers. <br /> 
-                         Let's Go Biotech's mission is to make research papers easy to master so that you can build solutions to important problems.
+                         We make these research papers less dry and fun to engage with. <br />
+                         We do this, so that you (yes, you the reader) can build solutions to important problems facing our species and planet.
               </p>
 
             <Button 

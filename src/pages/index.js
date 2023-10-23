@@ -8,26 +8,9 @@ import { useRouter } from 'next/router';
 export default function Home() {
 
   const router = useRouter();
-
-  const [showPaper1, setShowPaper1] = useState(false);
-  const [showPaper2, setShowPaper2] = useState(false);
-  const [showPaper3, setShowPaper3] = useState(false);
-
-  const paperNames = ['AI predicts chemicals’ smells from their structures', 'Previously unknown pathway for lipid biosynthesis discovered', 'Epitope editing enables targeted immunotherapy of acute myeloid leukaemia' ];
+  const goToAboutUsPage = () => { router.push('/about-us'); }
 
 
-  const seeAboutUs = () => { router.push('/about-us'); }
-
-  useEffect( () => {
-    
-      let arr = paperNames.length;
-      const defaultPaperNum = arr[(Math.floor(Math.random() * arr.length))];
-  
-      if (defaultPaperNum === 1) { setShowPaper1(true); }
-      if (defaultPaperNum === 2) {  setShowPaper2(true); }
-      if (defaultPaperNum === 3) { setShowPaper3(true); }
-
-    }, []);
 
 
     return (
@@ -48,9 +31,9 @@ export default function Home() {
         <AppBar position="fixed" color="secondary">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Let's Go Biotech 
+            🧬 Let's Go Biotech 
             </Typography>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seeAboutUs}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
               About Us
             </Typography>
           </Toolbar>
@@ -76,45 +59,70 @@ export default function Home() {
           variant="contained" 
           color="success" 
           size="large" 
-          href="/past-papers"
+          href={{
+            pathname: '/past-papers',
+            query: {
+               topicSelected: 'AI'
+            }
+        }}
           >
-            <span className={styles.topicsTextLarge}>AI</span>
+            <span className={styles.topicsTextLarge}>🧠 AI</span>
           </Link> 
 
           <Link
           variant="contained" 
           color="success" 
           size="large" 
-          href="/past-papers"
+          href={{
+            pathname: '/past-papers',
+            query: {
+               topicSelected: 'Genomics'
+            }
+        }}
           >
-            <span className={styles.topicsTextLarge}>Genomics</span>
+            <span className={styles.topicsTextLarge}>🧫 Genomics</span>
           </Link>
 
           <Link
           variant="contained" 
           color="success" 
           size="large" 
-          href="#"
+          href={{
+            pathname: '/past-papers',
+            query: {
+              topicSelected: 'Robotics'
+            }
+          }}
           >
-            <span className={styles.topicsTextLarge}>Robotics</span>
+            <span className={styles.topicsTextLarge}>🤖 Robotics</span>
           </Link>
 
           <Link
           variant="contained" 
           color="success" 
           size="large" 
-          href="#"
+          href={{
+            pathname: '/past-papers',
+            query: {
+              topicSelected: 'Therapeutics'
+            }
+          }}
           >
-            <span className={styles.topicsTextLarge}>Therapeutics</span>
+            <span className={styles.topicsTextLarge}>💊 Therapeutics</span>
           </Link>
 
           <Link
           variant="contained" 
           color="success" 
           size="large" 
-          href="#"
+          href={{
+            pathname: '/past-papers', 
+            query: {
+              topicSelected: 'Space'
+            }
+          }}
           >
-            <span className={styles.topicsTextLarge}>Space Biology</span>
+            <span className={styles.topicsTextLarge}>🚀 Space</span>
           </Link>
 
         </div>
