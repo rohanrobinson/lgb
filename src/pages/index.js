@@ -66,7 +66,7 @@ export default function Home() {
             }
         }}
           >
-            <span className={styles.topicsTextLarge}>🧠 AI</span>
+            <span className={styles.topicsTextLarge}>🧠 AI / Machine Learning</span>
           </Link> 
 
           <Link
