@@ -44,9 +44,9 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Alot of knowledge about biology is found inside of research papers. <br /> 
-                         We make these research papers less dry and fun to engage with. <br />
-                         We do this, so that you (yes, you the reader) can build solutions to important problems facing our species and planet.
+                         Alot of knowledge about biotechnology is found inside of research papers. <br /> 
+                         Through interesting quizzes we make biotech papers really fun to engage with. <br />
+                         We hope you learn something cool today!
               </p>
 
             <Button 
