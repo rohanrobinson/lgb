@@ -57,7 +57,7 @@ export default function Home() {
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
               >
                 Start Here
-            </Button>
+          </Button>
       </Box>
     );
 }

@@ -35,7 +35,7 @@ export default function TopicSelection() {
     
     <div>
         <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}><i>Select the topic you're most interested in!</i></span></b> 
+            <b><span className={styles.lgbHeader}><i>Select a topic!</i></span></b> 
         </Typography>
 
       <div className={styles.topicDisplay}>
@@ -46,11 +46,12 @@ export default function TopicSelection() {
           href={{
             pathname: '/select-paper',
             query: {
-               topicSelected: 'AI'
+               topicSelected: 'Artificial Intelligence',
+               topicEmoji: '🧠'
             }
         }}
           >
-            <span className={styles.topicsTextLarge}>🧠 AI</span>
+            <span className={styles.topicsTextLarge}>🧠 Artificial Intelligence</span>
           </Link>
 
           <Link
@@ -60,7 +61,8 @@ export default function TopicSelection() {
           href={{
             pathname: '/select-paper',
             query: {
-               topicSelected: 'Genomics'
+               topicSelected: 'Genomics',
+               topicEmoji: '🧫'
             }
         }}
           >
@@ -74,25 +76,12 @@ export default function TopicSelection() {
           href={{
             pathname: '/select-paper',
             query: {
-              topicSelected: 'Robotics'
+              topicSelected: 'Therapeutics',
+              topicEmoji: '🧫'
             }
           }}
           >
-            <span className={styles.topicsTextLarge}>🤖 Robotics</span>
-          </Link>
-
-          <Link
-          variant="contained" 
-          color="success" 
-          size="large" 
-          href={{
-            pathname: '/select-paper',
-            query: {
-              topicSelected: 'Therapeutics'
-            }
-          }}
-          >
-            <span className={styles.topicsTextLarge}>💊 Therapies</span>
+            <span className={styles.topicsTextLarge}>💊 Therapeutics</span>
           </Link>
 
           <Link
@@ -102,20 +91,42 @@ export default function TopicSelection() {
           href={{
             pathname: '/select-paper', 
             query: {
-              topicSelected: 'Space'
+              topicSelected: 'Space',
+              topicEmoji: '🚀'
             }
           }}
           >
             <span className={styles.topicsTextLarge}>🚀 Space</span>
           </Link>
+
+          <Link
+          variant="contained" 
+          color="success" 
+          size="large" 
+          href={{
+            pathname: '/select-paper', 
+            query: {
+              topicSelected: 'Life Extension',
+              topicEmoji: '🦖'
+            }
+          }}
+          >
+            <span className={styles.topicsTextLarge}> 🦖 Life Extension</span>
+          </Link>
         </div>
     </div>
 
-    <br />
+        <br />
 
-
-
-
+        <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                href="/"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+              >
+                Back
+        </Button>
     </Box>
   );
 }

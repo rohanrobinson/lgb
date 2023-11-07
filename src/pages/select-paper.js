@@ -10,13 +10,38 @@ export default function SelectPaper() {
 
   const router = useRouter();
 
-  const paperList = ['paper A', 'paper B', 'paper C', 'paper D'];
+  // right now only show four papers to user (don't want to overwhelm human with options)
+  const numPapersToDisplay = 3;
+  const paperList = [];
+
+  const topicSelected = router.query.topicSelected;
+  const topicEmoji = router.query.topicEmoji;
+
 
   const goHome = () => {
     router.push('/');
   }
 
-  const topicSelected = router.query.topicSelected;
+  const setPaperNames = () => {
+      for (let i =0; i< numPapersToDisplay; i++) {
+          var paperNum = i + 1;
+          var paperLabel = topicSelected + " paper " + paperNum.toString();
+          paperList.push(paperLabel);
+      }
+
+      return <div>
+            {paperList.map((paper) => 
+              <div>
+                <Button variant="contained" color="success" size="large" href="https://balajis.com/p/the-purpose-of-technology"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '15px 25px', }}>
+                  { paper }
+              </Button> 
+              <br /> <br />
+              </div> 
+            )}
+      </div>
+  }
+
 
   return (    
   <Box sx={{ 
@@ -39,18 +64,24 @@ export default function SelectPaper() {
       </Toolbar>
     </AppBar>
 
-    <div className={styles.selectedTopic}>
-      <p>Here are some { topicSelected } papers you may enjoy reading!</p>
+    <Typography variant="h4" sx={{ mb: 4, textAlign: 'center' }}>
+            <b><span className={styles.lgbHeader}><i>{ topicEmoji } Choose a { topicSelected }  paper you like!</i></span></b> 
+        </Typography>
+
+    <div className="#">
+      {setPaperNames()}
     </div>
 
-    <div className={styles.paperList}>
-      <div>{paperList.map((paper)=> <span> &rarr; {paper}</span> )}</div>
-    </div>
+    <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                href="/topic-selection"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+              >
+                Back
+        </Button>
 
-    
-    
-    
-    
     </Box>
     )
 }
