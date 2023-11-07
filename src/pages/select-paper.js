@@ -66,9 +66,13 @@ export default function SelectPaper() {
 
     <Typography variant="h4" sx={{ mb: 4, textAlign: 'center' }}>
             <b><span className={styles.lgbHeader}><i>{ topicEmoji } Choose a { topicSelected }  paper you like!</i></span></b> 
-        </Typography>
+    </Typography>
 
-    <div className="#">
+    <p>Hey there! Thanks for visting Let's Go Biotech, we're busy building out features that'll show you cool papers to read and learn from, cheers!</p>  
+    <p> Enjoy the link to the balajis article in the mean time, it inspires alot about what I want to create!</p>
+    <p>-Rohan</p>
+
+    <div className="papersToDisplay">
       {setPaperNames()}
     </div>
 
@@ -79,9 +83,9 @@ export default function SelectPaper() {
                 href="/topic-selection"
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
               >
-                Back
-        </Button>
+        Back
+    </Button>
 
-    </Box>
+  </Box>
     )
 }
