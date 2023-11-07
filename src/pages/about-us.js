@@ -27,9 +27,6 @@ export default function AboutUs() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer}  onClick={goHome}>
              Let's Go Biotech 
             </Typography>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={seePastPapers}>
-              Past Papers
-            </Typography>
         </Toolbar>
       </AppBar>
 
@@ -58,6 +55,8 @@ export default function AboutUs() {
             >
               Let's Get Started
             </Button>
+
+            <a href="https://rohanrobinson.github.io/dinosaur.html" target='_blank'>🦖 dinosaurs are my favorite piece of biotechnology</a> 
         </Box>
     </Box>
   );
