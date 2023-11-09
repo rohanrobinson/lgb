@@ -49,6 +49,9 @@ export default function Home() {
             <b><span className={styles.lgbHeader}><i>Get Smart on Biotechnology</i></span></b> 
           </Typography>
         </Box>
+
+          <p>We recommend interesting biotech articles to read and provide short quizzes to test your knowledge.</p> 
+
           <Button 
                 variant="contained" 
                 color="secondary" 
