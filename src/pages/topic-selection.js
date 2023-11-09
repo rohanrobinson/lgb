@@ -33,11 +33,8 @@ export default function TopicSelection() {
         </Toolbar>
       </AppBar>
     
+      <p><i>Which topic are you interested in?</i></p> 
     
-      <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-        <b><span className={styles.lgbHeader}><i>Select a topic!</i></span></b> 
-      </Typography>
-
       <div className={styles.topicDisplay}>
         <Link
           variant="contained" 
