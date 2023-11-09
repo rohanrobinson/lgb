@@ -28,7 +28,7 @@ export default function TopicSelection() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-            🧬 Let's Go Biotech 
+            🧬 Let's Go Biotech
             </Typography>
         </Toolbar>
       </AppBar>
