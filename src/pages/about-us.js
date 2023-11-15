@@ -41,9 +41,9 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Alot of knowledge about biotechnology is found inside of research papers. <br /> 
-                         Through interesting quizzes we make biotech papers really fun to engage with. <br />
-                         We hope you learn something cool today!
+                         Let's Go Biotech recommends interesting articles to read to educate you about the biotech industry <br /> 
+                          <br />
+                         We hope you learn something cool today and put your knowledge to use!
               </p>
 
             <Button 
@@ -56,7 +56,6 @@ export default function AboutUs() {
               Let's Get Started
             </Button>
 
-            <a href="https://rohanrobinson.github.io/dinosaur.html" target='_blank'>🦖 dinosaurs are my favorite piece of biotechnology</a> 
         </Box>
     </Box>
   );

@@ -1,18 +1,22 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 
-
 export default function SelectPaper() {
 
   const router = useRouter();
+  const [paperSelected, setPaperSelected] = useState(0);
 
-  // right now only show four papers to user (don't want to overwhelm human with options)
+  // right now only show four papers to user (don't want to overwhelm user with options)
   const numPapersToDisplay = 3;
-  const paperList = [];
+  const articleTable = {
+      1: "Base Editing to Lower Cholesterol",
+      2: "Creating a Synthetic Yeast Genome",
+      3: "Regulators of Human T Cells",
+  };
 
   const topicSelected = router.query.topicSelected;
   const topicEmoji = router.query.topicEmoji;
@@ -22,24 +26,38 @@ export default function SelectPaper() {
     router.push('/');
   }
 
-  const setPaperNames = () => {
-      for (let i =0; i< numPapersToDisplay; i++) {
-          var paperNum = i + 1;
-          var paperLabel = topicSelected + " article " + paperNum.toString();
-          paperList.push(paperLabel);
-      }
+  const displayPaperNumSelected = () => {
+    return (
+      <div>
+        <Button variant="contained" color="success" size="large" href="https://www.nature.com/articles/d41586-023-03543-z" target="_blank"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '15px 25px', }}
+                onClick={()=> setPaperSelected(1)}
+                >
+                Base Editing to Lower Cholesterol
+        </Button> 
+        <Button variant="contained" color="success" size="large" href="https://newatlas.com/biology/yeast-50-percent-synthetic-dna/" target="_blank"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '15px 25px', }}
+                onClick={()=> setPaperSelected(2)}
+                >
+                Creating a Synthetic Yeast Genome
+        </Button> 
+        <Button variant="contained" color="success" size="large" href="https://google.com" target="_blank"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '15px 25px', }}
+                onClick={()=> setPaperSelected(3)}
+                >
+                Regulators of Human T Cells
+        </Button> 
 
-      return <div>
-            {paperList.map((paper) => 
-              <div>
-                <Button variant="contained" color="success" size="large" href="https://balajis.com/p/the-purpose-of-technology"
-                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '15px 25px', }}>
-                  { paper }
-              </Button> 
-              <br /> <br />
-              </div> 
-            )}
+        <br />
+
+        <br />
+
+          <div>
+              <b>After reading { articleTable[paperSelected] } </b>      
+          </div>
+
       </div>
+    );
   }
 
 
@@ -52,7 +70,7 @@ export default function SelectPaper() {
     height: '100vh' 
   }}>
     <Head>
-      <title>Let's Go Biotech - Choose a Paper</title>
+      <title>Let's Go Biotech - Choose an Article</title>
       <meta name="description" content="created by Rohan Cain Robinson" />
     </Head>
 
@@ -67,7 +85,7 @@ export default function SelectPaper() {
     <p><i>Which article peeks your interest?</i></p> 
 
     <div className="papersToDisplay">
-      {setPaperNames()}
+      { displayPaperNumSelected() }
     </div>
 
     <Button 

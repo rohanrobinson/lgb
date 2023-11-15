@@ -95,22 +95,6 @@ export default function TopicSelection() {
           >
             <span className={styles.topicsTextLarge}>⚕️ Diagnostics</span>
           </Link>
-
-          <Link
-          variant="contained" 
-          color="success" 
-          size="large" 
-          href={{
-            pathname: '/select-paper', 
-            query: {
-              topicSelected: 'Space Bio',
-              topicEmoji: '🚀'
-            }
-          }}
-          >
-            <span className={styles.topicsTextLarge}>🚀 Space Biology</span>
-          </Link>
-
       </div>
 
         <br />

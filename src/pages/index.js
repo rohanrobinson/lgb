@@ -59,8 +59,33 @@ export default function Home() {
                 href="/topic-selection"
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
               >
-                Start Here
+                Get Started
           </Button>
+
+
+          <Typography variant="h4" sx={{ mb: 4, textAlign: 'center' }}>
+            <hr></hr>
+          </Typography>
+
+          <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                href="https://www.tiktok.com/@letsgobiotech"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+          >Tik Tok
+          </Button> 
+
+          <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                href="https://www.instgram.com/letsgobiotech"
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+          >Instagram
+          </Button> 
+
+          
       </Box>
     );
 }
