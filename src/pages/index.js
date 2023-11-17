@@ -10,8 +10,6 @@ export default function Home() {
   
   const goToAboutUsPage = () => { router.push('/about-us'); }
 
-  const []
-
   return (
       <Box sx={{ 
         display: 'flex', 
