@@ -87,30 +87,6 @@ export default function Home() {
               >
                 Get Article Reccomendations   
           </Button>
-
-        Check us out on Social Media!
-        <hr></hr>
-
-        <Button 
-                variant="contained" 
-                color="secondary" 
-                size="large" 
-                href="https://tiktok.com/@letsgobiotech"
-                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
-              >
-                Tik Tok 
-          </Button>
-
-          <Button 
-                variant="contained" 
-                color="secondary" 
-                size="large" 
-                href="https://instagram.com/letsgobiotech"
-                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
-              >
-                Instagram 
-          </Button>
-        
       </Box>
     );
 }
