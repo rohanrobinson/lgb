@@ -1,6 +1,6 @@
 ﻿import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Button, Typography } from '@mui/material';
+import { Box, AppBar, Toolbar, Button, Typography, Input } from '@mui/material';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -9,7 +9,9 @@ export default function Home() {
   const router = useRouter();
   
   const goToAboutUsPage = () => { router.push('/about-us'); }
-    
+
+  const []
+
   return (
       <Box sx={{ 
         display: 'flex', 
@@ -22,7 +24,7 @@ export default function Home() {
       }}> 
 
         <Head>
-          <title>Let's Go Biotech - Home Base</title>
+          <title>Let's Go Biotech - Home Page</title>
           <meta name="description" content="created by Rohan Cain Robinson" />
         </Head>
 
@@ -46,46 +48,71 @@ export default function Home() {
           mt: 4,
         }}>
           <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}><i>Get Smart on Biotechnology</i></span></b> 
+            <b><span className={styles.lgbHeader}><i>Keep updated with the Biotech Industry</i></span></b> 
           </Typography>
         </Box>
 
-          <p>We recommend interesting biotech articles to read and provide short quizzes to test your knowledge.</p> 
+        <Input size='' placeholder="What's your name?" /> <br />
 
-          <Button 
+        <p><u>Which of the topics below interest you?</u></p>
+
+          <Button onClick={() => console.log("selected therapeutics")}
+          
+          sx={{ fontSize: '15px', padding: '15px 25px', }}
+          
+          >Therapeutics</Button>
+
+          <Button onClick={() => console.log("selected diagnostics")}
+          
+          sx={{ fontSize: '15px', padding: '15px 25px', }}
+          
+          >Diagnostics</Button>
+
+          <Button onClick={() => console.log("selected devices")}
+          
+          sx={{ fontSize: '15px', padding: '15px 25px', }}
+
+          >Devices</Button>
+
+          <Button onClick={()=> console.log("selected software")}
+          
+          sx={{ fontSize: '15px', padding: '15px 25px', }}
+
+          >Software & Digital Tools</Button>
+
+        <Button 
                 variant="contained" 
                 color="secondary" 
                 size="large" 
                 href="/topic-selection"
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
               >
-                Get Started
+                Get Article Reccomendations   
           </Button>
 
+        Check us out on Social Media!
+        <hr></hr>
 
-          <Typography variant="h4" sx={{ mb: 4, textAlign: 'center' }}>
-            <hr></hr>
-          </Typography>
+        <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                href="https://tiktok.com/@letsgobiotech"
+                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
+              >
+                Tik Tok 
+          </Button>
 
-          <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                href="https://www.tiktok.com/@letsgobiotech"
-                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-          >Tik Tok
-          </Button> 
-
-          <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                href="https://www.instgram.com/letsgobiotech"
-                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-          >Instagram
-          </Button> 
-
-          
+          <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                href="https://instagram.com/letsgobiotech"
+                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
+              >
+                Instagram 
+          </Button>
+        
       </Box>
     );
 }

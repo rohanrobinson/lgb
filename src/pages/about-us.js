@@ -30,20 +30,19 @@ export default function AboutUs() {
         </Toolbar>
       </AppBar>
 
-        <b><a href="https://rohanrobinson.github.io" target="_blank">Purpose</a></b> 
+        <b><a target="#">About Us</a></b> 
 
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: 'center', 
-        gap: 3 
+        gap: 3
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Let's Go Biotech recommends interesting articles to read to educate you about the biotech industry <br /> 
+                         Let's Go Biotech recommends interesting articles to read to educate you about the biotech industry. <br /> 
                           <br />
-                         We hope you learn something cool today and put your knowledge to use!
               </p>
 
             <Button 
