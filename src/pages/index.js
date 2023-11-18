@@ -48,6 +48,12 @@ export default function Home() {
           <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
             <b><span className={styles.lgbHeader}><i>Keep updated with the Biotech Industry</i></span></b> 
           </Typography>
+
+          <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
+            <b><span className={styles.lgbHeader}><i>Site is currently under *renovations*</i></span></b> 
+            <b><span className={styles.lgbHeader}><i>Check back for new relese this Black Friday! (11/24/2023)</i></span></b> 
+
+          </Typography>
         </Box>
 
         <Input size='' placeholder="What's your name?" /> <br />
@@ -58,7 +64,7 @@ export default function Home() {
           
           sx={{ fontSize: '15px', padding: '15px 25px', }}
           
-          >Therapeutics</Button>
+          >Drugs</Button>
 
           <Button onClick={() => console.log("selected diagnostics")}
           
