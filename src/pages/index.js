@@ -45,51 +45,62 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-          <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}><i>Keep updated with the Biotech Industry</i></span></b> 
-          </Typography>
-
-          <Typography variant="h2" sx={{ mb: 4, textAlign: 'center' }}>
-            <b><span className={styles.lgbHeader}><i>Site is currently under *renovations*</i></span></b> 
-            <b><span className={styles.lgbHeader}><i>Check back for new relese this Black Friday! (11/24/2023)</i></span></b> 
-
-          </Typography>
+            <b><span><i>Stay Updated with the Fast Pace of Biotechnology</i></span></b> 
         </Box>
 
-        <Input size='' placeholder="What's your name?" /> <br />
+        <Input size='' placeholder="Hey! What's your name?" /> <br />
 
-        <p><u>Which of the topics below interest you?</u></p>
+        <p>Which of the topics below interest you?</p>
 
-          <Button onClick={() => console.log("selected therapeutics")}
-          
-          sx={{ fontSize: '15px', padding: '15px 25px', }}
-          
-          >Drugs</Button>
+        <div className=''>
+            <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="medium" 
+                  href="/topic-selection"
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                >
+                  Gene Editing   
+            </Button>
 
-          <Button onClick={() => console.log("selected diagnostics")}
-          
-          sx={{ fontSize: '15px', padding: '15px 25px', }}
-          
-          >Diagnostics</Button>
+            <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="medium" 
+                  href="/topic-selection"
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                >
+                  Artificial Intelligence  
+            </Button>
 
-          <Button onClick={() => console.log("selected devices")}
-          
-          sx={{ fontSize: '15px', padding: '15px 25px', }}
+            <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="medium" 
+                  href="/topic-selection"
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                >
+                  Brain Machine Interfaces 
+            </Button>
 
-          >Devices</Button>
+            <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="medium" 
+                  href="/topic-selection"
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                >
+                  Startups 
+            </Button>
 
-          <Button onClick={()=> console.log("selected software")}
-          
-          sx={{ fontSize: '15px', padding: '15px 25px', }}
-
-          >Software & Digital Tools</Button>
+        </div>
 
         <Button 
                 variant="contained" 
                 color="secondary" 
                 size="large" 
                 href="/topic-selection"
-                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
+                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
               >
                 Get Article Reccomendations   
           </Button>
