@@ -7,8 +7,33 @@ import { useRouter } from 'next/router';
 
 export default function Home() {
   const router = useRouter();
-  
+
+  const [selectedTopics, setSelectedTopics] = useState([]);
+
   const goToAboutUsPage = () => { router.push('/about-us'); }
+
+  const handleTopicClick = (topic) => {
+      if (!selectedTopics.includes(topic)) {
+        setSelectedTopics([...selectedTopics, topic]);
+      }
+      else {
+        setSelectedTopics(selectedTopics.filter(selectedTopic => selectedTopic !== topic));
+      }
+    };
+
+  function displaySelectedTopics() {
+      
+   return(
+        <div >
+          <h2>Selected Topics</h2>
+          <div>
+            {selectedTopics.map((topic, index) => (
+              <p key={index}>{topic}</p>
+            ))}
+          </div>
+        </div>
+  );
+  }
 
   return (
       <Box sx={{ 
@@ -45,20 +70,18 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-            <b><span><i>Stay Updated with the Fast Pace of Biotechnology</i></span></b> 
+            <b><span><i>Stay Updated on Biotechnology</i></span></b> 
         </Box>
 
-        <Input size='' placeholder="Hey! What's your name?" /> <br />
+        <p>Which of the following technologies interest you?</p>
 
-        <p>Which of the topics below interest you?</p>
-
-        <div className=''>
+        <div>
             <Button 
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
-                  href="/topic-selection"
                   sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Gene Editing')}
                 >
                   Gene Editing   
             </Button>
@@ -67,8 +90,8 @@ export default function Home() {
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
-                  href="/topic-selection"
                   sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Artificial Intelligence')}
                 >
                   Artificial Intelligence  
             </Button>
@@ -77,8 +100,8 @@ export default function Home() {
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
-                  href="/topic-selection"
                   sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Brain Machine Interfaces')}
                 >
                   Brain Machine Interfaces 
             </Button>
@@ -87,23 +110,48 @@ export default function Home() {
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
-                  href="/topic-selection"
                   sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={()=> handleTopicClick('RNA Therapies')}
                 >
-                  Startups 
+                  RNA Therapies
             </Button>
 
+            <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="medium" 
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Bionics')} 
+                >
+                  Bionics 
+            </Button>
         </div>
+            <br />
+        <div>
+
+        </div>
+
+          { displaySelectedTopics() }
+
+        <Link
+        
+        href={{
+          pathname: '/topic-selection',
+          query: {
+              selectedTopics: selectedTopics,
+          }
+      }}
+        >
 
         <Button 
                 variant="contained" 
                 color="secondary" 
                 size="large" 
-                href="/topic-selection"
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
-              >
+        >
                 Get Article Reccomendations   
           </Button>
+        </Link>
       </Box>
     );
 }
