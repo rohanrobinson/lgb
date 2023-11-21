@@ -70,7 +70,7 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-            <b><span><i><h2>Have a hard time tracking everything going on in biotechnology?</h2></i></span></b> 
+            <b><span><i><h2>Have a hard time keeping up with everything going on in biotechnology?</h2></i></span></b> 
               <p>We help you stay updated by showing you  articles based on your interests</p>
         </Box>
 
