@@ -1,53 +1,16 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Box, AppBar, Toolbar, Typography, Button, Input } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function TopicSelection() {
+export default function SaveInfo() {
 
   const router = useRouter();
-
-  const selectedTopics = router.query.selectedTopics;
 
   const goHome = () => {
     router.push('/');
   }
-
-  function displaySelectedTopics() {
-      
-    return(
-         <div >
-           <div>
-             {selectedTopics.map((topic, index) => (
-               <p key={index}>{topic}</p>
-             ))}
-           </div>
-         </div>
-   );
-   }
-
-
-   function displayInterestingArticles() {
-    return (
-      <div>
-        <div>
-            <p> &rarr; Article 1 Headline</p>
-            <p>&rarr; &rarr; Article 1: Link</p>
-        </div>
-
-        <div>
-             <p> &rarr; Article 2 Headline</p>
-             <p>&rarr; &rarr;Article 2: Link</p>
-        </div>
-
-        <div>
-            <p> &rarr; Article 3 Headline</p>
-            <p>&rarr; &rarr; Article 3: Link</p>
-        </div>  <br />
-      </div>
-    );
-   }
 
   return (
     <Box sx={{ 
@@ -58,7 +21,7 @@ export default function TopicSelection() {
       height: '100vh' 
     }}>
       <Head>
-        <title>Let's Go Biotech - Select Topic</title>
+        <title>Let's Go Biotech - Save User Info</title>
         <meta name="description" content="created by Rohan Cain Robinson" />
       </Head>
 
@@ -70,35 +33,46 @@ export default function TopicSelection() {
         </Toolbar>
       </AppBar>
     
-      <p><i><b>These three articles are interesting, check them out!</b></i></p>        
-      
-      <br />
+      <p><i><b>Save Your Progress</b></i></p>   
 
+      <br />
+        
       <div>
-        { displayInterestingArticles() }
+            <b>Make an account to track your learning!</b>
+
+            <br />
+
+            <br />
+
+            <Input placeholder="your name" /> <br />
+
+            <Input placeholder="email" /> <br />
+
+            <Input placeholder="password" />
       </div>
 
+      <br />
 
       <br />
 
-      <Button 
+      <Button
                 variant="contained" 
                 color="secondary" 
                 size="large" 
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
-                href="/save-info"
-        >
-            Done Reading? 
+                
+      >
+        Sign Up
       </Button>
 
-    <br />
-
+      <br />
+   
       <Button 
                 variant="contained" 
                 color="secondary" 
                 size="large" 
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
-                href="/"
+                href="/topic-selection"
         >
             Back 
       </Button>
