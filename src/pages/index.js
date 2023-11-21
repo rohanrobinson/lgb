@@ -25,7 +25,7 @@ export default function Home() {
       
    return(
         <div >
-          <h2>Selected Topics</h2>
+          <h3>Selected Topics</h3>
           <div>
             {selectedTopics.map((topic, index) => (
               <p key={index}>{topic}</p>
@@ -70,8 +70,11 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-            <b><span><i>Stay Updated on Biotechnology</i></span></b> 
+            <b><span><i><h2>Have a hard time tracking everything going on in biotechnology?</h2></i></span></b> 
+              <p>We help you stay updated by showing you  articles based on your interests</p>
         </Box>
+
+      
 
         <p>Which of the following technologies interest you?</p>
 
