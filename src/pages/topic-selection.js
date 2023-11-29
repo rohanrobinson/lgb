@@ -53,26 +53,12 @@ export default function TopicSelection() {
     }
   };
 
-  function displayInterestingArticles() {
-    return (
-      <div>
-        <div>
-            <p> &rarr; Article 1 Headline</p>
-            <p>&rarr; &rarr; Article 1: Link</p>
-        </div>
-
-        <div>
-             <p> &rarr; Article 2 Headline</p>
-             <p>&rarr; &rarr;Article 2: Link</p>
-        </div>
-
-        <div>
-            <p> &rarr; Article 3 Headline</p>
-            <p>&rarr; &rarr; Article 3: Link</p>
-        </div>  <br /> 
-      </div>
-    );
-   }
+  function handlePairClick(pair, index) {
+    console.log('clicked pair:', pair);
+    console.log("Index:", index);
+    const url = pair[1];
+    window.open(url, "_blank");
+  }
 
    useEffect(() => {  getArticlesFromDB(); }, []); 
 
@@ -105,7 +91,7 @@ export default function TopicSelection() {
 
       <div>
             {articleURLPairs.map((pair, index) => (
-              <p key={index}><b>{pair[0]}</b> &nbsp; <i>{pair[1]}</i></p>
+              <p key={index}  onClick={() => handlePairClick(pair, index)}><b>{pair[0]}</b> &rarr; &nbsp; <i>{pair[1]}</i></p>
             ))}
       </div> 
 

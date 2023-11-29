@@ -28,7 +28,7 @@ export default function AboutUs() {
             </Typography>
         </Toolbar>
       </AppBar>
-        <b><a target="#">About Us</a></b> 
+        <b>About Us</b> 
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
@@ -38,9 +38,11 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Let's Go Biotech recommends interesting articles to read to educate you about the biotech industry. <br /> 
+                         Let's Go Biotech is your portal to the fast moving biotech industry. <br /> 
+                         We curate interesting and engaging articles to save you time and keep you updated.
                           <br />
               </p>
+
             <Button 
               variant="contained" 
               color="secondary" 
@@ -49,30 +51,49 @@ export default function AboutUs() {
               sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
             >
               Back Home
-            </Button>
+            </Button> 
+            
+            <b>Check out our Socials</b>
 
-        Check us out on Social Media!
-        <hr></hr>
-
-        <Button 
+        <div>
+            <Button 
                 variant="contained" 
                 color="secondary" 
                 size="large" 
                 href="https://tiktok.com/@letsgobiotech"
+                target="_blank"
                 sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
               >
                 Tik Tok 
           </Button>
+
 
           <Button 
                 variant="contained" 
                 color="secondary" 
                 size="large" 
                 href="https://instagram.com/letsgobiotech"
+                target="_blank"
                 sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
               >
                 Instagram 
           </Button>
+     
+
+          <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                href="https://youtube.com/@letsgobiotech"
+                target="_blank"
+                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
+              >
+                YouTube 
+          </Button>
+        </div>
+
+        
+
         </Box>
     </Box>
   );
