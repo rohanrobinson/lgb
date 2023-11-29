@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button, Input } from '@mui/material';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function SaveInfo() {
@@ -11,6 +11,47 @@ export default function SaveInfo() {
   const goHome = () => {
     router.push('/');
   }
+
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
+ 
+  const handleNameChange = (event) => {
+      setName(event.target.value);
+  }
+
+  const handleRoleChange = (event) => {
+    setRole(event.target.value);
+  }
+
+  const addUserToDB = async () => {
+    try {
+
+      //make JSON object to represent new User 
+      const userData = {userName: name, userRole: role}
+
+      // Make a POST request to your API endpoint
+      const response = await fetch('/api/add-user', {
+      
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add user data');
+      }
+      
+      const data = await response.json();
+      const users = data.users;
+      
+    } catch (error) {
+      console.error(error);
+
+    }
+  };
 
   return (
     <Box sx={{ 
@@ -44,14 +85,11 @@ export default function SaveInfo() {
 
             <br />
 
-            <Input placeholder="your name" /> <br />
+            <Input placeholder="your name" onChange={handleNameChange}/> <br />
 
-            <Input placeholder="email" /> <br />
-
-            <Input placeholder="password" />
+            <Input placeholder="your role" onChange={handleRoleChange} />
       </div>
 
-      <br />
 
       <br />
 
@@ -60,7 +98,7 @@ export default function SaveInfo() {
                 color="secondary" 
                 size="large" 
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
-                
+                onClick={addUserToDB}
       >
         Sign Up
       </Button>
