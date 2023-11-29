@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
 export default function TopicSelection() {
 
@@ -10,25 +11,49 @@ export default function TopicSelection() {
 
   const selectedTopics = router.query.selectedTopics;
 
+  const [featuredArticles, setArticles] = useState([]);
+  const [featuredURLs, setURLs] = useState([]);
+
+  const [articleURLPairs, setPairs] = useState([]);
+
   const goHome = () => {
     router.push('/');
   }
-
-  function displaySelectedTopics() {
+  
+  const getArticlesFromDB = async () => {
+    try {
+      // Make a GET request to your API endpoint
+      const response = await fetch('/api/get-articles');
       
-    return(
-         <div >
-           <div>
-             {selectedTopics.map((topic, index) => (
-               <p key={index}>{topic}</p>
-             ))}
-           </div>
-         </div>
-   );
-   }
+      if (!response.ok) {
+        throw new Error('Failed to fetch articles');
+      }
+      
+      const data = await response.json();
+      const articles = data.articles;
 
+      const articleNames = articles.rows.map((article) => article.name);
+      const articleURLs = articles.rows.map((article) => article.url);
 
-   function displayInterestingArticles() {
+      const nameURLPairs = [];
+      for (let i=0; i<articleNames.length; i++) {
+        nameURLPairs.push([articleNames[i], articleURLs[i]]);
+      }
+
+      console.log(nameURLPairs);
+
+      setArticles(articleNames);
+      setURLs(articleURLs);
+      setPairs(nameURLPairs);
+
+    }    
+    catch (error) {
+      // Handle the error appropriately
+      console.error(error);
+    }
+  };
+
+  function displayInterestingArticles() {
     return (
       <div>
         <div>
@@ -44,10 +69,12 @@ export default function TopicSelection() {
         <div>
             <p> &rarr; Article 3 Headline</p>
             <p>&rarr; &rarr; Article 3: Link</p>
-        </div>  <br />
+        </div>  <br /> 
       </div>
     );
    }
+
+   useEffect(() => {  getArticlesFromDB(); }, []); 
 
   return (
     <Box sx={{ 
@@ -70,16 +97,19 @@ export default function TopicSelection() {
         </Toolbar>
       </AppBar>
     
-      <p><i><b>These three articles are interesting, check them out!</b></i></p>        
+      <p><i><b>Let's Go Biotech - Featured Articles</b></i></p>        
       
       <br />
 
-      <div>
-        { displayInterestingArticles() }
-      </div>
-
-
       <br />
+
+      <div>
+            {articleURLPairs.map((pair, index) => (
+              <p key={index}><b>{pair[0]}</b> &nbsp; <i>{pair[1]}</i></p>
+            ))}
+      </div> 
+
+    <br />
 
       <Button 
                 variant="contained" 
@@ -102,6 +132,12 @@ export default function TopicSelection() {
         >
             Back 
       </Button>
+
+      <div>
+
+
+
+      </div>
 
     </Box>
   );
