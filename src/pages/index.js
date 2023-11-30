@@ -109,30 +109,8 @@ export default function Home() {
                   Brain Machine Interfaces 
             </Button>
 
-            <Button 
-                  variant="contained" 
-                  color="secondary" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={()=> handleTopicClick('RNA Therapies')}
-                >
-                  RNA Therapies
-            </Button>
-
-            <Button 
-                  variant="contained" 
-                  color="secondary" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Bionics')} 
-                >
-                  Bionics 
-            </Button>
         </div>
-            <br />
-        <div>
 
-        </div>
 
           { displaySelectedTopics() }
 
