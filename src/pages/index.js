@@ -126,7 +126,7 @@ export default function Home() {
 
         <Button 
                 variant="contained" 
-                color="secondary" 
+                color="success" 
                 size="large" 
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
         >
