@@ -79,7 +79,21 @@ export default function Home() {
         <p>Which of the following technologies interest you?</p>
 
         <div>
-            <Button 
+            {
+            selectedTopics.includes('Gene Editing')
+              ?
+
+           ( <Button 
+                  variant="contained" 
+                  color="success" 
+                  size="medium" 
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Gene Editing')}
+                >
+                  Gene Editing   
+            </Button>)
+              :
+            (<Button 
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
@@ -87,32 +101,69 @@ export default function Home() {
                   onClick={() => handleTopicClick('Gene Editing')}
                 >
                   Gene Editing   
-            </Button>
+            </Button>)
 
-            <Button 
+              }
+
+          {
+            selectedTopics.includes('Artificial Intelligence')
+              ?
+
+           ( <Button 
+                  variant="contained" 
+                  color="success" 
+                  size="medium" 
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Artificial Intelligence')}
+                >
+                  Artificial Intelligence   
+            </Button>)
+              :
+            (<Button 
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
                   sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
                   onClick={() => handleTopicClick('Artificial Intelligence')}
                 >
-                  Artificial Intelligence  
-            </Button>
+                  Artificial Intelligence   
+            </Button>)
 
-            <Button 
+              }
+
+{
+            selectedTopics.includes('Brain Machine Interface')
+              ?
+
+           ( <Button 
+                  variant="contained" 
+                  color="success" 
+                  size="medium" 
+                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
+                  onClick={() => handleTopicClick('Brain Machine Interface')}
+                >
+                  Brain Machine Interface  
+            </Button>)
+              :
+            (<Button 
                   variant="contained" 
                   color="secondary" 
                   size="medium" 
                   sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Brain Machine Interfaces')}
+                  onClick={() => handleTopicClick('Brain Machine Interface')}
                 >
-                  Brain Machine Interfaces 
-            </Button>
+                  Brain Machine Interface   
+            </Button>)
+
+              }
+
+
+
 
         </div>
 
 
-          { displaySelectedTopics() }
+          {/* { displaySelectedTopics() } */}
 
         <Link
         
