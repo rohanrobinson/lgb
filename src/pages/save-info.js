@@ -117,7 +117,7 @@ export default function SaveInfo() {
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
                 onClick={addUserToDB}
       >
-        Sign Up
+        Create Account
       </Button>
 
       <br />
