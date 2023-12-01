@@ -74,20 +74,22 @@ export default function SaveInfo() {
         </Toolbar>
       </AppBar>
     
-      <p><i><b>Save Your Progress</b></i></p>   
+      <p><i><b>Save What You've Read</b></i></p>   
 
       <br />
         
       <div>
-            <b>Make an account to track your learning!</b>
-
-            <br />
+            <b>Make a Let's Go Biotech Account</b>
 
             <br />
 
             <Input placeholder="your name" onChange={handleNameChange}/> <br />
 
-            <Input placeholder="your role" onChange={handleRoleChange} />
+            <Input placeholder="your role" onChange={handleRoleChange} /> <br />
+
+            <Input placeholder="your email" /> <br />
+
+            <Input placeholder="your password" />
       </div>
 
 
