@@ -14,6 +14,7 @@ export default function SaveInfo() {
 
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
+  const [userAccountMade, setAccount] = useState(false);
  
   const handleNameChange = (event) => {
       setName(event.target.value);
@@ -21,6 +22,16 @@ export default function SaveInfo() {
 
   const handleRoleChange = (event) => {
     setRole(event.target.value);
+  }
+
+  const handleTest = () => { 
+    
+    if (userAccountMade) {
+      setAccount(false);
+    }
+    else {
+      setAccount(true);
+    }
   }
 
   const addUserToDB = async () => {
@@ -42,6 +53,10 @@ export default function SaveInfo() {
 
       if (!response.ok) {
         throw new Error('Failed to add user data');
+      }
+
+      else { 
+        setAccount(true);
       }
       
       const data = await response.json();
@@ -104,6 +119,19 @@ export default function SaveInfo() {
       >
         Sign Up
       </Button>
+
+      <br />
+
+      <div>
+        { !userAccountMade ? 
+        
+          <p></p>
+          
+          :
+          
+          <p>Nice to have you {name}, we're happy to have you here at Let's Go Biotech!</p>
+        }
+      </div>
 
       <br />
    
