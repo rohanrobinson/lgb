@@ -71,7 +71,7 @@ export default function TopicSelection() {
       height: '100vh' 
     }}>
       <Head>
-        <title>Let's Go Biotech - Select Topic</title>
+        <title>Let's Go Biotech - Featured Articles</title>
         <meta name="description" content="created by Rohan Cain Robinson" />
       </Head>
 
@@ -83,7 +83,7 @@ export default function TopicSelection() {
         </Toolbar>
       </AppBar>
     
-      <p><i><b>Let's Go Biotech - Featured Articles</b></i></p>        
+      <p><i><b>The below biotech articles may interest you!</b></i></p>        
       
       <br />
 
@@ -99,7 +99,7 @@ export default function TopicSelection() {
 
       <Button 
                 variant="contained" 
-                color="secondary" 
+                color="success" 
                 size="large" 
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
                 href="/save-info"
