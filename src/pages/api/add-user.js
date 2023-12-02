@@ -2,9 +2,9 @@ import { sql } from '@vercel/postgres';
 
 export default async function handler(request, response) {
     try {
-        const { userName, userRole } = request.body;
-        if (!userName || !userRole) throw new Error('Name and Role of User required');
-        await sql`INSERT INTO Users (Name, Role) VALUES (${userName}, ${userRole});`;
+        const { userName, userRole, userEmail, userPassword } = request.body;
+        if (!userName || !userRole || !userEmail || !userPassword) throw new Error('Name and Role of User required');
+        await sql`INSERT INTO Users (Name, Role) VALUES (${userName}, ${userRole}, ${userEmail}, ${userPassword});`;
     }
 
     catch (error) {
