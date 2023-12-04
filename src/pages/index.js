@@ -74,9 +74,7 @@ export default function Home() {
               <p>We help you stay updated by showing you  articles based on your interests</p>
         </Box>
 
-      
-
-        <p>Which of the following technologies interest you?</p>
+        <p><b><i>What are you interested in learning about?</i></b></p>
 
         <div>
             {
