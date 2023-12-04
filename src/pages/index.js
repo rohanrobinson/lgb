@@ -21,20 +21,6 @@ export default function Home() {
       }
     };
 
-  function displaySelectedTopics() {
-      
-   return(
-        <div >
-          <h3>Selected Topics</h3>
-          <div>
-            {selectedTopics.map((topic, index) => (
-              <p key={index}>{topic}</p>
-            ))}
-          </div>
-        </div>
-  );
-  }
-
   return (
       <Box sx={{ 
         display: 'flex', 
@@ -159,9 +145,6 @@ export default function Home() {
 
 
         </div>
-
-
-          {/* { displaySelectedTopics() } */}
 
         <Link
         
