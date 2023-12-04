@@ -2,9 +2,14 @@ import { sql } from '@vercel/postgres';
 
 export default async function handler(request, response) {
     try {
-        const { userName, userRole } = request.body;
-        if (!userName || !userRole) throw new Error('Name and Role of User required');
-        await sql`INSERT INTO Users (Name, Role) VALUES (${userName}, ${userRole});`;
+
+        const userName = request.query.userName;
+        const userRole = request.query.userRole;
+        const userEmail = request.query.userEmail; 
+        const userPassword = request.query.userPassword; 
+
+        if (!userName || !userRole || !userEmail || !userPassword) throw new Error('A user trait is missing');
+        await sql`INSERT INTO Users (Name, Role, Email, Password) VALUES (${userName}, ${userRole}, ${userEmail}, ${userPassword});`;
     }
 
     catch (error) {

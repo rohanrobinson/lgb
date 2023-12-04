@@ -3,7 +3,7 @@ import { sql } from '@vercel/postgres';
 export default async function handler(request, response) {
 
     try {
-        const result = await sql`CREATE TABLE Users ( Name varchar(255), Role varchar(255) );`; 
+        const result = await sql`CREATE TABLE Users ( Name varchar(255), Role varchar(255), Email varchar(255), Password varchar(255) );`; 
         return response.status(200).json({ result });
     }
 

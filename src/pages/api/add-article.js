@@ -2,6 +2,7 @@ import { sql } from '@vercel/postgres';
 
 export default async function handler(request, response) {
     try {
+
         const articleName = request.query.articleName;
         const articleAuthor = request.query.articleAuthor;
         const articleURL = request.query.articleURL;
