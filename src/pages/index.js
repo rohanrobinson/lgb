@@ -6,20 +6,86 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function Home() {
+
   const router = useRouter();
 
-  const [selectedTopics, setSelectedTopics] = useState([]);
+  const [articleSet, setArticles] = useState([]);
+  const [paperSet, setPapers]  = useState([]);
+
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
+  const getArticlesFromDB = async () => {
+    
+    try {
+      const response = await fetch('/api/get-articles');
 
-  const handleTopicClick = (topic) => {
-      if (!selectedTopics.includes(topic)) {
-        setSelectedTopics([...selectedTopics, topic]);
+      if (!response.ok) {
+        throw new Error('Failed to get users');
       }
-      else {
-        setSelectedTopics(selectedTopics.filter(selectedTopic => selectedTopic !== topic));
+
+      const data = await response.json();
+      const articles = data.articles;
+
+      const articleNamesMapped = articles.rows.map((articles) => articles.name);
+
+      
+      const articleNames = [];
+      for (let i =0; i<articleNamesMapped.length; i++ ) {
+        articleNames.push(articleNamesMapped[i]);
+        console.log(articleNamesMapped[i]);
       }
-    };
+
+      setArticles(articleNames);
+      
+
+      console.log(articleSet);
+
+    }
+
+    catch (error) {
+      console.error(error);
+    }
+
+  }
+
+  const getPapersFromDB = async () => {
+    try {
+      const response = await fetch('/api/get-papers');
+
+      if (!response.ok) {
+        throw new Error('Failed to get papers');
+      }
+
+      const data = await response.json();
+      const papers = data.papers;
+
+      
+      const paperTitlesMapped = papers.rows.map((papers) => papers.title);
+
+      
+      const paperTitles = [];
+      for (let i =0; i<paperTitlesMapped.length; i++ ) {
+        paperTitles.push(paperTitlesMapped[i]);
+        console.log(paperTitlesMapped[i]);
+      }
+
+      setPapers(paperTitles);
+      
+
+      console.log(paperSet);
+
+    }
+
+    catch (error) { 
+      console.error(error);
+    }
+
+  }
+
+  useEffect(() => {
+    getArticlesFromDB();
+    getPapersFromDB();
+  }, []);
 
   return (
       <Box sx={{ 
@@ -43,7 +109,7 @@ export default function Home() {
             🧬 Let's Go Biotech 
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
-              About Us
+              About
             </Typography>
           </Toolbar>
         </AppBar>
@@ -56,115 +122,42 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-            <b><span><i><h2>Have a hard time keeping up with everything going on in biotechnology?</h2></i></span></b> 
-              <p>We help you stay updated by showing you  articles based on your interests</p>
+            <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
+              <p>Read and Save Interesting Biotech Papers and Articles</p>
+              
+              <div>
+                <div>
+                  <b><i>Papers</i></b> <br />
+
+                  {paperSet.map((paper, index) => (
+                    <p key={index}>{paper}</p>
+                  ))
+                  }
+                </div>              
+                
+                <div>
+                  <b><i>Articles</i></b> <br />
+
+                  {articleSet.map((article, index) => (
+                  <p key={index}>{article}</p>
+            ))}
+
+                </div>
+              </div>
+
+            {/* <Button
+              onClick={getArticlesFromDB}
+            >
+              Test Get Articles Function
+            </Button>
+
+            <Button
+              onClick={getPapersFromDB}
+            >
+              Test Get Papers Function
+            </Button> */}
+
         </Box>
-
-        <p><b><i>What are you interested in learning about?</i></b></p>
-
-        <div>
-            {
-            selectedTopics.includes('Gene Editing')
-              ?
-
-           ( <Button 
-                  variant="contained" 
-                  color="success" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Gene Editing')}
-                >
-                  Gene Editing   
-            </Button>)
-              :
-            (<Button 
-                  variant="contained" 
-                  color="secondary" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Gene Editing')}
-                >
-                  Gene Editing   
-            </Button>)
-
-              }
-
-          {
-            selectedTopics.includes('Artificial Intelligence')
-              ?
-
-           ( <Button 
-                  variant="contained" 
-                  color="success" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Artificial Intelligence')}
-                >
-                  Artificial Intelligence   
-            </Button>)
-              :
-            (<Button 
-                  variant="contained" 
-                  color="secondary" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Artificial Intelligence')}
-                >
-                  Artificial Intelligence   
-            </Button>)
-
-              }
-
-{
-            selectedTopics.includes('Brain Machine Interface')
-              ?
-
-           ( <Button 
-                  variant="contained" 
-                  color="success" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Brain Machine Interface')}
-                >
-                  Brain Machine Interface  
-            </Button>)
-              :
-            (<Button 
-                  variant="contained" 
-                  color="secondary" 
-                  size="medium" 
-                  sx={{ fontWeight: 'bold', fontSize: '12px', padding: '10px 25px', }}
-                  onClick={() => handleTopicClick('Brain Machine Interface')}
-                >
-                  Brain Machine Interface   
-            </Button>)
-
-              }
-
-
-
-
-        </div>
-
-        <Link
-        
-        href={{
-          pathname: '/topic-selection',
-          query: {
-              selectedTopics: selectedTopics,
-          }
-      }}
-        >
-
-        <Button 
-                variant="contained" 
-                color="success" 
-                size="large" 
-                sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }}
-        >
-                Get Article Reccomendations   
-          </Button>
-        </Link>
       </Box>
     );
 }

@@ -39,7 +39,7 @@ export default function AboutUs() {
 
               <p className={styles.aboutUsText}>
                          Let's Go Biotech is your portal to the fast moving biotech industry. <br /> 
-                         We curate interesting and engaging articles to save you time and keep you updated.
+                         Get caught up by reading through articles and papers featured here.
                           <br />
               </p>
 
@@ -50,7 +50,7 @@ export default function AboutUs() {
               href="/"
               sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
             >
-              Back Home
+              Home
             </Button> 
             
             <b>Check out our Socials</b>
