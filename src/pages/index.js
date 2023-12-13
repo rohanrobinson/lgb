@@ -129,7 +129,7 @@ export default function Home() {
           mt: 4,
         }}>
             <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-              <p>Save Time by Staying Updated Curated Biotech Papers and Articles</p>
+              <p>Save Time by Consuming Biotech Papers and Articles</p>
               
               <div>
                 <div>
