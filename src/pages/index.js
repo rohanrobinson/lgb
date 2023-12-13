@@ -1,4 +1,6 @@
-﻿import Head from 'next/head';
+﻿ // The Landing Page 
+
+ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Button, Typography, Input } from '@mui/material';
 import { useState, useEffect } from 'react';
@@ -14,6 +16,7 @@ export default function Home() {
 
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
+  
   const getArticlesFromDB = async () => {
     
     try {
@@ -28,7 +31,11 @@ export default function Home() {
 
       const articleNamesMapped = articles.rows.map((articles) => articles.name);
 
+      const articleURLsMapped = articles.rows.map((articles) => articles.url);
       
+      console.log(articleNamesMapped);
+      console.log(articleURLsMapped);
+
       const articleNames = [];
       for (let i =0; i<articleNamesMapped.length; i++ ) {
         articleNames.push(articleNamesMapped[i]);
@@ -36,7 +43,6 @@ export default function Home() {
       }
 
       setArticles(articleNames);
-      
 
       console.log(articleSet);
 
@@ -123,14 +129,14 @@ export default function Home() {
           mt: 4,
         }}>
             <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-              <p>Read and Save Interesting Biotech Papers and Articles</p>
+              <p>Save Time by Staying Updated Curated Biotech Papers and Articles</p>
               
               <div>
                 <div>
                   <b><i>Papers</i></b> <br />
 
                   {paperSet.map((paper, index) => (
-                    <p key={index}>{paper}</p>
+                    <p className={styles.coolPaper} key={index}>{paper}</p>
                   ))
                   }
                 </div>              
@@ -139,8 +145,9 @@ export default function Home() {
                   <b><i>Articles</i></b> <br />
 
                   {articleSet.map((article, index) => (
-                  <p key={index}>{article}</p>
-            ))}
+                  <p className={styles.coolArticle} key={index}>{article}</p>
+                   ))
+                  }
 
                 </div>
               </div>
