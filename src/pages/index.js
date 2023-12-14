@@ -14,7 +14,6 @@ export default function Home() {
   const [articleSet, setArticles] = useState([]);
   const [paperSet, setPapers]  = useState([]);
 
-
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
   const getArticlesFromDB = async () => {
@@ -33,18 +32,14 @@ export default function Home() {
 
       const articleURLsMapped = articles.rows.map((articles) => articles.url);
       
-      console.log(articleNamesMapped);
-      console.log(articleURLsMapped);
 
       const articleNames = [];
       for (let i =0; i<articleNamesMapped.length; i++ ) {
-        articleNames.push(articleNamesMapped[i]);
-        console.log(articleNamesMapped[i]);
+        articleNames.push([articleNamesMapped[i], articleURLsMapped[i]]);
+        console.log(articleNamesMapped[i], articleURLsMapped[i]);
       }
 
       setArticles(articleNames);
-
-      console.log(articleSet);
 
     }
 
@@ -67,19 +62,14 @@ export default function Home() {
 
       
       const paperTitlesMapped = papers.rows.map((papers) => papers.title);
-
+      const paperURLsMapped = papers.rows.map((papers) => papers.url);
       
       const paperTitles = [];
       for (let i =0; i<paperTitlesMapped.length; i++ ) {
-        paperTitles.push(paperTitlesMapped[i]);
-        console.log(paperTitlesMapped[i]);
+        paperTitles.push([paperTitlesMapped[i], paperURLsMapped[i]]);
       }
 
       setPapers(paperTitles);
-      
-
-      console.log(paperSet);
-
     }
 
     catch (error) { 
@@ -129,14 +119,14 @@ export default function Home() {
           mt: 4,
         }}>
             <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-              <p>Save Time by Consuming Biotech Papers and Articles</p>
+              <p>Check out some curated Papers and Articles</p>
               
               <div>
                 <div>
                   <b><i>Papers</i></b> <br />
 
                   {paperSet.map((paper, index) => (
-                    <p className={styles.coolPaper} key={index}>{paper}</p>
+                    <a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>
                   ))
                   }
                 </div>              
@@ -145,7 +135,7 @@ export default function Home() {
                   <b><i>Articles</i></b> <br />
 
                   {articleSet.map((article, index) => (
-                  <p className={styles.coolArticle} key={index}>{article}</p>
+                  <a href={article[1]} target="_blank"><p className={styles.coolArticle} key={index}>{article[0]}</p></a>
                    ))
                   }
 
