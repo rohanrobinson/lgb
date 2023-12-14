@@ -60,7 +60,6 @@ export default function Home() {
       const data = await response.json();
       const papers = data.papers;
 
-      
       const paperTitlesMapped = papers.rows.map((papers) => papers.title);
       const paperURLsMapped = papers.rows.map((papers) => papers.url);
       
@@ -68,14 +67,12 @@ export default function Home() {
       for (let i =0; i<paperTitlesMapped.length; i++ ) {
         paperTitles.push([paperTitlesMapped[i], paperURLsMapped[i]]);
       }
-
       setPapers(paperTitles);
     }
 
     catch (error) { 
       console.error(error);
     }
-
   }
 
   useEffect(() => {
@@ -93,12 +90,10 @@ export default function Home() {
         gap: 3,
         p: 3,
       }}> 
-
         <Head>
           <title>Let's Go Biotech - Home Page</title>
           <meta name="description" content="created by Rohan Cain Robinson" />
         </Head>
-
         <AppBar position="fixed" color="secondary">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -109,7 +104,6 @@ export default function Home() {
             </Typography>
           </Toolbar>
         </AppBar>
-
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -119,41 +113,23 @@ export default function Home() {
           mt: 4,
         }}>
             <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-              <p>Check out some curated Papers and Articles</p>
-              
+              <p>Check out some Curated Papers and Articles</p>
               <div>
                 <div>
                   <b><i>Papers</i></b> <br />
-
                   {paperSet.map((paper, index) => (
                     <a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>
                   ))
                   }
                 </div>              
-                
                 <div>
                   <b><i>Articles</i></b> <br />
-
                   {articleSet.map((article, index) => (
                   <a href={article[1]} target="_blank"><p className={styles.coolArticle} key={index}>{article[0]}</p></a>
                    ))
                   }
-
                 </div>
               </div>
-
-            {/* <Button
-              onClick={getArticlesFromDB}
-            >
-              Test Get Articles Function
-            </Button>
-
-            <Button
-              onClick={getPapersFromDB}
-            >
-              Test Get Papers Function
-            </Button> */}
-
         </Box>
       </Box>
     );
