@@ -16,6 +16,9 @@ export default function Home() {
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
+  const goToSignUpPage = () => { router.push('/sign-up'); }
+
+
   const getArticlesFromDB = async () => {
     
     try {
@@ -98,6 +101,9 @@ export default function Home() {
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             🧬 Let's Go Biotech 
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 0.1 }} className={styles.cursorPointer} onClick={goToSignUpPage}>
+              Sign Up
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
               About
