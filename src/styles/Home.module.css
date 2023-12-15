@@ -18,6 +18,10 @@
     .aboutUsText {
       font-size: 0.5rem;
     }
+
+    .headers {
+      margin-top: 350px;
+    }
   }
   
   .coolPaper, .coolArticle {
@@ -45,9 +49,6 @@
     text-align: center;
   }
 
-  .headers {
-    margin-top: 350px;
-  }
 
   .container {
     display: flex;
