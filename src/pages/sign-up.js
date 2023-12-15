@@ -126,9 +126,7 @@ export default function SaveInfo() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
           🧬 Let's Go Biotech 
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 0.1 }} className={styles.cursorPointer} onClick={goHome}>
-            Sign Up
-          </Typography>
+
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
             About
           </Typography>

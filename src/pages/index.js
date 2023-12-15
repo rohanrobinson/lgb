@@ -102,7 +102,7 @@ export default function Home() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             🧬 Let's Go Biotech 
             </Typography>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 0.1 }} className={styles.cursorPointer} onClick={goToSignUpPage}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 0.5 }} className={styles.cursorPointer} onClick={goToSignUpPage}>
               Sign Up
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
