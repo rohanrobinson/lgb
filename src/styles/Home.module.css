@@ -26,20 +26,6 @@
     color: black;
   }
 
-  .parent {
-    border: 1px solid black;
-    margin: 1rem;
-    padding: 2rem 2rem;
-    text-align: center;
-  }
-
-  .child {
-    display: inline-block;
-    border: 1px solid red;
-    padding: 1rem 1rem;
-    vertical-align: middle;
-  }
-
   .articleURLPair {
     border: dashed #9c27b0;
   }
@@ -58,10 +44,9 @@
     background-color: #9c27b0;
     text-align: center;
   }
-  
-  .quizArrows {
-    margin-left: 60px;
 
+  .headers {
+    margin-top: 150px;
   }
 
   .container {
@@ -72,197 +57,12 @@
     height: 100vh;
   }
 
-  .paperSelection, .abstractDisplay, .quizHellYa {
-    text-align: center;
-  } 
-
-  .abstractDisplay {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;  /* light grey color for the background */
-    border-radius: 10px; /* rounded corners */
-  }
-
-  .topicDisplay {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    text-align:  center;
-    background-color: #f9f9f9;
-    border-radius: 10px; /* rounded corners */
-  }
-
-  .topicDisplay {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-radius: 10px; /* rounded corners */
-  }
-  
-  .smallAbstractDisplay {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;  /* light grey color for the background */
-    border-radius: 10px; /* rounded corners */
-  }
-
-  .mediumAbstractDisplay {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;  /* light grey color for the background */
-    border-radius: 10px; /* rounded corners */
-  }
-
-  .topicsTextLarge {
-    font-size: 40px; /* Adjust the font size to your desired size */
-    /* Other styles as needed */
-  }
-
-  .largeAbstractDisplay {
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;  /* light grey color for the background */
-    border-radius: 10px; /* rounded corners */
-  }
-
-  .paperContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .paperColumn {
-    flex: 1;
-    margin-right: 10px;
-}
-
-  .lgbDescription {
-    margin-top: 70px;
-  }
-
-  .quizHellYa {
-    font-size: 25px;
-  }
-
-  .paperLink {
-    text-decoration: none;
-  }
-
-  .AppBar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  
-  .choosePaper {
-    display: inline-block;
-    vertical-align: top;
-    height: auto;
-  }
-
-  .item {
-    display: inline-block;
-    vertical-align: top;
-    font-size: x-large;
-  }
-
-  .selectedItem {
-    display: inline-block;
-    vertical-align: top;
-    font-size: x-large;
-    border: solid green;
-  }
-
-
-
-  .item:hover, .readPaperNext, .greenSquare {
-    cursor: pointer;
-  }
-
-  .modal {
-    text-align: center;
-   }
-
-  .greenSquare {
-        display: inline-block;
-        padding: 1rem;
-        display: inline-block;
-        padding: 25px 50px;
-        color: black;
-        background-color: #F5DEB3;
-        border-radius: 5px;
-        text-decoration: none; /* remove underline from link */
-        font-family: 'Courier New', Courier, monospace;
-
-  }
-
-  .greenSquare:hover {
-    background-color: lightpink; /* darker green when hovering over the button */
-  }
-
-  .readSquare {
-
-    display: inline-block;
-    padding: 1rem;
-    display: inline-block;
-    padding: 5px 10px;
-    color: white;
-    background-color: #F5DEB3; /* green background color */
-    border-radius: 5px;
-    margin-left: 100px;
-    text-decoration: none; /* remove underline from link */
-
-  }
-
-  .finishQuiz {
-        display: inline-block;
-        padding: 1rem;
-        background-color: #F5DEB3;
-        color: white;
-        font-weight: bold;
-        border-radius: 0.25rem;
-        text-align: center;
-        text-decoration: none;
-  }
-
   .cursorPointer {
     cursor: pointer;
     text-decoration: none;
     color: white;
    }
 
-   /* styles.css (or your preferred CSS file) */
-.topic-info-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.topic-modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
 
 
 

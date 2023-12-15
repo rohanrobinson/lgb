@@ -112,8 +112,10 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-            <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-              <p>Check out some Curated Papers and Articles</p>
+              <div className={styles.headers}>
+                  <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
+                  <p>Check out some Curated Papers and Articles</p>
+              </div>
               <div>
                 <div>
                   <b><i>Papers</i></b> <br />
