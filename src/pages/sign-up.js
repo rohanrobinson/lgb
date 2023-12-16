@@ -51,7 +51,7 @@ export default function SaveInfo() {
         console.log(userData);
         
         //Make a POST request to your API endpoint
-        const response = await fetch(`/api/add-user?name=${name}&role=${role}&email=${email}}&password=${password}`, {
+        const response = await fetch(`/api/add-user?name=${name}&role=${role}&email=${email}&password=${password}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
