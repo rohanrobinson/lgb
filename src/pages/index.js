@@ -117,7 +117,7 @@ export default function Home() {
         <AppBar position="fixed" color="secondary">
           <Toolbar>
             <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 1 }}>
-              Let's Go Biotech 
+              <span className={styles.navBarText}>Let's Go Biotech </span>
             </Typography>
       { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}>X</p></div></span>}
           </Toolbar>
