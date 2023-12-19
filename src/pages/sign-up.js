@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button, Input } from '@mui/material';
 import { useRouter } from 'next/router';
 
-export default function SaveInfo() {
+export default function SignUp() {
 
   const router = useRouter();
   
@@ -42,13 +42,19 @@ export default function SaveInfo() {
     }
   }
 
+  function validateUserInput(userData) {
+      console.log();
+      console.log(userData);
+      console.log("-------");
+  }
+
   const addUserToDB = async () => {
       try {   
 
         //make a JSON object to represent new User 
         const userData = {userName: name, userRole: role, userEmail: email, userPassword: password}
 
-        console.log(userData);
+        validateUserInput(userData);
         
         //Make a POST request to your API endpoint
         const response = await fetch(`/api/add-user?name=${name}&role=${role}&email=${email}&password=${password}`, {
@@ -92,11 +98,11 @@ export default function SaveInfo() {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-          🧬 Let's Go Biotech 
+            <span className={styles.navBarText}>Let's Go Biotech</span>
           </Typography>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
-            About
+            <span className={styles.navBarText}>About</span>
           </Typography>
         </Toolbar>
       </AppBar>

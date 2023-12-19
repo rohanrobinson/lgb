@@ -1,11 +1,13 @@
 ﻿ // The Landing Page 
 
- import Head from 'next/head';
+import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Button, Typography, Input } from '@mui/material';
+import { Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 
 export default function Home() {
 
@@ -13,10 +15,25 @@ export default function Home() {
 
   const [articleSet, setArticles] = useState([]);
   const [paperSet, setPapers]  = useState([]);
+  const [showMenu, toggleMenu] = useState(true);
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
   const goToSignUpPage = () => { router.push('/sign-up'); }
+
+  const showMenuItems = () => {
+    
+        return(
+          <div className={styles.menuItems}>
+            <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
+              Sign Up
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
+              <span className={styles.navBarText}>About</span>
+            </Typography>
+          </div>
+        );
+}
 
 
   const getArticlesFromDB = async () => {
@@ -99,17 +116,28 @@ export default function Home() {
         </Head>
         <AppBar position="fixed" color="secondary">
           <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            🧬 Let's Go Biotech 
+            <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 1 }}>
+              Let's Go Biotech 
             </Typography>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 0.5 }} className={styles.cursorPointer} onClick={goToSignUpPage}>
-              Sign Up
-            </Typography>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
-              About
-            </Typography>
+      { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}>X</p></div></span>}
           </Toolbar>
+          
         </AppBar>
+        
+        
+        <Box
+            sx={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: 1,
+              mt: 4,
+            }}
+        >
+        { !showMenu ?   ''  : showMenuItems()}
+        </Box>
+       
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -137,6 +165,7 @@ export default function Home() {
                    ))
                   }
                 </div>
+
               </div>
         </Box>
       </Box>
