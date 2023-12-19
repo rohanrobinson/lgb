@@ -22,6 +22,12 @@
     .headers {
       margin-top: 400px;
     }
+
+    .menuItems {
+      margin-top: 100px;
+      margin-left: 600px;
+   }
+
   }
   
   .coolPaper, .coolArticle {
@@ -65,11 +71,20 @@
    }
 
 
+   .navBarText {
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+   }
+
+   .navBarText:hover {
+    cursor: pointer;
+   }
+
+   .menuItems {
+      margin-left: 600px;
+   }
 
 
-
-
-  
 
   
 
