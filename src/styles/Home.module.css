@@ -24,8 +24,11 @@
     }
 
     .menuItems {
-      margin-top: 100px;
-      margin-left: 600px;
+      margin-top: 26vh;
+      margin-left: 165vh;
+      background-color: #9c27b0;
+      height: 25vh;
+      width: 15vh;
    }
 
   }
@@ -81,7 +84,11 @@
    }
 
    .menuItems {
-      margin-left: 600px;
+      margin-top: 26vh;
+      margin-left: 165vh;
+      background-color: #9c27b0;
+      height: 25vh;
+      width: 15vh;
    }
 
 
