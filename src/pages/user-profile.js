@@ -16,7 +16,7 @@ export default function UserProfile() {
     const [email, setEmail] = useState('testemail555@letsgobiotech.com');
     const [password, setPassword] = useState('');
     const [isUserLoggedIn, setUserLoginStatus] = useState(false);
-    const [showMenu, toggleMenu] = useState(true);
+    const [showMenu, toggleMenu] = useState(false);
 
 
     const [savedArticles, setSavedArticles] = useState([]);
@@ -82,7 +82,7 @@ export default function UserProfile() {
                 <AppBar position="fixed" color="secondary">
                     <Toolbar>
                         <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 1 }}>
-                        <span className={styles.navBarText}>Let's Go Biotech </span>
+                        <span className={styles.navBarText} onClick={goHome}>Let's Go Biotech </span>
                         </Typography>
                         { !showMenu ?   ''  : showMenuItems()}
                         { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
@@ -100,7 +100,7 @@ export default function UserProfile() {
 
                         { !isUserLoggedIn ?
                             
-                            (<div className={styles.headers}>
+                            (<div>
                                     <b><span><i><h2>Login to your Let's Go Biotech Account</h2></i></span></b> 
                                     <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
                                     <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br />
