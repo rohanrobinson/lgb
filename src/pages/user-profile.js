@@ -11,9 +11,9 @@ export default function UserProfile() {
 
     const router = useRouter();
 
-    const [name, setName] = useState('Geetha');
-    const [role, setRole] = useState('Grandmother');
-    const [email, setEmail] = useState('geeurcool@gmail.com');
+    const [name, setName] = useState('very smart person');
+    const [role, setRole] = useState('Force for good');
+    const [email, setEmail] = useState('testemail555@letsgobiotech.com');
     const [savedArticles, setSavedArticles] = useState([]);
     const [savedPapers, setSavedPapers] = useState([]);
     const [showMenu, setShowMenu] = useState(false);
@@ -27,15 +27,6 @@ export default function UserProfile() {
         setShowMenu(!showMenu);
       };
 
-    const menuOptions = () => {
-        return (
-            <div>
-                <li>About</li>
-                <li>Sign Up</li>
-                <li>Login</li>
-            </div>
-        )        
-    }
     
     const goToAboutUsPage = () => {
         router.push('/about-us');
