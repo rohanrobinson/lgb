@@ -13,7 +13,7 @@ export default function Home() {
 
   const [articleSet, setArticles] = useState([]);
   const [paperSet, setPapers]  = useState([]);
-  const [showMenu, toggleMenu] = useState(true);
+  const [showMenu, toggleMenu] = useState(false);
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
