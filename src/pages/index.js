@@ -125,7 +125,6 @@ export default function Home() {
             { !showMenu ?   ''  : showMenuItems()}
             { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
           </Toolbar>
-          
         </AppBar>
         
         
