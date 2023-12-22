@@ -1,7 +1,9 @@
+// Sign Up Page 
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button, Input } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
 
 export default function SignUp() {
@@ -12,6 +14,7 @@ export default function SignUp() {
   const [role, setRole] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showMenu, toggleMenu] = useState(false);
 
   const [userAccountMade, setAccount] = useState(false);
 
@@ -21,6 +24,10 @@ export default function SignUp() {
 
   const goToAboutUsPage = () => {
     router.push('/about-us');
+  }
+
+  const goToAccountPage = () => {
+    router.push('/user-profile');
   }
 
   const handleInputChange = (event) => {
@@ -41,6 +48,20 @@ export default function SignUp() {
       setPassword(event.target.value);
     }
   }
+
+  const showMenuItems = () => {
+    
+    return(
+      <div className={styles.menuItems}>
+        <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToAccountPage}>
+          <span className={styles.navBarText}>Your Account</span>  
+        </Typography>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
+          <span className={styles.navBarText}>About</span>
+        </Typography>
+      </div>
+    );
+}
 
   function validateUserInput(userData) {
       console.log();
@@ -96,16 +117,14 @@ export default function SignUp() {
         <meta name="description" content="created by Rohan Cain Robinson" />
       </Head>
       <AppBar position="fixed" color="secondary">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-            <span className={styles.navBarText}>Let's Go Biotech</span>
-          </Typography>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
-            <span className={styles.navBarText}>About</span>
-          </Typography>
-        </Toolbar>
-      </AppBar>
+                    <Toolbar>
+                        <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 1 }}>
+                        <span className={styles.navBarText} onClick={goHome}>Let's Go Biotech </span>
+                        </Typography>
+                        { !showMenu ?   ''  : showMenuItems()}
+                        { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
+                    </Toolbar>
+                </AppBar>
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
