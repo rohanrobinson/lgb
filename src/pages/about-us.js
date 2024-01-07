@@ -118,6 +118,10 @@ export default function AboutUs() {
           </Button>
         </div>
 
+        <div>
+          <a href="https://rohanrobinson.github.io/confucius.html" target="_blank">Let's Go Biotech is a Confucius Technologies &#169; Production</a>
+        </div>
+
         
 
         </Box>
