@@ -16,6 +16,7 @@ export default function UserProfile() {
     const [email, setEmail] = useState('testemail555@letsgobiotech.com');
     const [password, setPassword] = useState('');
     const [isUserLoggedIn, setUserLoginStatus] = useState(false);
+    const [newUserDetected, setNewUserDetected] = useState(false);
     const [showMenu, toggleMenu] = useState(false);
 
 
@@ -29,12 +30,10 @@ export default function UserProfile() {
     const handleLoginInputs = (event) => {
         // figure out which type of input was changed and change that specific input 
         if (event.target.id === 'userName') {
-            console.log(event.target.value);
             setName(event.target.value);
         }
     
         if (event.target.id === 'userPassword') {
-            console.log(event.target.value);
             setPassword(event.target.value);
         }
     }
@@ -43,11 +42,67 @@ export default function UserProfile() {
 
     const goToAboutUsPage = () => { router.push('/about-us'); }
 
-    // IMPORTANT FUNCTION TO WRITE, IT'LL INTERACT WITH THE DATABASE
-    const checkUserInDb = (event) => {
-        console.log("implement functionality that makes sure user is in db");
+    function checkPassword(givenPassword, actualPassword) {
+
+        if (givenPassword === actualPassword) {
+            return true;
+        }
+
+        else {
+            return false;
+        }
+
     }
-    ///////////////////////
+
+    const checkUserInDb = async (name) => {
+
+        try {
+            const response = await fetch(`/api/get-specific-user?name=${name}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to get specific user');
+            }
+    
+            const user = await response.json();
+            
+            let passwordCheck = checkPassword(password, user.user.rows[0]['password']);            
+            
+            if (user.user.rowCount > 0 && passwordCheck === true) {
+                console.log(`trigger a function that displays user data for ${name}`);
+                console.log(`number of user rows from db is ${user.user.rowCount} `);
+                setUserLoginStatus(true);
+            }
+            
+
+            else {
+                setNewUserDetected(true);
+
+                if (user.user.rowCount === 0) {
+                    console.log(`hi ${name} it looks like you don't have a Let's Go Biotech Account, Please Sign Up for one!`);
+                }
+
+                else if (user.user.rowCount > 0 && passwordCheck === false) { 
+                    console.log(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.`);
+                }
+            }
+
+            return user;
+        } 
+        
+        catch (error) {
+            console.error('Error getting user:', error);
+        }
+    }
+
+
+
+
+    //////////////////////////////////////////////
 
     const showMenuItems = () => {
     
@@ -103,9 +158,8 @@ export default function UserProfile() {
                             (<div>
                                     <b><span><i><h2>Login to your Let's Go Biotech Account</h2></i></span></b> 
                                     <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
-                                    <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br />
-                                <Button onClick={() => (setUserLoginStatus(!isUserLoggedIn))}>Login</Button>
-
+                                    <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br /> <br />
+                                <Button onClick={ () => checkUserInDb(name) }>Login</Button>
                             </div>) :
 
                             (
@@ -120,7 +174,7 @@ export default function UserProfile() {
 
 
                                         <div>
-                                            <b>Saved Articles</b>
+                                            <b>Saved Articles</b> <br />
                                             <p>Article Name X</p>  <p>Article Name Y</p>   <p>Article Name Z</p> 
                                         </div>
 
@@ -129,15 +183,29 @@ export default function UserProfile() {
                                             <p>Paper Name X</p>  <p>Paper Name Y</p>   <p>Paper Name Z</p>
                                         </div>
                                     </div>
-                                    <Button onClick={() => (setUserLoginStatus(!isUserLoggedIn))}>Log Out</Button>
+                                    <Button onClick={() => (setUserLoginStatus(!isUserLoggedIn))}>Log Out</Button> <br />
+
+                                    { isUserLoggedIn }
                                 </div>
 
 
 
                             )
 
+                        }
+
+                           
+                           
+                           {
+                                newUserDetected
+                                    ?
+                            <div>
+                                <b> Hi {name}, nice to meet you!  Let's Get You Signed Up! </b>
+                                <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} href='/sign-up'>Sign Up</Button><br />
+                            </div>
+                                  :
+                                  ""
                             }
-                    
 
                             </Box>
 
