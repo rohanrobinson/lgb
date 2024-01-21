@@ -122,7 +122,7 @@ export default function AdminPortal() {
           }
 
         const addedArticle = await response.json();
-        console.log('Article added:', addedArticle);
+        console.log('Paper added:', addedArticle);
         return addedArticle;
       }
 
@@ -170,7 +170,17 @@ catch (error) {
         </Toolbar>
       </AppBar>
     
-      <p><i><b>Admin Portal</b></i></p><br />
+      <p><i><b>Admin Portal</b></i></p>
+
+      <div>
+            <b>Add a Paper to Let's Go Biotech</b><br />
+            <Input id="paperTitle" placeholder="Paper name" onChange={handleInputChange}/> <br />
+            <Input id="paperAuthor" placeholder="Paper author" onChange={handleInputChange} /> <br />
+            <Input id="paperTopic" placeholder="Paper topic" onChange={handleInputChange} /> <br />
+            <Input id="paperURL" placeholder="Paper URL" onChange={handleInputChange} />
+      </div><br />
+
+      <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={() => addPaperToDB(paperTitle, paperAuthor, paperTopic, paperURL)}>Add Paper to Database</Button><br />
       
       <div>
             <b>Add an Article to Let's Go Biotech</b><br />
@@ -182,23 +192,14 @@ catch (error) {
 
       <Button variant="contained" color="secondary" size="medium" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '10px 25px', }} onClick={() => addArticleToDB(articleName, articleAuthor, articleTopic, articleURL)}>Add Article to Database</Button><br />
    
-   <Button variant="contained" color="secondary" size="medium" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '10px 25px', }} onClick={() => removeArticlesFromDB()}>Remove Articles from Database</Button><br /> <br />
 
-
-      <div>
-            <b>Add a Paper to Let's Go Biotech</b><br />
-            <Input id="paperTitle" placeholder="Paper name" onChange={handleInputChange}/> <br />
-            <Input id="paperAuthor" placeholder="Paper author" onChange={handleInputChange} /> <br />
-            <Input id="paperTopic" placeholder="Paper topic" onChange={handleInputChange} /> <br />
-            <Input id="paperURL" placeholder="Paper URL" onChange={handleInputChange} />
-      </div><br />
-
-      <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={() => addPaperToDB(paperTitle, paperAuthor, paperTopic, paperURL)}>Add Paper to Database</Button><br />
+      <h3>Press incase of emergency only! :) </h3>
 
       <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={() => removePapersFromDB()}>Remove Papers from Database</Button><br />
 
       <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={() => removeUsersFromDB()}>Remove Users from Database</Button><br />
 
+      <Button variant="contained" color="secondary" size="medium" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '10px 25px', }} onClick={() => removeArticlesFromDB()}>Remove Articles from Database</Button><br /> <br />
 
     </Box>
   );

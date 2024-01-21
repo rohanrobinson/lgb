@@ -12,7 +12,7 @@ export default function UserProfile() {
     const router = useRouter();
 
     const [name, setName] = useState('very smart person');
-    const [role, setRole] = useState('Force for good');
+    const [role, setRole] = useState('super important role');
     const [email, setEmail] = useState('testemail555@letsgobiotech.com');
     const [password, setPassword] = useState('');
     const [isUserLoggedIn, setUserLoginStatus] = useState(false);
@@ -170,8 +170,6 @@ export default function UserProfile() {
                                     <div>
                                         <p>Your role: { role }</p>
                                         <p>Your email: { email }</p>
-
-
 
                                         <div>
                                             <b>Saved Articles</b> <br />
