@@ -1,10 +1,9 @@
 // User Profile Page
-
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Button, Typography, Input} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function UserProfile() {
@@ -12,7 +11,6 @@ export default function UserProfile() {
     const router = useRouter();
 
     const [name, setName] = useState('very smart person');
-    const [role, setRole] = useState('super important role');
     const [email, setEmail] = useState('testemail555@letsgobiotech.com');
     const [password, setPassword] = useState('');
     const [isUserLoggedIn, setUserLoginStatus] = useState(false);
@@ -56,47 +54,66 @@ export default function UserProfile() {
 
     const checkUserInDb = async (name) => {
 
-        try {
+        
             const response = await fetch(`/api/get-specific-user?name=${name}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-    
+            
+            console.log(response);
+
             if (!response.ok) {
                 throw new Error('Failed to get specific user');
             }
     
             const user = await response.json();
             
-            let passwordCheck = checkPassword(password, user.user.rows[0]['password']);            
+
+            let passwordCheck;
+            if (user.user.rowCount > 0) {
+                 passwordCheck = checkPassword(password, user.user.rows[0]['password']);
+            }
             
             if (user.user.rowCount > 0 && passwordCheck === true) {
+
                 console.log(`trigger a function that displays user data for ${name}`);
                 console.log(`number of user rows from db is ${user.user.rowCount} `);
                 setUserLoginStatus(true);
             }
             
-
-            else {
-                setNewUserDetected(true);
-
-                if (user.user.rowCount === 0) {
-                    console.log(`hi ${name} it looks like you don't have a Let's Go Biotech Account, Please Sign Up for one!`);
-                }
-
-                else if (user.user.rowCount > 0 && passwordCheck === false) { 
-                    console.log(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.`);
-                }
+            else if (user.user.rowCount > 0 && passwordCheck === false) {
+                alert(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.` + `\n` + `Try again, you got this!` );
+                console.log(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.`);
             }
 
+            else {
+
+                alert(`hi ${name}, it seems like you do not have an account with Let's Go Biotech. No Worries, click Sign Up and we'll get you going fast!`);
+                setNewUserDetected(true);
+            }
+
+            // else {
+            //     // setNewUserDetected(true);
+
+            //     if (user.user.rowCount === 0) {
+            //         // console.log(`hi ${name} it looks like you don't have a Let's Go Biotech Account, Please Sign Up for one!`);
+            //         alert("user not found in database");
+            //     }
+
+            //     else if (user.user.rowCount > 0 && passwordCheck === false) { 
+            //         // console.log(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.`);
+                    
+            //     }
+            // }
+
             return user;
-        } 
+        //} 
         
-        catch (error) {
-            console.error('Error getting user:', error);
-        }
+        // catch (error) {
+        //     console.error('Error getting user:', error);
+        // }
     }
 
 
@@ -168,7 +185,6 @@ export default function UserProfile() {
                                     <br />
 
                                     <div>
-                                        <p>Your role: { role }</p>
                                         <p>Your email: { email }</p>
 
                                         <div>

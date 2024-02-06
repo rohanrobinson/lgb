@@ -17,6 +17,7 @@ export default function SignUp() {
   const [showMenu, toggleMenu] = useState(false);
 
   const [userAccountMade, setAccount] = useState(false);
+  const [currentUserDeteced, setCurrentUserDetected] = useState(false);
 
   const goHome = () => {
     router.push('/');
@@ -63,22 +64,28 @@ export default function SignUp() {
     );
 }
 
-  function validateUserInput(userData) {
-      console.log();
-      console.log(userData);
-      console.log("-------");
-  }
-
   const addUserToDB = async () => {
-      try {   
+      
+    // See if the username already exists in database 
+    const userName = name;
+
+    // Make a GET request
+    const checkUserNameResponse = await fetch(`/api/get-specific-user?name=${userName}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    
+    const user = await checkUserNameResponse.json();
+
+    if (user.user.rowCount === 0) {
 
         //make a JSON object to represent new User 
         const userData = {userName: name, userRole: role, userEmail: email, userPassword: password}
 
-        validateUserInput(userData);
-        
-        //Make a POST request to your API endpoint
-        const response = await fetch(`/api/add-user?name=${name}&role=${role}&email=${email}&password=${password}`, {
+        //Make a POST request 
+        const response = await fetch(`/api/add-user?name=${userData.userName}&role=${userData.userRole}&email=${userData.userEmail}&password=${userData.userPassword}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -93,14 +100,15 @@ export default function SignUp() {
         else {
           setAccount(true);
         }
-
     }
-    
-    catch (error) {
-      console.error(error);
-    };
 
-}
+   if (user.user.rowCount > 0) { 
+        alert(`hi ${name}! it looks like you already have a Let's Go Biotech account. Try signing in! `)
+        setCurrentUserDetected(true);
+    }
+
+  }
+    
 
   return (
   <Box sx={{ 
@@ -143,10 +151,12 @@ export default function SignUp() {
                 <Input id="userPassword" placeholder="your password" onChange={handleInputChange} />
       </div><br />
 
-      <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={addUserToDB}>Sign Up</Button><br />
-
+      { currentUserDeteced ? <div><p>Hey {name}! You already have an account, touch/click the Sign In button!</p> <br /> <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} href='/user-profile'>Sign In</Button></div> : <div>     <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={addUserToDB}>Sign Up</Button><br />
+</div> }
 
      { userAccountMade ?<div><p>Thanks for signing up {name}! Email me at rohan@letsgobiotech.com if you have any questions! </p></div> : <div></div> }
+
+
 
 
 
@@ -154,5 +164,6 @@ export default function SignUp() {
   
   </Box>
   );
+
 }
 
