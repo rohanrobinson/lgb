@@ -173,7 +173,7 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Turn off Save Mode</Button>&rarr; click on the square to the right of a paper/article to save it!</div>) : (<Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Turn on Save Mode</Button>)}
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Activate Save Mode</Button>)}
               </div>
         </Box>
       </Box>
