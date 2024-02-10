@@ -29,6 +29,11 @@
    }
 
   }
+
+  .saveBtn {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 100px; 
+  }
   
   .coolPaper, .coolArticle {
     cursor: pointer;

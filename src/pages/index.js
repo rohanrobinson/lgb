@@ -1,7 +1,7 @@
 ﻿ // The Landing Page 
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
+import { Box, AppBar, Toolbar, Button, Typography, Checkbox} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -14,6 +14,7 @@ export default function Home() {
   const [articleSet, setArticles] = useState([]);
   const [paperSet, setPapers]  = useState([]);
   const [showMenu, toggleMenu] = useState(false);
+  const [saveMode, setSaveMode] = useState(false);
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
@@ -39,6 +40,19 @@ export default function Home() {
 }
 
 
+  function getAllSelectedElements() {
+
+    var className = document.getElementsByClassName('checkElement');
+
+    // for(var index=0;index < className.length;index++){
+    //    console.log(className[index].innerHTML);
+    // }
+
+    console.log(className.length);
+
+
+  }
+
   const getArticlesFromDB = async () => {
     
     try {
@@ -59,7 +73,7 @@ export default function Home() {
       const articleNames = [];
       for (let i =0; i<articleNamesMapped.length; i++ ) {
         articleNames.push([articleNamesMapped[i], articleURLsMapped[i]]);
-        console.log(articleNamesMapped[i], articleURLsMapped[i]);
+        // console.log(articleNamesMapped[i], articleURLsMapped[i]);
       }
 
       setArticles(articleNames);
@@ -141,22 +155,25 @@ export default function Home() {
                   <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
                   <p>Check out some Curated Papers and Articles</p>
               </div>
+
+              <Button variant="contained" color="secondary" onClick={() => getAllSelectedElements()}>Test Stuff</Button>
+
               <div>
                 <div>
                   <b><i>Papers</i></b> <br />
                   {paperSet.map((paper, index) => (
-                    <a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>
+                    <div><a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={console.log("paper name", paper[0])} />) : "" }</div>
                   ))
                   }
                 </div>              
                 <div>
                   <b><i>Articles</i></b> <br />
                   {articleSet.map((article, index) => (
-                  <a href={article[1]} target="_blank"><p className={styles.coolArticle} key={index}>{article[0]}</p></a>
+                  <div><a href={article[1]} target="_blank"><p className={styles.coolArticle} key={index}>{article[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={console.log("article name", article[0])} />) : "" }</div>
                    ))
                   }
                 </div>
-
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Turn off Save Mode</Button>&rarr; click on the square to the right of a paper/article to save it!</div>) : (<Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Turn on Save Mode</Button>)}
               </div>
         </Box>
       </Box>
