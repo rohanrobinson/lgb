@@ -16,7 +16,7 @@ export default function Home() {
   const [showMenu, toggleMenu] = useState(false);
   const [saveMode, setSaveMode] = useState(true);
   const [selectedPaperList, updatePaperList] = useState([]);
-  //const [selectedArticleList, updateArticleList] = useState([]);
+  const [selectedArticleList, updateArticleList] = useState([]);
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
@@ -129,20 +129,52 @@ export default function Home() {
     }
   }
 
+  function updateSelectedArticles(givenArticleName) {
+    let ArticleNotInList = true;
+
+    let newArticleList = [];
+
+    for (let i=0; i<selectedArticleList.length; i++) {
+
+       let currArticleName = selectedArticleList[i];
+       
+       if (currArticleName === givenArticleName) {
+           ArticleNotInList = false;
+           let newArticleList = selectedArticleList.filter(function(x) { return x !== givenArticleName; });
+           updateArticleList(newArticleList);
+         }
+
+    }
+    
+    if (ArticleNotInList === true) {
+  
+
+      for (let i=0; i<selectedArticleList.length; i++) {
+        newArticleList.push(selectedArticleList[i]);
+      }
+
+      newArticleList.push(givenArticleName);
+
+      updateArticleList(newArticleList);
+    }
+  }
+
   function getSelectedPapersList() {
         console.log(selectedPaperList);
   }
 
-
-  function updateSelectedArticles(articleName) {
-    console.log(articleName);
+  function getSelectedArticlesList() {
+        console.log(selectedArticleList);
   }
 
+
+
+  // This interacts with the vercel postgres db 
   useEffect(() => {
     getArticlesFromDB();
     getPapersFromDB();
   }, []);
-
+  // --- --- --- --- --- 
   return (
       <Box sx={{ 
         display: 'flex', 
@@ -181,6 +213,7 @@ export default function Home() {
                   <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
                   <p>Check out some Curated Papers and Articles</p>
                   <Button variant="contained" color="secondary" onClick={() => getSelectedPapersList()}>Get Selected Papers</Button>
+                  <Button variant="contained" color="secondary" onClick={() => getSelectedArticlesList()}>Get Selected Articles</Button>
               </div>
               <div>
                 <div>

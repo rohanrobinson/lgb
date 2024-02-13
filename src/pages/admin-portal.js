@@ -164,8 +164,8 @@ catch (error) {
       <Head><title>Let's Go Biotech - Admin Article</title><meta name="description" content="created by Rohan Cain Robinson" /></Head>
       <AppBar position="fixed" color="secondary">
         <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.cursorPointer} onClick={goHome}>
-            🧬 Let's Go Biotech
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={styles.navBarText} onClick={goHome}>
+            Let's Go Biotech
             </Typography>
         </Toolbar>
       </AppBar>

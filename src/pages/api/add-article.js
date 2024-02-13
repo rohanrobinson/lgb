@@ -8,8 +8,8 @@ export default async function handler(request, response) {
         const articleURL = request.query.articleURL;
         const articleTopic = request.query.articleTopic;
 
-        if (!articleName || !articleAuthor || !articleURL || !articleTopic) throw new Error('Name, Author, URL, Topic for Article is required')
-        await sql`INSERT INTO Articles (Name, Author, URL, Topic) VALUES (${articleName}, ${articleAuthor}, ${articleURL}, ${articleTopic});`;
+        if (!articleName || !articleAuthor || !articleURL || !articleTopic) throw new Error('Article_Name, Author, URL, Topic for Article is required')
+        await sql`INSERT INTO Articles (Article_Name, Author, URL, Topic) VALUES (${articleName}, ${articleAuthor}, ${articleURL}, ${articleTopic});`;
     }
 
     catch (error) {
