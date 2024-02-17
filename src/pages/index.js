@@ -17,6 +17,7 @@ export default function Home() {
   const [saveMode, setSaveMode] = useState(true);
   const [selectedPaperList, updatePaperList] = useState([]);
   const [selectedArticleList, updateArticleList] = useState([]);
+  const [userLoggedIn, toggleUserLoggedIn] = useState(false);
 
   const goToAboutUsPage = () => { router.push('/about-us'); }
   
@@ -71,6 +72,22 @@ export default function Home() {
     }
 
   }
+
+  const testIsUserSignedIn = () => {
+
+        if (userLoggedIn) {
+          alert("user is logged in!");
+          toggleUserLoggedIn(false);
+        }
+
+        else {
+          alert("user is NOT logged in");
+          toggleUserLoggedIn(true);
+        }
+
+
+  }
+
 
   const getPapersFromDB = async () => {
     try {
@@ -212,8 +229,7 @@ export default function Home() {
               <div className={styles.headers}>
                   <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
                   <p>Check out some Curated Papers and Articles</p>
-                  <Button variant="contained" color="secondary" onClick={() => getSelectedPapersList()}>Get Selected Papers</Button>
-                  <Button variant="contained" color="secondary" onClick={() => getSelectedArticlesList()}>Get Selected Articles</Button>
+                  <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }> Let's Get you Logged In!</Button>
               </div>
               <div>
                 <div>
@@ -230,7 +246,7 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Activate Save Mode</Button>)}
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Activate Save Mode</Button>)}
               </div>
         </Box>
       </Box>
