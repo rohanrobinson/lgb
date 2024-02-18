@@ -228,8 +228,7 @@ export default function Home() {
         }}>
               <div className={styles.headers}>
                   <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-                  <p>Check out some Curated Papers and Articles</p>
-                  <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }> Let's Get you Logged In!</Button>
+                  <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button>
               </div>
               <div>
                 <div>
