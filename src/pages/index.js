@@ -11,22 +11,21 @@ export default function Home() {
 
   const router = useRouter();
 
+  // hooks for page
   const [articleSet, setArticles] = useState([]);
   const [paperSet, setPapers]  = useState([]);
   const [showMenu, toggleMenu] = useState(false);
-  const [saveMode, setSaveMode] = useState(true);
+  const [saveMode, setSaveMode] = useState(false);
   const [selectedPaperList, updatePaperList] = useState([]);
   const [selectedArticleList, updateArticleList] = useState([]);
   const [userLoggedIn, toggleUserLoggedIn] = useState(false);
 
+  // handles navigation to other pages
   const goToAboutUsPage = () => { router.push('/about-us'); }
-  
   const goToSignUpPage = () => { router.push('/sign-up'); }
-
   const goToProfilePage = () => { router.push('/user-profile'); }
 
   const showMenuItems = () => {
-    
         return(
           <div className={styles.menuItems}>
             <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
@@ -40,11 +39,18 @@ export default function Home() {
             </Typography>
           </div>
         );
-}
+  }
+  
+  const testLogin = () => {
+      if (userLoggedIn === false) {
+         alert("hello, thanks for using Let's Go Biotech! To save papers and articles, we need you to either login or sign up for an account!");
+      }
+    }
 
   const getArticlesFromDB = async () => {
     
     try {
+
       const response = await fetch('/api/get-articles');
 
       if (!response.ok) {
@@ -57,37 +63,17 @@ export default function Home() {
       const articleNamesMapped = articles.rows.map((articles) => articles.article_name);
       const articleURLsMapped = articles.rows.map((articles) => articles.url);
       
-
       const articleNames = [];
       for (let i =0; i<articleNamesMapped.length; i++ ) {
         articleNames.push([articleNamesMapped[i], articleURLsMapped[i]]);
       }
-
       setArticles(articleNames);
-
     }
 
     catch (error) {
       console.error(error);
     }
-
   }
-
-  const testIsUserSignedIn = () => {
-
-        if (userLoggedIn) {
-          alert("user is logged in!");
-          toggleUserLoggedIn(false);
-        }
-
-        else {
-          alert("user is NOT logged in");
-          toggleUserLoggedIn(true);
-        }
-
-
-  }
-
 
   const getPapersFromDB = async () => {
     try {
@@ -116,38 +102,32 @@ export default function Home() {
   }
 
   function updateSelectedPapers(givenPaperName) {
-    let paperNotInList = true;
-
+    let givenPaperIsNotInList = true;
     let newPaperList = [];
 
     for (let i=0; i<selectedPaperList.length; i++) {
-
        let currPaperName = selectedPaperList[i];
-       
 
        if (currPaperName === givenPaperName) {
-           paperNotInList = false;
+           givenPaperIsNotInList = false;
            let newPaperList = selectedPaperList.filter(function(x) { return x !== givenPaperName; });
            updatePaperList(newPaperList);
          }
-
     }
     
-    if (paperNotInList === true) {
-  
+    if (givenPaperIsNotInList === true) {
 
       for (let i=0; i<selectedPaperList.length; i++) {
         newPaperList.push(selectedPaperList[i]);
       }
 
       newPaperList.push(givenPaperName);
-
       updatePaperList(newPaperList);
     }
   }
 
   function updateSelectedArticles(givenArticleName) {
-    let ArticleNotInList = true;
+    let givenArticleIsNotInList = true;
 
     let newArticleList = [];
 
@@ -156,14 +136,14 @@ export default function Home() {
        let currArticleName = selectedArticleList[i];
        
        if (currArticleName === givenArticleName) {
-           ArticleNotInList = false;
+           givenArticleIsNotInList = false;
            let newArticleList = selectedArticleList.filter(function(x) { return x !== givenArticleName; });
            updateArticleList(newArticleList);
          }
 
     }
     
-    if (ArticleNotInList === true) {
+    if (givenArticleIsNotInList === true) {
   
 
       for (let i=0; i<selectedArticleList.length; i++) {
@@ -176,6 +156,8 @@ export default function Home() {
     }
   }
 
+
+  // used to test that the right number of papers and articles are recognized 
   function getSelectedPapersList() {
         console.log(selectedPaperList);
   }
@@ -192,6 +174,8 @@ export default function Home() {
     getPapersFromDB();
   }, []);
   // --- --- --- --- --- 
+  
+  
   return (
       <Box sx={{ 
         display: 'flex', 
@@ -245,7 +229,7 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => setSaveMode(!saveMode)}>Activate Save Mode</Button>)}
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); testLogin(); } }>Activate Save Mode</Button>)}
               </div>
         </Box>
       </Box>
