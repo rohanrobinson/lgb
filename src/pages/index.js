@@ -41,7 +41,7 @@ export default function Home() {
         );
   }
   
-  const testLogin = () => {
+  const handleLogin = () => {
       if (userLoggedIn === false) {
          alert("hello, thanks for using Let's Go Biotech! To save papers and articles, we need you to either login or sign up for an account!");
          router.push('/user-profile');
@@ -235,7 +235,7 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { testLogin(); } }>Activate Save Mode</Button>)}
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)}
               </div>
         </Box>
       </Box>

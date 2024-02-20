@@ -143,8 +143,8 @@ export default function SignUp() {
       }}>
 
       <div className={styles.headers}>
-                <b><span><i><h2>The Time is Now!</h2></i></span></b> 
-                <p>Sign Up for a Let's Go Biotech Account</p>
+                <b><span><i><h2>Sign Up for a Let's Go Biotech Account</h2></i></span></b> 
+                <p>hello beautiful human, we're happy you're hear 😉</p>
                 <Input id="userName" placeholder="your name" onChange={handleInputChange}/> <br />
                 <Input id="userRole" placeholder="your role" onChange={handleInputChange} /> <br />
                 <Input id="userEmail" placeholder="your email" onChange={handleInputChange} /> <br />
