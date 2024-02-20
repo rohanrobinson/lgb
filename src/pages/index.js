@@ -44,7 +44,13 @@ export default function Home() {
   const testLogin = () => {
       if (userLoggedIn === false) {
          alert("hello, thanks for using Let's Go Biotech! To save papers and articles, we need you to either login or sign up for an account!");
+         router.push('/user-profile');
       }
+
+      if (userLoggedIn === true) {
+        setSaveMode(!saveMode);
+      }
+
     }
 
   const getArticlesFromDB = async () => {
@@ -229,7 +235,7 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); testLogin(); } }>Activate Save Mode</Button>)}
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { testLogin(); } }>Activate Save Mode</Button>)}
               </div>
         </Box>
       </Box>
