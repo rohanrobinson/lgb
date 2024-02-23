@@ -1,4 +1,4 @@
-﻿ // The Landing Page 
+﻿ // Let's Go Biotech homepage
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Button, Typography, Checkbox} from '@mui/material';
@@ -14,6 +14,7 @@ export default function Home() {
   // hooks for page
   const [articleSet, setArticles] = useState([]);
   const [paperSet, setPapers]  = useState([]);
+  const [companySet, setCompanies] = useState([]);
   const [showMenu, toggleMenu] = useState(false);
   const [saveMode, setSaveMode] = useState(false);
   const [selectedPaperList, updatePaperList] = useState([]);
@@ -107,6 +108,31 @@ export default function Home() {
     }
   }
 
+  const getCompaniesFromDB = async () => {
+      try {
+        const response = await fetch('/api/get-companies');
+
+        if (!response.ok) {
+          throw new Error('Failed to get companies');
+        }
+  
+        const data = await response.json();
+        const companies = data.companies;
+  
+        const companyNamesMapped = companies.rows.map((companies) => companies.name);
+        
+        const companyNames = [];
+        for (let i =0; i<companyNamesMapped.length; i++ ) {
+          companyNames.push([companyNamesMapped[i]]);
+        }
+        setCompanies(companyNames);
+          
+      }
+      catch (error) {
+        console.error(error);
+      }
+  }
+
   function updateSelectedPapers(givenPaperName) {
     let givenPaperIsNotInList = true;
     let newPaperList = [];
@@ -172,12 +198,11 @@ export default function Home() {
         console.log(selectedArticleList);
   }
 
-
-
-  // This interacts with the vercel postgres db 
+  // This interacts with the vercel postgres db, it runs automatically when the page loads 
   useEffect(() => {
     getArticlesFromDB();
     getPapersFromDB();
+    getCompaniesFromDB();
   }, []);
   // --- --- --- --- --- 
   
@@ -218,24 +243,35 @@ export default function Home() {
         }}>
               <div className={styles.headers}>
                   <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-                  <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button>
+                  <span><i>Keep up with the science and companies driving the industry forward</i></span> <br /> <br />
+             { !userLoggedIn ? <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button> : <p>Hi! We're glad you're here!</p> }
               </div>
               <div>
                 <div>
-                  <b><i>Papers</i></b> <br />
+                  <b><i>Biotech Papers</i></b> <br />
                   {paperSet.map((paper, index) => (
                     <div><a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" }</div>
                   ))
                   }
                 </div>              
-                <div>
+                {/* <div>
                   <b><i>Articles</i></b> <br />
                   {articleSet.map((article, index) => (
                   <div><a href={article[1]} target="_blank"><p className={styles.coolArticle} key={index}>{article[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedArticles(article[0])} />) : "" }</div>
                    ))
                   }
+                </div> */}
+                <div>
+                  <b><i>Biotech Companies</i></b> <br />
+                  {companySet.map((company, index) => (
+                  <div><p className={styles.coolArticle} key={index}>{company[0]}</p></div>
+                   ))
+                  }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Articles</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)}
+            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Companies</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)}
+              </div>
+              <div>
+                  <Button variant="contained" color="secondary" onClick={() => { console.log(companySet); }}>Test Get Companies</Button>
               </div>
         </Box>
       </Box>
