@@ -8,7 +8,7 @@ export default async function handler(request, response) {
         const paperTopic = request.query.paperTopic;
         const paperURL = request.query.paperURL;
 
-        if (!paperTitle || !paperAuthor || !paperTopic || !paperURL) throw new Error("Missing info to add paper to database") 
+        if (!paperTitle || !paperAuthor || !paperTopic || !paperURL) throw new Error("Missing information needed to add the paper to database") 
         await sql`INSERT INTO Papers (Title, Author, Topic, URL) VALUES (${paperTitle}, ${paperAuthor}, ${paperTopic}, ${paperURL});`;
         } 
 
