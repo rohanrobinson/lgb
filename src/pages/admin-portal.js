@@ -20,6 +20,12 @@ export default function AdminPortal() {
   const [ paperTopic, setPaperTopic] = useState('');
   const [ paperURL, setPaperURL] = useState('');
 
+  // needed info to add a company
+  const [ nameOfCompany, setCompanyName] = useState('');
+  const [ dateStarted, setStartDate] = useState('');
+  const [ productCategory, setCategory] = useState('');
+  const [ headquarterLocation, setHQ] = useState(''); 
+
   // needed info to add a user
   const [name, setUserName] = useState('');
   const [role, setRole] = useState('');
@@ -63,6 +69,23 @@ export default function AdminPortal() {
     else if (event.target.id === 'paperURL') {
       setPaperURL(event.target.value);
     }
+
+    else if (event.target.id === 'nameOfCompany') {
+      setCompanyName(event.target.value);
+    }
+
+    else if (event.target.id === 'dateStarted') {
+      setStartDate(event.target.value);
+    }
+
+    else if (event.target.id === 'productCategory') {
+      setCategory(event.target.value);
+    }
+
+    else if (event.target.id === 'headquarterLocation') {
+      setHQ(event.target.value);
+    } 
+
   }
 
   const addArticleToDB = async (articleName, articleAuthor, articleTopic, articleURL) => {
@@ -131,6 +154,27 @@ export default function AdminPortal() {
         }
   }
 
+  const addCompanyToDB = async (nameOfCompany, dateStarted, productCategory, headquarterLocation) => {
+
+        try {
+          const response = await fetch(`/api/add-company?Name=${nameOfCompany}&dateStarted=${dateStarted}&productCategory=${productCategory}&headquarterLocation=${headquarterLocation}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(nameOfCompany, dateStarted, productCategory, headquarterLocation),
+          });
+
+          if (!response.ok) {
+              throw new Error('Failed to add company');
+          }
+        }
+
+        catch (error) {
+            console.error("Error adding company to database", error);
+        }
+  }
+
   const removePapersFromDB = async () => {
     try {
       const response = await fetch('/api/remove-all-papers'); 
@@ -182,15 +226,23 @@ catch (error) {
 
       <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={() => addPaperToDB(paperTitle, paperAuthor, paperTopic, paperURL)}>Add Paper to Database</Button><br />
       
-      <div>
+      {/* <div>
             <b>Add an Article to Let's Go Biotech</b><br />
             <Input id="articleName" placeholder="Article name" onChange={handleInputChange}/> <br />
             <Input id="articleAuthor" placeholder="Article author" onChange={handleInputChange} /> <br />
             <Input id="articleTopic" placeholder="Article topic" onChange={handleInputChange} /> <br />
             <Input id="articleURL" placeholder="Article URL" onChange={handleInputChange} />
-      </div><br />
+      </div><br /> */}
 
-      <Button variant="contained" color="secondary" size="medium" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '10px 25px', }} onClick={() => addArticleToDB(articleName, articleAuthor, articleTopic, articleURL)}>Add Article to Database</Button><br />
+      <div>
+          <b>Add a Company to Let's Go Biotech</b><br />
+          <Input id="nameOfCompany" placeholder="company name" onChange={handleInputChange}/> <br />
+          <Input id="dateStarted" placeholder="year company started" onChange={handleInputChange} /> <br />
+          <Input id="productCategory" placeholder="product category" onChange={handleInputChange} /> <br />
+          <Input id="headquarterLocation" placeholder="headquarter location" onChange={handleInputChange} />
+      </div><br/>
+
+      <Button variant="contained" color="secondary" size="medium" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '10px 25px', }} onClick={() => addCompanyToDB(nameOfCompany, dateStarted, productCategory, headquarterLocation)}>Add Company to Database</Button><br />
    
 
       <h3>Press incase of emergency only! :) </h3>
