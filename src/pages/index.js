@@ -1,5 +1,6 @@
 ﻿ // Let's Go Biotech homepage
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Button, Typography, Checkbox} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -19,7 +20,7 @@ export default function Home() {
   const [saveMode, setSaveMode] = useState(false);
   const [selectedPaperList, updatePaperList] = useState([]);
   const [selectedArticleList, updateArticleList] = useState([]);
-  const [userLoggedIn, toggleUserLoggedIn] = useState(false);
+  const [userLoggedIn, toggleUserLoggedIn] = useState(true);
 
   // handles navigation to other pages
   const goToAboutUsPage = () => { router.push('/about-us'); }
@@ -198,12 +199,16 @@ export default function Home() {
         console.log(selectedArticleList);
   }
 
-  // This interacts with the vercel postgres db, it runs automatically when the page loads 
-  useEffect(() => {
+  function getInfoFromDB() {
     getArticlesFromDB();
     getPapersFromDB();
     getCompaniesFromDB();
-  }, []);
+  }
+
+  // This interacts with the vercel postgres db, it runs automatically when the page loads 
+  useEffect(() => {
+     getInfoFromDB();
+  }, []); 
   // --- --- --- --- --- 
   
   
@@ -231,8 +236,7 @@ export default function Home() {
           </Toolbar>
         </AppBar>
         
-        
-       
+    
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -243,14 +247,31 @@ export default function Home() {
         }}>
               <div className={styles.headers}>
                   <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-                  <span><i>Keep up with the science and companies driving the industry forward</i></span> <br /> <br />
+                  <span><i>Keep up with the science and companies driving the biotech industry forward</i></span> <br /> <br />
              { !userLoggedIn ? <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button> : <p>Hi! We're glad you're here!</p> }
               </div>
               <div>
                 <div>
                   <b><i>Biotech Papers</i></b> <br />
                   {paperSet.map((paper, index) => (
-                    <div><a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" }</div>
+                    <div>
+                      {/* <a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" } */}
+                      { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" }
+                      <Link
+       
+                            href={{
+                              pathname: '/paper',
+                              query: { paperName: paper[0] },
+                            }}
+                          
+                            >
+                              <p className={styles.coolPaper}>                          
+                                  {paper[0]}
+                              </p>
+
+                      </Link>
+                      
+                      </div>
                   ))
                   }
                 </div>              
@@ -264,14 +285,28 @@ export default function Home() {
                 <div>
                   <b><i>Biotech Companies</i></b> <br />
                   {companySet.map((company, index) => (
-                  <div><p className={styles.coolArticle} key={index}>{company[0]}</p></div>
+                    <div>
+                    { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedArticles(article[0])} />) : "" }
+                    {/* // <div><p className={styles.coolArticle} key={index}>{company[0]}</p> */}
+                  <Link
+       
+                  href={{
+                    pathname: '/company',
+                    query: { companyName: company[0] },
+                  }}
+                
+                  >
+                    <p className={styles.coolArticle}>
+                    {company[0]}
+                  </p>
+              </Link>
+              </div>
                    ))
                   }
                 </div>
             {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Companies</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)}
               </div>
               <div>
-                  <Button variant="contained" color="secondary" onClick={() => { console.log(companySet); }}>Test Get Companies</Button>
               </div>
         </Box>
       </Box>
