@@ -2,6 +2,10 @@
 
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
+import boyDNA from '../images/curious-boy-dna-helix-strands.jpg';
+import girlDNA from '../images/awesome-girl-dna-helix-strands.jpg';
+
 import styles from '../styles/Home.module.css';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -65,7 +69,7 @@ export default function AboutUs() {
 
               <p className={styles.aboutUsText}>
                          Let's Go Biotech is your portal to the fast-paced biotech industry. <br /> 
-                         We showcase awesome biotech papers and companies that are making out lives better!
+                         We showcase awesome biotech papers and companies that are making our lives better!
                           <br />
               </p>
 
@@ -78,8 +82,13 @@ export default function AboutUs() {
             >
               Home
             </Button> 
+
+          <div>
+            <Image src={boyDNA} width={500} height={500}  alt="boy with dna" />  &nbsp; &nbsp;
+            <Image src={girlDNA} width={500} height={500} alt="girl with dna" />
+          </div>
             
-            <b>Check out our Socials</b>
+            {/* <b>Check out our Socials</b>
 
         <div>
             <Button 
@@ -120,7 +129,7 @@ export default function AboutUs() {
 
         <div>
           <a href="https://rohanrobinson.github.io/confucius.html" target="_blank">Let's Go Biotech is a Confucius Technologies &#169; Production</a>
-        </div>
+        </div> */}
 
         
 
