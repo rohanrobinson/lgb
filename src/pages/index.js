@@ -246,9 +246,8 @@ export default function Home() {
           mt: 4,
         }}>
               <div className={styles.headers}>
-                  <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
-                  <span><i>Keep up with the science and companies driving the biotech industry forward</i></span> <br /> <br />
-             { !userLoggedIn ? <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button> : <p>Hi! We're glad you're here!</p> }
+                  <b><span><i><h2>Get Curated Biotech Papers and Companies Everyday</h2></i></span></b> 
+             {/* { !userLoggedIn ? <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button> : <p>Hi! We're glad you're here!</p> } */}
               </div>
               <div>
                 <div>
