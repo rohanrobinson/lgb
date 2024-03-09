@@ -20,7 +20,7 @@ export default function Home() {
   const [saveMode, setSaveMode] = useState(false);
   const [selectedPaperList, updatePaperList] = useState([]);
   const [selectedArticleList, updateArticleList] = useState([]);
-  const [userLoggedIn, toggleUserLoggedIn] = useState(true);
+  const [userLoggedIn, toggleUserLoggedIn] = useState(false);
 
   // handles navigation to other pages
   const goToAboutUsPage = () => { router.push('/about-us'); }
@@ -303,7 +303,7 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Companies</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)}
+            {/* {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Companies</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)} */}
               </div>
               <div>
               </div>
