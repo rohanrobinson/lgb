@@ -16,6 +16,8 @@ export default function Company() {
 
     // needed hooks / state variables 
     const [showMenu, toggleMenu] = useState(false);
+    const [saveMode, setSaveMode] = useState(false);
+    const [userLoggedIn, toggleUserLoggedIn] = useState(false);
 
     // needed functions 
     const goToSignUpPage = () => { router.push('/sign-up'); }
@@ -26,7 +28,7 @@ export default function Company() {
 
     // displays necessary menu items
     const showMenuItems = () => {
-     return(
+     return (
        <div className={styles.menuItems}>
          <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
            <span className={styles.navBarText}>Sign Up</span>  
@@ -40,6 +42,19 @@ export default function Company() {
        </div>
      );
 }
+
+  const handleLogin = () => {
+    
+    if (userLoggedIn === false) {
+      alert("hello, thanks for using Let's Go Biotech! To save papers and articles, we need you to either login or sign up for an account!");
+      router.push('/user-profile');
+    }
+
+    if (userLoggedIn === true) {
+      setSaveMode(true);
+    }
+
+  }
 
 // ui representation
 return (
