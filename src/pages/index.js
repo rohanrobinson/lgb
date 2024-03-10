@@ -94,14 +94,31 @@ export default function Home() {
       const data = await response.json();
       const papers = data.papers;
 
-      const paperTitlesMapped = papers.rows.map((papers) => papers.title);
-      const paperURLsMapped = papers.rows.map((papers) => papers.url);
+      // paper properties
+      const paperTitles = papers.rows.map((papers) => papers.title);
+      const paperURLs = papers.rows.map((papers) => papers.url);
+      const paperAuthors = papers.rows.map((papers) => papers.author);
+      const paperTopics = papers.rows.map((papers) => papers.topic);
       
-      const paperTitles = [];
-      for (let i =0; i<paperTitlesMapped.length; i++ ) {
-        paperTitles.push([paperTitlesMapped[i], paperURLsMapped[i]]);
+      const paperObjects = [];
+      for (let i =0; i<papers.rows.length; i++ ) {
+        
+        // initialize new paper object
+        let paperObj = {}
+
+        // add properties to paper object
+        paperObj["title"] = paperTitles[i];
+        paperObj["url"] = paperURLs[i];
+        paperObj["author"] = paperAuthors[i];
+        paperObj["topic"] = paperTopics[i];
+
+        // add paper object to the array of paper objects 
+        paperObjects.push(paperObj);
+
       }
-      setPapers(paperTitles);
+      setPapers(paperObjects);
+
+      console.log(paperObjects);
     }
 
     catch (error) { 
@@ -119,16 +136,37 @@ export default function Home() {
   
         const data = await response.json();
         const companies = data.companies;
-  
-        const companyNamesMapped = companies.rows.map((companies) => companies.name);
+
+        // company properties
+        const companyHQs = companies.rows.map((companies) => companies.headquarter_location);
+        const companyNames = companies.rows.map((companies) => companies.name);
+        const companyDatesStarted = companies.rows.map((companies) => companies.date_started);
+        const companyProd = companies.rows.map((companies) => companies.product_category);
+
+        console.log(companyHQs, companyNames, companyDatesStarted, companyProd);
+        console.log("number of companies in db", companies.rows.length);
         
-        const companyNames = [];
-        for (let i =0; i<companyNamesMapped.length; i++ ) {
-          companyNames.push([companyNamesMapped[i]]);
+        let companyObjects = [];
+        // make company objects 
+        for (let i=0; i<companies.rows.length; i++) { 
+            // initialize object
+            let companyObj  = {}
+      
+            // add properties to object 
+            companyObj["name"] = companyNames[i];
+            companyObj["dateStarted"] = companyDatesStarted[i];
+            companyObj["product"] = companyProd[i];
+            companyObj["hqLocation"] = companyHQs[i];
+
+            // add object to list
+            console.log(companyObj);
+            companyObjects.push(companyObj);
         }
-        setCompanies(companyNames);
+
+       
+        setCompanies(companyObjects);
           
-      }
+    }
       catch (error) {
         console.error(error);
       }
@@ -247,6 +285,7 @@ export default function Home() {
         }}>
               <div className={styles.headers}>
                   <b><span><i><h2>Get Curated Biotech Papers and Companies Everyday</h2></i></span></b> 
+
              {/* { !userLoggedIn ? <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button> : <p>Hi! We're glad you're here!</p> } */}
               </div>
               <div>
@@ -257,17 +296,12 @@ export default function Home() {
                       {/* <a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" } */}
                       { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" }
                       <Link
-       
                             href={{
                               pathname: '/paper',
-                              query: { paperName: paper[0] },
-                            }}
-                          
-                            >
-                              <p className={styles.coolPaper}>                          
-                                  {paper[0]}
+                              query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"] },
+                            }} >
+                              <p className={styles.coolPaper}>                                                            {paper["title"]}
                               </p>
-
                       </Link>
                       
                       </div>
@@ -291,12 +325,12 @@ export default function Home() {
        
                   href={{
                     pathname: '/company',
-                    query: { companyName: company[0] },
+                    query: { companyName: company["name"], dateStarted: company["dateStarted"], productCategory: company["product"], headquarterLocation: company["hqLocation"] },
                   }}
                 
                   >
                     <p className={styles.coolArticle}>
-                    {company[0]}
+                       {company["name"]}
                   </p>
               </Link>
               </div>

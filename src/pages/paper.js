@@ -11,10 +11,17 @@ export default function Paper() {
     
     //router reference 
     const router = useRouter();
-    const paperName = router.query.paperName;
+    
+    // paper properties
+    const paperTitle = router.query.paperTitle;
+    const paperAuthor = router.query.paperAuthor;
+    const paperURL = router.query.paperURL;
+    const paperTopic = router.query.paperTopic;
 
-    // hooks 
+    // hooks / state variables
     const [showMenu, toggleMenu] = useState(false);
+    const [saveMode, setSaveMode] = useState(false);
+    const [userLoggedIn, toggleUserLoggedIn] = useState(false);
 
 
     // needed functions
@@ -46,7 +53,7 @@ export default function Paper() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
         <Head>
-          <title>Let's Go Biotech - Science Paper</title>
+          <title>Let's Go Biotech - Paper Analysis Page</title>
           <meta name="description" content="created by Rohan Cain Robinson" />
         </Head>
         <AppBar position="fixed" color="secondary">
@@ -58,7 +65,7 @@ export default function Paper() {
                           { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
                       </Toolbar>
         </AppBar>
-          <b>Science Paper</b> 
+          <div className={styles.analysisHeader}><b>{paperTitle}</b></div>
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -67,9 +74,9 @@ export default function Paper() {
           gap: 3
                   }}>
   
-                <p>{paperName}</p>
-
-              
+                <p> by {paperAuthor}</p>
+                <p>Topic &rarr; {paperTopic}</p>
+                <p><a href={paperURL} target="_blank">Link to full paper</a></p>
   
               <Button 
                 variant="contained" 

@@ -30,6 +30,11 @@
 
   }
 
+  .analysisHeader {
+      float: left;
+      width: 60%;
+  }
+
   .saveBtn {
     font-family: 'Courier New', Courier, monospace;
     margin-left: 100px; 

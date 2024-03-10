@@ -11,7 +11,12 @@ export default function Company() {
 
     //router reference
     const router = useRouter();
+   
+    // company properties 
     const companyName = router.query.companyName;
+    const dateStarted = router.query.dateStarted;
+    const productCategory = router.query.productCategory;
+    const headquarterLocation = router.query.headquarterLocation;
   
 
     // needed hooks / state variables 
@@ -60,7 +65,7 @@ export default function Company() {
 return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
     <Head>
-      <title>Let's Go Biotech - Science Company</title>
+      <title>Let's Go Biotech - Company Analysis Page</title>
       <meta name="description" content="created by Rohan Cain Robinson" />
     </Head>
     <AppBar position="fixed" color="secondary">
@@ -72,7 +77,7 @@ return (
                       { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
                   </Toolbar>
     </AppBar>
-      <b>Science Company</b> 
+      <div className={styles.analysisHeader}><b>{companyName} Company Analysis Page</b></div>
     <Box sx={{ 
       display: 'flex', 
       flexDirection: 'column', 
@@ -81,7 +86,10 @@ return (
       gap: 3
               }}>
 
-            <p>{companyName}</p>
+
+            <p>Year Founded  &rarr; {dateStarted}</p>
+            <p>Main Product &rarr; {productCategory}</p>
+            <p>Headquarter Location &rarr; {headquarterLocation}</p>
 
           <Button 
             variant="contained" 
