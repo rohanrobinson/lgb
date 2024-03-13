@@ -58,7 +58,6 @@ export default function Home() {
   const getArticlesFromDB = async () => {
     
     try {
-
       const response = await fetch('/api/get-articles');
 
       if (!response.ok) {

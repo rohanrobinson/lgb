@@ -1,7 +1,7 @@
 // import statements
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import  { Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
+import  { Box, AppBar, Toolbar, Button, Typography, TextField} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
@@ -29,10 +29,18 @@ export default function Paper() {
        const goToSignUpPage = () => { router.push('/sign-up'); }
        const goToProfilePage = () => { router.push('/user-profile'); }
        const goToAboutUsPage = () => { router.push('/about-us')}
-       const goHome = () => { router.push('/')};
-      
+       const goHome = () => { router.push('/')}; 
+       const handleChange = (event) => {
+            console.log(event.target.value);
+       }
+    
+       // start chat about the paper
+      const askPaperQuestion = () => { 
+        console.log("this paper really sends it");
+      }
 
-       // displays necessary menu items
+
+      // displays necessary menu items
        const showMenuItems = () => {
         return(
           <div className={styles.menuItems}>
@@ -65,18 +73,23 @@ export default function Paper() {
                           { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
                       </Toolbar>
         </AppBar>
-          <div className={styles.analysisHeader}><b>{paperTitle}</b></div>
+          <div><b>{paperTitle}</b></div>
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
           justifyContent: 'center', 
           gap: 3
-                  }}>
+          }}>
   
                 <p> by {paperAuthor}</p>
                 <p>Topic &rarr; {paperTopic}</p>
                 <p><a href={paperURL} target="_blank">Link to full paper</a></p>
+
+                <div>
+                  <TextField id="outlined-basic" label="Any questions?" variant="outlined" onChange={handleChange}></TextField> <br />
+                  <Button onClick={() => console.log('create a function to get the user question and start a chat log')}> &uarr; </Button>
+                </div>
   
               <Button 
                 variant="contained" 

@@ -1,7 +1,7 @@
 // import statements
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import  { Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
+import  { Box, AppBar, Toolbar, Button, Typography, TextField} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
@@ -29,7 +29,14 @@ export default function Company() {
     const goToProfilePage = () => { router.push('/user-profile'); }
     const goToAboutUsPage = () => { router.push('/about-us')}
     const goHome = () => { router.push('/')};
-   
+    const handleChange = (event) => {
+        console.log(event.target.value);
+    }
+
+    // start chat about the company 
+    const askCompanyQuestion = () => {
+      console.log("this company really kickass");
+    }
 
     // displays necessary menu items
     const showMenuItems = () => {
@@ -77,7 +84,7 @@ return (
                       { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
                   </Toolbar>
     </AppBar>
-      <div className={styles.analysisHeader}><b>{companyName} Company Analysis Page</b></div>
+      <div><b>{companyName} Company Analysis Page</b></div>
     <Box sx={{ 
       display: 'flex', 
       flexDirection: 'column', 
@@ -91,6 +98,10 @@ return (
             <p>Main Product &rarr; {productCategory}</p>
             <p>Headquarter Location &rarr; {headquarterLocation}</p>
 
+            <div>
+                  <TextField id="outlined-basic" label="Any questions?" variant="outlined" onChange={handleChange}></TextField> <br />
+                  <Button onClick={() => console.log('create a function to get the user question and start a chat log')}> &uarr; </Button>
+            </div>
           <Button 
             variant="contained" 
             color="secondary" 
