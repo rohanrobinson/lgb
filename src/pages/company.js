@@ -1,11 +1,10 @@
 // import statements
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import  { Box, AppBar, Toolbar, Button, Typography, TextField} from '@mui/material';
+import  { Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
-
 
 export default function Company() {
 
@@ -23,21 +22,15 @@ export default function Company() {
     const [showMenu, toggleMenu] = useState(false);
     const [saveMode, setSaveMode] = useState(false);
     const [userLoggedIn, toggleUserLoggedIn] = useState(false);
+    const [isCompanySaved, toggleCompanySaved] = useState(false);
 
-    // needed functions 
+
+    // navigation  
     const goToSignUpPage = () => { router.push('/sign-up'); }
     const goToProfilePage = () => { router.push('/user-profile'); }
     const goToAboutUsPage = () => { router.push('/about-us')}
     const goHome = () => { router.push('/')};
-    const handleChange = (event) => {
-        console.log(event.target.value);
-    }
-
-    // start chat about the company 
-    const askCompanyQuestion = () => {
-      console.log("this company really kickass");
-    }
-
+  
     // displays necessary menu items
     const showMenuItems = () => {
      return (
@@ -54,19 +47,6 @@ export default function Company() {
        </div>
      );
 }
-
-  const handleLogin = () => {
-    
-    if (userLoggedIn === false) {
-      alert("hello, thanks for using Let's Go Biotech! To save papers and articles, we need you to either login or sign up for an account!");
-      router.push('/user-profile');
-    }
-
-    if (userLoggedIn === true) {
-      setSaveMode(true);
-    }
-
-  }
 
 // ui representation
 return (
@@ -98,10 +78,27 @@ return (
             <p>Main Product &rarr; {productCategory}</p>
             <p>Headquarter Location &rarr; {headquarterLocation}</p>
 
-            <div>
-                  <TextField id="outlined-basic" label="Any questions?" variant="outlined" onChange={handleChange}></TextField> <br />
-                  <Button onClick={() => console.log('create a function to get the user question and start a chat log')}> &uarr; </Button>
-            </div>
+            
+            {
+              isCompanySaved
+              ?
+            <Button
+                  variant="contained"
+                  color="primary"
+                  size="medium"
+                  onClick={()=>toggleCompanySaved(!isCompanySaved)}>
+                    UnSave Company
+            </Button>
+              :
+            <Button
+              variant="contained"
+              color="secondary"
+              size="medium"
+              onClick={()=>toggleCompanySaved(!isCompanySaved)}>
+                    Save Company
+            </Button>
+            }
+
           <Button 
             variant="contained" 
             color="secondary" 

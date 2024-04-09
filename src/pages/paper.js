@@ -22,23 +22,27 @@ export default function Paper() {
     const [showMenu, toggleMenu] = useState(false);
     const [saveMode, setSaveMode] = useState(false);
     const [userLoggedIn, toggleUserLoggedIn] = useState(false);
+    const [isPaperSaved, togglePaperSaved] = useState(false);
 
 
-    // needed functions
        // navigation to other pages 
        const goToSignUpPage = () => { router.push('/sign-up'); }
        const goToProfilePage = () => { router.push('/user-profile'); }
        const goToAboutUsPage = () => { router.push('/about-us')}
        const goHome = () => { router.push('/')}; 
-       const handleChange = (event) => {
-            console.log(event.target.value);
-       }
-    
-       // start chat about the paper
-      const askPaperQuestion = () => { 
-        console.log("this paper really sends it");
-      }
 
+       // get info of clicked paper
+       const savePaper = () => {
+          console.log("paperTitle", paperTitle);
+          console.log("paperAuthor", paperAuthor);
+          console.log("paperURL", paperURL);
+          console.log("paperTopic", paperTopic);
+
+          // check if paper is in association table
+
+
+          togglePaperSaved(!isPaperSaved);
+       }
 
       // displays necessary menu items
        const showMenuItems = () => {
@@ -57,7 +61,7 @@ export default function Paper() {
         );
   }
 
-    // user interface representation
+    // user interface
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
         <Head>
@@ -86,11 +90,29 @@ export default function Paper() {
                 <p>Topic &rarr; {paperTopic}</p>
                 <p><a href={paperURL} target="_blank">Link to full paper</a></p>
 
-                <div>
-                  <TextField id="outlined-basic" label="Any questions?" variant="outlined" onChange={handleChange}></TextField> <br />
-                  <Button onClick={() => console.log('create a function to get the user question and start a chat log')}> &uarr; </Button>
-                </div>
-  
+                {
+                isPaperSaved
+                ?
+                
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="medium"
+                  onClick={()=>togglePaperSaved(!isPaperSaved)}>
+                   UnSave Paper
+                </Button>
+                :
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="medium"
+                  // onClick={()=>togglePaperSaved(!isPaperSaved)}
+                  onClick={() => savePaper()}
+                >
+                  Save Paper
+                </Button>
+                }
+
               <Button 
                 variant="contained" 
                 color="secondary" 

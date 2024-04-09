@@ -284,15 +284,13 @@ export default function Home() {
         }}>
               <div className={styles.headers}>
                   <b><span><i><h2>Get Curated Biotech Papers and Companies Everyday</h2></i></span></b> 
-
-             {/* { !userLoggedIn ? <Button variant="contained" color="secondary" onClick={() => goToProfilePage() }>Log In</Button> : <p>Hi! We're glad you're here!</p> } */}
               </div>
+
               <div>
                 <div>
                   <b><i>Biotech Papers</i></b> <br />
                   {paperSet.map((paper, index) => (
                     <div>
-                      {/* <a href={paper[1]} target="_blank"><p className={styles.coolPaper} key={index}>{paper[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" } */}
                       { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" }
                       <Link
                             href={{
@@ -307,19 +305,11 @@ export default function Home() {
                   ))
                   }
                 </div>              
-                {/* <div>
-                  <b><i>Articles</i></b> <br />
-                  {articleSet.map((article, index) => (
-                  <div><a href={article[1]} target="_blank"><p className={styles.coolArticle} key={index}>{article[0]}</p></a>{ saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedArticles(article[0])} />) : "" }</div>
-                   ))
-                  }
-                </div> */}
                 <div>
                   <b><i>Biotech Companies</i></b> <br />
                   {companySet.map((company, index) => (
                     <div>
                     { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedArticles(article[0])} />) : "" }
-                    {/* // <div><p className={styles.coolArticle} key={index}>{company[0]}</p> */}
                   <Link
        
                   href={{
@@ -336,7 +326,6 @@ export default function Home() {
                    ))
                   }
                 </div>
-            {/* {  saveMode ? (<div><Button variant="contained" color="secondary" onClick={() => { setSaveMode(!saveMode); }}>Save Selected Papers & Companies</Button></div>) : (<Button variant="contained" color="secondary" onClick={() => { handleLogin(); } }>Activate Save Mode</Button>)} */}
               </div>
               <div>
               </div>

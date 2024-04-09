@@ -20,7 +20,9 @@
     }
 
     .headers {
-      margin-top: 750px;
+      /* margin-top: 750px; */
+      position: relative;
+      top: 50px;
     }
 
     .menuItems {
@@ -79,6 +81,12 @@
     text-decoration: none;
     color: white;
    }
+
+   .headers {
+    /* margin-top: 750px; */
+    position: relative;
+    top: 50px;
+  }
 
 
    .navBarText {

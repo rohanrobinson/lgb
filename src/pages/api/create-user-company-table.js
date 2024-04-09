@@ -3,9 +3,9 @@ import { sql } from '@vercel/postgres';
 export default async function handler(request, response) {
 
     try {
-        const result = await sql`CREATE TABLE UserArticle (
+        const result = await sql`CREATE TABLE UserCompany (
              Name TEXT,
-             Title VARCHAR,
+             CompanyName VARCHAR,
              PRIMARY KEY (Name, Title),
              FOREIGN KEY (Name) REFERENCES Users(Name),
              FOREIGN KEY (Title) REFERENCES Papers(Title)
