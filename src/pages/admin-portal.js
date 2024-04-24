@@ -101,7 +101,6 @@ export default function AdminPortal() {
               });
 
             if (!response.ok) {
-                throw new Error('Failed to add article');
               }
 
             const addedArticle = await response.json();

@@ -1,8 +1,9 @@
 ﻿ // Let's Go Biotech homepage
+ //  ---> Combines the Sign Up, Login, and and Normal view in one
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
-import { Box, AppBar, Toolbar, Button, Typography, Checkbox} from '@mui/material';
+import { Box, AppBar, Toolbar, Button, Typography, Input} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -11,21 +12,25 @@ import { useRouter } from 'next/router';
 export default function Home() {
 
   const router = useRouter();
-
-  // hooks for page
-  const [articleSet, setArticles] = useState([]);
+  
+  // hooks/state variables for page
   const [paperSet, setPapers]  = useState([]);
   const [companySet, setCompanies] = useState([]);
   const [showMenu, toggleMenu] = useState(false);
-  const [saveMode, setSaveMode] = useState(false);
-  const [selectedPaperList, updatePaperList] = useState([]);
-  const [selectedArticleList, updateArticleList] = useState([]);
-  const [userLoggedIn, toggleUserLoggedIn] = useState(false);
+
+  const [name, setName] = useState('very smart person');
+  const [email, setEmail] = useState('testemail555@letsgobiotech.com');
+  const [role, setRole] = useState('');
+  const [password, setPassword] = useState('');
+  const [isUserLoggedIn, setUserLoginStatus] = useState(false);
+  const [newUserDetected, setNewUserDetected] = useState(false);
+  const [userAccountMade, setAccount] = useState(false);
+  const [showLogin, toggleLogin] = useState(true);
+
 
   // handles navigation to other pages
   const goToAboutUsPage = () => { router.push('/about-us'); }
-  const goToSignUpPage = () => { router.push('/sign-up'); }
-  const goToProfilePage = () => { router.push('/user-profile'); }
+  const goToSignUpPage = () => { router.push('/sign-up')}
 
   const showMenuItems = () => {
         return(
@@ -33,53 +38,11 @@ export default function Home() {
             <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
               <span className={styles.navBarText}>Sign Up</span>  
             </Typography>
-            <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToProfilePage}>
-              <span className={styles.navBarText}>Your Account</span>  
-            </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
               <span className={styles.navBarText}>About</span>
             </Typography>
           </div>
         );
-  }
-  
-  const handleLogin = () => {
-      if (userLoggedIn === false) {
-         alert("hello, thanks for using Let's Go Biotech! To save papers and articles, we need you to either login or sign up for an account!");
-         router.push('/user-profile');
-      }
-
-      if (userLoggedIn === true) {
-        setSaveMode(!saveMode);
-      }
-
-    }
-
-  const getArticlesFromDB = async () => {
-    
-    try {
-      const response = await fetch('/api/get-articles');
-
-      if (!response.ok) {
-        throw new Error('Failed to get users');
-      }
-
-      const data = await response.json();
-      const articles = data.articles;
-
-      const articleNamesMapped = articles.rows.map((articles) => articles.article_name);
-      const articleURLsMapped = articles.rows.map((articles) => articles.url);
-      
-      const articleNames = [];
-      for (let i =0; i<articleNamesMapped.length; i++ ) {
-        articleNames.push([articleNamesMapped[i], articleURLsMapped[i]]);
-      }
-      setArticles(articleNames);
-    }
-
-    catch (error) {
-      console.error(error);
-    }
   }
 
   const getPapersFromDB = async () => {
@@ -125,6 +88,12 @@ export default function Home() {
     }
   }
 
+  const logOutUser = () => {
+      setName("");
+      setUserLoginStatus(false);
+      console.log("user has been logged out");
+  }
+
   const getCompaniesFromDB = async () => {
       try {
         const response = await fetch('/api/get-companies');
@@ -165,79 +134,145 @@ export default function Home() {
        
         setCompanies(companyObjects);
           
+
     }
       catch (error) {
         console.error(error);
       }
   }
 
-  function updateSelectedPapers(givenPaperName) {
-    let givenPaperIsNotInList = true;
-    let newPaperList = [];
 
-    for (let i=0; i<selectedPaperList.length; i++) {
-       let currPaperName = selectedPaperList[i];
-
-       if (currPaperName === givenPaperName) {
-           givenPaperIsNotInList = false;
-           let newPaperList = selectedPaperList.filter(function(x) { return x !== givenPaperName; });
-           updatePaperList(newPaperList);
-         }
-    }
-    
-    if (givenPaperIsNotInList === true) {
-
-      for (let i=0; i<selectedPaperList.length; i++) {
-        newPaperList.push(selectedPaperList[i]);
+  function checkPassword(givenPassword, actualPassword) {
+      if (givenPassword === actualPassword) {
+        return true;
       }
-
-      newPaperList.push(givenPaperName);
-      updatePaperList(newPaperList);
-    }
+      else {
+        return false;
+      }
   }
 
-  function updateSelectedArticles(givenArticleName) {
-    let givenArticleIsNotInList = true;
+  const checkUserInDb = async (name) => {
+        
+      const response = await fetch(`/api/get-specific-user?name=${name}`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      });
+      
+      console.log(response);
 
-    let newArticleList = [];
+      if (!response.ok) {
+          throw new Error('Failed to get specific user');
+      }
 
-    for (let i=0; i<selectedArticleList.length; i++) {
+      const user = await response.json();
 
-       let currArticleName = selectedArticleList[i];
-       
-       if (currArticleName === givenArticleName) {
-           givenArticleIsNotInList = false;
-           let newArticleList = selectedArticleList.filter(function(x) { return x !== givenArticleName; });
-           updateArticleList(newArticleList);
-         }
+      let passwordCheck;
+      if (user.user.rowCount > 0) {
+           passwordCheck = checkPassword(password, user.user.rows[0]['password']);
+      }
+      
+      if (user.user.rowCount > 0 && passwordCheck === true) {
 
-    }
+          console.log(`trigger a function that displays user data for ${name}`);
+          console.log(`number of user rows from db is ${user.user.rowCount} `);
+          setUserLoginStatus(true);
+
+      }
+      
+      else if (user.user.rowCount > 0 && passwordCheck === false) {
+          alert(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.` + `\n` + `Try again, you got this!` );
+          console.log(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.`);
+      }
+
+      else {
+
+          alert(`hi ${name}, it seems like you do not have an account with Let's Go Biotech. No Worries, click Sign Up and we'll get you going fast!`);
+          setNewUserDetected(true);
+      }
+
+
+
+      return user;
+  }
+
+  const addUserToDb = async () => {
+      
+    const userName = name;
+
+    const checkUserNameResponse = await fetch(`/api/get-specific-user?name=${userName}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
     
-    if (givenArticleIsNotInList === true) {
+    const user = await checkUserNameResponse.json();
+
+    console.log(user.user.rowCount);
+
+    if (user.user.rowCount === 0) {
+
+        //make a JSON object to represent new User 
+        const userData = {userName: name, userRole: role, userEmail: email, userPassword: password}
+
+        //Make a POST request 
+        const response = await fetch(`/api/add-user?name=${userData.userName}&role=${userData.userRole}&email=${userData.userEmail}&password=${userData.userPassword}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(name, role, email, password),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add user data');
+        } 
+        
+        else {
+          setAccount(true);
+        }
+    }
+
+   if (user.user.rowCount > 0) { 
+        alert(`hi ${name}! it looks like you already have a Let's Go Biotech account. Try signing in! `)
+        setCurrentUserDetected(true);
+    }
+
+  }
+
+  const handleLoginInputs = (event) => {
+      // figure out which type of input was changed and change that specific input 
+      if (event.target.id === 'userName') {
+          setName(event.target.value);
+          }
+
+      if (event.target.id === 'userPassword') {
+          setPassword(event.target.value);
+      }
+    }
+
+  const handleSignUpInputs = (event) => {
+      // figure out which type of input was changed and change that specific input 
+      if (event.target.id === 'userName') {
+        setName(event.target.value);
+      }
   
-
-      for (let i=0; i<selectedArticleList.length; i++) {
-        newArticleList.push(selectedArticleList[i]);
+      if (event.target.id === 'userRole') {
+        setRole(event.target.value);
       }
-
-      newArticleList.push(givenArticleName);
-
-      updateArticleList(newArticleList);
+  
+      if (event.target.id === 'userEmail') {
+        setEmail(event.target.value);
+      }
+  
+      if (event.target.id === 'userPassword') {
+        setPassword(event.target.value);
+      }
     }
-  }
-
-
-  // used to test that the right number of papers and articles are recognized 
-  function getSelectedPapersList() {
-        console.log(selectedPaperList);
-  }
-
-  function getSelectedArticlesList() {
-        console.log(selectedArticleList);
-  }
 
   function getInfoFromDB() {
-    getArticlesFromDB();
     getPapersFromDB();
     getCompaniesFromDB();
   }
@@ -247,7 +282,6 @@ export default function Home() {
      getInfoFromDB();
   }, []); 
   // --- --- --- --- --- 
-  
   
   return (
       <Box sx={{ 
@@ -273,7 +307,6 @@ export default function Home() {
           </Toolbar>
         </AppBar>
         
-    
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -283,19 +316,46 @@ export default function Home() {
           mt: 4,
         }}>
               <div className={styles.headers}>
-                  <b><span><i><h2>Get Curated Biotech Papers and Companies Everyday</h2></i></span></b> 
+                  <b><span><i><h2>Learn from Kickass Biotech Papers and Companies</h2></i></span></b> 
               </div>
+               
+              { !isUserLoggedIn
+              
+                  ?
 
+                (
               <div>
                 <div>
+                    <div className={styles.coolPaper}>
+                        <b><span><i><h3>Login</h3></i></span></b> 
+                                    <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
+                                    <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br /> <br />
+                                    { isUserLoggedIn ? "" : <Button onClick={() => checkUserInDb(name)}>Complete Login</Button> } <br /> <br />
+                                    { isUserLoggedIn ? "" : <Button onClick={goToSignUpPage}>Don't have an Account? Sign up</Button> }
+                                    
+                      </div>
+                </div> 
+              <div>
+              </div>
+            </div>
+              )
+
+              :
+
+              ""
+                }
+            { isUserLoggedIn ? <div> <h3>Hello {name}, you're logged in.</h3>&nbsp; <Button onClick={() => logOutUser()}>Log Out</Button></div> : <div>You are not logged in.</div> }
+
+
+              
+              <div>
                   <b><i>Biotech Papers</i></b> <br />
                   {paperSet.map((paper, index) => (
                     <div>
-                      { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedPapers(paper[0])} />) : "" }
                       <Link
                             href={{
                               pathname: '/paper',
-                              query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"] },
+                              query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"], userName: name },
                             }} >
                               <p className={styles.coolPaper}>                                                            {paper["title"]}
                               </p>
@@ -309,12 +369,10 @@ export default function Home() {
                   <b><i>Biotech Companies</i></b> <br />
                   {companySet.map((company, index) => (
                     <div>
-                    { saveMode ? (<Checkbox className="checkElement" label="test" onChange={() => updateSelectedArticles(article[0])} />) : "" }
                   <Link
-       
                   href={{
                     pathname: '/company',
-                    query: { companyName: company["name"], dateStarted: company["dateStarted"], productCategory: company["product"], headquarterLocation: company["hqLocation"] },
+                    query: { companyName: company["name"], dateStarted: company["dateStarted"], productCategory: company["product"], headquarterLocation: company["hqLocation"], userName: name },
                   }}
                 
                   >
@@ -326,7 +384,6 @@ export default function Home() {
                    ))
                   }
                 </div>
-              </div>
               <div>
               </div>
         </Box>

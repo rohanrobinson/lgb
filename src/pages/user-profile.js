@@ -17,12 +17,13 @@ export default function UserProfile() {
     const [newUserDetected, setNewUserDetected] = useState(false);
     const [showMenu, toggleMenu] = useState(false);
 
-
-    const [savedArticles, setSavedArticles] = useState([]);
-    const [savedPapers, setSavedPapers] = useState([]);
-
     const goHome = () => {
-        router.push('/');
+
+        router.push({
+            pathname: '/',
+            query: { username: name } 
+        });
+        
     }
 
     const handleLoginInputs = (event) => {
@@ -81,6 +82,9 @@ export default function UserProfile() {
                 console.log(`trigger a function that displays user data for ${name}`);
                 console.log(`number of user rows from db is ${user.user.rowCount} `);
                 setUserLoginStatus(true);
+
+                goHome();
+
             }
             
             else if (user.user.rowCount > 0 && passwordCheck === false) {
@@ -93,27 +97,7 @@ export default function UserProfile() {
                 alert(`hi ${name}, it seems like you do not have an account with Let's Go Biotech. No Worries, click Sign Up and we'll get you going fast!`);
                 setNewUserDetected(true);
             }
-
-            // else {
-            //     // setNewUserDetected(true);
-
-            //     if (user.user.rowCount === 0) {
-            //         // console.log(`hi ${name} it looks like you don't have a Let's Go Biotech Account, Please Sign Up for one!`);
-            //         alert("user not found in database");
-            //     }
-
-            //     else if (user.user.rowCount > 0 && passwordCheck === false) { 
-            //         // console.log(`hi ${name} it looks like you did not type in the right password for your Let's Go Biotech Account.`);
-                    
-            //     }
-            // }
-
             return user;
-        //} 
-        
-        // catch (error) {
-        //     console.error('Error getting user:', error);
-        // }
     }
 
 
@@ -170,45 +154,6 @@ export default function UserProfile() {
                             mt: 4,
                             }}>
 
-                        { !isUserLoggedIn ?
-                            
-                            (<div>
-                                    <b><span><i><h2>Login to your Let's Go Biotech Account</h2></i></span></b> 
-                                    <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
-                                    <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br /> <br />
-                                <Button onClick={ () => checkUserInDb(name) }>Login</Button>
-                            </div>) :
-
-                            (
-                                <div>
-                                    <b><span><i><h2>Hello { name }, welcome to your Let's Go Biotech Account</h2></i></span></b> 
-                                    <br />
-
-                                    <div>
-                                        <p>Your email: { email }</p>
-
-                                        <div>
-                                            <b>Saved Articles</b> <br />
-                                            <p>Article Name X</p>  <p>Article Name Y</p>   <p>Article Name Z</p> 
-                                        </div>
-
-                                        <div>
-                                            <b>Saved Papers</b>
-                                            <p>Paper Name X</p>  <p>Paper Name Y</p>   <p>Paper Name Z</p>
-                                        </div>
-                                    </div>
-                                    <Button onClick={() => (setUserLoginStatus(!isUserLoggedIn))}>Log Out</Button> <br />
-
-                                    { isUserLoggedIn }
-                                </div>
-
-
-
-                            )
-
-                        }
-
-                           
                            
                            {
                                 newUserDetected

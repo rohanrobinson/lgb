@@ -9,8 +9,7 @@ export default async function handler(request, response) {
              PRIMARY KEY (Name, Title),
              FOREIGN KEY (Name) REFERENCES Users(Name),
              FOREIGN KEY (Title) REFERENCES Papers(Title)
-             );
-             `; 
+             );`; 
         return response.status(200).json({ result });
     }
 

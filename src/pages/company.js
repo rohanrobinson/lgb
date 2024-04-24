@@ -1,4 +1,3 @@
-// import statements
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import  { Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
@@ -16,12 +15,11 @@ export default function Company() {
     const dateStarted = router.query.dateStarted;
     const productCategory = router.query.productCategory;
     const headquarterLocation = router.query.headquarterLocation;
-  
+    const userName = router.query.userName;
+
 
     // needed hooks / state variables 
     const [showMenu, toggleMenu] = useState(false);
-    const [saveMode, setSaveMode] = useState(false);
-    const [userLoggedIn, toggleUserLoggedIn] = useState(false);
     const [isCompanySaved, toggleCompanySaved] = useState(false);
 
 
@@ -48,7 +46,37 @@ export default function Company() {
      );
 }
 
-// ui representation
+  const saveCompany =  () => {
+    console.log("company name-",companyName);
+    console.log("date company started-", dateStarted);
+    console.log("product category", productCategory);
+    console.log("headquarter location", headquarterLocation);
+
+    toggleCompanySaved(!isCompanySaved);    
+
+    addUserCompanyToDB();
+  }
+
+  const addUserCompanyToDB = async () => {
+
+    const userCompanyData = {userName: userName, companyName: companyName}
+
+    console.log(userCompanyData.userName);
+
+    const response = await fetch(`/api/add-user-company?name=${userCompanyData.userName}&companyName=${userCompanyData.companyName}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+        }, 
+        body: JSON.stringify(userName, companyName),
+    });
+        if (!response.ok) {
+          throw new Error('Failed to add user company relation');
+        }
+
+  }
+
+
 return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
     <Head>
@@ -86,7 +114,7 @@ return (
                   variant="contained"
                   color="primary"
                   size="medium"
-                  onClick={()=>toggleCompanySaved(!isCompanySaved)}>
+                  onClick={()=>saveCompany()}>
                     UnSave Company
             </Button>
               :
@@ -94,7 +122,7 @@ return (
               variant="contained"
               color="secondary"
               size="medium"
-              onClick={()=>toggleCompanySaved(!isCompanySaved)}>
+              onClick={()=>saveCompany()}>
                     Save Company
             </Button>
             }
@@ -106,7 +134,7 @@ return (
             href="/"
             sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
           >
-            Home
+            Back
           </Button> 
           
       </Box>

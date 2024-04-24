@@ -22,7 +22,7 @@
     .headers {
       /* margin-top: 750px; */
       position: relative;
-      top: 50px;
+      top: 150px;
     }
 
     .menuItems {
@@ -46,6 +46,7 @@
     cursor: pointer;
     border: 5px solid #9c27b0;
     color: black;
+    /* padding: 5px; */
   }
 
   .articleURLPair {
@@ -83,9 +84,7 @@
    }
 
    .headers {
-    /* margin-top: 750px; */
-    position: relative;
-    top: 50px;
+     margin-top: 40px;
   }
 
 

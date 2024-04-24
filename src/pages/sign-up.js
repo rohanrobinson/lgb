@@ -17,7 +17,7 @@ export default function SignUp() {
   const [showMenu, toggleMenu] = useState(false);
 
   const [userAccountMade, setAccount] = useState(false);
-  const [currentUserDeteced, setCurrentUserDetected] = useState(false);
+  const [currentUserDetected, setCurrentUserDetected] = useState(false);
 
   const goHome = () => {
     router.push('/');
@@ -54,8 +54,8 @@ export default function SignUp() {
     
     return(
       <div className={styles.menuItems}>
-        <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToAccountPage}>
-          <span className={styles.navBarText}>Your Account</span>  
+        <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goHome}>
+          <span className={styles.navBarText}>Home</span>  
         </Typography>
         <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
           <span className={styles.navBarText}>About</span>
@@ -66,10 +66,8 @@ export default function SignUp() {
 
   const addUserToDB = async () => {
       
-    // See if the username already exists in database 
     const userName = name;
 
-    // Make a GET request
     const checkUserNameResponse = await fetch(`/api/get-specific-user?name=${userName}`, {
         method: 'GET',
         headers: {
@@ -144,14 +142,13 @@ export default function SignUp() {
 
       <div className={styles.headers}>
                 <b><span><i><h2>Sign Up for a Let's Go Biotech Account</h2></i></span></b> 
-                <p>We're happy you're here 😊</p>
                 <Input id="userName" placeholder="your name" onChange={handleInputChange}/> <br />
                 <Input id="userRole" placeholder="your role" onChange={handleInputChange} /> <br />
                 <Input id="userEmail" placeholder="your email" onChange={handleInputChange} /> <br />
                 <Input id="userPassword" placeholder="your password" onChange={handleInputChange} />
       </div><br />
 
-      { currentUserDeteced ? <div><p>Hey {name}! You already have an account, touch/click the Sign In button!</p> <br /> <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} href='/user-profile'>Sign In</Button></div> : <div>     <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={addUserToDB}>Sign Up</Button><br />
+      { currentUserDetected ? <div><p>Hey {name}! You already have an account, touch/click the Sign In button!</p> <br /> <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} href='/user-profile'>Sign In</Button></div> : <div>     <Button variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', fontSize: '24px', padding: '20px 35px', }} onClick={addUserToDB}>Sign Up</Button><br />
 </div> }
 
      { userAccountMade ?<div><p>Thanks for signing up {name}! Email me at rohan@letsgobiotech.com if you have any questions! </p></div> : <div></div> }

@@ -4,13 +4,12 @@ export default async function handler(request, response) {
 
     try {
         const result = await sql`CREATE TABLE UserCompany (
-             Name TEXT,
-             CompanyName VARCHAR,
-             PRIMARY KEY (Name, Title),
+             Name VARCHAR,
+             Company_Name VARCHAR, 
+             PRIMARY KEY (Name, Company_Name), 
              FOREIGN KEY (Name) REFERENCES Users(Name),
-             FOREIGN KEY (Title) REFERENCES Papers(Title)
-             );
-             `; 
+             FOREIGN KEY (Company_Name) REFERENCES Companies(Name)
+             );`; 
         return response.status(200).json({ result });
     }
 

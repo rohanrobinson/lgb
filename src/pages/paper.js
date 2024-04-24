@@ -1,11 +1,9 @@
-// import statements
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import  { Box, AppBar, Toolbar, Button, Typography, TextField} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
-
 
 export default function Paper() {
     
@@ -17,32 +15,66 @@ export default function Paper() {
     const paperAuthor = router.query.paperAuthor;
     const paperURL = router.query.paperURL;
     const paperTopic = router.query.paperTopic;
+    const userName = router.query.userName;
 
     // hooks / state variables
     const [showMenu, toggleMenu] = useState(false);
-    const [saveMode, setSaveMode] = useState(false);
-    const [userLoggedIn, toggleUserLoggedIn] = useState(false);
     const [isPaperSaved, togglePaperSaved] = useState(false);
 
+    // navigation to other pages 
+    const goToSignUpPage = () => { router.push('/sign-up'); }
+    const goToProfilePage = () => { router.push('/user-profile'); }
+    const goToAboutUsPage = () => { router.push('/about-us')}
+    const goHome = () => { router.push('/')}; 
 
-       // navigation to other pages 
-       const goToSignUpPage = () => { router.push('/sign-up'); }
-       const goToProfilePage = () => { router.push('/user-profile'); }
-       const goToAboutUsPage = () => { router.push('/about-us')}
-       const goHome = () => { router.push('/')}; 
+    
+    const savePaper = () => {
+        togglePaperSaved(!isPaperSaved);
+        addUserPaperToDB();
+      }
 
-       // get info of clicked paper
-       const savePaper = () => {
-          console.log("paperTitle", paperTitle);
-          console.log("paperAuthor", paperAuthor);
-          console.log("paperURL", paperURL);
-          console.log("paperTopic", paperTopic);
+    const unsavePaper = () => {
+        togglePaperSaved(false);
+        removeUserPaperFromDB();
+    }
 
-          // check if paper is in association table
+    
+    
+    const addUserPaperToDB = async () => {
+      
+      const userPaperData = {userName: userName, paperTitle: paperTitle}
+      
+      const response = await fetch(`/api/add-user-paper?name=${userPaperData.userName}&paperTitle=${userPaperData.paperTitle}`, {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json', 
+          }, 
+          body: JSON.stringify(userName, paperTitle),
+        });
+      
+        if (!response.ok) {
+          throw new Error('Failed to add user paper relation');
+        }
 
+    }
 
-          togglePaperSaved(!isPaperSaved);
-       }
+    
+    const removeUserPaperFromDB = async () => {
+
+      const userPaperData = {userName: userName, paperTitle: paperTitle}
+
+      const response = await fetch(`/api/delete-user-paper?name=${userPaperData.userName}&paperTitle=${userPaperData.paperTitle}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userName, paperTitle),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to remove user paper relation');
+      }
+    }
 
       // displays necessary menu items
        const showMenuItems = () => {
@@ -98,7 +130,7 @@ export default function Paper() {
                   variant="contained"
                   color="secondary"
                   size="medium"
-                  onClick={()=>togglePaperSaved(!isPaperSaved)}>
+                  onClick={() => unsavePaper()}>
                    UnSave Paper
                 </Button>
                 :
@@ -106,7 +138,6 @@ export default function Paper() {
                   variant="contained"
                   color="primary"
                   size="medium"
-                  // onClick={()=>togglePaperSaved(!isPaperSaved)}
                   onClick={() => savePaper()}
                 >
                   Save Paper
@@ -120,7 +151,7 @@ export default function Paper() {
                 href="/"
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
               >
-                Home
+                Back
               </Button> 
               
           </Box>
