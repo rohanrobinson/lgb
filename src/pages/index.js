@@ -325,7 +325,7 @@ export default function Home() {
 
                 (
               <div>
-                <div>
+                {/* <div>
                     <div className={styles.coolPaper}>
                         <b><span><i><h3>Login</h3></i></span></b> 
                                     <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
@@ -334,7 +334,7 @@ export default function Home() {
                                     { isUserLoggedIn ? "" : <Button onClick={goToSignUpPage}>Don't have an Account? Sign up</Button> }
                                     
                       </div>
-                </div> 
+                </div>  */}
               <div>
               </div>
             </div>
@@ -344,7 +344,7 @@ export default function Home() {
 
               ""
                 }
-            { isUserLoggedIn ? <div> <h3>Hello {name}, you're logged in.</h3>&nbsp; <Button onClick={() => logOutUser()}>Log Out</Button></div> : <div>You are not logged in.</div> }
+            {/* { isUserLoggedIn ? <div> <h3>Hello {name}, you're logged in.</h3>&nbsp; <Button onClick={() => logOutUser()}>Log Out</Button></div> : <div>You are not logged in.</div> } */}
 
 
               
@@ -376,7 +376,7 @@ export default function Home() {
                   }}
                 
                   >
-                    <p className={styles.coolArticle}>
+                  <p className={styles.coolArticle}>
                        {company["name"]}
                   </p>
               </Link>
