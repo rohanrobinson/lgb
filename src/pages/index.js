@@ -316,7 +316,7 @@ export default function Home() {
           mt: 4,
         }}>
               <div className={styles.headers}>
-                  <b><span><i><h2>Learn from Kickass Biotech Papers and Companies</h2></i></span></b> 
+                  <b><span><i><h2>Get Smart on Biotechnology</h2></i></span></b> 
               </div>
                
               { !isUserLoggedIn
@@ -357,7 +357,7 @@ export default function Home() {
                               pathname: '/paper',
                               query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"], userName: name },
                             }} >
-                              <p className={styles.coolPaper}>                                                            {paper["title"]}
+                              <p className={styles.coolPaper}>{paper["title"]}
                               </p>
                       </Link>
                       
@@ -365,25 +365,6 @@ export default function Home() {
                   ))
                   }
                 </div>              
-                <div>
-                  <b><i>Biotech Companies</i></b> <br />
-                  {companySet.map((company, index) => (
-                    <div>
-                  <Link
-                  href={{
-                    pathname: '/company',
-                    query: { companyName: company["name"], dateStarted: company["dateStarted"], productCategory: company["product"], headquarterLocation: company["hqLocation"], userName: name },
-                  }}
-                
-                  >
-                  <p className={styles.coolArticle}>
-                       {company["name"]}
-                  </p>
-              </Link>
-              </div>
-                   ))
-                  }
-                </div>
               <div>
               </div>
         </Box>
