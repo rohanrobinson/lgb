@@ -316,7 +316,9 @@ export default function Home() {
           mt: 4,
         }}>
               <div className={styles.headers}>
-                  <b><span><i><h2>Learn from Kickass Biotech Papers and Companies</h2></i></span></b> 
+
+                  <b><span><i><h2>Get Really Smart on Biotechnology</h2></i></span></b> 
+                  <h3>You'll do this by reading alot of papers and taking quizzes!</h3>
               </div>
                
               { !isUserLoggedIn
