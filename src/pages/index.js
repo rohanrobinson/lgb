@@ -316,7 +316,6 @@ export default function Home() {
           mt: 4,
         }}>
               <div className={styles.headers}>
-
                   <b><span><i><h2>Get Really Smart on Biotechnology</h2></i></span></b> 
                   <h3>You'll do this by reading alot of papers and taking quizzes!</h3>
               </div>
@@ -359,7 +358,7 @@ export default function Home() {
                               pathname: '/paper',
                               query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"], userName: name },
                             }} >
-                              <p className={styles.coolPaper}>                                                            {paper["title"]}
+                              <p className={styles.coolPaper}>{paper["title"]}
                               </p>
                       </Link>
                       
@@ -367,25 +366,6 @@ export default function Home() {
                   ))
                   }
                 </div>              
-                <div>
-                  <b><i>Biotech Companies</i></b> <br />
-                  {companySet.map((company, index) => (
-                    <div>
-                  <Link
-                  href={{
-                    pathname: '/company',
-                    query: { companyName: company["name"], dateStarted: company["dateStarted"], productCategory: company["product"], headquarterLocation: company["hqLocation"], userName: name },
-                  }}
-                
-                  >
-                  <p className={styles.coolArticle}>
-                       {company["name"]}
-                  </p>
-              </Link>
-              </div>
-                   ))
-                  }
-                </div>
               <div>
               </div>
         </Box>
