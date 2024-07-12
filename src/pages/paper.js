@@ -122,7 +122,7 @@ export default function Paper() {
                 <p>Topic &rarr; {paperTopic}</p>
                 <p><a href={paperURL} target="_blank">Link to full paper</a></p>
 
-                {
+                {/* {
                 isPaperSaved
                 ?
                 
@@ -142,7 +142,7 @@ export default function Paper() {
                 >
                   Save Paper
                 </Button>
-                }
+                } */}
 
               <Button 
                 variant="contained" 
@@ -150,8 +150,8 @@ export default function Paper() {
                 size="large" 
                 href="/"
                 sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-              >
-                Back
+                >
+                Home
               </Button> 
               
           </Box>
