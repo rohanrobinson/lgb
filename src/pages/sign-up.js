@@ -119,7 +119,7 @@ export default function SignUp() {
     p: 3,
   }}> 
       <Head>
-        <title>Let's Go Biotech - Home Page</title>
+        <title>Let's Go Biotech - Home</title>
         <meta name="description" content="created by Rohan Cain Robinson" />
       </Head>
       <AppBar position="fixed" color="secondary">
