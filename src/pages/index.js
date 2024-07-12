@@ -369,7 +369,7 @@ export default function Home() {
                   }
                 </div>              
               <div>
-                <Image src={boyDNA} width={100} height={100} className={styles.curiousBoy}  alt="boy with dna" onClick={()=> window.open("https://stjudes.org")} />  
+                <Image src={boyDNA} width={100} height={100} className={styles.curiousBoy}  alt="boy with dna" onClick={()=> window.open("https://stjude.org")} />  
               </div>
         </Box>
       </Box>
