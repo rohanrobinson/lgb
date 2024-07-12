@@ -84,7 +84,7 @@ export default function AboutUs() {
             </Button> 
 
           <div>
-            <Image src={boyDNA} width={100} height={100}  alt="boy with dna" />  &nbsp; &nbsp;
+            {/* <Image src={boyDNA} width={100} height={100}  alt="boy with dna" />  &nbsp; &nbsp; */}
             <Image src={girlDNA} width={100} height={100} alt="girl with dna" />
           </div>
             
