@@ -33,9 +33,9 @@ export default function AboutUs() {
     
     return(
       <div className={styles.menuItems}>
-        <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToAccountPage}>
+        {/* <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToAccountPage}>
           <span className={styles.navBarText}>Your Account</span>  
-        </Typography>
+        </Typography> */}
         {/* <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToSignUpPage}>
           <span className={styles.navBarText}>Sign Up</span>
         </Typography> */}
