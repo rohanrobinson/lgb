@@ -35,9 +35,9 @@ export default function Home() {
   const showMenuItems = () => {
         return(
           <div className={styles.menuItems}>
-            <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
+            {/* <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
               <span className={styles.navBarText}>Sign Up</span>  
-            </Typography>
+            </Typography> */}
             <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
               <span className={styles.navBarText}>About</span>
             </Typography>

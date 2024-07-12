@@ -22,7 +22,7 @@ export default function Paper() {
     const [isPaperSaved, togglePaperSaved] = useState(false);
 
     // navigation to other pages 
-    const goToSignUpPage = () => { router.push('/sign-up'); }
+    // const goToSignUpPage = () => { router.push('/sign-up'); }
     const goToProfilePage = () => { router.push('/user-profile'); }
     const goToAboutUsPage = () => { router.push('/about-us')}
     const goHome = () => { router.push('/')}; 
