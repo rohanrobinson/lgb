@@ -7,6 +7,8 @@ import { Box, AppBar, Toolbar, Button, Typography, Input} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import boyDNA from '../images/curious-boy-dna-helix-strands.jpg';
 
 
 export default function Home() {
@@ -367,6 +369,7 @@ export default function Home() {
                   }
                 </div>              
               <div>
+                <Image src={boyDNA} width={100} height={100} className={styles.curiousBoy}  alt="boy with dna" onClick={()=> window.open("https://stjudes.org")} />  
               </div>
         </Box>
       </Box>
