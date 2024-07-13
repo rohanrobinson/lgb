@@ -68,9 +68,9 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Let's Go Biotech is your portal to the fast-paced biotech industry. <br /> 
-                         We showcase awesome biotech papers and companies that are making our lives better!
-                          <br />
+                         Let's Go Biotech is your portal to the fast pace of biotechnology innovation. <br /> 
+                         We showcase awesome biotech papers containing knowledge that will improve our lives!
+                          <br /> 
               </p>
 
             <Button 
