@@ -357,7 +357,7 @@ export default function Home() {
               
             <hr></hr>
 
-            <div className={styles.uploadPapers}>
+            {/* <div className={styles.uploadPapers}>
                   <b><i>Upload your own Paper</i></b> <br />
                   <Button
                     variant="contained" 
@@ -366,7 +366,7 @@ export default function Home() {
                     onClick={()=>alert("hello world!")}
                     sx={{ fontWeight: 'bold', fontSize: '18px', padding: '15px 25px', }}
                   >Upload</Button>
-              </div> 
+              </div>  */}
           
            <b><i>Check out some curated Papers</i></b> <br />
            { isVisible ? <Button variant="contained"  color="secondary" size="medium"   onClick={() => toggleVisibility()}>Hide</Button> : <Button variant="contained"  color="secondary" size="medium" onClick={() => toggleVisibility()}>Show</Button>   }
