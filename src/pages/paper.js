@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import  { Box, AppBar, Toolbar, Button, Typography, TextField} from '@mui/material';
+import  { Box, AppBar, Toolbar, Button, Typography, ButtonGroup} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
@@ -19,73 +19,72 @@ export default function Paper() {
 
     // hooks / state variables
     const [showMenu, toggleMenu] = useState(false);
-    const [isPaperSaved, togglePaperSaved] = useState(false);
     const [quizMode, toggleQuizMode] = useState(false);
+    const [questionNum, changeQuestionNum] = useState(0);
 
     // navigation to other pages 
-    // const goToSignUpPage = () => { router.push('/sign-up'); }
-    const goToProfilePage = () => { router.push('/user-profile'); }
     const goToAboutUsPage = () => { router.push('/about-us')}
     const goHome = () => { router.push('/')}; 
 
     
-    // const savePaper = () => {
-    //     togglePaperSaved(!isPaperSaved);
-    //     addUserPaperToDB();
-    //   }
 
-    // const unsavePaper = () => {
-    //     togglePaperSaved(false);
-    //     removeUserPaperFromDB();
-    // }
+    const questionBank = ["Interesting Question", "Interesting Question", "Interesting Question", "Interesting Question", "Interesting Question"]
+    const answerBank = {1: ['A.', 'B.', 'C.', 'D.'], 2: ['A.', 'B.', 'C.', 'D.'], 3: ['A.', 'B.', 'C.', 'D.'], 4: ['A', 'B', 'C', 'D'], 5: ['A', 'B', 'C', 'D']}
 
     const showQuizInstructions = () => {
       return (
       <div>
-          <p><b>Step 1:</b> &nbsp; Read the paper  &nbsp; <a href={paperURL} target="_blank">Link to full paper</a></p> <br />
-          <p><b>Step 2:</b> &nbsp; Start the quiz &nbsp; <Button onClick={()=>console.log("Start Quiz Button")}>Start Quiz</Button></p> <br />
-          <p><b>Step 3:</b> &nbsp; Answer all 5 multiple choice questonis and show you know what's up!</p>
+         { questionNum < 5 ? <h2> It's Time to take a Quiz!</h2> : "" }
+       
+       {
+       questionNum == 0
+          ?
+        <div>
+          <p><b>Step 1:</b> &nbsp; Read paper &rarr; <a href={paperURL} target="_blank">{ paperTitle }</a></p> <br />
+          <p><b>Step 2:</b> &nbsp; &nbsp;             
+              
+              <Button 
+                variant="contained" 
+                color="secondary" 
+                size="large" 
+                sx={{ fontWeight: 'bold', fontSize: '18px', padding: '20px 30px', }}
+                onClick={()=>changeQuestionNum(questionNum + 1)}
+                >
+                Start Quiz
+              </Button>
+          </p> <br /> 
+        </div>
+        :
+        ""
+       }
+
       </div>
       );
     }
 
-    
-    
-    const addUserPaperToDB = async () => {
-      
-      const userPaperData = {userName: userName, paperTitle: paperTitle}
-      
-      const response = await fetch(`/api/add-user-paper?name=${userPaperData.userName}&paperTitle=${userPaperData.paperTitle}`, {
-          method: 'POST', 
-          headers: {
-            'Content-Type': 'application/json', 
-          }, 
-          body: JSON.stringify(userName, paperTitle),
-        });
-      
-        if (!response.ok) {
-          throw new Error('Failed to add user paper relation');
+    const showQuizQuestions = () => {
+        return (
+          <div>
+            <><h2>Question {questionNum}</h2><p>{questionBank[questionNum - 1]}</p><Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={() => changeQuestionNum(questionNum - 1)}
+            sx={{ fontWeight: 'bold', fontSize: '18px', padding: '10px 20px', }}>Back</Button><ButtonGroup>
+              <Button>{answerBank[questionNum][0]} </Button>
+              <Button>{answerBank[questionNum][1]}</Button>
+              <Button>{answerBank[questionNum][2]}</Button>
+              <Button>{answerBank[questionNum][3]}</Button>
+            </ButtonGroup><Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              onClick={() => changeQuestionNum(questionNum + 1)}
+              sx={{ fontWeight: 'bold', fontSize: '18px', padding: '10px 20px', }}>Next
+            </Button></>
+            </div>
+          )
         }
-
-    }
-
-    
-    const removeUserPaperFromDB = async () => {
-
-      const userPaperData = {userName: userName, paperTitle: paperTitle}
-
-      const response = await fetch(`/api/delete-user-paper?name=${userPaperData.userName}&paperTitle=${userPaperData.paperTitle}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userName, paperTitle),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to remove user paper relation');
-      }
-    }
 
       // displays necessary menu items
        const showMenuItems = () => {
@@ -114,13 +113,13 @@ export default function Paper() {
         <AppBar position="fixed" color="secondary">
                       <Toolbar>
                           <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 1 }}>
-                          <span className={styles.navBarText} onClick={goHome}>Let's Go Biotech </span>
+                          <span className={styles.navBarText} onClick={goHome}>Let's Go Biotech</span>
                           </Typography>
                           { !showMenu ?   ''  : showMenuItems()}
                           { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
                       </Toolbar>
         </AppBar>
-          <div><b>{paperTitle}</b></div>
+       { !quizMode ? <div><b>{paperTitle}</b></div>  : "" }
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -135,15 +134,7 @@ export default function Paper() {
                   <div>
                     
                     {showQuizInstructions()}
-                    <Button 
-                        variant="contained" 
-                        color="secondary" 
-                        size="large" 
-                        onClick={() => toggleQuizMode(!quizMode)}
-                        sx={{ fontWeight: 'bold', fontSize: '24px', padding: '25px 35px', }}
-                        >
-                        Stop Quiz
-                    </Button> 
+
                   </div>
                   
                   :
@@ -163,6 +154,26 @@ export default function Paper() {
                         Take Quiz
                     </Button> 
                 </div>
+              }
+
+              {
+                questionNum > 0 && questionNum < questionBank.length + 1
+                ?
+                showQuizQuestions()
+                : 
+                ""
+              }
+
+              {
+                questionNum == questionBank.length + 1 
+                ?
+                <div>
+                  <p> 🧬 Thank you for completing the quiz, hopefully you learned something cool!</p> <br/> 
+                  <p>Check out another paper! 🧬 </p>
+                   &nbsp; &nbsp;  
+                </div>
+                :
+                ""
               }
 
 

@@ -28,6 +28,8 @@ export default function Home() {
   const [newUserDetected, setNewUserDetected] = useState(false);
   const [userAccountMade, setAccount] = useState(false);
   const [showLogin, toggleLogin] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
 
 
   // handles navigation to other pages
@@ -244,6 +246,10 @@ export default function Home() {
 
   }
 
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   const handleLoginInputs = (event) => {
       // figure out which type of input was changed and change that specific input 
       if (event.target.id === 'userName') {
@@ -348,11 +354,29 @@ export default function Home() {
               ""
                 }
             {/* { isUserLoggedIn ? <div> <h3>Hello {name}, you're logged in.</h3>&nbsp; <Button onClick={() => logOutUser()}>Log Out</Button></div> : <div>You are not logged in.</div> } */}
+              
+            <hr></hr>
 
+            <div className={styles.uploadPapers}>
+                  <b><i>Upload your own Paper</i></b> <br />
+                  <Button
+                    variant="contained" 
+                    color="secondary" 
+                    size="large" 
+                    onClick={()=>alert("hello world!")}
+                    sx={{ fontWeight: 'bold', fontSize: '18px', padding: '15px 25px', }}
+                  >Upload</Button>
+              </div> 
+          
+           <b><i>Check out some curated Papers</i></b> <br />
+           { isVisible ? <Button variant="contained"  color="secondary" size="medium"   onClick={() => toggleVisibility()}>Hide</Button> : <Button variant="contained"  color="secondary" size="medium" onClick={() => toggleVisibility()}>Show</Button>   }
 
               
-              <div>
-                  <b><i>Biotech Papers</i></b> <br />
+              {
+                isVisible
+                  ?
+                  <div className={styles.biotechPapers}>
+                  <b><i>Biotech Papers curated by our Team</i></b> <br />
                   {paperSet.map((paper, index) => (
                     <div>
                       <Link
@@ -363,12 +387,15 @@ export default function Home() {
                               <p className={styles.coolPaper}>{paper["title"]}
                               </p>
                       </Link>
-                      
                       </div>
                   ))
                   }
-                </div>              
-              <div>
+              </div>
+                  : 
+                  ""
+              }
+            
+               <div>
                 <Image src={boyDNA} width={100} height={100} className={styles.curiousBoy}  alt="boy with dna" onClick={()=> window.open("https://stjude.org")} />  
               </div>
         </Box>
