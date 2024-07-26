@@ -328,48 +328,12 @@ export default function Home() {
                   <h3>You'll do this by reading alot of papers and taking quizzes!</h3>
               </div>
                
-              { !isUserLoggedIn
-              
-                  ?
-
-                (
-              <div>
-                {/* <div>
-                    <div className={styles.coolPaper}>
-                        <b><span><i><h3>Login</h3></i></span></b> 
-                                    <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
-                                    <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br /> <br />
-                                    { isUserLoggedIn ? "" : <Button onClick={() => checkUserInDb(name)}>Complete Login</Button> } <br /> <br />
-                                    { isUserLoggedIn ? "" : <Button onClick={goToSignUpPage}>Don't have an Account? Sign up</Button> }
-                                    
-                      </div>
-                </div>  */}
-              <div>
-              </div>
-            </div>
-              )
-
-              :
-
-              ""
-                }
-            {/* { isUserLoggedIn ? <div> <h3>Hello {name}, you're logged in.</h3>&nbsp; <Button onClick={() => logOutUser()}>Log Out</Button></div> : <div>You are not logged in.</div> } */}
               
             <hr></hr>
 
-            {/* <div className={styles.uploadPapers}>
-                  <b><i>Upload your own Paper</i></b> <br />
-                  <Button
-                    variant="contained" 
-                    color="secondary" 
-                    size="large" 
-                    onClick={()=>alert("hello world!")}
-                    sx={{ fontWeight: 'bold', fontSize: '18px', padding: '15px 25px', }}
-                  >Upload</Button>
-              </div>  */}
+
           
-           <b><i>Check out some curated Papers</i></b> <br />
-           { isVisible ? <Button variant="contained"  color="secondary" size="medium"   onClick={() => toggleVisibility()}>Hide</Button> : <Button variant="contained"  color="secondary" size="medium" onClick={() => toggleVisibility()}>Show</Button>   }
+           { isVisible ? <Button variant="contained"  color="secondary" size="medium"   onClick={() => toggleVisibility()}>Hide Papers</Button> : <Button variant="contained"  color="secondary" size="medium" onClick={() => toggleVisibility()}>Show Papers</Button>   }
 
               
               {
