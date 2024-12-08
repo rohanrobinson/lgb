@@ -324,7 +324,7 @@ export default function Home() {
           mt: 4,
         }}>
             <div className={styles.biotechPapers}>
-                  <b><span><i><h2>Get Really Smart on Biotechnology</h2></i></span></b> 
+                  <b><span><i><h2>Get Super Smart on Biotechnology</h2></i></span></b> 
                   <h3>You'll do this by reading alot of papers and taking quizzes!</h3>
                   <b><i>Biotech Papers curated by our Team</i></b> <br />
                   {paperSet.map((paper, index) => (
