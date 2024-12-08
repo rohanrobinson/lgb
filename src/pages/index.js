@@ -28,7 +28,7 @@ export default function Home() {
   const [newUserDetected, setNewUserDetected] = useState(false);
   const [userAccountMade, setAccount] = useState(false);
   const [showLogin, toggleLogin] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
 
 
@@ -282,7 +282,7 @@ export default function Home() {
 
   function getInfoFromDB() {
     getPapersFromDB();
-    getCompaniesFromDB();
+    // getCompaniesFromDB();
   }
 
   // This interacts with the vercel postgres db, it runs automatically when the page loads 
@@ -323,59 +323,9 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-              <div className={styles.headers}>
+            <div className={styles.biotechPapers}>
                   <b><span><i><h2>Get Really Smart on Biotechnology</h2></i></span></b> 
                   <h3>You'll do this by reading alot of papers and taking quizzes!</h3>
-              </div>
-               
-              { !isUserLoggedIn
-              
-                  ?
-
-                (
-              <div>
-                {/* <div>
-                    <div className={styles.coolPaper}>
-                        <b><span><i><h3>Login</h3></i></span></b> 
-                                    <Input id="userName" placeholder="your username" onChange={handleLoginInputs}/> <br />
-                                    <Input id="userPassword" placeholder="your password" onChange={handleLoginInputs} /> <br /> <br />
-                                    { isUserLoggedIn ? "" : <Button onClick={() => checkUserInDb(name)}>Complete Login</Button> } <br /> <br />
-                                    { isUserLoggedIn ? "" : <Button onClick={goToSignUpPage}>Don't have an Account? Sign up</Button> }
-                                    
-                      </div>
-                </div>  */}
-              <div>
-              </div>
-            </div>
-              )
-
-              :
-
-              ""
-                }
-            {/* { isUserLoggedIn ? <div> <h3>Hello {name}, you're logged in.</h3>&nbsp; <Button onClick={() => logOutUser()}>Log Out</Button></div> : <div>You are not logged in.</div> } */}
-              
-            <hr></hr>
-
-            {/* <div className={styles.uploadPapers}>
-                  <b><i>Upload your own Paper</i></b> <br />
-                  <Button
-                    variant="contained" 
-                    color="secondary" 
-                    size="large" 
-                    onClick={()=>alert("hello world!")}
-                    sx={{ fontWeight: 'bold', fontSize: '18px', padding: '15px 25px', }}
-                  >Upload</Button>
-              </div>  */}
-          
-           <b><i>Check out some curated Papers</i></b> <br />
-           { isVisible ? <Button variant="contained"  color="secondary" size="medium"   onClick={() => toggleVisibility()}>Hide</Button> : <Button variant="contained"  color="secondary" size="medium" onClick={() => toggleVisibility()}>Show</Button>   }
-
-              
-              {
-                isVisible
-                  ?
-                  <div className={styles.biotechPapers}>
                   <b><i>Biotech Papers curated by our Team</i></b> <br />
                   {paperSet.map((paper, index) => (
                     <div>
@@ -389,15 +339,10 @@ export default function Home() {
                       </Link>
                       </div>
                   ))
-                  }
+              }
               </div>
                   : 
                   ""
-              }
-            
-               <div>
-                <Image src={boyDNA} width={100} height={100} className={styles.curiousBoy}  alt="boy with dna" onClick={()=> window.open("https://stjude.org")} />  
-              </div>
         </Box>
       </Box>
     );
