@@ -341,8 +341,6 @@ export default function Home() {
                   ))
               }
               </div>
-                  : 
-                  ""
         </Box>
       </Box>
     );
