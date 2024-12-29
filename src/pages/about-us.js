@@ -103,16 +103,8 @@ export default function AboutUs() {
           </Button>
 
 
-          <Button 
-                variant="contained" 
-                color="secondary" 
-                size="large" 
-                href="https://instagram.com/letsgobiotech"
-                target="_blank"
-                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
-              >
-                Instagram 
-          </Button>
+          
+          
      
 
           <Button 
