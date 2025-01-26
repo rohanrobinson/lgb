@@ -30,17 +30,10 @@ export default function Paper() {
     const goHome = () => { router.push('/')}; 
 
     const loadQuestionsAndAnswers = () => {
-     var  qa =  getQuestionsAndAnswers(paperTitle);
-     var questions = qa[0];
-     var answers = qa[1];
-     var correctAnswers = qa[2]; 
+     var qa =  getQuestionsAndAnswers(paperTitle);
 
-     console.log(questions);
-     setQuestions(questions);
-     console.log(answers);
-     setAnswers(answers); 
-     console.log(correctAnswers);
-     setCorrectAnswers(correctAnswers);
+     console.log("qa is");
+     console.log(qa);
     }
 
     useEffect(() => {
@@ -64,11 +57,29 @@ export default function Paper() {
                 color="secondary" 
                 size="large" 
                 sx={{ fontWeight: 'bold', fontSize: '18px', padding: '20px 30px', }}
-                onClick={()=>changeQuestionNum(questionNum + 1)}
+                // onClick={()=>changeQuestionNum(questionNum + 1)}
                 >
-                Start Quiz
+                Start Quiz  
               </Button>
+            <p> &uarr; Quiz Feature Coming Soon! February 2025!</p>
           </p> <br /> 
+          <Button 
+                variant="contained"
+                color="secondary" 
+                onClick={goHome}
+              >
+                Go to Home
+           </Button>
+
+           <Button 
+                variant="contained"
+                color="secondary" 
+                onClick={() => window.open('https://tiktok.com/@letsgobiotech', '_blank')}
+              >
+                Tik Tok
+           </Button>
+
+
         </div>
         :
         ""
@@ -190,7 +201,7 @@ export default function Paper() {
                 questionNum == questionBank.length + 1
                 ?
                 <div>
-                  <p> 🧬 Thank you for completing the quiz, hopefully you learned something cool!</p> <br/> 
+                  <p> 🧬 Thank you for completing this quiz, hopefully you learned something cool!</p> <br/> 
                   <p>Check out another paper! 🧬 </p>
                    &nbsp; &nbsp;  
                    <Button 
