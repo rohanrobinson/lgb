@@ -29,16 +29,16 @@ export default function Paper() {
     const goToAboutUsPage = () => { router.push('/about-us')}
     const goHome = () => { router.push('/')}; 
 
-    const loadQuestionsAndAnswers = () => {
-     var qa =  getQuestionsAndAnswers(paperTitle);
+  //   const loadQuestionsAndAnswers = () => {
+  //    var qa =  getQuestionsAndAnswers(paperTitle);
 
-     console.log("qa is");
-     console.log(qa);
-    }
+  //    console.log("qa is");
+  //    console.log(qa);
+  //   }
 
-    useEffect(() => {
-      loadQuestionsAndAnswers();
-  }, []);
+  //   useEffect(() => {
+  //     loadQuestionsAndAnswers();
+  // }, []);
 
     const showQuizInstructions = () => {
       
