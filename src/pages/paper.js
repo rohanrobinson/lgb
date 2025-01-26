@@ -4,7 +4,7 @@ import  { Box, AppBar, Toolbar, Button, Typography, ButtonGroup} from '@mui/mate
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
-import { getQuestionsAndAnswers } from '../utilities/question-answers';
+// import { getQuestionsAndAnswers } from '../utilities/question-answers';
 
 export default function Paper() {
     
