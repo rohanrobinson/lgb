@@ -28,7 +28,7 @@ export default function Home() {
   const [newUserDetected, setNewUserDetected] = useState(false);
   const [userAccountMade, setAccount] = useState(false);
   const [showLogin, toggleLogin] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
 
 
@@ -282,7 +282,7 @@ export default function Home() {
 
   function getInfoFromDB() {
     getPapersFromDB();
-    getCompaniesFromDB();
+    // getCompaniesFromDB();
   }
 
   // This interacts with the vercel postgres db, it runs automatically when the page loads 
@@ -323,24 +323,14 @@ export default function Home() {
           gap: 1,
           mt: 4,
         }}>
-              <div className={styles.headers}>
-                  <b><span><i><h2>Get Really Smart on Biotechnology</h2></i></span></b> 
-                  <h3>You'll do this by reading alot of papers and taking quizzes!</h3>
-              </div>
-               
-              
-            <hr></hr>
-
-
-          
-           { isVisible ? <Button variant="contained"  color="secondary" size="medium"   onClick={() => toggleVisibility()}>Hide Papers</Button> : <Button variant="contained"  color="secondary" size="medium" onClick={() => toggleVisibility()}>Show Papers</Button>   }
-
-              
-              {
-                isVisible
-                  ?
-                  <div className={styles.biotechPapers}>
-                  <b><i>Biotech Papers curated by our Team</i></b> <br />
+            <div className={styles.biotechPapers}>
+                  <h3>Keep up with the fast moving biotech industry!</h3>
+                  <b><i>We create quizzes on fun research papers!</i></b> <br />
+            </div>
+        </Box>
+        <Box>
+                  <p className={styles.coolPaper}>Central Dogma</p>
+                 
                   {paperSet.map((paper, index) => (
                     <div>
                       <Link
@@ -348,21 +338,12 @@ export default function Home() {
                               pathname: '/paper',
                               query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"], userName: name },
                             }} >
-                              <p className={styles.coolPaper}>{paper["title"]}
-                              </p>
+                              <p className={styles.coolPaper}>{paper["title"]}</p>
                       </Link>
                       </div>
                   ))
-                  }
-              </div>
-                  : 
-                  ""
               }
-            
-               <div>
-                <Image src={boyDNA} width={100} height={100} className={styles.curiousBoy}  alt="boy with dna" onClick={()=> window.open("https://stjude.org")} />  
-              </div>
-        </Box>
+          </Box>
       </Box>
     );
 }
