@@ -325,11 +325,10 @@ export default function Home() {
         }}>
             <div className={styles.biotechPapers}>
                   <h3>Keep up with the fast moving biotech industry!</h3>
-                  <b><i>We create quizzes on fun research papers!</i></b> <br />
+                  <b>We create quizzes on fun research papers!</b> <br />
             </div>
         </Box>
         <Box>
-                  <p className={styles.coolPaper}>Central Dogma</p>
                  
                   {paperSet.map((paper, index) => (
                     <div>
