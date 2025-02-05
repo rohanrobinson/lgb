@@ -329,9 +329,9 @@ export default function Home() {
             </div>
         </Box>
         <Box>
-                  <p className={styles.coolPaper}>Central Dogma</p>
-                 
-                  {paperSet.map((paper, index) => (
+            <p className={styles.coolPaper}>Central Dogma</p>
+
+              {paperSet.map((paper, index) => (
                     <div>
                       <Link
                             href={{
