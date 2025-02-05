@@ -58,7 +58,6 @@ export default function AboutUs() {
                         { !showMenu  ? <MenuIcon className={styles.navBarText} onClick={ () => toggleMenu(!showMenu) }></MenuIcon> : <span onClick={ () => toggleMenu(!showMenu) }><div><p className={styles.navBarText}><b>X</b></p></div></span>}
                     </Toolbar>
                 </AppBar>
-        <b>About Us</b> 
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column', 
@@ -68,9 +67,9 @@ export default function AboutUs() {
                 }}>
 
               <p className={styles.aboutUsText}>
-                         Let's Go Biotech is your portal to the fast pace of biotechnology innovation. <br /> 
-                         We showcase awesome biotech papers containing knowledge that will improve our lives!
-                          <br /> 
+                        <b>Our goal is simple:</b> <br />
+                        Keep you smart so you can continue on the important quest of bringing needed cures to patients! < br/>
+                        We provide the latest industry news and making quizzes that are fun to take!
               </p>
 
             <Button 
@@ -83,12 +82,7 @@ export default function AboutUs() {
               Home
             </Button> 
 
-          <div>
-            {/* <Image src={boyDNA} width={100} height={100}  alt="boy with dna" />  &nbsp; &nbsp; */}
-            <Image src={girlDNA} width={100} height={100} alt="girl with dna" />
-          </div>
-            
-            {/* <b>Check out our Socials</b>
+         <b>Check out our Socials</b>
 
         <div>
             <Button 
@@ -100,39 +94,8 @@ export default function AboutUs() {
                 sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
               >
                 Tik Tok 
-          </Button>
-
-
-          <Button 
-                variant="contained" 
-                color="secondary" 
-                size="large" 
-                href="https://instagram.com/letsgobiotech"
-                target="_blank"
-                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
-              >
-                Instagram 
-          </Button>
-     
-
-          <Button 
-                variant="contained" 
-                color="secondary" 
-                size="large" 
-                href="https://youtube.com/@letsgobiotech"
-                target="_blank"
-                sx={{ fontWeight: 'bold', fontSize: '10px', padding: '15px 25px', }}
-              >
-                YouTube 
-          </Button>
+            </Button>
         </div>
-
-        <div>
-          <a href="https://rohanrobinson.github.io/confucius.html" target="_blank">Let's Go Biotech is a Confucius Technologies &#169; Production</a>
-        </div> */}
-
-        
-
         </Box>
     </Box>
   );
