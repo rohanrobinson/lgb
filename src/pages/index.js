@@ -325,7 +325,7 @@ export default function Home() {
         }}>
             <div className={styles.biotechPapers}>
                   <h3>Keep up with the fast moving biotech industry!</h3>
-                  <b>We create quizzes on fun research papers!</b> <br />
+                  <b>Check some reports on interesting biotech companies!</b> <br />
             </div>
         </Box>
         <Box>
