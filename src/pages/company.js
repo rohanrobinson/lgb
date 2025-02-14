@@ -29,55 +29,8 @@ export default function Company() {
     const goToAboutUsPage = () => { router.push('/about-us')}
     const goHome = () => { router.push('/')};
   
-    // displays necessary menu items
-    const showMenuItems = () => {
-     return (
-       <div className={styles.menuItems}>
-         <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToSignUpPage}>
-           <span className={styles.navBarText}>Sign Up</span>  
-         </Typography>
-         <Typography variant="h6" component="div" className={styles.navBarText} sx={{ flexGrow: 0.5 }} onClick={goToProfilePage}>
-           <span className={styles.navBarText}>Your Account</span>  
-         </Typography>
-         <Typography variant="h6" component="div" sx={{ flexGrow: 0 }} className={styles.cursorPointer} onClick={goToAboutUsPage}>
-           <span className={styles.navBarText}>About</span>
-         </Typography>
-       </div>
-     );
-}
 
-  const saveCompany =  () => {
-    console.log("company name-",companyName);
-    console.log("date company started-", dateStarted);
-    console.log("product category", productCategory);
-    console.log("headquarter location", headquarterLocation);
-
-    toggleCompanySaved(!isCompanySaved);    
-
-    addUserCompanyToDB();
-  }
-
-  const addUserCompanyToDB = async () => {
-
-    const userCompanyData = {userName: userName, companyName: companyName}
-
-    console.log(userCompanyData.userName);
-
-    const response = await fetch(`/api/add-user-company?name=${userCompanyData.userName}&companyName=${userCompanyData.companyName}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json', 
-        }, 
-        body: JSON.stringify(userName, companyName),
-    });
-        if (!response.ok) {
-          throw new Error('Failed to add user company relation');
-        }
-
-  }
-
-
-return (
+  return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
     <Head>
       <title>Let's Go Biotech - Company Analysis Page</title>

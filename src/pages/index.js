@@ -92,6 +92,8 @@ export default function Home() {
     }
   }
 
+  
+
   const logOutUser = () => {
       setName("");
       setUserLoginStatus(false);
@@ -108,37 +110,25 @@ export default function Home() {
   
         const data = await response.json();
         const companies = data.companies;
-
         // company properties
-        const companyHQs = companies.rows.map((companies) => companies.headquarter_location);
-        const companyNames = companies.rows.map((companies) => companies.name);
-        const companyDatesStarted = companies.rows.map((companies) => companies.date_started);
-        const companyProd = companies.rows.map((companies) => companies.product_category);
-
-        console.log(companyHQs, companyNames, companyDatesStarted, companyProd);
-        console.log("number of companies in db", companies.rows.length);
-        
+        const companyHQs = companies.rows.map((companies) => companies.companyLocation);
+        const companyNames = companies.rows.map((companies) => companies.companyName);
+        const companyFocus = companies.rows.map((companies) => companies.companyFocus);
+        const ceoNames = companies.rows.map((companies) => companies.ceoName);
         let companyObjects = [];
         // make company objects 
         for (let i=0; i<companies.rows.length; i++) { 
             // initialize object
-            let companyObj  = {}
-      
+            let companyObj = {}
             // add properties to object 
             companyObj["name"] = companyNames[i];
-            companyObj["dateStarted"] = companyDatesStarted[i];
-            companyObj["product"] = companyProd[i];
+            companyObj["ceoNames"] = ceoNames[i];
+            companyObj["companyFocus"] = companyFocus[i];
             companyObj["hqLocation"] = companyHQs[i];
-
             // add object to list
-            console.log(companyObj);
             companyObjects.push(companyObj);
         }
-
-       
-        setCompanies(companyObjects);
-          
-
+       setCompanies(companyObjects);
     }
       catch (error) {
         console.error(error);
@@ -200,6 +190,7 @@ export default function Home() {
 
       return user;
   }
+
 
   const addUserToDb = async () => {
       
@@ -282,7 +273,7 @@ export default function Home() {
 
   function getInfoFromDB() {
     getPapersFromDB();
-    // getCompaniesFromDB();
+    getCompaniesFromDB();
   }
 
   // This interacts with the vercel postgres db, it runs automatically when the page loads 
@@ -329,19 +320,18 @@ export default function Home() {
             </div>
         </Box>
         <Box>
-                 
-                  {paperSet.map((paper, index) => (
-                    <div>
-                      <Link
-                            href={{
-                              pathname: '/paper',
-                              query: { paperTitle: paper["title"], paperAuthor: paper["author"], paperURL: paper["url"], paperTopic: paper["topic"], userName: name },
-                            }} >
-                              <p className={styles.coolPaper}>{paper["title"]}</p>
-                      </Link>
+                  {
+                    companySet.map((company, index) => (
+                      <div key={index}>
+                        <div className={styles.coolPaper}>
+                          <h4>{company.name}</h4>
+                          <p>CEO: {company.ceoNames}</p>
+                          <p>Focus: {company.companyFocus}</p>
+                          <p>Location: {company.hqLocation}</p>
+                        </div>
                       </div>
                   ))
-              }
+                 }
           </Box>
       </Box>
     );
