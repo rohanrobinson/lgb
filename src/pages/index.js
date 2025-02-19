@@ -49,48 +49,48 @@ export default function Home() {
         );
   }
 
-  const getPapersFromDB = async () => {
-    try {
-      const response = await fetch('/api/get-papers');
+  // const getPapersFromDB = async () => {
+  //   try {
+  //     const response = await fetch('/api/get-papers');
 
-      if (!response.ok) {
-        throw new Error('Failed to get papers');
-      }
+  //     if (!response.ok) {
+  //       throw new Error('Failed to get papers');
+  //     }
 
-      const data = await response.json();
-      const papers = data.papers;
+  //     const data = await response.json();
+  //     const papers = data.papers;
 
-      // paper properties
-      const paperTitles = papers.rows.map((papers) => papers.title);
-      const paperURLs = papers.rows.map((papers) => papers.url);
-      const paperAuthors = papers.rows.map((papers) => papers.author);
-      const paperTopics = papers.rows.map((papers) => papers.topic);
+  //     // paper properties
+  //     const paperTitles = papers.rows.map((papers) => papers.title);
+  //     const paperURLs = papers.rows.map((papers) => papers.url);
+  //     const paperAuthors = papers.rows.map((papers) => papers.author);
+  //     const paperTopics = papers.rows.map((papers) => papers.topic);
       
-      const paperObjects = [];
-      for (let i =0; i<papers.rows.length; i++ ) {
+  //     const paperObjects = [];
+  //     for (let i =0; i<papers.rows.length; i++ ) {
         
-        // initialize new paper object
-        let paperObj = {}
+  //       // initialize new paper object
+  //       let paperObj = {}
 
-        // add properties to paper object
-        paperObj["title"] = paperTitles[i];
-        paperObj["url"] = paperURLs[i];
-        paperObj["author"] = paperAuthors[i];
-        paperObj["topic"] = paperTopics[i];
+  //       // add properties to paper object
+  //       paperObj["title"] = paperTitles[i];
+  //       paperObj["url"] = paperURLs[i];
+  //       paperObj["author"] = paperAuthors[i];
+  //       paperObj["topic"] = paperTopics[i];
 
-        // add paper object to the array of paper objects 
-        paperObjects.push(paperObj);
+  //       // add paper object to the array of paper objects 
+  //       paperObjects.push(paperObj);
 
-      }
-      setPapers(paperObjects);
+  //     }
+  //     setPapers(paperObjects);
 
-      console.log(paperObjects);
-    }
+  //     console.log(paperObjects);
+  //   }
 
-    catch (error) { 
-      console.error(error);
-    }
-  }
+  //   catch (error) { 
+  //     console.error(error);
+  //   }
+  // }
 
   
 
@@ -122,7 +122,7 @@ export default function Home() {
             let companyObj = {}
             // add properties to object 
             companyObj["name"] = companyNames[i];
-            companyObj["ceoNames"] = ceoNames[i];
+            companyObj["ceoName"] = ceoNames[i];
             companyObj["companyFocus"] = companyFocus[i];
             companyObj["hqLocation"] = companyHQs[i];
             // add object to list
@@ -131,6 +131,7 @@ export default function Home() {
        setCompanies(companyObjects);
     }
       catch (error) {
+        console.log("error in getCompaniesFromDB function");
         console.error(error);
       }
   }
@@ -272,7 +273,7 @@ export default function Home() {
     }
 
   function getInfoFromDB() {
-    getPapersFromDB();
+    // getPapersFromDB();
     getCompaniesFromDB();
   }
 
@@ -322,14 +323,23 @@ export default function Home() {
         <Box>
                   {
                     companySet.map((company, index) => (
-                      <div key={index}>
-                        <div className={styles.coolPaper}>
-                          <h4>{company.name}</h4>
-                          <p>CEO: {company.ceoNames}</p>
-                          <p>Focus: {company.companyFocus}</p>
-                          <p>Location: {company.hqLocation}</p>
-                        </div>
-                      </div>
+                    <Link
+                      href={{
+                        pathname: '/company',
+                        query: {
+                          name: company.name,
+                          ceoName: company.ceoName,
+                          companyFocus: company.companyFocus,
+                          location: company.hqLocation
+                        }
+                        }}
+                      >
+                        <div key={index}>
+                          <div className={styles.coolPaper}>
+                            <h3>{company.name} - {company.companyFocus}</h3>
+                          </div>
+                        </div> 
+                    </Link>
                   ))
                  }
           </Box>
