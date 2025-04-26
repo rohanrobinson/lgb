@@ -9,55 +9,48 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     height: 100vh;
   }
-  
-  /* Style the title */
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
+
+  h1, h2 {
     text-align: center;
   }
-  
-  /* Style the subtitle */
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
+
+
+  .topicsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; /* adjust spacing as needed */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
   }
-  
-  /* Style the steps */
-  a {
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-  }
-  
-  /* a:hover {
-    text-decoration: underline;
-  } */
-  
-  p {
-    font-size: 1.25rem;
-    color: #555;
-  }
-  
-  /* Style the button */
-  button {
-    padding: 0.5rem 1.5rem;
-    background-color: #333;
-    color: #fff;
-    font-size: 1.25rem;
-    border-radius: 0.25rem;
+
+  .topicTile:hover {
     cursor: pointer;
   }
+
+  .topicTile {
+    border: 1.5px solid darkmagenta;
+  }
+
+  .modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
   
-  button:hover {
-    background-color: #444;
+  .modalContent {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 300px;
+    max-width: 90vw;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    position: relative;
   }
