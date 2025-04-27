@@ -42,7 +42,7 @@ body {
 
   .modalOverlay {
     position: fixed;
-    top: 3; left: 0; right: 0; bottom: 50;
+    top: 0; left: 0; right: 0; bottom: 50;
     background-color: plum;
     display: flex;
     align-items: center;

@@ -1,7 +1,11 @@
-﻿import Topic from '../pages/topic';
+﻿import Topic from '../components/topic';
+import Navbar from '../components/Navbar';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+
+  const router = useRouter();
 
   const [selectedTopic, setSelectedTopic] = useState(null);
 
@@ -35,27 +39,34 @@ export default function Home() {
 
   return (
       <div>
-      <h1>Let's Go Biotech</h1> <br />
-      <h2>Select a topic you're interested in learning about!</h2>
-      <div className="topicsGrid">
-        {topicList.map(topic => (
-          <Topic key={topic} topicName={topic} onClick={() => handleTopicClick(topic)} />
-        ))}
-      </div>
-      {selectedTopic && (
-        <div className="modalOverlay" onClick={closeModal}>
-          <div className="modalContent" onClick={e => e.stopPropagation()}>
-            <h2>{selectedTopic}</h2>
-            <p>Here are three concepts you should check know before proceeding!</p>
-            <ul>
-              {concepts[selectedTopic].map((concept, index) => (
-                <li key={index}>{concept}</li>
-              ))}
-            </ul>
+        <Navbar />
+        <h1>Select a topic you're interested in learning about!</h1>
+        <div className="topicsGrid">
+          {topicList.map(topic => (
+            <Topic key={topic} topicName={topic} onClick={() => handleTopicClick(topic)} />
+          ))}
+        </div>
+        {selectedTopic && (
+          <div className="modalOverlay" onClick={closeModal}>
+            <div className="modalContent" onClick={e => e.stopPropagation()}>
+              <h2>{selectedTopic}</h2>
+              <p>Here are three concepts you should check know before proceeding!</p>
+              <ul>
+                {concepts[selectedTopic].map((concept, index) => (
+                  <li key={index}>{concept}</li>
+                ))}
+              </ul>
 
-            <button className="affirmativeButton" onClick={() => alert("affirmative sounding message")}>✅ I got it!</button>
-            <button className="closeButton" onClick={closeModal} aria-label="Close">&times;</button>
-          </div>
+              <button className="affirmativeButton" 
+                      onClick={() => {
+                        router.push({
+                          pathname: '/Learn',
+                          query: { topic: selectedTopic }, // Pass the selected topic as a query parameter
+                        });
+                      }} 
+              >✅ I got it!</button>
+              <button className="closeButton" onClick={closeModal} aria-label="Close">&times;</button>
+            </div>
         </div>
       )}
     </div>
