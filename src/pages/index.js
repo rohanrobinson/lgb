@@ -52,7 +52,8 @@ export default function Home() {
                 <li key={index}>{concept}</li>
               ))}
             </ul>
-            {/* <button onClick={closeModal}>X</button> */}
+
+            <button className="affirmativeButton" onClick={() => alert("affirmative sounding message")}>✅ I got it!</button>
             <button className="closeButton" onClick={closeModal} aria-label="Close">&times;</button>
           </div>
         </div>
