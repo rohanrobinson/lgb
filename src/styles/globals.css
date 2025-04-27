@@ -33,12 +33,17 @@ body {
 
   .topicTile {
     border: 1.5px solid darkmagenta;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* horizontal centering */
+    justify-content: center;  /* vertical centering */
+    height: 100px;            /* or whatever height you want */
   }
 
   .modalOverlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
+    top: 50; left: 0; right: 0; bottom: 50;
+    background-color: plum;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,4 +58,36 @@ body {
     max-width: 90vw;
     box-shadow: 0 2px 16px rgba(0,0,0,0.2);
     position: relative;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #a03c78;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+    z-index: 1010;
+  }
+  
+  .closeButton:hover {
+    background: #f3e0f7;
+    color: #7a2060;
   }
