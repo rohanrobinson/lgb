@@ -1,4 +1,4 @@
-﻿import Topic from '../components/topic';
+﻿import Topic from '../components/Topic';
 import Navbar from '../components/Navbar';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
