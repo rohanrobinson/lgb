@@ -29,7 +29,6 @@
       margin-right: 15vh;
       background-color: #9c27b0;
    }
-
   }
 
   .analysisHeader {
@@ -113,9 +112,10 @@
    .middleElem {
       text-align: center; 
    }
-
-
   
+   .topicTile { 
+    color: blue;
+  }
 
 
 

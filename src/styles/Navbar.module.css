@@ -1,0 +1,25 @@
+.navbar {
+    background-color: darkmagenta; /* Dark background */
+    padding: 1rem;
+  }
+  
+  .navbar ul {
+    list-style: none; /* Remove bullet points */
+    display: flex;    /* Flexbox for horizontal layout */
+    justify-content: space-around; /* Space links evenly */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    color: white; /* Text color */
+  }
+  
+  .navbar a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
