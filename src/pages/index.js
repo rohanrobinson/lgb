@@ -1,5 +1,5 @@
-﻿import Topic from '../components/Topic';
-import Navbar from '../components/Navbar';
+﻿import Navbar from '../components/Navbar';
+import Topic from '../components/Topic';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -15,8 +15,8 @@ export default function Home() {
   const concepts = {
         "Genetics": ["DNA", "RNA", "Allele"],
         "Fertility": ["Ovulation", "Egg", "Sperm"],
-        "Cancer Research": ["Staging", "Tumor", "Malignancy"],
-        "Aging Research": ["Telomeres", "Transcription Factors", "Topoisomerase"],
+        "Cancer": ["Staging", "Tumor", "Malignancy"],
+        "Aging": ["Telomeres", "Transcription Factors", "Topoisomerase"],
         "Artificial Intelligence": ["Regression", "Machine Learning", "Classification"],
         "Diagnostics": ["MRI", "X-Ray", "Ultrasound"],
         "Medical Devices": ["Defibrillator", "Pacemaker", "Implant"],
@@ -65,6 +65,7 @@ export default function Home() {
                         });
                       }} 
               >✅ I got it!</button>
+              <button className="affirmativeButton" onClick={closeModal} aria-label="Close">❌ Nah! I need to review!</button>
               <button className="closeButton" onClick={closeModal} aria-label="Close">&times;</button>
             </div>
         </div>

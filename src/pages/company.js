@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 export default function Company() {
 
     //router reference
-    const router = useRouter();
+      const router = useRouter();
    
     // company properties 
     const companyName = router.query.name;
