@@ -9,7 +9,7 @@ export default function Home() {
 
   const [selectedTopic, setSelectedTopic] = useState(null);
 
-  const topicList = ["Genetics", "Fertility", "Cancer Research", "Aging Research", "Artificial Intelligence", "Diagnostics", "Medical Devices", "Bioinformatics", "Immunology"];
+  const topicList = ["Genetics", "Fertility", "Cancer", "Aging", "Artificial Intelligence", "Diagnostics", "Medical Devices", "Bioinformatics", "Immunology"];
 
   
   const concepts = {
