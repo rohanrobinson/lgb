@@ -13,8 +13,11 @@ export default function AboutUs() {
       <p>
       <b>Our Goal is Simple:</b> <br />
       Keep you updated with the cutting edge happening in biology research with interactive content!
-      </p>
+      </p> <br /> 
 
+      Created by <a href="https://rohanrobinson.io" target="_blank" >Rohan Robinson</a>
+
+      
 
 
 

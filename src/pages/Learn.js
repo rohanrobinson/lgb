@@ -44,22 +44,11 @@ const Learn = () => {
       }
     };
 
-    function QuizExperience() {
-      return(
-          <div>
-              <h1>{topic} Quiz</h1>
-              <p>
-                Question 1 
-              </p>
-              <button style={styles.Button} onClick={() => toggleQuiz(!quizOn)}>Back to the Passage</button>
-          </div>
-      )
-  }
 
     return (
       <div style={styles.learningContainer}>
           <Navbar />
-          {!quizOn ? (
+         
         <>
           <h1>Hope you enjoy this passage on {topic}!</h1>
           <h4>It should take about 2 minutes!</h4>
@@ -67,13 +56,16 @@ const Learn = () => {
           <p style={styles.passage}>
                 {currentPassage}
           </p>
-          <button style={styles.Button} onClick={() => toggleQuiz(!quizOn)}>
+          <button style={styles.Button} 
+              onClick={() => {
+                router.push({
+                  pathname: '/QuizExperience',
+                  query: { topic: topic }, 
+                  }); }}>
             I'm Ready for the Quiz!
           </button>
         </>
-      ) : (
-        <QuizExperience />
-      )}
+      
       <br />
       <br />
       <br />

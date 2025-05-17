@@ -9,12 +9,12 @@
             "How long does the average menstrual cycle last?",
             "What is the role of the fallopian tubes in fertility?"
         ],
-        "Cancer Research": [
+        "Cancer": [
             "What is the difference between benign and malignant tumors?",
             "What are the main types of cancer treatment?",
             "How does cancer spread in the body?"
         ],
-        "Aging Research": [
+        "Aging": [
             "What are telomeres and why are they important?",
             "What is the role of free radicals in aging?",
             "How does cellular senescence contribute to aging?"
@@ -57,12 +57,12 @@
             ["28 days", "21 days", "35 days"],
             ["Transport eggs to uterus", "Produce hormones", "Store sperm"]
         ],
-        "Cancer Research": [
+        "Cancer": [
             ["Benign is non-cancerous, malignant is cancerous", "Benign spreads, malignant doesn't", "Benign is genetic, malignant is environmental"],
             ["Surgery, radiation, chemotherapy", "Antibiotics, vaccines, surgery", "Diet, exercise, meditation"],
             ["Through blood and lymph systems", "Through nervous system", "Through digestive system"]
         ],
-        "Aging Research": [
+        "Aging": [
             ["Protective caps on chromosomes", "Energy producers in cells", "Protein builders"],
             ["Damage cells and DNA", "Build muscle", "Produce energy"],
             ["Cells stop dividing", "Cells multiply faster", "Cells become immortal"]
@@ -105,12 +105,12 @@
             "28 days",
             "Transport eggs to uterus"
         ],
-        "Cancer Research": [
+        "Cancer": [
             "Benign is non-cancerous, malignant is cancerous",
             "Surgery, radiation, chemotherapy",
             "Through blood and lymph systems"
         ],
-        "Aging Research": [
+        "Aging": [
             "Protective caps on chromosomes",
             "Damage cells and DNA",
             "Cells stop dividing"
