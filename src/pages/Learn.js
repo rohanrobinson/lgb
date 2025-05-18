@@ -69,7 +69,7 @@ const Learn = () => {
                   pathname: '/QuizExperience',
                   query: { topic: topic }, 
                   }); }}>
-            I'm Ready for the Quiz!
+            Start Quiz
           </button>
         </>
       
