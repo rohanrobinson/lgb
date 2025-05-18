@@ -3,13 +3,16 @@ import { useState } from 'react';
 import { questions, answerChoices, correctAnswers } from '../data/quiz-data';
 import Navbar from '../components/Navbar';
 
-
-
  const QuizExperience = () => {
     
     const router = useRouter();
     
     const { topic } = router.query;
+
+    // Add this check to prevent rendering until topic is available
+    if (!router.isReady || !topic) {
+        return <div>Loading...</div>;
+    }
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -41,8 +44,6 @@ import Navbar from '../components/Navbar';
             setShowResults(true);
         }
     };
-
-    
 
     const styles = {
         learningContainer: {
@@ -79,7 +80,7 @@ import Navbar from '../components/Navbar';
         },
         question: {
             fontSize: '1.5rem',
-            marginBottom: '20px',
+            marginBottom: '20px',   
             color: '#333'
         },
         answerOptions: {
@@ -125,7 +126,7 @@ import Navbar from '../components/Navbar';
         return (
             <div style={styles.container}>
                 <Navbar />
-                <h2>Quiz Complete!</h2>
+                <h2>Congrats! 🥳 You've completed the Quiz over {topic}</h2>
                 <p style={styles.results}>
                     Your score: {score} out of {questions[topic].length}
                 </p>
