@@ -7,33 +7,18 @@ export default function Home() {
 
   const router = useRouter();
 
-  const [selectedTopic, setSelectedTopic] = useState(null);
+  // const [selectedTopic, setSelectedTopic] = useState(null);
 
   const topicList = ["Genetics", "Fertility", "Cancer", "Aging", "Artificial Intelligence", "Diagnostics", "Medical Devices", "Bioinformatics", "Immunology"];
 
-  
-  const concepts = {
-        "Genetics": ["DNA", "RNA", "Allele"],
-        "Fertility": ["Ovulation", "Egg", "Sperm"],
-        "Cancer": ["Staging", "Tumor", "Malignancy"],
-        "Aging": ["Telomeres", "Transcription Factors", "Topoisomerase"],
-        "Artificial Intelligence": ["Regression", "Machine Learning", "Classification"],
-        "Diagnostics": ["MRI", "X-Ray", "Ultrasound"],
-        "Medical Devices": ["Defibrillator", "Pacemaker", "Implant"],
-        "Bioinformatics": ["Data Pipeline", "Sequence Analysis", "String"],
-        "Immunology": ["Antigen", "T Cell", "B Cell"]
-    }  
-  
-  
-  
-  
-  const handleTopicClick = (topicName) => {
-    setSelectedTopic(topicName);
-  };
+   
+  // const handleTopicClick = (topicName) => {
+  //   setSelectedTopic(topicName);
+  // };
 
-  const closeModal = () => {
-    setSelectedTopic(null);
-  };
+  // const closeModal = () => {
+  //   setSelectedTopic(null);
+  // };
 
 
 
@@ -43,10 +28,19 @@ export default function Home() {
         <h1>Select a topic you're interested in learning about!</h1>
         <div className="topicsGrid">
           {topicList.map(topic => (
-            <Topic key={topic} topicName={topic} onClick={() => handleTopicClick(topic)} />
+            <Topic key={topic} topicName={topic} 
+
+                onClick={() => {
+                  router.push({
+                    pathname: '/Learn',
+                    query: { topic: topic }, // Pass the selected topic as a query parameter
+                  });
+                }} 
+            // onClick= {() => handleTopicClick(topic)} 
+            />
           ))}
         </div>
-        {selectedTopic && (
+        {/* {selectedTopic && (
           <div className="modalOverlay" onClick={closeModal}>
             <div className="modalContent" onClick={e => e.stopPropagation()}>
               <h2>{selectedTopic}</h2>
@@ -69,7 +63,7 @@ export default function Home() {
               <button className="closeButton" onClick={closeModal} aria-label="Close">&times;</button>
             </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

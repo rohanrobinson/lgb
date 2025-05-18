@@ -130,6 +130,23 @@ import Navbar from '../components/Navbar';
                 <p style={styles.results}>
                     Your score: {score} out of {questions[topic].length}
                 </p>
+
+                <button 
+                    style={styles.nextButton}
+                    onClick={
+                        () => {
+                            router.push({
+                              pathname: '/Learn',
+                              query: { topic: topic }, // Pass the selected topic as a query parameter
+                            });
+                          }
+                    }
+                >
+                    Redo {topic}
+                </button>
+
+                <br />
+
                 <button 
                     style={styles.nextButton}
                     onClick={() => router.push('/')}
