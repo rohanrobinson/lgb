@@ -8,12 +8,8 @@ import passages from '../data/passages';
 const Learn = () => {
     const router = useRouter();
     const { topic } = router.query;
-    const [quizOn, toggleQuiz] = useState(false);
-
-    
     const currentPassage = passages[topic] || "No passage available for this topic";
-
-
+    
     const styles = {
       learningContainer: {
         textAlign: 'center',
@@ -41,17 +37,28 @@ const Learn = () => {
           transform: 'translateY(0)',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
         }
+      },
+
+      passage: {
+        padding: '20px',
+        margin: '20px auto',
+        maxWidth: '800px',
+        border: '4px solid darkmagenta',
+        borderRadius: '10px',
+        backgroundColor: 'white',
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+        lineHeight: '1.6',
+        fontSize: '1.1rem',
+        textAlign: 'left'
       }
     };
-
 
     return (
       <div style={styles.learningContainer}>
           <Navbar />
-         
         <>
-          <h1>Hope you enjoy this passage on {topic}!</h1>
-          <h4>It should take about 2 minutes!</h4>
+          <h1>{topic} passage</h1>
+          <h4><i>2 minute read</i></h4>
 
           <p style={styles.passage}>
                 {currentPassage}
@@ -66,7 +73,6 @@ const Learn = () => {
           </button>
         </>
       
-      <br />
       <br />
       <br />
       <button style={styles.Button}
