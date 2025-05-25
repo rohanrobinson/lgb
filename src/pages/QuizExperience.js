@@ -45,6 +45,14 @@ import Navbar from '../components/Navbar';
         }
     };
 
+    const handleRedoQuiz = () => {
+        setCurrentQuestion(0);
+        setSelectedAnswer(null);
+        setScore(0);
+        setShowResults(false);
+        setUserAnswers({});
+    };
+
     const styles = {
         learningContainer: {
           textAlign: 'center',
@@ -133,14 +141,7 @@ import Navbar from '../components/Navbar';
 
                 <button 
                     style={styles.nextButton}
-                    onClick={
-                        () => {
-                            router.push({
-                              pathname: '/Learn',
-                              query: { topic: topic }, // Pass the selected topic as a query parameter
-                            });
-                          }
-                    }
+                    onClick={handleRedoQuiz}
                 >
                     Redo {topic}
                 </button>
