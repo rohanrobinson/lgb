@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { questions, answerChoices, correctAnswers } from '../data/quiz-data';
 import Navbar from '../components/Navbar';
 
- const QuizExperience = () => {
+const QuizExperience = () => {
     
     const router = useRouter();
     
@@ -19,7 +19,7 @@ import Navbar from '../components/Navbar';
     const [score, setScore] = useState(0);
     const [showResults, setShowResults] = useState(false);
     const [userAnswers, setUserAnswers] = useState({}); // Add this to track all answers
-
+    const [showCorrectAnswers, setShowCorrectAnswers] = useState({});
 
     const handleAnswerClick = (answer) => {
         setSelectedAnswer(answer);
@@ -51,6 +51,13 @@ import Navbar from '../components/Navbar';
         setScore(0);
         setShowResults(false);
         setUserAnswers({});
+    };
+
+    const toggleAnswer = (index) => {
+        setShowCorrectAnswers(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
     };
 
     const styles = {
@@ -127,17 +134,82 @@ import Navbar from '../components/Navbar';
         results: {
             fontSize: '1.5rem',
             marginTop: '20px'
+        },
+        reviewSection: {
+            margin: '20px auto',
+            maxWidth: '800px',
+            textAlign: 'left',
+            padding: '20px',
+            backgroundColor: '#f9f9f9',
+            border: '4px solid darkmagenta',
+            borderRadius: '10px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        },
+        incorrectAnswer: {
+            marginBottom: '20px',
+            padding: '15px',
+            backgroundColor: '#fff',
+            borderRadius: '5px',
+            borderLeft: '4px solid #ff6b6b'
+        },
+        divider: {
+            border: 0,
+            height: '1px',
+            background: '#ddd',
+            margin: '15px 0'
         }
       };
 
       if (showResults) {
         return (
-            <div style={styles.container}>
-                <Navbar />
+            <div style={styles.learningContainer}>
+                <Navbar  />
                 <h2>Congrats! 🥳 You've completed the Quiz over {topic}</h2>
                 <p style={styles.results}>
                     Your score: {score} out of {questions[topic].length}
                 </p>
+
+                <div style={styles.reviewSection}>
+                    <h3>You answered the following questions incorrectly:</h3>
+                    {Object.entries(userAnswers).filter(([index, answer]) => 
+                        answer !== correctAnswers[topic][parseInt(index)]
+                    ).map(([index, answer]) => {
+                        const questionIndex = parseInt(index);
+                        const correctAnswer = correctAnswers[topic][questionIndex];
+                        
+                        return (
+                            <div key={index} style={styles.incorrectAnswer}>
+                                <p><strong>Question {questionIndex + 1}:</strong> {questions[topic][questionIndex]}</p>
+                                <p>Your answer: <span style={{color: 'red'}}>{answer}</span></p>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                    <button 
+                                        onClick={() => toggleAnswer(index)}
+                                        style={{
+                                            padding: '5px 10px',
+                                            backgroundColor: 'plum',
+                                            border: '1px solid #ccc',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                            fontSize: '0.9em',
+                                            fontFamily: "'Courier New', Courier, monospace"
+                                        }}
+                                    >
+                                        {showCorrectAnswers[index] ? 'Hide' : 'Show'} Correct Answer
+                                    </button>
+                                    {showCorrectAnswers[index] && (
+                                        <p style={{ margin: 0 }}>Correct answer: <span style={{color: 'green'}}>{correctAnswer}</span></p>
+                                    )}
+                                </div>
+                                <hr style={styles.divider} />
+                            </div>
+                        );
+                    })}
+                    {Object.keys(userAnswers).filter(index => 
+                        userAnswers[index] === correctAnswers[topic][parseInt(index)]
+                    ).length === questions[topic].length && (
+                        <p>Perfect! You got all answers correct! 🎉</p>
+                    )}
+                </div>
 
                 <button 
                     style={styles.nextButton}
