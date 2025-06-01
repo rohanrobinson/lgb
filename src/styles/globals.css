@@ -27,6 +27,15 @@ body {
     padding: 2rem 0;
   }
 
+  /* Add media query for mobile screens */
+  @media screen and (max-width: 768px) {
+    .topicsGrid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+  }
+
   .topicTile:hover {
     cursor: pointer;
   }

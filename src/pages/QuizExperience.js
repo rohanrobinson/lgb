@@ -1,29 +1,40 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { questions, answerChoices, correctAnswers } from '../data/quiz-data';
+import { moreQuestions, moreAnswerChoices, moreCorrectAnswers } from '../data/quiz-data';
 import Navbar from '../components/Navbar';
 
 const QuizExperience = () => {
     
     const router = useRouter();
     
-    const { topic } = router.query;
+    const { topic, passageType } = router.query;
 
-    // Add this check to prevent rendering until topic is available
-    if (!router.isReady || !topic) {
+    // Add this check to prevent rendering until topic and data are available
+    if (!router.isReady) {
         return <div>Loading...</div>;
+    }
+
+    console.log('topic', topic, 'passageType', passageType);
+    // Determine which question set to use based on passageType
+    const currentQuestions = passageType === 'more' ? moreQuestions : questions;
+    const currentAnswerChoices = passageType === 'more' ? moreAnswerChoices : answerChoices;
+    const currentCorrectAnswers = passageType === 'more' ? moreCorrectAnswers : correctAnswers;
+
+    // Additional safety check for the current question set
+    if (!currentQuestions[topic] || !currentAnswerChoices[topic] || !currentCorrectAnswers[topic]) {
+        return <div>Error: Question data not available for this topic.</div>;
     }
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
     const [showResults, setShowResults] = useState(false);
-    const [userAnswers, setUserAnswers] = useState({}); // Add this to track all answers
+    const [userAnswers, setUserAnswers] = useState({});
     const [showCorrectAnswers, setShowCorrectAnswers] = useState({});
 
     const handleAnswerClick = (answer) => {
         setSelectedAnswer(answer);
-        // Update the userAnswers object with the current answer
         setUserAnswers(prev => ({
             ...prev,
             [currentQuestion]: answer
@@ -31,14 +42,12 @@ const QuizExperience = () => {
     };
 
     const handleNextQuestion = () => {
-        // Update score based on the current answer
-        if (selectedAnswer === correctAnswers[topic][currentQuestion]) {
+        if (selectedAnswer === currentCorrectAnswers[topic][currentQuestion]) {
             setScore(prev => prev + 1);
         }
 
-        if (currentQuestion < questions[topic].length - 1) {
+        if (currentQuestion < currentQuestions[topic].length - 1) {
             setCurrentQuestion(currentQuestion + 1);
-            // Set the selected answer to the previously selected answer for this question, if any
             setSelectedAnswer(userAnswers[currentQuestion + 1] || null);
         } else {
             setShowResults(true);
@@ -164,29 +173,28 @@ const QuizExperience = () => {
         return (
             <div style={styles.learningContainer}>
                 <Navbar  />
-                <h2>Congrats! 🥳 You've completed the Quiz over {topic}</h2>
-                <p style={styles.results}>
-                    Your score: {score} out of {questions[topic].length}
-                </p>
+                <h2>Congrats! 🥳 You've completed the Quiz over {topic}!
+                    Your score: {score} out of {currentQuestions[topic].length}
+                </h2>
 
                 <div style={styles.reviewSection}>
                     <h3>You answered the following questions incorrectly:</h3>
                     {Object.entries(userAnswers).filter(([index, answer]) => 
-                        answer !== correctAnswers[topic][parseInt(index)]
+                        answer !== currentCorrectAnswers[topic][parseInt(index)]
                     ).map(([index, answer]) => {
                         const questionIndex = parseInt(index);
-                        const correctAnswer = correctAnswers[topic][questionIndex];
+                        const correctAnswer = currentCorrectAnswers[topic][questionIndex];
                         
                         return (
                             <div key={index} style={styles.incorrectAnswer}>
-                                <p><strong>Question {questionIndex + 1}:</strong> {questions[topic][questionIndex]}</p>
+                                <p><strong>Question {questionIndex + 1}:</strong> {currentQuestions[topic][questionIndex]}</p>
                                 <p>Your answer: <span style={{color: 'red'}}>{answer}</span></p>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                     <button 
                                         onClick={() => toggleAnswer(index)}
                                         style={{
                                             padding: '5px 10px',
-                                            backgroundColor: 'plum',
+                                            backgroundColor: '#f0f0f0',
                                             border: '1px solid #ccc',
                                             borderRadius: '4px',
                                             cursor: 'pointer',
@@ -205,8 +213,8 @@ const QuizExperience = () => {
                         );
                     })}
                     {Object.keys(userAnswers).filter(index => 
-                        userAnswers[index] === correctAnswers[topic][parseInt(index)]
-                    ).length === questions[topic].length && (
+                        userAnswers[index] === currentCorrectAnswers[topic][parseInt(index)]
+                    ).length === currentQuestions[topic].length && (
                         <p>Perfect! You got all answers correct! 🎉</p>
                     )}
                 </div>
@@ -230,17 +238,16 @@ const QuizExperience = () => {
         );
     }
 
-    
     return (
         <div style={styles.learningContainer}>
             <Navbar />
             <h1>{topic} Quiz</h1>
             <div style={styles.container}>
-                <h2>Question {currentQuestion + 1} of {questions[topic].length}</h2>
-                <p style={styles.question}>{questions[topic][currentQuestion]}</p>
+                <h2>Question {currentQuestion + 1} of {currentQuestions[topic].length}</h2>
+                <p style={styles.question}>{currentQuestions[topic][currentQuestion]}</p>
                 
                 <div style={styles.answerOptions}>
-                    {answerChoices[topic][currentQuestion].map((answer, index) => (
+                    {currentAnswerChoices[topic][currentQuestion].map((answer, index) => (
                         <button
                             key={index}
                             style={{
@@ -259,7 +266,7 @@ const QuizExperience = () => {
                         style={styles.nextButton}
                         onClick={handleNextQuestion}
                     >
-                        {currentQuestion < questions[topic].length - 1 ? 'Next Question' : 'Finish Quiz'}
+                        {currentQuestion < currentQuestions[topic].length - 1 ? 'Next Question' : 'Finish Quiz'}
                     </button>
                 )}
             </div>
@@ -270,7 +277,7 @@ const QuizExperience = () => {
                 onClick={() => {
                     router.push({
                         pathname: '/Learn',
-                        query: { topic: topic },
+                        query: { topic: topic, passageType: passageType },
                     });
                 }}>
                 Back to the Passage
