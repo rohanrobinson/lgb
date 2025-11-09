@@ -12,15 +12,19 @@ export default function Home() {
   const topicList = ["Genetics", "Fertility", "Cancer", "Aging", "Artificial Intelligence", "Diagnostics", "Medical Devices", "Bioinformatics", "Immunology"];
 
    
-  // const handleTopicClick = (topicName) => {
-  //   setSelectedTopic(topicName);
+  const handleTopicClick = (topicName) => {
+    setSelectedTopic(topicName);
+  };
+
+  const closeModal = () => {
+    setSelectedTopic(null);
+  };
+
+  // const goToTrialForge = () => {
+  //   router.push({
+  //     pathname: '/TrialForge',
+  //   });
   // };
-
-  // const closeModal = () => {
-  //   setSelectedTopic(null);
-  // };
-
-
 
   return (
       <div>
@@ -39,6 +43,15 @@ export default function Home() {
             // onClick= {() => handleTopicClick(topic)} 
             />
           ))}
+
+          <br />
+          <br />
+
+          <button className="topicTile" onClick={() => {
+            router.push({
+              pathname: '/TrialForge',
+            });
+          }}><b>🧪 Curious about Interesting Clinical Trials?</b></button>
         </div>
         {/* {selectedTopic && (
           <div className="modalOverlay" onClick={closeModal}>
