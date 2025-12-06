@@ -49,6 +49,21 @@ body {
     height: 100px;            /* or whatever height you want */
   }
 
+  button.topicTile {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 1rem;
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    width: 100%;
+  }
+
+  button.topicTile:hover {
+    background-color: rgba(139, 0, 139, 0.1); /* light darkmagenta tint on hover */
+  }
+
   .modalOverlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 50;
@@ -119,4 +134,81 @@ body {
 
 .affirmativeButton:hover {
   background-color: plum; /* Light background on hover */
+}
+
+.searchBarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+
+.trialSearchBar {
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  border: 2px solid plum;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  outline: none;
+}
+
+.trialSearchBar:focus {
+  border-color: darkmagenta;
+  box-shadow: 0 0 0 3px rgba(221, 160, 221, 0.3);
+}
+
+.trialSearchBar::placeholder {
+  color: #999;
+}
+
+.searchButton {
+  background-color: darkmagenta;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.searchPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 3px solid darkmagenta;
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  z-index: 3000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: popupFadeIn 0.3s ease-in;
+}
+
+.searchPopup p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: darkmagenta;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }

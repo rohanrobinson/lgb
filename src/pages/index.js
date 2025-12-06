@@ -11,36 +11,47 @@ export default function Home() {
 
   const topicList = ["Genetics", "Fertility", "Cancer", "Aging", "Artificial Intelligence", "Diagnostics", "Medical Devices", "Bioinformatics", "Immunology"];
 
-   
-  // const handleTopicClick = (topicName) => {
-  //   setSelectedTopic(topicName);
+
+  const handleTopicClick = (topicName) => {
+    setSelectedTopic(topicName);
+  };
+
+  const closeModal = () => {
+    setSelectedTopic(null);
+  };
+
+  // const goToTrialForge = () => {
+  //   router.push({
+  //     pathname: '/TrialForge',
+  //   });
   // };
-
-  // const closeModal = () => {
-  //   setSelectedTopic(null);
-  // };
-
-
 
   return (
-      <div>
-        <Navbar />
-        <h1>Select a topic you're interested in learning about!</h1>
-        <div className="topicsGrid">
-          {topicList.map(topic => (
-            <Topic key={topic} topicName={topic} 
+    <div>
+      <Navbar />
+      <h1>Select a topic you're interested in learning about!</h1>
+      <div className="topicsGrid">
+        {topicList.map(topic => (
+          <Topic key={topic} topicName={topic}
 
-                onClick={() => {
-                  router.push({
-                    pathname: '/Learn',
-                    query: { topic: topic }, // Pass the selected topic as a query parameter
-                  });
-                }} 
-            // onClick= {() => handleTopicClick(topic)} 
-            />
-          ))}
-        </div>
-        {/* {selectedTopic && (
+            onClick={() => {
+              router.push({
+                pathname: '/Learn',
+                query: { topic: topic }, // Pass the selected topic as a query parameter
+              });
+            }}
+          // onClick= {() => handleTopicClick(topic)} 
+          />
+        ))}
+
+        <br />
+        <br />
+
+        <button className="topicTile" onClick={() => {
+          window.open('https://trialhero.vercel.app', '_blank');
+        }}><b>🧪 Curious about Interesting Clinical Trials?</b></button>
+      </div>
+      {/* {selectedTopic && (
           <div className="modalOverlay" onClick={closeModal}>
             <div className="modalContent" onClick={e => e.stopPropagation()}>
               <h2>{selectedTopic}</h2>
