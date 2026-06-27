@@ -5,7 +5,6 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <ul>
-                
                 <li>
                     <Link href="/">Let's Go Biotech</Link>
                 </li>
@@ -18,7 +17,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
