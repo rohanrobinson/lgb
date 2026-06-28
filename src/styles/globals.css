@@ -44,9 +44,10 @@ body {
     border: 1.5px solid darkmagenta;
     display: flex;
     flex-direction: column;
-    align-items: center;      /* horizontal centering */
-    justify-content: center;  /* vertical centering */
-    height: 100px;            /* or whatever height you want */
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 12px;
   }
 
   .modalOverlay {
